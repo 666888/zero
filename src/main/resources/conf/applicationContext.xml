@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:aop="http://www.springframework.org/schema/aop"
+     xmlns:tx="http://www.springframework.org/schema/tx"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xsi:schemaLocation="
+	     http://www.springframework.org/schema/beans
+	     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	     http://www.springframework.org/schema/tx
+	     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	     http://www.springframework.org/schema/aop
+	     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	     http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+         
+         
+        
+         <!-- 注解支持 -->
+    	<context:annotation-config/>
+    	
+    	<!-- 启动组件扫描，排除@Controller组件，该组件由SpringMVC配置文件扫描 -->
+    	<context:component-scan base-package="deep.sys">
+    		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    	</context:component-scan>
+
+    	<!-- Localization -->
+    	                                
+    	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    		<!-- <property name="basename" value="classpath:org/springframework/security/message_zh_CN"/> -->
+    		<!-- 在localization目录下有site.properties site_zh_CN.properties以及site_en_US.properties，这些属性文件
+    		是为站点服务的，在此目录下还有fund.properties fund_zh_CN.properties以及fund_en_US.properties,这些属性文件是为
+    		名称为fund的应用服务的 ,防止中文乱码的方法是用PropertiesEditor编辑属性文件，并将属性文件设置为ISO-8859-1编码，以便确保有效的
+    		将中文转为Unicode编码。-->
+    		
+    		<property name="basenames">
+    			<list>
+    				<value>classpath:localization/site</value>
+    				<value>classpath:localization/fund</value>
+    			</list>
+    		</property>
+    		<property name="cacheSeconds" value="-1"/>
+    	</bean>
+    	
+    	
+    	
+</beans>
