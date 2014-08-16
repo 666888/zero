@@ -81,18 +81,5 @@
 		<property name="prefix" value="/WEB-INF/v/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
-	 <bean id="freemarker" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-	 	<property name="order" value="1"></property>
-	 	<property name="suffix" value=".flt"/>
-	 	<property name="contentType" value="text/html;charset=UTF-8"></property>
-	 	<!-- This variable's value is  pageContext.request , you can use rc.contextPath to handle in page. -->
-	 	<property name="requestContextAttribute" value="rc"></property>
-	 </bean>
-	 
-	<bean id="ResourceBundleViewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
-		<property name="order" value="2"/>
-		<property name="basename" value="views"/> 
-	</bean>
 
 </beans> 
