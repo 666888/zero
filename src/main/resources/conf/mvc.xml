@@ -54,11 +54,6 @@
 	-->
 	<mvc:default-servlet-handler/> 	
 	
-						
-	<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-		<property name="templateLoaderPath" value="WEB-INF/ftl/" />
-		<property name="defaultEncoding" value="UTF-8" />
-	</bean>
 
 	<!-- 
 	Here we configure two view resolvers:
