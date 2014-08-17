@@ -14,8 +14,7 @@ public class LoginServiceImpl implements LoginService{
 	
 	public boolean validate(User user){
 		try{	
-			return true;
-			//return us.isExistUser(user.getCode(),user.getPassword());
+			return us.isExistUser(user.getCode(),user.getPassword());
 		}catch(Exception e){
 			System.out.println("validate exception:"+e.getStackTrace());
 			return false;

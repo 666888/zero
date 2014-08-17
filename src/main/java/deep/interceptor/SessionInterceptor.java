@@ -5,16 +5,25 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import deep.sys.bean.User;
+import deep.sys.svc.UserSvc;
 
 public class SessionInterceptor implements HandlerInterceptor,InitializingBean{
 
 	// Called by container on app start.
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("======== Init SessionIntercdptor ========");
+		// Here we create the app database with init message.
+		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
+		UserSvc us = (UserSvc)wac.getBean("userSvc");
+		deep.tool.TemplateDB.init(us);
 	}
 
 	/**
