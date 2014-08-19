@@ -18,20 +18,19 @@ import org.springframework.web.servlet.view.RedirectView;
 import deep.zero.bean.Player;
 import deep.zero.svc.LoginSvc;
 @Controller
-@RequestMapping(value="/player")
 public class CLoginController {
 	
 	private Player player;
 	@Autowired
 	private LoginSvc loginSvc;
 	
-	@RequestMapping(value="/login",method=RequestMethod.GET)
+	@RequestMapping(value="/plogin",method=RequestMethod.GET)
 	public String Login(Model model){		
 		player = new Player();
 		model.addAttribute("player", player);
 		return "player/login";
 	}
-	@RequestMapping(value="/login",method=RequestMethod.POST)
+	@RequestMapping(value="/plogin",method=RequestMethod.POST)
 	public String Login(@ModelAttribute("player") Player player,Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){
 		try{
 			System.out.println("++++++++++++++后台验证+++++++++++++++");
@@ -46,7 +45,7 @@ public class CLoginController {
 				}
 			else{
 				if (loginSvc.validate(player)) {
-					req.getSession().setAttribute("p_name", player.getCode());
+					req.getSession().setAttribute("p_name", player.getNickname());
 					// Create a redirection view to success page. This will
 					// redirect to UserController.
 					System.out.println("用户已写入到session中...");
@@ -66,13 +65,13 @@ public class CLoginController {
 			return "player/login";
 		}		
 	}
-	@RequestMapping("/entry")
+	@RequestMapping("/player/entry")
 	public String entry(HttpServletRequest req,Model model){
 		player = (Player)req.getSession().getAttribute("ray_usr");
 		model.addAttribute("player", player);
 		return "success";		
 	}
-	@RequestMapping("/logout")
+	@RequestMapping("/player/logout")
 	public String logout(Model model,HttpServletRequest req){
 		req.getSession().setAttribute("ray_usr", null);
 		model.addAttribute("player", null);

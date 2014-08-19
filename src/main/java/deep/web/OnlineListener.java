@@ -38,26 +38,23 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 		return mapx;
 	}
 
-	@Override
 	public void attributeAdded(HttpSessionBindingEvent evt) {
 		// TODO Auto-generated method stub
 		HttpSession session = evt.getSession();
-		user_name = (String) session.getAttribute("u_name");
+		user_name = (String) session.getAttribute("p_name");
 		map.put(session, user_name);
 
 	}
 
-	@Override
 	public void attributeRemoved(HttpSessionBindingEvent arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void attributeReplaced(HttpSessionBindingEvent evt) {
 		// TODO Auto-generated method stub
 		HttpSession session = evt.getSession();
-		user_name = (String) session.getAttribute("u_name");
+		user_name = (String) session.getAttribute("p_name");
 		if (user_name.trim().equals(",")) {
 			map.remove(session);
 		} else
@@ -65,13 +62,11 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 
 	}
 
-	@Override
 	public void sessionCreated(HttpSessionEvent arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void sessionDestroyed(HttpSessionEvent arg0) {
 		// TODO Auto-generated method stub
 

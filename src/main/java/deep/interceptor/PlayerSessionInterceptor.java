@@ -14,16 +14,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import deep.sys.bean.User;
 import deep.sys.svc.UserSvc;
+import deep.zero.svc.PlayerSvc;
 
-public class SessionInterceptor implements HandlerInterceptor,InitializingBean{
+public class PlayerSessionInterceptor implements HandlerInterceptor,InitializingBean{
 
 	// Called by container on app start.
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("======== Init SessionIntercdptor ========");
-		// Here we create the app database with init message.
-		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
-		UserSvc us = (UserSvc)wac.getBean("userSvc");
-		deep.tool.TemplateDB.init(us);
+		//Here we create the app database with init message.
+		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();		
+		PlayerSvc ps = (PlayerSvc)wac.getBean("playerSvc");
+		deep.tool.TemplateDB.init(ps);		
 	}
 
 	/**
@@ -39,13 +40,13 @@ public class SessionInterceptor implements HandlerInterceptor,InitializingBean{
 	 */
 	public boolean preHandle(HttpServletRequest req,
 			HttpServletResponse res, Object handler) throws Exception {
-		String user = (String)req.getSession().getAttribute("u_name");
-		if(user == null){
-			System.out.println("Interceptor got a null value of the u_name");
-			res.sendRedirect("/");
+		String name = (String)req.getSession().getAttribute("p_name");
+		if(name == null){
+			System.out.println("Interceptor got a null value of the p_name");
+			res.sendRedirect("login");
 			return false;
 		}		
-		System.out.println("Interceptor got user "+user);
+		System.out.println("Interceptor got user "+name);
 		return true;
 	}
 

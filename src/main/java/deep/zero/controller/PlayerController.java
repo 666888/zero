@@ -25,7 +25,6 @@ import deep.zero.svc.PlayerSvc;
  *
  */
 @Controller
-@RequestMapping("/player")
 public class PlayerController {
 	@Autowired
 	private PlayerSvc playerSvc;
@@ -45,24 +44,24 @@ public class PlayerController {
 		return "player/login";
 	}
 	
-	@RequestMapping(value="/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/player/{id}",method=RequestMethod.GET)
 	public String show(@PathVariable Long id,Model model){
 		model.addAttribute(playerSvc.get(id));
 		return "player/update";
 	}
-	@RequestMapping(value="/{id}/delete",method=RequestMethod.GET)
+	@RequestMapping(value="/player/{id}/delete",method=RequestMethod.GET)
 	public String del(@PathVariable Long id){
 			playerSvc.delPlayer(id);
 			return "redirect:/player/list";
 	}	
 	
-	@RequestMapping(value="/{id}/update",method=RequestMethod.GET)
+	@RequestMapping(value="/player/{id}/update",method=RequestMethod.GET)
 	public String update(@PathVariable Long id,Model model){
 		model.addAttribute(playerSvc.get(id));
 		return "player/update";
 	}
 	
-	@RequestMapping(value="/{id}/update",method=RequestMethod.POST)
+	@RequestMapping(value="/player/{id}/update",method=RequestMethod.POST)
 	public String update(@PathVariable Long id,@Validated Player player,BindingResult br){
 		if(br.hasErrors())
 			return "player/update";
@@ -70,12 +69,12 @@ public class PlayerController {
 		return "redirect:/player/list";
 	}
 	
-	@RequestMapping(value="/modiPswd",method=RequestMethod.GET)
+	@RequestMapping(value="/player/modiPswd",method=RequestMethod.GET)
 	public String password(){		
 		return "player/pswd";
 	}
 
-	@RequestMapping(value="/modiPswd",method=RequestMethod.POST)
+	@RequestMapping(value="/player/modiPswd",method=RequestMethod.POST)
 	public @ResponseBody String password(HttpServletRequest req,String oldPassword,String newPassword){
 		Player player = (Player)req.getSession().getAttribute("ray_user");
 		if(player.getPassword().equals(oldPassword)){
