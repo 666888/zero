@@ -27,14 +27,12 @@ import deep.zero.svc.PlayerSvc;
 @Controller
 @RequestMapping("/player")
 public class PlayerController {
-	
-	private Player player;
 	@Autowired
 	private PlayerSvc playerSvc;
 	
 	@RequestMapping(value="/regist",method=RequestMethod.GET)
 	public String regist(Model model){
-		player = new Player();
+		Player player = new Player();
 		model.addAttribute("player", player);
 		return "player/register";
 	}
