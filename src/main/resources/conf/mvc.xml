@@ -15,7 +15,6 @@
     <mvc:interceptors >    
         <mvc:interceptor>    
             <mvc:mapping path="/admin/*" />
-            <mvc:mapping path="/fund/*"/>    
             <mvc:mapping path="/entry"/>
             <bean class="deep.interceptor.SessionInterceptor"></bean>    
         </mvc:interceptor>    
@@ -35,7 +34,7 @@
 		@Resource			用于注入，(J2EE 提供的)默认按明称装配，
 		
 	-->  
-	<context:component-scan base-package="deep.rpt,deep.sys.controller,deep.fund.controller,deep.cmn.controller,deep.zero.controller">
+	<context:component-scan base-package="deep.sys.controller,deep.zero.controller">
 	<!--
 	<context:include-filter type="regex" expression="tk\.deep\..*\.web\.action\..*Action"/>
 	<context:include-filter type="regex" expression="tk\.deep\..*\.service\..*ServiceImpl"/>

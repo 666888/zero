@@ -15,6 +15,9 @@
 		<param-value>/WEB-INF/configure/jdbc.xml</param-value> <param-value>classpath:/config/jdbc.xml</param-value> 
 		</context-param> -->
 
+	<listener>
+		<listener-class>deep.web.OnlineListener</listener-class>
+	</listener>
 	<!-- 防止发生java.beans.Introspector内存泄漏，应将它配置在ContextLoaderListener的前面 -->
 	<listener>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>

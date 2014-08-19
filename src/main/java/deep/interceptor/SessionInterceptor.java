@@ -39,13 +39,13 @@ public class SessionInterceptor implements HandlerInterceptor,InitializingBean{
 	 */
 	public boolean preHandle(HttpServletRequest req,
 			HttpServletResponse res, Object handler) throws Exception {
-		User user = (User)req.getSession().getAttribute("ray_usr");
+		String user = (String)req.getSession().getAttribute("u_name");
 		if(user == null){
 			System.out.println("Interceptor got a null value of the ray_user");
 			res.sendRedirect("/");
 			return false;
 		}		
-		System.out.println("Interceptor got user "+user.getUserName());
+		System.out.println("Interceptor got user "+user);
 		return true;
 	}
 

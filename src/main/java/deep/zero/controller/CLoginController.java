@@ -46,7 +46,7 @@ public class CLoginController {
 				}
 			else{
 				if (loginSvc.validate(player)) {
-					req.getSession().setAttribute("ray_usr", player);
+					req.getSession().setAttribute("p_name", player.getCode());
 					// Create a redirection view to success page. This will
 					// redirect to UserController.
 					System.out.println("用户已写入到session中...");

@@ -72,7 +72,7 @@ public class LoginController {
 				// success page.
 				// else returning the error message on login page.
 				if (loginService.validate(user)) {
-					req.getSession().setAttribute("ray_usr", user);
+					req.getSession().setAttribute("u_name", user.getCode());
 					// Create a redirection view to success page. This will
 					// redirect to UserController.
 					System.out.println("用户已写入到session中...");
