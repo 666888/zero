@@ -12,12 +12,12 @@
   <center>
     <span >登录</span>
   </center>
-  	<sf:form method="post" action="login" modelAttribute="player">
+  	<sf:form method="post" action="plogin" modelAttribute="player">
   	
     <table align="center">
     	<tr>
     		<td height="23"><span >用户名：</span></td>
-   		  <td height="23"><sf:input path="nickname" /><sf:errors path="nickname" /></td>
+   		    <td height="23"><sf:input path="nickname" /><sf:errors path="nickname" /></td>
     	</tr>
     	<tr>
     		<td height="23"><span >密码：</span></td>

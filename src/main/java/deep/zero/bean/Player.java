@@ -1,7 +1,11 @@
 package deep.zero.bean;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -12,7 +16,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Entity
 @Table(name="z_player")
-public class Player extends deep.sys.bean.User {
+public class Player extends deep.sys.bean.User{
 
 	private String nickname;
 	private Boolean	sex;
@@ -32,5 +36,6 @@ public class Player extends deep.sys.bean.User {
 	public void setSex(Boolean sex) {
 		this.sex = sex;
 	}
+
 	
 }
