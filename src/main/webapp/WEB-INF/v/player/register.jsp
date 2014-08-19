@@ -12,20 +12,16 @@
   <center>
     <span >注册</span>
   </center>
-  	<sf:form method="post" action="regist" modelAttribute="user">
+  	<sf:form method="post" action="regist" modelAttribute="player">
   	
     <table align="center">
     	<tr>
     		<td height="23"><span >用户名：</span></td>
-   		  <td height="23"><sf:input path="userName" /><sf:errors path="password" /></td>
+   		  <td height="23"><sf:input path="nickname" /><sf:errors path="nickname" /></td>
     	</tr>
     	<tr>
     		<td height="23"><span >密码：</span></td>
-   		  <td height="23"><sf:input path="userPwd" /><sf:errors path="password" /></td>
-    	</tr>
-		<tr>
-    		<td height="23"><span >确认密码：</span></td>
-   		  <td height="23"><sf:input path="userPwd" /><sf:errors path="password" /></td>
+   		  <td height="23"><sf:input path="password" /><sf:errors path="password" /></td>
     	</tr>
     	<tr>
     		<td height="23" colspan="2" align="center">

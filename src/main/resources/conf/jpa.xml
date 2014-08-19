@@ -10,7 +10,7 @@
                            http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
                            http://www.springframework.org/schema/data/jpa
                            http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
-    <jpa:repositories base-package="deep.sys.svc" />    
+    <jpa:repositories base-package="deep.sys.svc,deep.zero.svc" />    
     
     <bean id="pum" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
     	<property name="persistenceXmlLocations">

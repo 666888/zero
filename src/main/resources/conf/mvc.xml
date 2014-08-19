@@ -35,7 +35,7 @@
 		@Resource			用于注入，(J2EE 提供的)默认按明称装配，
 		
 	-->  
-	<context:component-scan base-package="deep.rpt,deep.sys.controller,deep.fund.controller,deep.cmn.controller">
+	<context:component-scan base-package="deep.rpt,deep.sys.controller,deep.fund.controller,deep.cmn.controller,deep.zero.controller">
 	<!--
 	<context:include-filter type="regex" expression="tk\.deep\..*\.web\.action\..*Action"/>
 	<context:include-filter type="regex" expression="tk\.deep\..*\.service\..*ServiceImpl"/>

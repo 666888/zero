@@ -14,7 +14,7 @@ public class LoginSvcImpl implements LoginSvc{
 	
 	public boolean validate(Player player){
 		try{	
-			return svc.isExistUser(player.getNickname(),player.getPassword());
+			return svc.isExistPlayer(player.getNickname(),player.getPassword());
 		}catch(Exception e){
 			System.out.println("validate exception:"+e.getStackTrace());
 			return false;

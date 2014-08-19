@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import deep.sys.bean.User;
 import deep.zero.bean.Player;
 
 @Service
@@ -17,31 +16,31 @@ public class PlayerSvc implements IPlayerSvc {
 	private PlayerRepo pr;
 		
 	@Transactional
-	public User addUser(Player p){
+	public Player addPlayer(Player p){
 		return pr.saveAndFlush(p);
 	}
 
 	@Transactional
-	public void delUser(Long id){
+	public void delPlayer(Long id){
 		pr.delete(id);
 	}
 
 	@Transactional
-	public  User modiUser(Player p){
+	public  Player modiPlayer(Player p){
 		return pr.save(p);
 	}
 
-	public User get(Long id){
+	public Player get(Long id){
 		return pr.findOne(id);
 	}
 	public List<Player> getAll(){
 		return pr.findAll();
 	}
-	public Player getByAccount(String username) {
-		return pr.getByAccount(username);
+	public Player getByAccount(String nickname) {
+		return pr.getByAccount(nickname);
 	}
-	public boolean isExistUser(String nickname,String password){
-		return pr.isExistUser(nickname, password);
+	public boolean isExistPlayer(String nickname,String password){
+		return pr.isExistPlayer(nickname, password);
 	}
 	
 }

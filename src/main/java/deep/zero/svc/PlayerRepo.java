@@ -8,9 +8,9 @@ import deep.zero.bean.Player;
 
 @Repository
 public interface PlayerRepo extends JpaRepository<Player,Long> {
-	@Query(value="select o from Player o where o.nickname =?1 ")
-	public Player getByAccount(String username);
+	@Query(value="select p from Player p where p.nickname =?1 ")
+	public Player getByAccount(String nickname);
 	
-	@Query(value="select case when count(o)>0 then true else false end  from Player o where o.nickname=?1 and o.password=?2")
-	public boolean isExistUser(String nickname,String password);
+	@Query(value="select case when count(p)>0 then true else false end  from Player p where p.nickname=?1 and p.password=?2")
+	public boolean isExistPlayer(String nickname,String password);
 }
