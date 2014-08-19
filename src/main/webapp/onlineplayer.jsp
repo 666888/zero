@@ -15,7 +15,7 @@ Map map=new HashMap();
 map=OnlineListener.getOnlinePlayer(); 
 
 out.println(""+ 
-"目前论坛总共有 "+(OnlineListener.getOnlineGuest()+map.size())+" 人在线,其中注册用户 "+map.size()+" 人,游客 "+ 
+"目前系统总共有 "+(OnlineListener.getOnlineGuest()+map.size())+" 人在线,其中注册用户 "+map.size()+" 人,游客 "+ 
 OnlineListener.getOnlineGuest()+" 人"); 
 
 out.println(""); 
