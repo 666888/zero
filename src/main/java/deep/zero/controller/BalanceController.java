@@ -20,7 +20,7 @@ import deep.zero.svc.BalanceSvcImpl;
 import deep.zero.svc.PlayerSvc;
 
 @Controller
-@RequestMapping("/balance")
+@RequestMapping("/player")
 public class BalanceController {
 	@Autowired
 	BalanceSvcImpl balanceSvcImpl;
