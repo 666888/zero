@@ -65,11 +65,12 @@ public class BalanceController {
 			balanceNew.setIo(balance.getIo());
 			balanceSvcImpl.addBalance(balanceNew);
 		}
-//		Balance balanceTmp=new Balance();
-//		balanceNew=balanceSvcImpl.findLastBalance(player.getId());
-//		balanceTmp.setBalance(balanceNew.getBalance());
+		Balance balanceTmp=new Balance();
+		balanceNew=balanceSvcImpl.findLastBalance(player.getId());
+		balanceTmp.setBalance(balanceNew.getBalance());
 		List<Balance> balances=balanceSvcImpl.getAll();
 		model.addAttribute("balances", balances);
+		model.addAttribute("balance", balanceTmp);
 		return "player/addBalance";
 	}
 }
