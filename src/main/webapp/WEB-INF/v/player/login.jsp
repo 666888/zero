@@ -16,6 +16,7 @@
   	
     <table align="center">
     	<tr>
+  
     		<td height="23"><span >用户名：</span></td>
    		    <td height="23"><sf:input path="nickname" /><sf:errors path="nickname" /></td>
     	</tr>
