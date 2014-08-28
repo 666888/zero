@@ -15,7 +15,7 @@
     <mvc:interceptors >    
         <mvc:interceptor>    
             <mvc:mapping path="/admin/*" />
-            <mvc:mapping path="/entry"/>
+            <mvc:mapping path="/user/*"/>
             <bean class="deep.interceptor.SessionInterceptor"></bean>    
         </mvc:interceptor>   
         

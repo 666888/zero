@@ -3,19 +3,25 @@ package deep.sys.bean;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+@Cache(usage= CacheConcurrencyStrategy.READ_WRITE) 
 @Entity
 public class Permission implements Serializable{
 	@Id
 	@GeneratedValue
 	private Long id;
 	private String realm;
-	@ManyToMany(mappedBy = "permissions",fetch=FetchType.EAGER)
+	@ManyToMany(mappedBy = "permissions",cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
+	@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 	private Set<Role> roles;
 	
 	public Permission(){
