@@ -95,7 +95,7 @@ public class TemplateDB {
 		player.setCode("123456");
 		player.setPassword("555555");
 		player.setNickname("player");
-		player.setUserName("player");
+		player.setUsername("player");
 		ps.addPlayer(player);
 		
 	}
