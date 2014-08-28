@@ -38,7 +38,7 @@ public class PlayerController {
 	@RequestMapping(value="/regist",method=RequestMethod.POST)
 	public String regist(@ModelAttribute Player player,Model model,BindingResult br){
 		player.setCode("55");
-		player.setUserName("xiaoming");
+		player.setUsername("xiaoming");
 		playerSvc.addPlayer(player);
 		model.addAttribute("player", new Player());
 		return "player/login";
