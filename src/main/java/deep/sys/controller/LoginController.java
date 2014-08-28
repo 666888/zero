@@ -4,15 +4,15 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.ValidationUtils;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -75,7 +75,12 @@ public class LoginController {
 					req.getSession().setAttribute("u_name", user.getCode());
 					// Create a redirection view to success page. This will
 					// redirect to UserController.
-					System.out.println("用户已写入到session中...");
+					
+					UsernamePasswordToken token = new UsernamePasswordToken(user.getCode(),user.getPassword());
+					token.setRememberMe(true);
+					Subject currentUser = SecurityUtils.getSubject();
+					currentUser.login(token);
+					System.out.println(token.getPrincipal());
 					RedirectView redirectView = new RedirectView("/entry", true);
 					return new ModelAndView(redirectView);
 				} else {

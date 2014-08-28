@@ -5,6 +5,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,8 +38,10 @@ public class UserController {
 		model.addAttribute(new User());
 		return "user/add";
 	}*/
-	//开启modelDriven 2	
+	//开启modelDriven 2
+	
 	@RequestMapping(value="/add",method=RequestMethod.GET)
+	@RequiresPermissions("user:find")
 	public String add(@ModelAttribute("user") User user){
 		return "user/add";
 	}

@@ -1,18 +1,20 @@
 package deep.sys.bean;
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Size;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="sys_users")
 public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -22,23 +24,26 @@ public class User implements Serializable{
 	private String password;
 	private String phone;
 	private String remark;
+	@ManyToMany(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
+    @JoinTable(name = "role_user")
+	private Set<Role> roles;
+	
 	
 	/** getXXX方法上的注解是spring MVC的验证注解，在action中调用 **/
-	public User(){}
-	public User(String username, String password){
+	public User(){
+		
+	}
+	public User(String username,String code,String password){
 		this.username =username;
 		this.password = password;
+		this.code = code;
 	}
 	
-	public User(Long id, String code, String userName, String password,
-			String phone, String remark) {
-		super();
-		this.id = id;
+	public User(String code, String userName, String password,Set<Role> roles) {
 		this.code = code;
 		this.username = userName;
 		this.password = password;
-		this.phone = phone;
-		this.remark = remark;
+		this.roles = roles;
 	}
 	public Long getId() {
 		return id;
@@ -78,6 +83,13 @@ public class User implements Serializable{
 	}
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 	@Override
 	public String toString(){

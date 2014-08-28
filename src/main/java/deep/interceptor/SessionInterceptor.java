@@ -13,6 +13,8 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import deep.sys.bean.User;
+import deep.sys.svc.PermissionSvc;
+import deep.sys.svc.RoleSvc;
 import deep.sys.svc.UserSvc;
 
 public class SessionInterceptor implements HandlerInterceptor,InitializingBean{
@@ -23,7 +25,9 @@ public class SessionInterceptor implements HandlerInterceptor,InitializingBean{
 		// Here we create the app database with init message.
 		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
 		UserSvc us = (UserSvc)wac.getBean("userSvc");
-		deep.tool.TemplateDB.init(us);
+		RoleSvc rs = (RoleSvc)wac.getBean("roleSvc");
+		PermissionSvc ps = (PermissionSvc)wac.getBean("permissionSvc");
+		deep.tool.TemplateDB.init(us,rs,ps);
 	}
 
 	/**

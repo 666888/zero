@@ -39,6 +39,9 @@
 		@Resource			用于注入，(J2EE 提供的)默认按明称装配，
 		
 	-->  
+	 <!--配置以下两个bean即可实现此功能 --> 
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor"/>
 	<context:component-scan base-package="deep.sys.controller,deep.zero.controller">
 	<!--
 	<context:include-filter type="regex" expression="tk\.deep\..*\.web\.action\..*Action"/>

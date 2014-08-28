@@ -55,6 +55,7 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 		// TODO Auto-generated method stub
 		HttpSession session = evt.getSession();
 		user_name = (String) session.getAttribute("p_name");
+		System.out.println("+++++++++"+user_name+"++++++++");
 		if (user_name.trim().equals(",")) {
 			map.remove(session);
 		} else

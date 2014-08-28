@@ -19,7 +19,12 @@ public class UserSvc implements IUserSvc {
 	public User addUser(User u){
 		return ur.saveAndFlush(u);
 	}
-
+	
+	@Transactional
+	public void add(List<User> u){
+		ur.save(u);
+	}
+	
 	@Transactional
 	public void delUser(Long id){
 		ur.delete(id);
