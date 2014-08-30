@@ -19,22 +19,30 @@ import deep.zero.bean.Player;
 import deep.zero.svc.LoginSvc;
 import deep.zero.svc.PlayerSvc;
 @Controller
-public class CLoginController {
+public class SignController {
 	
-	private Player player;
 	@Autowired
 	private LoginSvc loginSvc;
 	@Autowired
 	private PlayerSvc playerSvc;
 	
+	//登录的GET
 	@RequestMapping(value="/signin",method=RequestMethod.GET)
 	public String Login(Model model){		
-		player = new Player();
+		Player player = new Player();
 		model.addAttribute("player", player);
 		return "player/login";
 	}
+	/**
+	 * 登录的post方法
+	 * @param player
+	 * @param model
+	 * @param br
+	 * @param req
+	 * @return
+	 */
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
-	public String Login(@ModelAttribute("player") Player player,Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){
+	public String Login(@ModelAttribute("player") Player player,Model model,BindingResult br,HttpServletRequest req){
 		try{
 			System.out.println("++++++++++++++后台验证+++++++++++++++");
 			ValidationUtils.rejectIfEmptyOrWhitespace(br, "nickname",
@@ -48,6 +56,7 @@ public class CLoginController {
 				}
 			else{
 				if (loginSvc.validate(player)) {
+					req.getSession().setAttribute("p_id", player.getId());
 					req.getSession().setAttribute("p_name", player.getNickname());
 					// Create a redirection view to success page. This will
 					// redirect to UserController.
@@ -70,8 +79,8 @@ public class CLoginController {
 	}
 	@RequestMapping("/entry")
 	public String entry(HttpServletRequest req,Model model){
-		player = (Player)req.getSession().getAttribute("ray_usr");
-		model.addAttribute("player", player);
+		String p_name = (String)req.getSession().getAttribute("p_name");
+		model.addAttribute("pName", p_name);
 		return "success";		
 	}
 	@RequestMapping("/logout")

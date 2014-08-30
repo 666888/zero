@@ -20,7 +20,7 @@ import deep.zero.bean.Player;
 import deep.zero.svc.PlayerSvc;
 
 /**
- * 此类用以完成玩家的注册、登录、登出、冻结、等功能 
+ * 此类用以完成玩家的注册、冻结、等功能 
  * @author Administrator
  *
  */
