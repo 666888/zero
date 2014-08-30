@@ -19,12 +19,12 @@ import deep.sys.bean.User;
 @Entity
 @Table(name="p_balance")
 public class Balance {
-	private Long userId;
-	public Long getUserId() {
-		return userId;
+	private Long playerId;
+	public Long getPlayerId() {
+		return playerId;
 	}
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setPlayerId(Long playerId) {
+		this.playerId = playerId;
 	}
 	public Long getId() {
 		return id;

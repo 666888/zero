@@ -1,7 +1,11 @@
 package deep.zero.bean;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /*
@@ -13,15 +17,67 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name="p_playerLevel")
+@Table(name = "p_playerLevel")
 public class PlayerLevel {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	//玩家
-	private Player plr;
-	//游戏
-	private Game	game;
-	//级别
+	// //玩家
+	// @JoinColumn(name = "id", referencedColumnName = "id")
+	// @OneToOne
+	// private Player plr;
+	private Long playerId;
+	// 游戏
+	private Long gameId;
+
+	public Long getGameId() {
+		return gameId;
+	}
+
+	public void setGameId(Long gameId) {
+		this.gameId = gameId;
+	}
+
+	// private Game game;
+	public Long getPlayerId() {
+		return playerId;
+	}
+
+	public void setPlayerId(Long playerId) {
+		this.playerId = playerId;
+	}
+
+	// 级别
 	private int level;
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	// public Player getPlr() {
+	// return plr;
+	// }
+	// public void setPlr(Player plr) {
+	// this.plr = plr;
+	// }
+//	public Game getGame() {
+//		return game;
+//	}
+//
+//	public void setGame(Game game) {
+//		this.game = game;
+//	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
 }

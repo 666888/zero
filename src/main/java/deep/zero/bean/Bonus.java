@@ -32,6 +32,15 @@ public class Bonus {
 	private BigDecimal amount;
 	//奖金的状态：Waiting  Accepted Decilined
 	private String status;
+	//玩家
+	private Long playerId;
+	
+	public Long getPlayerId() {
+		return playerId;
+	}
+	public void setPlayerId(Long playerId) {
+		this.playerId = playerId;
+	}
 	public Long getId() {
 		return id;
 	}

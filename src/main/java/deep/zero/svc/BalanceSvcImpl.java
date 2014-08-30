@@ -32,31 +32,28 @@ public class BalanceSvcImpl implements BalanceSvc{
 		return br.findAll();
 	}
 	
-	public Balance findLastBalance(Long userId){
-		List<Balance> balanceList=br.findLastBalance(userId, new PageRequest(0,1));
+	public Balance findLastBalance(Long playerId){
+		List<Balance> balanceList=br.findLastBalance(playerId, new PageRequest(0,1));
 		if (0==balanceList.size()) {
 			return null;
 		}
 		return balanceList.get(0);
 	}
 	
-	public List<Balance> findBalanceByUserId(Long userId){
-		return br.findBalanceByUserId(userId);
+	public List<Balance> findBalanceByPlayerId(Long playerId){
+		return br.findBalanceByPlayerId(playerId);
 	}
 
-	@Override
 	public List<Balance> getDisposted() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public List<Balance> getCleanPlayer() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public List<Balance> getWithdrewed() {
 		// TODO Auto-generated method stub
 		return null;

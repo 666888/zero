@@ -1,15 +1,16 @@
 package deep.zero.bean;
 
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -44,7 +45,34 @@ public class Player{
 	private Boolean freezen;
 	//注册时间
 	private Date regTime;
+//	积分
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "player")//主Pojo这方的设置比较简单，只要设置好级联和映射到从Pojo的外键就可以了。    
+	private Point point;
 	
+////	玩家级别
+//	@OneToOne(cascade = CascadeType.ALL, mappedBy = "plr")
+//	private PlayerLevel plevel;
+//	
+//	public PlayerLevel getPlevel() {
+//		return plevel;
+//	}
+//	public void setPlevel(PlayerLevel plevel) {
+//		this.plevel = plevel;
+//	}
+	private Long agentid;
+	
+	public Long getAgentid() {
+		return agentid;
+	}
+	public void setAgentid(Long agentid) {
+		this.agentid = agentid;
+	}
+	public Point getPoint() {
+		return point;
+	}
+	public void setPoint(Point point) {
+		this.point = point;
+	}
 	public Boolean getFreezen() {
 		return freezen;
 	}

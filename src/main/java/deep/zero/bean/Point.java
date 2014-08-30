@@ -6,12 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  * 积分类，用以记录玩家在我们系统中的消费积分功能
  * 积分会受用户级别的影响，不同的游戏不同的级别，其
- * 积分规则不同，所有此对象需要有Game对象及PlayerLevel对象。
+ * 积分规则不同，所有此对象需要有PlayerLevel对象。
  * @author mac
  *
  */
@@ -24,9 +26,41 @@ public class Point {
 	private Date evtTime;
 	//有关此积分的说明
 	private String descrip;
-	
-	//
-	private Game game;
-	private PlayerLevel pl;
+	//积分分值	
+	private long score;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Date getEvtTime() {
+		return evtTime;
+	}
+	public void setEvtTime(Date evtTime) {
+		this.evtTime = evtTime;
+	}
+	public String getDescrip() {
+		return descrip;
+	}
+	public void setDescrip(String descrip) {
+		this.descrip = descrip;
+	}
+	public long getScore() {
+		return score;
+	}
+	public void setScore(long score) {
+		this.score = score;
+	}
+	public Player getPlayer() {
+		return player;
+	}
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+	//玩家
+	@JoinColumn(name = "id",  referencedColumnName = "id")//设置从方指向主方的关联外键，这个id其实是表Player的主键    
+	@OneToOne
+	private Player player;
 
 }

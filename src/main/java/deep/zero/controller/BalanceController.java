@@ -46,14 +46,14 @@ public class BalanceController {
 		Player player=playerSvc.getByAccount(nickname);
 		Balance balanceOld=balanceSvcImpl.findLastBalance(player.getId());
 		if (null==balanceOld) {
-			balance.setUserId(player.getId());
+			balance.setPlayerId(player.getId());
 			balance.setBalance(balance.getAmount());
 			balanceSvcImpl.addBalance(balance);
 		}else{
 			 balanceNew=new Balance();
 //			Balance balanceT=balanceSvcImpl.get(balance.getId());
 			balanceNew.setAmount(balance.getAmount());
-			balanceNew.setUserId(player.getId());
+			balanceNew.setPlayerId(player.getId());
 			balanceNew.setOpp(balance.getOpp());
 			balanceNew.setRemark(balance.getRemark());
 			balanceNew.setTransferTime(new Date());
