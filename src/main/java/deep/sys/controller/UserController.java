@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,6 +57,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
+	@RequiresRoles("admin")
 	public String show(@PathVariable Long id,Model model){
 		model.addAttribute(us.get(id));
 		return "user/update";

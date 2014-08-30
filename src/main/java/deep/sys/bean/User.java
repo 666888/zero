@@ -12,8 +12,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.NotEmpty;
-
+@Cache(usage= CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 public class User implements Serializable{
 	@Id
@@ -26,6 +28,7 @@ public class User implements Serializable{
 	private String remark;
 	@ManyToMany(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
     @JoinTable(name = "role_user")
+	@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 	private Set<Role> roles;
 	
 	

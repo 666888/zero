@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+@Cache(usage= CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 public class Role implements Serializable{
 	@Id
@@ -18,9 +21,11 @@ public class Role implements Serializable{
 	private Long id;
 	private String name;
 	@ManyToMany(mappedBy = "roles",cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
+	@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 	private Set<User> users;
 	@ManyToMany(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
     @JoinTable(name = "permission_role")
+	@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 	private Set<Permission> permissions;
 	
 	public Role(){		
