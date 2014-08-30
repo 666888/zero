@@ -32,5 +32,41 @@ public class Bonus {
 	private BigDecimal amount;
 	//奖金的状态：Waiting  Accepted Decilined
 	private String status;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public String getSrc() {
+		return src;
+	}
+	public void setSrc(String src) {
+		this.src = src;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public BigDecimal getAmount() {
+		return amount;
+	}
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	
 }
