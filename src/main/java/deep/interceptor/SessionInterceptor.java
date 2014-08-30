@@ -22,6 +22,7 @@ public class SessionInterceptor implements HandlerInterceptor,InitializingBean{
 	// Called by container on app start.
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("======== Init SessionIntercdptor ========");
+		
 		// Here we create the app database with init message.
 		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
 		UserSvc us = (UserSvc)wac.getBean("userSvc");

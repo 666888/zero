@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -44,6 +47,8 @@ public class Player{
 	//是否冻结
 	private Boolean freezen;
 	//注册时间
+	
+	
 	private Date regTime;
 //	积分
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "player")//主Pojo这方的设置比较简单，只要设置好级联和映射到从Pojo的外键就可以了。    
@@ -82,6 +87,8 @@ public class Player{
 	public Player(){
 		
 	}
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -144,6 +151,6 @@ public class Player{
 	public void setRegTime(Date regTime) {
 		this.regTime = regTime;
 	}
-	
+
 	
 }

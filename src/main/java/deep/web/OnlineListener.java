@@ -60,7 +60,7 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 		HttpSession session = evt.getSession();
 		user_name = (String) session.getAttribute("p_name");
 		System.out.println("+++++++++"+user_name+"++++++++");
-		if (user_name.trim().equals(",")) {
+		if (user_name == null) {
 			map.remove(session);
 		} else
 			map.put(session, user_name);

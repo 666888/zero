@@ -58,7 +58,7 @@
 			
 		</div>
 		<div class="form-bg">
-			<sf:form id="login" action="/login" method="post"
+			<sf:form id="login" action="/gm/signin" method="post"
 				commandName="loginDetails">
 				<h2>Login</h2>
 				<p><sf:input type="text" path="code" placeholder="登录号" /></p>

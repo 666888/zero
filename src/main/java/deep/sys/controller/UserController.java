@@ -22,7 +22,7 @@ import deep.sys.bean.User;
 import deep.sys.svc.UserSvc;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/gm")
 public class UserController {
 	
 	@Autowired

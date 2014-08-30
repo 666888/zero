@@ -43,7 +43,7 @@ public class PlayerSessionInterceptor implements HandlerInterceptor,Initializing
 		String name = (String)req.getSession().getAttribute("p_name");
 		if(name == null){
 			System.out.println("Interceptor got a null value of the p_name");
-			res.sendRedirect("/plogin");
+			res.sendRedirect("/signin");
 			return false;
 		}		
 		System.out.println("Interceptor got user "+name);
