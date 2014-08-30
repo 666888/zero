@@ -43,5 +43,23 @@ public class BalanceSvcImpl implements BalanceSvc{
 	public List<Balance> findBalanceByUserId(Long userId){
 		return br.findBalanceByUserId(userId);
 	}
+
+	@Override
+	public List<Balance> getDisposted() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Balance> getCleanPlayer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Balance> getWithdrewed() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
