@@ -25,43 +25,30 @@ import deep.zero.svc.PlayerSvc;
  *
  */
 @Controller
+@RequestMapping(value="/p")
 public class PlayerController {
 	@Autowired
 	private PlayerSvc playerSvc;
 	
-	@RequestMapping(value="/regist",method=RequestMethod.GET)
-	public String regist(Model model){
-		Player player = new Player();
-		model.addAttribute("player", player);
-		return "player/register";
-	}
-	@RequestMapping(value="/regist",method=RequestMethod.POST)
-	public String regist(@ModelAttribute Player player,Model model,BindingResult br){
-		player.setCode("55");
-		player.setUsername("xiaoming");
-		playerSvc.addPlayer(player);
-		model.addAttribute("player", new Player());
-		return "player/login";
-	}
 	
-	@RequestMapping(value="/player/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public String show(@PathVariable Long id,Model model){
 		model.addAttribute(playerSvc.get(id));
 		return "player/update";
 	}
-	@RequestMapping(value="/player/{id}/delete",method=RequestMethod.GET)
+	@RequestMapping(value="/{id}/delete",method=RequestMethod.GET)
 	public String del(@PathVariable Long id){
 			playerSvc.delPlayer(id);
 			return "redirect:/player/list";
 	}	
 	
-	@RequestMapping(value="/player/{id}/update",method=RequestMethod.GET)
+	@RequestMapping(value="/{id}/update",method=RequestMethod.GET)
 	public String update(@PathVariable Long id,Model model){
 		model.addAttribute(playerSvc.get(id));
 		return "player/update";
 	}
 	
-	@RequestMapping(value="/player/{id}/update",method=RequestMethod.POST)
+	@RequestMapping(value="/{id}/update",method=RequestMethod.POST)
 	public String update(@PathVariable Long id,@Validated Player player,BindingResult br){
 		if(br.hasErrors())
 			return "player/update";
@@ -69,12 +56,12 @@ public class PlayerController {
 		return "redirect:/player/list";
 	}
 	
-	@RequestMapping(value="/player/modiPswd",method=RequestMethod.GET)
+	@RequestMapping(value="/modiPswd",method=RequestMethod.GET)
 	public String password(){		
-		return "player/pswd";
+		return "player/addBalance";
 	}
 
-	@RequestMapping(value="/player/modiPswd",method=RequestMethod.POST)
+	@RequestMapping(value="/modiPswd",method=RequestMethod.POST)
 	public @ResponseBody String password(HttpServletRequest req,String oldPassword,String newPassword){
 		Player player = (Player)req.getSession().getAttribute("ray_user");
 		if(player.getPassword().equals(oldPassword)){

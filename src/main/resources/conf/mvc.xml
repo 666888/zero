@@ -15,12 +15,11 @@
     <mvc:interceptors >    
         <mvc:interceptor>    
             <mvc:mapping path="/admin/*" />
-            <mvc:mapping path="/user/*"/>
             <bean class="deep.interceptor.SessionInterceptor"></bean>    
-        </mvc:interceptor>   
+        </mvc:interceptor>
         
-            <mvc:interceptor>               
-            <mvc:mapping path="/player/*"/>
+        <mvc:interceptor>               
+            <mvc:mapping path="/p/*"/>
             <bean class="deep.interceptor.PlayerSessionInterceptor"></bean>    
         </mvc:interceptor> 
     </mvc:interceptors>

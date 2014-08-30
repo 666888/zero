@@ -12,7 +12,7 @@
   <center>
     <span >登录</span>
   </center>
-  	<sf:form method="post" action="plogin" modelAttribute="player">
+  	<sf:form method="post" action = "/signin" modelAttribute="player">
   	
     <table align="center">
     	<tr>

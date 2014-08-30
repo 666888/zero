@@ -12,12 +12,12 @@
 		<property name="securityManager" ref="securityManager" />
 		<!--要求登录时的链接,非必须的属性,默认会自动寻找Web工程根目录下的"/login.jsp"页面 --> 
 		
-		<property name="loginUrl" value="/_index.html" />
+		<property name="loginUrl" value="/gm/signin" />
 		<!--登录成功后要跳转的连接(本例中此属性用不到,因为登录成功后的处理逻辑在LoginController里硬编码为main.jsp了) --> 
 		
 		<property name="successUrl" value="/index.html" />
 		<!-- 用户访问未对其授权的资源时,所显示的连接 -->
-		<property name="unauthorizedUrl" value="/_index.html" />
+		<property name="unauthorizedUrl" value="/index.html" />
 		<!-- Shiro过滤链的定义 --> 
         <!--此处可配合这篇文章来理解各个过滤连的作用http://blog.csdn.net/jadyer/article/details/12172839 --> 
         <!--下面value值的第一个'/'代表的路径是相对于HttpServletRequest.getContextPath()的值来的 --> 
@@ -26,8 +26,9 @@
 		
 		<property name="filterChainDefinitions">
 			<value>
-				/v/player/* = authc
-				/v/user/* = anon
+			    /gm/signin = anon
+			    /gm/signup = anon					
+				/gm/* = authc
 			</value>
 		</property>
 	</bean>
@@ -41,15 +42,18 @@
     <!--即<property name="sessionMode"value="native"/>,详细说明见官方文档 --> 
     <!--这里主要是设置自定义的单Realm应用,若有多个Realm,可使用'realms'属性代替 -->
 	<!-- Shiro's main business-tier object for web-enabled applications -->
-	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-		<property name="realm" ref="myRealm" />
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager"> 	
+		<property name="realms">
+		    <list>  
+                <ref bean="myRealm" />  
+            </list>
+        </property>
 		<!--<property name="cacheManager" ref="shiroEhcacheManager" />
          <property name="sessionMode" value="native"/>-->
 		
 	</bean>
 	<!-- 項目自定义的Realm -->
-	<bean id="myRealm" class="deep.tool.MyRealm">
-	</bean>
+	<bean id="myRealm" class="deep.tool.MyRealm"/>
 
 	<!-- 保证实现了Shiro内部lifecycle函数的bean执行
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" /> -->

@@ -1,16 +1,21 @@
 package deep.zero.bean;
 
 import java.util.Date;
-import java.util.List;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -32,12 +37,16 @@ public class Player{
 	private Boolean	sex;
 	private String remark;
 	
+	
+	
 	private Date regTime;
 	private Date lastLogin;
 	
 	public Player(){
 		
 	}
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -100,5 +109,5 @@ public class Player{
 	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
 	}
-	
+
 }

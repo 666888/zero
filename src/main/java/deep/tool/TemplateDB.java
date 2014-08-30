@@ -44,7 +44,7 @@ public class TemplateDB {
 		Permission permission3 = new Permission("user:delete");
 		Role role1 = new Role("admin");
 		Role role2 = new Role("user");
-		Role role3 = new Role("player");
+		Role role3 = new Role("u");
 		User user1 = new User("root","root","666666");
 		User user2 = new User("admin","admin","777777");
 		User user3 = new User("a","a","888888");

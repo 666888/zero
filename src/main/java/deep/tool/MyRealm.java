@@ -35,7 +35,7 @@ public class MyRealm extends AuthorizingRealm {
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		// TODO Auto-generated method stub
-		System.out.println("++++++++++++++++++获取授权信息开始++++++++++++++");
+		System.out.println("++++++++++++++++++获取授权信息开始(user)++++++++++++++");
 		String code = (String)principals.fromRealm(this.getName()).iterator().next();
 		//Long id = (Long)principals.fromRealm(this.getName()).iterator().next();
 		List<String> roles = new ArrayList<String>();
@@ -87,8 +87,10 @@ public class MyRealm extends AuthorizingRealm {
 		List<User> user = userRepo.getByCode(toke.getUsername());
 		System.out.println(user.size());
 		if (user != null) {
+			System.out.println("++++++++++++++++登录验证结束++++++++++++++");
 			return new SimpleAuthenticationInfo(user.get(0).getCode(), user
 					.get(0).getPassword(), getName());
+			
 		} 
 		else{
 			return null;

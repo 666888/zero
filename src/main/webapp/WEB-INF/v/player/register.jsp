@@ -12,7 +12,7 @@
   <center>
     <span >注册</span>
   </center>
-  	<sf:form method="post" action="regist" modelAttribute="player">
+  	<sf:form method="post" action = "/signup" modelAttribute="player">
   	
     <table align="center">
     	<tr>

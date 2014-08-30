@@ -24,6 +24,7 @@ import deep.sys.bean.User;
 import deep.sys.svc.LoginService;
 
 @Controller
+@RequestMapping("/gm")
 public class LoginController {
 
 	// Create the User object user
@@ -36,7 +37,7 @@ public class LoginController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/signin", method = RequestMethod.GET)
 	public ModelAndView init() {
 		user = new User();
 		return new ModelAndView("login", "loginDetails", user);
@@ -53,7 +54,7 @@ public class LoginController {
 	 * @param res
 	 * @return
 	 */
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("loginDetails") User user,
 			BindingResult br, HttpServletRequest req, HttpServletResponse res) {
 		try {
@@ -81,7 +82,7 @@ public class LoginController {
 					Subject currentUser = SecurityUtils.getSubject();
 					currentUser.login(token);
 					System.out.println(token.getPrincipal());
-					RedirectView redirectView = new RedirectView("/entry", true);
+					RedirectView redirectView = new RedirectView("uentry", true);
 					return new ModelAndView(redirectView);
 				} else {
 					br.addError(new ObjectError("Invalid", "登录被拒绝  : 用户名或密码错误"));
@@ -95,7 +96,7 @@ public class LoginController {
 		}
 	}
 
-	@RequestMapping(value = "/entry", method = RequestMethod.GET)
+	@RequestMapping(value = "/uentry", method = RequestMethod.GET)
 	public ModelAndView entry(HttpServletRequest req, HttpServletResponse res) {
 		ApplicationModel applicationModel = new ApplicationModel();
 		user = (User) req.getSession().getAttribute("ray_usr");
