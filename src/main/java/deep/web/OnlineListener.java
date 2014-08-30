@@ -13,12 +13,16 @@ import javax.servlet.http.HttpSessionListener;
 
 public class OnlineListener extends HttpServlet implements HttpSessionListener,
 		HttpSessionAttributeListener {
-	private static Map map = new HashMap();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -724585474693809304L;
+	private static Map<HttpSession, String> map = new HashMap<HttpSession, String>();
 	private String user_name;
 
 	public static int getOnlineGuest() {
 		int OnlineGuest = 0;
-		for (Iterator it = map.keySet().iterator(); it.hasNext();) {// entrySet()
+		for (Iterator<HttpSession> it = map.keySet().iterator(); it.hasNext();) {// entrySet()
 			Object key = it.next();
 			if (map.get(key).equals("")) {
 				OnlineGuest++;
@@ -27,9 +31,9 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 		return OnlineGuest;
 	}
 
-	public static Map getOnlinePlayer() {
-		Map mapx = new HashMap();
-		for (Iterator it = map.keySet().iterator(); it.hasNext();) {// entrySet()
+	public static Map<String, String> getOnlinePlayer() {
+		Map<String, String> mapx = new HashMap<String, String>();
+		for (Iterator<HttpSession> it = map.keySet().iterator(); it.hasNext();) {// entrySet()
 			Object key = it.next();
 			if (!map.get(key).equals("") && !map.get(key).equals(",")) {
 				mapx.put(map.get(key), map.get(key));

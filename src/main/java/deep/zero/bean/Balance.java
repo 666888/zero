@@ -13,11 +13,11 @@ import deep.sys.bean.User;
 
 /**
  * 账户余额类用以记录每个账户的余额 
- * @author Administrator
+ * @author kevin
  *
  */
 @Entity
-@Table(name="z_balance")
+@Table(name="p_balance")
 public class Balance {
 	private Long userId;
 	public Long getUserId() {
@@ -76,7 +76,7 @@ public class Balance {
 	private	Date transferTime;
 	//转款金额
 	private BigDecimal	amount;
-//	备注
+	//备注
 	private String	remark;
 	//出入标志
 	private Boolean	io;

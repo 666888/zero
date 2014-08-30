@@ -14,8 +14,8 @@ import javax.servlet.http.HttpSessionBindingListener;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * 玩家类，用以记录玩家信息
- * @author Administrator
+ * 玩家类，用以记录玩家信息，
+ * @author kevin
  *
  */
 @Entity
@@ -25,16 +25,32 @@ public class Player{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String code;
+	//昵称
 	private String nickname;
+	//用户的真实姓名
 	private String username;
+	//密码
 	private String password;
+	//银行账号
+	private String account;
+	
+	//电话
 	private String phone;
+	//性别
 	private Boolean	sex;
+	//备注
 	private String remark;
-	
+	//是否冻结
+	private Boolean freezen;
+	//注册时间
 	private Date regTime;
-	private Date lastLogin;
 	
+	public Boolean getFreezen() {
+		return freezen;
+	}
+	public void setFreezen(Boolean freezen) {
+		this.freezen = freezen;
+	}
 	public Player(){
 		
 	}
@@ -70,6 +86,12 @@ public class Player{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
+	}
 	public String getPhone() {
 		return phone;
 	}
@@ -94,11 +116,6 @@ public class Player{
 	public void setRegTime(Date regTime) {
 		this.regTime = regTime;
 	}
-	public Date getLastLogin() {
-		return lastLogin;
-	}
-	public void setLastLogin(Date lastLogin) {
-		this.lastLogin = lastLogin;
-	}
+	
 	
 }
