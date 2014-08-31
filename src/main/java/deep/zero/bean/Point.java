@@ -28,6 +28,11 @@ public class Point {
 	private String descrip;
 	//积分分值	
 	private long score;
+	//玩家
+	@JoinColumn(name = "id",  referencedColumnName = "id")//设置从方指向主方的关联外键，这个id其实是表Player的主键    
+	@OneToOne
+	private Player player;
+	
 	public Long getId() {
 		return id;
 	}
@@ -58,9 +63,6 @@ public class Point {
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
-	//玩家
-	@JoinColumn(name = "id",  referencedColumnName = "id")//设置从方指向主方的关联外键，这个id其实是表Player的主键    
-	@OneToOne
-	private Player player;
+
 
 }
