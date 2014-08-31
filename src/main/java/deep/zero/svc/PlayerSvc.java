@@ -21,7 +21,7 @@ import deep.zero.bean.Player;
  *  1）存过款的玩家(has desposited)
  *  2）未存过款的玩家
  *  
- * @author mac
+ * @author kevin
  *
  */
 public interface PlayerSvc{
@@ -35,4 +35,8 @@ public interface PlayerSvc{
 	List<Player> getPlayerByRegQuarter();
 	//依照一定的时间段查询
 	List<Player> getPlayerByDt(Date dStart,Date dEnd);
+	//查询冻结玩家
+	List<Player> getFreezenPlayer();
+	//查询没有存过款的玩家
+	List<Player> getNoDepositedPlayer();
 }

@@ -70,5 +70,17 @@ public class PlayerSvcImpl implements PlayerSvc {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List<Player> getFreezenPlayer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Player> getNoDepositedPlayer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
