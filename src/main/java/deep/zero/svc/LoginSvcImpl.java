@@ -20,26 +20,4 @@ public class LoginSvcImpl implements LoginSvc{
 			return false;
 		}
 	}
-
-	/**
-	public boolean validate(User user) {
-		String SQL ="SELECT * FROM sys_users WHERE userName = '"+user.getUserName()+"' and password = '"+user.getPassword()+"';";
-		System.out.println("SQL : "+SQL);
-		Statement stmt = null;
-		try{
-			stmt = ConnectionDAO.getStatement();
-			ResultSet rs = stmt.executeQuery(SQL);
-			if(null != rs && rs.next()){
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}catch(SQLException e){
-			System.out.println("SQL Exception : "+e.getMessage());
-			return false;
-		}
-	}
-	**/
 }
