@@ -18,7 +18,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * 玩家类，用以记录玩家信息，
+ * 玩家类，用以记录玩家信息，当前为了实现方便将玩家类和玩家的账号类写在一起
+ * 在稳定版本中可能要将两个类分开
  * @author kevin
  *
  */
@@ -47,10 +48,8 @@ public class Player{
 	//是否冻结
 	private Boolean freezen;
 	//注册时间
-	
-	
 	private Date regTime;
-//	积分
+	//	积分
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "player")//主Pojo这方的设置比较简单，只要设置好级联和映射到从Pojo的外键就可以了。    
 	private Point point;
 	
@@ -145,6 +144,7 @@ public class Player{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+	@NotEmpty(message="注册时间不能为空")
 	public Date getRegTime() {
 		return regTime;
 	}

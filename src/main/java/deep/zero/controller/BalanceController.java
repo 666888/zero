@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import deep.zero.bean.Balance;
 import deep.zero.bean.Player;
 import deep.zero.svc.BalanceSvcImpl;
-import deep.zero.svc.PlayerSvc;
+import deep.zero.svc.PlayerSvcImpl;
 
 @Controller
 @RequestMapping("/player")
@@ -25,7 +25,7 @@ public class BalanceController {
 	@Autowired
 	BalanceSvcImpl balanceSvcImpl;
 	@Autowired
-	private PlayerSvc playerSvc;
+	private PlayerSvcImpl playerSvc;
 	
 	/**
 	 * URL to addBalance.jsp

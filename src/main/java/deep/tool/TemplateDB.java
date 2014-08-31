@@ -17,7 +17,7 @@ import deep.sys.svc.PermissionSvc;
 import deep.sys.svc.RoleSvc;
 import deep.sys.svc.UserSvc;
 import deep.zero.bean.Player;
-import deep.zero.svc.PlayerSvc;
+import deep.zero.svc.PlayerSvcImpl;
 
 /**
  * 此类用以初始化数据库
@@ -90,7 +90,7 @@ public class TemplateDB {
 		svc.add(u);
 	}
 	
-	public static void init(PlayerSvc ps){		
+	public static void init(PlayerSvcImpl ps){		
 		Player player = new Player();
 		player.setCode("123456");
 		player.setPassword("555555");

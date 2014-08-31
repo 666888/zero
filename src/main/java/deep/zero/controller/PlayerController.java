@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import deep.sys.bean.User;
 import deep.zero.bean.Player;
-import deep.zero.svc.PlayerSvc;
+import deep.zero.svc.PlayerSvcImpl;
 
 /**
  * 此类用以完成玩家的注册、冻结、等功能 
@@ -28,7 +28,7 @@ import deep.zero.svc.PlayerSvc;
 @RequestMapping(value="/p")
 public class PlayerController {
 	@Autowired
-	private PlayerSvc playerSvc;
+	private PlayerSvcImpl playerSvc;
 	
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)

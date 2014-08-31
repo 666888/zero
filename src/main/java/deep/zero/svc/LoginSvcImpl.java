@@ -10,7 +10,7 @@ import deep.zero.bean.Player;
 public class LoginSvcImpl implements LoginSvc{
 	
 	@Autowired
-	private PlayerSvc svc;
+	private PlayerSvcImpl svc;
 	
 	public boolean validate(Player player){
 		try{	

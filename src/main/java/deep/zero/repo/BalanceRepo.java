@@ -1,4 +1,4 @@
-package deep.zero.svc;
+package deep.zero.repo;
 
 import java.util.List;
 

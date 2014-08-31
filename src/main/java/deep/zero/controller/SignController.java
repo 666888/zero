@@ -17,14 +17,14 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import deep.zero.bean.Player;
 import deep.zero.svc.LoginSvc;
-import deep.zero.svc.PlayerSvc;
+import deep.zero.svc.PlayerSvcImpl;
 @Controller
 public class SignController {
 	
 	@Autowired
 	private LoginSvc loginSvc;
 	@Autowired
-	private PlayerSvc playerSvc;
+	private PlayerSvcImpl playerSvc;
 	
 	//登录的GET
 	@RequestMapping(value="/signin",method=RequestMethod.GET)
