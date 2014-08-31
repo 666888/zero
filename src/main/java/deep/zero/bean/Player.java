@@ -68,7 +68,7 @@ public class Player{
 	private Boolean freezen;
 	
 	//注册时间
-	@Temporal(TemporalType.TIMESTAMP) @Column(nullable=false)
+	//@Temporal(TemporalType.TIMESTAMP) @Column(nullable=false)
 	private Date regTime;
 	
 	//	积分
@@ -76,6 +76,10 @@ public class Player{
 	private Point point;
 	
 	private Long agentid;
+	
+	public Player(){	
+	}
+	
 	
 	public Long getAgentid() {
 		return agentid;
@@ -95,10 +99,7 @@ public class Player{
 	public void setFreezen(Boolean freezen) {
 		this.freezen = freezen;
 	}
-	public Player(){
-		
-	}
-	
+
 	
 	public Long getId() {
 		return id;
@@ -157,7 +158,7 @@ public class Player{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	@NotEmpty(message="注册时间不能为空")
+	//@NotEmpty(message="注册时间不能为空")
 	public Date getRegTime() {
 		return regTime;
 	}

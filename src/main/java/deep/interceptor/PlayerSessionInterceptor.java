@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import deep.sys.bean.User;
 import deep.sys.svc.UserSvc;
 import deep.zero.svc.PlayerSvc;
+import deep.zero.svc.PlayerSvcImpl;
 
 public class PlayerSessionInterceptor implements HandlerInterceptor,InitializingBean{
 
@@ -23,7 +24,7 @@ public class PlayerSessionInterceptor implements HandlerInterceptor,Initializing
 		System.out.println("======== Init SessionIntercdptor ========");
 		//Here we create the app database with init message.
 		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();		
-		PlayerSvc ps = (PlayerSvc)wac.getBean("playerSvc");
+		PlayerSvcImpl ps = (PlayerSvcImpl)wac.getBean("playerSvcImpl");
 		deep.tool.TemplateDB.init(ps);		
 	}
 

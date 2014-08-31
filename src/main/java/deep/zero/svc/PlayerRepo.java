@@ -1,4 +1,4 @@
-package deep.zero.repo;
+package deep.zero.svc;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

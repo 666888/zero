@@ -8,13 +8,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import deep.zero.bean.Player;
-import deep.zero.repo.PlayerRepo;
 
 
 
 @Service
 @Transactional(readOnly=true)
-public class PlayerSvcImpl implements PlayerSvc {
+public class PlayerSvcImpl /*implements PlayerSvc*/ {
 
 	@Autowired
 	private PlayerRepo pr;
@@ -47,40 +46,7 @@ public class PlayerSvcImpl implements PlayerSvc {
 		return pr.isExistPlayer(nickname, password);
 	}
 
-	@Override
-	public List<Player> getPlayerByRegWeek() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public List<Player> getPlayerByRegMonth() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public List<Player> getPlayerByRegQuarter() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Player> getPlayerByDt(Date dStart, Date dEnd) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Player> getFreezenPlayer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Player> getNoDepositedPlayer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }
