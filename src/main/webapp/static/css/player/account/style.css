@@ -1,0 +1,276 @@
+@charset "utf-8";
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,dl, dt, dd, ul, ol, li,pre,form, fieldset, legend, button, input, textarea,th,td {margin: 0;padding: 0;}
+body,button, input, select, textarea{font: 12px/1.5 tahoma, arial,"Microsoft YaHei","微软雅黑", \5b8b\4f53, sans-serif;}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+address, cite, dfn, em, var,i { font-style: normal; }
+code, kbd, pre, samp { font-family: courier new, courier, monospace; }
+small { font-size: 12px; }
+ul, ol,li { list-style: none; }
+a { text-decoration: none; color:#677b96 }
+a:hover { text-decoration: underline; color:#3DB2FF;}
+sup { vertical-align: text-top; }
+sub { vertical-align: text-bottom; }
+fieldset, img { border: none; }
+button, input, select, textarea { font-size: 100%; }
+table { border-collapse: collapse; border-spacing: 0; }
+.clearfix:after{ display:block; content:""; visibility:hidden; height:0; clear:both}
+.clearfix{_zoom:1}
+.f-left{ float:left}
+.f-right{ float:right}
+.manage-h2 i,.btn-jian,.btn-jian-on,.weibo li i,.manage div,.num i,.breadcrumb i,.over-list i{ background:url(http://p1.yx-s.com/icon.png) no-repeat;}
+.txt-fen{ color:#e54e53}
+.txt-orange{ color:#fd7255}
+.txt-green{ color:#13a252}
+.txt-hui{ color:#909090}
+.txt-zong{ color:#ae723e}
+.txt-blue{ color:#40bff5}
+.txt-red{ color:#f00}
+.m-r-10{ margin-right:10px}
+.m-r-30{ margin-right:30px}
+.m-r-28{ margin-right:28px}
+.m-l-80{ margin-left:80px}
+.m-t-20{ margin-top:20px}
+.m-l-71{ margin-left:71px}
+.m-l-10{ margin-left:10px}
+.txt-center{ text-align:center}
+.dis{display:inline-block; *display:inline; zoom:1}
+.w-244{ width:244px}
+.w-122{ width:122px}
+.w-100{ width:100px}
+.w-160{ width:160px}
+.w-140{ width:150px}
+.w-210{ width:210px}
+.w-270{ width:270px}
+.w-268{ width:268px}
+a.a-fen,a.a-fen:hover{ color:#e54e53}
+.v-m{ vertical-align:middle}
+.v-t{ vertical-align:text-top}
+body{ background:#eeeff1}
+h1{ display:none;}
+.wraper{ width:1000px; margin:0 auto;}
+.header-box{ background:#fafafc; height:142px; width:932px; margin:54px auto 11px; padding:20px 34px;}
+.head{ width:144px; height:144px; position:relative; z-index:1; margin-right:20px}
+.h-l-t,.h-r-t,.h-l-b,.h-r-b{ background:url(http://p1.yx-s.com/head.png) no-repeat; position:absolute; z-index:2; width:72px; height:72px; text-indent:-999999px}
+.h-l-t{ background-position:0 0; left:0; top:0}
+.h-r-t{ background-position:-72px 0; right:0; top:0}
+.h-l-b{ background-position:0 -72px; left:0; bottom:0}
+.h-r-b{ background-position:-72px -72px; right:0; bottom:0}
+.xg-box{ width:110px; height:27px; text-align:center; background:url(http://p1.yx-s.com/yuan.png) no-repeat; position:absolute; z-index:3; left:17px; bottom:4px; text-indent:-999999px; filter:alpha(opacity=80); -moz-opacity:0.8; -khtml-opacity: 0.8; opacity: 0.8;}
+.tm-a{ width:110px; height:27px; line-height:24px; position:absolute; bottom:4px; left:17px; z-index:4; text-align:center; color:#a5a5a5}
+.tm-a:hover{ color:#a5a5a5}
+.manage{ width:132px; height:34px; padding-top:10px}
+.manage .ma{ width:34px; height:34px; position:relative; float:left; margin:0 5px; display:inline}/* gai */
+.manage .ma-1{ background-position:-40px -53px; cursor:pointer}/* gai */
+.manage .ma-2{ background-position:-83px -53px;cursor:pointer}
+.manage .ma-3{ background-position:-124px -53px;cursor:pointer}
+.manage i{ display:block; background:url(http://p1.yx-s.com/icon-24.png) no-repeat; position:absolute;}
+.manage i.duihao{ width:14px; height:14px; background-position:0 -428px; right:0; bottom:-5px}
+.manage i.paint{ width:9px; height:9px; overflow:hidden; background-position:-21px -431px; right:3px; bottom:-2px}
+.ren-m{ padding-top:20px}
+.ren-m h4{ font-size:20px; font-weight:500; color:#565a5d; margin-right:15px}
+.num{ height:22px; padding:10px 0 15px; color:#818181}
+.num i{ width:22px; height:22px; background-position:0 -51px; vertical-align: text-bottom; margin-right:5px}
+.num strong{ font-size:16px; font-weight:500}
+.bg-white{ background:#fefefe; padding-bottom:45px}
+.title{ height:24px; line-height:24px; padding:20px 0 20px 34px}
+h2{ font-size:16px; color:#535353; font-weight:500}
+.manage-h2 i{ width:22px; height:24px; background-position:0 0; margin-right:10px; vertical-align:text-top}
+.main{ width:668px; background:url(http://p1.yx-s.com/line-s.png) repeat-y right top;}
+.m-list{ position:relative; z-index:1}
+.m-list .box-title{width:602px; padding:20px 0; margin-left:34px; background:url(http://p1.yx-s.com/line-h.png) repeat-x left bottom;}
+.m-list .last{ background-image:none}
+.m-list .hover{ background:#fbfbfb;border:1px solid #e0e0e0; border-bottom:0 none; width:600px; margin-left:0; padding:20px 32px 20px 34px}
+.m-list .box-con{ background:#fbfbfb; border:1px solid #e0e0e0; border-top:0 none; padding-bottom:20px; min-height:200px; height:auto!important; _height:200px;}
+.shm{ margin-top:27px}
+.sidebar{ width:298px; padding-left:34px;}
+.icon1,.icon2,.icon3,.icon4,.icon5{ background:url(http://p1.yx-s.com/icon-24.png) no-repeat; width:76px; height:76px; vertical-align:middle; margin-right:10px; line-height:400px; overflow:hidden}
+.list-name{ color:#656565; font-size:18px; font-weight:500; width:80px}
+.icon1{ background-position:0 0;}
+.icon2{ background-position:0 -80px;}
+.icon3{ background-position:0 -166px;}
+.icon4{ background-position:0 -250px;}
+.icon5{ background-position:0 -335px;}
+.input{ border:1px solid #d6d6d6; background:#fff; height:38px; line-height:38px; text-indent:4px; vertical-align:middle}
+.input-green{ border:1px solid #50a07b;}
+p.input-green{ border:1px solid #50a07b; border-left:none}
+.input-red{ border:1px solid #f64f2c;}
+p.input-red{ border:1px solid #f64f2c;border-left:none}
+.mail-ul{ margin:0 0 15px 160px; padding:15px 0; float:left; display:inline}
+.mail-ul li{ padding:5px 0}
+.mail-ul li label{ width:90px; text-align:right; font-size:14px; color:#535353; vertical-align:middle}
+.weibo li i{ width:9px; height:9px; background-position:0 -33px; margin-right:10px}
+.yan{ vertical-align:middle; margin:0 10px}
+.btn{-moz-transition: background 0.5s ease-in,color 0.3s ease-out; -webkit-transition: background 0.5s ease-in,color 0.3s ease-out;-o-transition: background 0.5s ease-in,color 0.3s ease-out; transition: background 0.5s ease-in,color 0.3s ease-out;}
+.btn-send{ padding:0 25px; height:43px; background:#e54e53; text-align:center; line-height:43px; font-size:16px; color:#fff}
+.btn-send:hover{ background:#fd8073; color:#fff; text-decoration:none}
+.btn-qx{ padding:0 25px; height:43px; background:#e6e5e5; text-align:center; line-height:43px; font-size:16px; color:#6c6c6c}
+.btn-qx:hover{ background:#b7b6b6; color:#6c6c6c; text-decoration:none}
+/*
+.btn-jian,.btn-jian-on,.c-btn{ width:60px; height:49px; position:absolute; left:300px; bottom:-40px; line-height:500px; overflow:hidden;display:block; z-index:10;outline:none;-moz-outline:none;
+}
+.btn-jian-on{ background-position:-158px 0}
+.btn-jian-on:hover{ background-position:-221px 0}
+.btn-jian{ background-position:-31px 0}
+.btn-jian:hover{ background-position:-95px 0}
+*/
+.btn-jian,.btn-jian-on{ background: url(http://p1.yx-s.com/hh.png) no-repeat}
+.btn-jian,.btn-jian-on,.c-btn{ width:150px; height:50px; position:absolute; left:260px; bottom:-40px; line-height:500px; overflow:hidden;display:block; z-index:10;outline:none;-moz-outline:none;
+}/*gai0308*/
+.btn-jian-on{ background-position:45px -218px}
+.btn-jian-on:hover{ background-position:-227px -218px}
+.btn-jian{ background-position:45px 0}
+.btn-jian:hover{ background-position:-227px 0}
+.i-main{ width:637px; background:#fff; padding:30px; min-height:500px; height:auto!important; _height:500px}
+.i-sidebar{ width:232px; background:#fefefe; padding:20px 30px;min-height:520px; height:auto!important; _height:520px}
+.m-t-54{ margin-top:54px}
+.breadcrumb{ height:23px; font-size:14px}
+.breadcrumb i{ width:25px; height:23px; background-position:-171px -58px; vertical-align:text-bottom; margin-right:10px}
+.breadcrumb em{ margin:0 10px; font-family:"宋体"}
+.tab{ height:44px; padding:20px 0}
+.tab a{ height:44px; line-height:44px; text-align:center; background:#fff; padding:0 20px; margin-right:10px; color:#656565; font-size:14px}
+.tab a:hover,.tab a.on{ background:#373737; color:#fff; text-decoration:none}
+.form-list li{ min-height:40px; height:auto!important; _height:40px; padding:5px 0}
+.form-list .list-title{ font-size:14px; color:#6c6c6c; float:left; line-height:40px; margin-right:15px}
+.sex{ width:80px; float:left; height:24px; padding-top:8px}
+.sex img{ vertical-align: middle}
+.xihao{ padding-top:4px; line-height:30px}
+.xihao label{ margin-right:10px; color:#6c6c6c}
+.xihao label input{ vertical-align:middle; margin-right:5px}
+.over-list li{ height:24px; line-height:24px; color:#878787}
+.over-list i{ width:14px; height:14px; background-position:-232px -64px; vertical-align: text-bottom; margin-right:8px}
+.over-list i.icon-dh{ background-position:-211px -64px}
+.select_box {float: left;font-size: 12px;height: 42px;line-height: 42px; z-index: 1;_overflow:hidden;}
+.select_box .selet_open{float:left;display:inline-block; background:url(http://p1.yx-s.com/icon.png) no-repeat -230px -99px; border:none; width:40px; height:42px;}
+.select_box .select_txt{float:left;display:inline-block;cursor:text;overflow:hidden;background:url(http://p1.yx-s.com/icon.png) no-repeat 0 -99px; text-indent:10px; height:42px; color:#424242; border:none; z-index:1}
+.select_box .option{border:solid 1px #cccccc;height:200px; border-top:0 none; overflow-y:scroll; overflow-x:hidden; position:relative; left:0px; background:#fff; z-index:999;display:none; }
+.select_box .option a{float:left;display:inline-block; height:25px; line-height:25px; width:120px; text-indent:10px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+.select_box .option a:hover{color:#000; }
+.head-tab{ height:38px; background:url(http://p1.yx-s.com/bg-line.png) repeat-x left bottom; padding-left:30px; margin-bottom:20px}
+.head-tab a{ height:36px; line-height:36px; border-bottom:2px solid #e6e6e6; width:74px; text-align:center; color:#848484; float:left; margin-right:10px}
+.head-tab a:hover,.head-tab a.curr{border-bottom:2px solid #f16d4a; text-decoration:none}
+.jindu1,.jindu2{ background:url(http://p1.yx-s.com/tiao-bg.png) no-repeat}
+.jd-img1,.jd-img2,.jd-img3,.jiao1,.jiao2{ background:url(http://p1.yx-s.com/tiao.png) no-repeat}
+.jindu1{ width:331px; height:12px; background-position:0 0; position:relative; z-index:2}
+.jd-1{ width:331px; height:12px; position:absolute; z-index:3; left:0; top:0; overflow:hidden}
+.jd-img1{ width:331px; height:12px; background-position:right 0; position:absolute; z-index:4; top:0}
+.jindu2{ width:239px; height:12px; background-position:0 -15px; position:relative; z-index:2; margin:10px 0}
+.jd-2{ width:239px; height:12px; position:absolute; z-index:3; left:0; top:0; overflow:hidden}
+.jd-img2{ width:239px; height:12px; background-position:0 -16px; position:absolute; z-index:4; top:0}
+.jd-img3{ width:239px; height:12px; background-position:right 0; position:absolute; z-index:4; top:0}
+.jiao1{ width:5px; height:12px; background-position:-247px -16px; overflow:hidden; position:absolute; left:0; top:0; z-index:10}
+.jiao2{ width:3px; height:12px; background-position:-261px -16px; overflow:hidden; position:absolute; left:0; top:0; z-index:10}
+.tips{ width:170px; background:#fff; border:1px solid #ebebeb; position:absolute; left:0; top:20px; z-index:10; padding:15px}
+.sjiao,.manage .sjiao{ height:7px; width:16px; background:url(http://p1.yx-s.com/jiao.png) no-repeat; overflow:hidden; position:absolute; left:20px; top:-7px; z-index:11}
+.tips li{ width:85px; float:left; height:20px; line-height:20px}
+.tips2 li,.tips3 li,.tips4 li,.tips5 li{ width:100%; height:20px; line-height:20px}
+.manage .tips3,.manage .tips4, .manage .tips5{ width:120px; top:40px; padding:5px; left:-10px; background-image:none; height:auto}
+.manage .tips4{ left:-54px}
+.manage .tips5{ left:-98px}
+.manage .tips3 .sjiao{ left:18px}
+.manage .tips4 .sjiao{ left:62px}
+.manage .tips5 .sjiao{ left:106px}
+.pop{ width:520px; border:1px solid #ddd}
+.pop-title{ height:56px; line-height:56px; background:#f5f5f5; border-bottom:1px solid #ddd; padding-left:20px}
+.close-btn{ float:right; width:34px; height:34px; background:url(http://p1.yx-s.com/icon.png) no-repeat 0 -149px; line-height:200px; overflow:hidden}
+.pop-con{ padding:30px 0; background:#fff;}
+.pop-con .form-list{ padding:10px 0 10px 40px}
+.pop-con label{ text-align:right; width:70px}
+.head-main{margin-left:-20px; width:452px; text-align:center}
+.head-list{ border:1px solid #dadada; width:432px; padding:6px 10px; margin-bottom:20px}
+.head-list a{ float:left; height:58px; width:58px; border:1px solid #fff; margin:5px 6px 5px; background:#f0f0f0; display:inline; overflow:hidden}
+.head-list a:hover,.head-list a.curr{ border:1px solid #f16d4a}
+.head-now{ width:152px}
+.head-big{ width:152px; height:152px;margin:15px 0; background:#ebe8e8; line-height:152px; position:relative; z-index:1; overflow:hidden; text-align:center}
+.big-zao{ width:152px; height:152px; background:url(http://p1.yx-s.com/head-152.png) no-repeat; position:absolute; z-index:3; left:0; top:0}
+.head-small{ width:58px; height:58px; background:#ebe8e8; line-height:58px;position:relative; z-index:1; overflow:hidden; text-align:center}
+.small-zao{ width:58px; height:58px; background:url(http://p1.yx-s.com/head-58.png) no-repeat; position:absolute; z-index:3; left:0; top:0}
+.head-big p,.head-small p{position:static; +position:absolute; top:50%; vertical-align:middle}
+.head-big p img,.head-small p img{ position:static; +position:relative; top:-50%;left:-50%;}
+/*pwd*/
+.title-pwd{ height:64px; width:; margin:0 auto; line-height:64px; width:930px; border-bottom:1px solid #dadada}
+.title-pwd i{ width:22px; height:27px; background:url(http://p1.yx-s.com/icon.png) no-repeat -49px -152px; vertical-align:middle; margin-right:10px}
+.title-tishi i{width:28px; height:27px; background:url(http://p1.yx-s.com/icon.png) no-repeat -207px -158px;}
+.bg1{ background:#fafafc; padding-bottom:10px}
+.step-box{ padding:40px 0 40px 120px; height:51px}
+.step-ul li{ float:left; height:51px; line-height:51px; font-size:18px; color:#999; position:relative}
+.step-ul li i{ height:53px; background:url(http://p1.yx-s.com/icon-24.png) no-repeat; vertical-align:middle; padding-left:65px}
+.step-ul li.step1,.step-ul li.step2{ padding-right:90px}
+.step-ul li i.on{ color:#656565}
+.step-ul li.step1 i{ background-position:0 -453px}
+.step-ul li.step1 i.on{ background-position:0 -512px}
+.step-ul li.step2 i{ background-position:0 -572px}
+.step-ul li.step2 i.on{ background-position:0 -631px}
+.step-ul li.step3 i{ background-position:0 -689px}
+.step-ul li.step3 i.on{ background-position:0 -746px}
+.step-ul li strong{ width:53px; height:15px; background:url(http://p1.yx-s.com/icon.png) no-repeat -90px -158px; position:absolute; right:50px; top:-5px; line-height:200px; overflow:hidden}
+.pwd-id{ padding-bottom:60px}
+.pwd-id .box-title{ padding:20px 0 20px 0; margin:0 150px 0 120px; width:688px}
+.pwd-id .hover{ padding:20px 150px 20px 120px; margin:0; width:728px}
+.pwd-id .c-btn{ left:425px}
+.pwd-m-ul li{ text-align:center; padding:5px 0 10px; font-size:16px; width:100%}
+.pwd-m-ul li.wrong{ text-align:left; font-size:12px; padding-left:370px; width:auto}
+.btn-pwd,.btn-g-pwd{ height:43px; text-align:center; line-height:43px; font-size:16px; color:#fff}
+.btn-pwd{ background:#ff6640;}
+.btn-pwd:hover{ background:#ff4840; color:#fff; text-decoration:none}
+.btn-g-pwd{ background:#88c312;}
+.btn-g-pwd:hover{ background:#45c300; color:#fff; text-decoration:none}
+.pwd-shm{ line-height:24px; color:#989797; padding-top:30px; padding-left:260px}
+.pwd-shm em{ height:50px; color:#868686; font-weight:bold}
+a.pwd-red,a.pwd-red:hover{ color:#e54e53;}
+.seconds{ border:1px solid #d6d6d6; border-left:0 none; margin-left:-1px; font-size:12px; width:107px; background:#efefef; height:38px; line-height:38px; text-align:center; color:#919191;vertical-align:middle}
+.ref{ width:40px; height:40px; position:relative; float:left; margin-left:-1px}
+.ref a{ width:40px; height:40px; display:block; background:url(http://p1.yx-s.com/icon.png) no-repeat -156px -151px; line-height:200px; overflow:hidden; text-indent:-9999999px;outline:none;-moz-outline:none;}
+.ref a.green-hover{ background:url(http://p1.yx-s.com/icon.png) no-repeat -0 -225px; }
+.ref a.red-hover{ background:url(http://p1.yx-s.com/icon.png) no-repeat -43px -225px; }
+.ref img{ width:64px; height:37px; position:absolute; top:2px; left:-66px}
+.tishi-box{ padding:30px 0 30px 300px }
+.tishi-box h3{ font-size:14px; color:#6e6e6e; font-weight:bold}
+.tishi-box h3 i{ width:28px; height:27px; background:url(http://p1.yx-s.com/icon.png) no-repeat; vertical-align:middle; margin-right:10px}
+.tishi-box h3 i.cha{ background-position:-238px -158px}
+.tishi-box h3 i.dui{ background-position:-269px -158px}
+.tishi-box p{ line-height:30px; padding-left:40px; color:#989797}
+a.bg-a-green,a.bg-a-green:hover{ background:#63bf8f; padding:2px 5px; color:#fff}
+a.line-a-green,a.line-a-green:hover{ color:#66c292; text-decoration:underline}
+/*top bottom*/
+.top-box{ height:47px; background:#1d1d1d; line-height:47px; min-width:1000px;}
+.reg-box a,.zhu a{ height:47px; color:#fff; font-size:14px; font-weight:bold; padding:0 12px}
+.reg-box a:hover,.zhu a:hover{ background:#f81b1b; color:#fff; text-decoration:none}
+.user-name{ font-size:14px; color:#bababa;}
+.server-box{ width:177px; height:24px; background:url(http://p1.yx-s.com/icon.png) no-repeat 0 -198px; margin:13px 10px 0 15px; position:relative}
+a.s-enter,a.btn-jiao,.server{ position:absolute; display:block; height:24px; line-height:24px}
+a.s-enter{ width:39px; line-height:24px; text-align:center; font-size:14px; color:#fff; top:0; right:0}
+a.s-enter:hover{ color:#bababa; text-decoration:none}
+a.btn-jiao{ width:24px; text-indent:-99999999px;outline:none;-moz-outline:none; background:url(http://p1.yx-s.com/icon.png) no-repeat -190px -200px; top:0; right:39px;-webkit-transition: -webkit-transform 0.4s ease-out;
+-moz-transition: -moz-transform 0.4s ease-out;-o-transition:-o-transform 0.4s ease-out;transition: transform 0.4s ease-out;}
+a.btn-jiao:hover{ background-position:-217px -200px; -webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-o-transform:rotate(180deg);transform:rotate(180deg);}
+.server{ width:112px; top:0; left:1px; color:#e6e6e6; font-size:14px; text-indent:4px}
+.server-list{ background:#474747; width:138px; position:absolute; top:24px; left:0; z-index:100; height:192px; overflow-y:auto}
+.server-list li{ height:22px; line-height:22px; border-bottom:2px solid #4c4c4c; padding-left:5px}
+.server-list li a{ color:#e6e6e6}
+.server-list li a:hover{ color:#fff}
+.footer{ height:158px; background:url(http://p1.yx-s.com/btm-bg.jpg) repeat-x; min-width:1000px; margin-top:60px; line-height:158px; clear:both}
+.footer img{ vertical-align:middle; margin-right:20px}
+.footer p{ color:#bbb}
+/*fang chenmi*/
+.mi-wraper{ background:url(http://p1.yx-s.com/mi-top.jpg) no-repeat center top; min-width:1000px; padding-top:247px;}
+.xieyi-title{ width:453px; height:89px; background:url(http://p1.yx-s.com/mi-xieyi.jpg) no-repeat; position:absolute; left:0; top:-103px}
+.mi-main{ width:800px; margin:0 auto; background:#fff; padding:40px 100px; position:relative;}
+.mi-main h2{ font-size:20px; color:#ef832b; text-align:center; padding:20px 0 30px}
+.mi-main p{ line-height:32px; font-size:14px; color:#656565; padding-bottom:25px}
+.m-list .hover .r-step{display:inline;}
+.m-list .r-step{display:none;}
+.m-list .hover .r-content{display:none;}
+.m-list .r-content{display:inline;}
+.m-list .hover .bangding-status{display:none;}
+.m-list .bangding-status{display:inline;}
+.appeal-w{position:relative;}
+.appeal-n{position:absolute;left:366px;}
+.appeal-n a{color:#989797;}
+.appeal-n a:hover{color: blue;text-decoration:underline;}
+input, textarea { color: #000; }
+.placeholder { color: #aaa; }
+/*index优惠券*/
+.myyhq{height:22px;padding:10px 0 15px;font-size:14px;}
+.myyhq i{width:15px;height:15px;display:inline-block;background:url(../../default/images/u3.png) no-repeat;vertical-align:middle;margin-left:5px;cursor:pointer;}
+.myyhq a{color:#666;}
+.myyhq a:hvoer{text-decoration:none;} 

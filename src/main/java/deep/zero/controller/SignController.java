@@ -52,7 +52,7 @@ public class SignController {
 			if (br.hasErrors()) {
 				// returning the errors on same page if any errors..
 				model.addAttribute("player", player);
-				return "player/login";
+				return "player/signin";
 				}
 			else{
 				if (loginSvc.validate(player)) {
@@ -66,7 +66,7 @@ public class SignController {
 				} else {
 					br.addError(new ObjectError("Invalid", "登录被拒绝  : 用户名或密码错误"));
 					model.addAttribute("player",player);
-					return "player/login";
+					return "player/signin";
 				}
 			}
 		}
@@ -74,19 +74,20 @@ public class SignController {
 			System.out.println("Exception in LoginController " + e.getMessage());
 			e.printStackTrace();
 			model.addAttribute("player", player);
-			return "player/login";
+			return "player/signin";
 		}		
 	}
 	@RequestMapping("/entry")
 	public String entry(HttpServletRequest req,Model model){
 		String p_name = (String)req.getSession().getAttribute("p_name");
 		model.addAttribute("pName", p_name);
-		return "success";		
+		return "player/success";		
 	}
 	@RequestMapping("/logout")
 	public String logout(Model model,HttpServletRequest req){
-		req.getSession().setAttribute("ray_usr", null);
-		model.addAttribute("player", null);
+		Player player = new Player();
+		req.getSession().setAttribute("p_name", null);
+		model.addAttribute("player", player);
 		return "player/login";
 	}
 	@RequestMapping(value="/signup",method=RequestMethod.GET)
@@ -100,7 +101,8 @@ public class SignController {
 		player.setCode("55");
 		player.setUsername("xiaoming");
 		playerSvc.addPlayer(player);
-		model.addAttribute("player", new Player());
-		return "player/login";
+		//model.addAttribute("player", new Player());
+		model.addAttribute("pName",player.getNickname());
+		return "player/account";
 	}
 }

@@ -30,7 +30,7 @@
             <div id='user_reg'>
 				
 				<div id="y-reg" class="yxlogin_conn" style="">
-				<sf:form method="post" action = "/signup" modelAttribute="player">
+				<sf:form method="post" action = "/signin" modelAttribute="player">
 				<ul>
 					<li>
 						<div id="usernametip" class="errtips"></div>
@@ -86,7 +86,7 @@
 						我已阅读并同意 youxi.com
 					<a target="_blank" href="http://u.youxi.com/index/regdoc">《用户协议》</a>
 				</div>
-				<input type="submit" class="yxlogin_btn submit_reg yxreg_btn" value="注册">
+				<input type="submit" class="yxlogin_btn submit_reg yxreg_btn" value="登陆">
 				</sf:form>
 				</div>
 			</div>
