@@ -27,7 +27,7 @@
       <bean id="entityManagerFactory" 
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
           <property name="persistenceUnitManager" ref="pum"/>
-          <property name="persistenceUnitName" value="H2"/>
+          <property name="persistenceUnitName" value="mysql"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
         </property>

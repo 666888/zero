@@ -25,7 +25,7 @@
 		<spring.version>4.0.2.RELEASE</spring.version>
 		<spring-data-jpa.version>1.6.1.RELEASE</spring-data-jpa.version>
 		<hibernate.version>4.2.6.Final</hibernate.version>
-		<mysql.connector.version>5.1.26</mysql.connector.version>
+		<mysql.connector.version>5.1.32</mysql.connector.version>
 		<aspectj.version>1.8.1</aspectj.version>
 		<jackson-json.version>2.3.1</jackson-json.version>
 		<commons-lang3.version>3.1</commons-lang3.version>		
@@ -172,12 +172,13 @@
 			<!--  <scope>provided</scope>-->
 		</dependency>
 		<!-- Mysql Database -->
-		<!-- If you use mysql, uncomment this dependency declaration 
+		<!-- If you use mysql, uncomment this dependency declaration -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.connector.version}</version>
-		</dependency>-->
+		</dependency>
+		
 		<!-- PostgreSQL JDBC4 -->
 		<!-- If you use postgresql, uncomment this dependency declaration -->
 		<!-- <dependency> <groupId>org.postgresql</groupId> <artifactId>postgresql</artifactId> 
@@ -384,7 +385,7 @@
 					</systemProperties>
 					<jettyXml>${project.build.outputDirectory}/conf/jetty.xml,${project.build.outputDirectory}/conf/jetty-http.xml</jettyXml>
 					<!-- <jettyXml>jetty.xml,jetty-http.xml,jetty-ssl.xml,jetty-https.xml</jettyXml> -->		
-					<scanIntervalSeconds>5</scanIntervalSeconds>
+					<scanIntervalSeconds>5</scanIntervalSeconds>				
 					<webApp>
 						<contextPath>/</contextPath>
 						<!-- <contextPath>/${project.artifactId}</contextPath> -->
