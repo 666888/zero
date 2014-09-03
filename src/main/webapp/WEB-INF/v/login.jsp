@@ -28,7 +28,7 @@
 
 
 
-<title>集团报表系统</title>
+<title>subic</title>
 <!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>			
 		<![endif]-->
@@ -76,7 +76,7 @@
 
 		</div>
 		<p class="forgot">
-			忘记密码? &nbsp<a href="">联系运营管理部.</a>
+			忘记密码? &nbsp<a href="">联系Subic.</a>
 		</p>
 
 	</section>
@@ -91,27 +91,22 @@
 		<p class="about-author">
 			&copy; 2014&ndash;2015 <a href="http://www.xxx.com"
 				target="_blank">XXX有限公司</a>
-			<!--   -
-      		<a href="http://www.lyweiye.com/license" target="_blank">License</a>-->
 			<br> Original Dev by <a href="" target="_blank">Kevin</a>
 		</p>
 	</section>
 
 	<!-- JS -->
-
-	<script type="text/javascript"
-		src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 	<script type="text/javascript">
-		!window.jQuery
-				&& document
-						.write('<script src=http://lib.sinaapp.com/js/jquery/1.9.1/jquery.min.js><\/script>');
+		//Fallback to loading jQuery from ajax CDN if the CDN is unavailable
+		//http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js	
+		(window.jQuery || document.write('<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"><\/script>'));
 	</script>
-	<script>
-		window.jQuery
-				|| document
-						.write("<script src='../../static/js/jquery-1.9.1.js'>\x3C/script")
+	
+	<script type="text/javascript">
+	// Fallback to loading jQuery from a local path if the CDN is unavailable
+	  (window.jQuery || document.write('<script src="../../static/js/jquery-1.9.1.js"><\/script>'));
 	</script>
-	<script src="../../static/login/app.js"></script>
 
 	<!-- End Document -->
 </body>
