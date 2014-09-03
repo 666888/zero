@@ -11,8 +11,7 @@
 	<div class="shell">
 		<!-- Logo + Top Nav -->
 		<div id="top">
-			<h1><a href="/user/add">SpringTime哦哦哦哦哦哦</a></h1>
-			<h1><a href="/user/1">SpringTime哦哦哦哦哦哦</a></h1>
+			<h1><a href="/user/add">SpringTime</a></h1>
 			<div id="top-navigation">
 				Welcome <a href="#"><strong>Administrator</strong></a>
 				<span>|</span>
@@ -53,18 +52,18 @@
 		</div>
 		<!-- End Small Nav -->
 		
-		<!-- Message OK -->		
+		<!-- Message OK	
 		<div class="msg msg-ok">
 			<p><strong>Your file was uploaded succesifully!</strong></p>
 			<a href="#" class="close">close</a>
-		</div>
+		</div>  -->	
 		<!-- End Message OK -->		
 		
-		<!-- Message Error -->
+		<!-- Message Error 
 		<div class="msg msg-error">
 			<p><strong>You must select a file to upload first!</strong></p>
 			<a href="#" class="close">close</a>
-		</div>
+		</div>-->
 		<!-- End Message Error -->
 		<br />
 		<!-- Main -->
@@ -281,9 +280,9 @@
 <!-- Footer -->
 <div id="footer">
 	<div class="shell">
-		<span class="left">&copy; 2010 - CompanyName</span>
+		<span class="left">&copy; 2014 - Subic888.com</span>
 		<span class="right">
-			Design by <a href="http://chocotemplates.com" target="_blank" title="The Sweetest CSS Templates WorldWide">Chocotemplates.com</a>
+			Design by <a href="http://subic888.com" target="_blank" title="The Zero Leader">subic888.com</a>
 		</span>
 	</div>
 </div>
