@@ -371,6 +371,7 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${jetty.version}</version>
 				<configuration>
+					
 					<war>${basedir}/target/ray.war</war>
 					<systemProperties>
 						<systemProperty>

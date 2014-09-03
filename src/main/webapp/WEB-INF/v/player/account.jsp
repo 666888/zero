@@ -61,7 +61,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
         <a href="/ucinfo" class="tm-a" style="display: none;">修改</a>
     </div>
     <div class="f-left ren-m">
-        <h4 class="name dis">CG-24</h4>
+        <h4 class="name dis"><%= request.getAttribute("pName")%></h4>
         <a href="/ucinfo">修改</a>
         <div class="myyhq"><a href="/mycoupons" target="_blank">我的优惠券<i></i></a></div>
         <div><em class="txt-hui">个人信息完整度:</em>
