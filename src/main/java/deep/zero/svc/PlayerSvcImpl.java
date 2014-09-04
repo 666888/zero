@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import deep.tool.DateUtils;
 import deep.zero.bean.Player;
 import deep.zero.repo.PlayerRepo;
 
@@ -47,7 +48,35 @@ public class PlayerSvcImpl /*implements PlayerSvc*/ {
 		return pr.isExistPlayer(nickname, password);
 	}
 
+	public List<Player> getPlayerByRegWeek() {
+		Date startTime=DateUtils.weekStartTime();
+		Date endTime=DateUtils.weekEndTime();
+		return pr.getPlayerByRegWeek(startTime,endTime);
+	}
 
+	public List<Player> getPlayerByRegMonth() {
+		Date startTime=DateUtils.getCurrentMonthStartTime();
+		Date endTime=DateUtils.getCurrentMonthEndTime();
+		return pr.getPlayerByRegMonth(startTime,endTime);
+	}
+
+	public List<Player> getPlayerByRegQuarter() {
+		Date startTime=DateUtils.getCurrentQuarterStartTime();
+		Date endTime=DateUtils.getCurrentQuarterEndTime();
+		return pr.getPlayerByRegQuarter(startTime,endTime);
+	}
+
+	public List<Player> getPlayerByDt(Date dStart, Date dEnd) {
+		return pr.getPlayerByDt(dStart,dEnd);
+	}
+
+	public List<Player> getFreezenPlayer() {
+		return pr.getFreezenPlayer();
+	}
+
+	public List<Player> getNoDepositedPlayer() {
+		return pr.getNoDepositedPlayer();
+	}
 
 	
 }
