@@ -1,6 +1,5 @@
 package deep.sys.controller;
 
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,7 +39,7 @@ public class LoginController {
 	@RequestMapping(value = "/signin", method = RequestMethod.GET)
 	public ModelAndView init() {
 		user = new User();
-		return new ModelAndView("login", "loginDetails", user);
+		return new ModelAndView("gm/login", "loginDetails", user);
 	}
 
 	/**
@@ -78,30 +77,31 @@ public class LoginController {
 					// redirect to UserController.
 					
 					UsernamePasswordToken token = new UsernamePasswordToken(user.getCode(),user.getPassword());
+					if(true)
 					token.setRememberMe(true);
 					Subject currentUser = SecurityUtils.getSubject();
 					currentUser.login(token);
 					System.out.println(token.getPrincipal());
-					RedirectView redirectView = new RedirectView("uentry", true);
+					RedirectView redirectView = new RedirectView("entry", true);
 					return new ModelAndView(redirectView);
 				} else {
 					br.addError(new ObjectError("Invalid", "登录被拒绝  : 用户名或密码错误"));
-					return new ModelAndView("login", "loginDetails", user);
+					return new ModelAndView("gm/login", "loginDetails", user);
 				}
 			}
 		} catch (Exception e) {
 			System.out.println("Exception in LoginController " + e.getMessage());
 			e.printStackTrace();
-			return new ModelAndView("login", "loginDetails", user);
+			return new ModelAndView("gm/login", "loginDetails", user);
 		}
 	}
 
-	@RequestMapping(value = "/uentry", method = RequestMethod.GET)
+	@RequestMapping(value = "/entry", method = RequestMethod.GET)
 	public ModelAndView entry(HttpServletRequest req, HttpServletResponse res) {
 		ApplicationModel applicationModel = new ApplicationModel();
 		user = (User) req.getSession().getAttribute("ray_usr");
 		applicationModel.setUser(user);
-		return new ModelAndView("index", "applicationModel", applicationModel);
+		return new ModelAndView("gm/index", "applicationModel", applicationModel);
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

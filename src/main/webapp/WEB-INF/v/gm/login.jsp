@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="zh"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="zh"> <![endif]-->
@@ -24,10 +24,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 
-
-
-
-
 <title>subic</title>
 <!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>			
@@ -38,14 +34,14 @@
 	content="width=device-width, initial-scale=1,maximum-scale=1" />
 
 <!-- Stylesheets -->
-<link rel="stylesheet" href="../../static/login/base.css">
-<link rel="stylesheet" href="../../static/login/skeleton.css">
-<link rel="stylesheet" href="../../static/login/layout.css">
+<link rel="stylesheet" href="../../../static/login/base.css">
+<link rel="stylesheet" href="../../../static/login/skeleton.css">
+<link rel="stylesheet" href="../../../static/login/layout.css">
 
 </head>
 <body>
 	<div class="notice">
-		<a href="" class="close">close</a>
+		<!--a href="" class="close">close</a-->
 		<p class="warn">Web App Entry</p>
 	</div>
 
@@ -54,8 +50,7 @@
 
 		<div>
 			<p><font color="red"></font></p>
-			<p><font color="red"></font></p>
-			
+			<p><font color="red"></font></p>	
 		</div>
 		<div class="form-bg">
 			<sf:form id="login" action="/gm/signin" method="post"
@@ -67,10 +62,10 @@
 					<font color="red"><sf:errors path="userName" /><sf:errors path="password" /><sf:errors />
 					</font>
 				</p>	
-				<!-- <label for="remember">
+				<label for="remember">
 					<input type="checkbox" id="remember" name="remember_me" value="remember"/>
 					<span>在此设备上记住密码</span>
-				</label> -->
+				</label> 
 				<button type="submit"></button>
 			</sf:form>
 
@@ -84,13 +79,11 @@
 
 	<section class="about">
 		<p class="about-links">
-			<!-- <a href="http://www.cssflow.com/snippets/mini-dropdown-menu" target="_parent">View Article</a>
-      			<a href="http://www.cssflow.com/snippets/mini-dropdown-menu.zip" target="_parent">Download</a> -->
 		</p>
-		<p>运营管理部</p>
+		<p>运营管理中心</p>
 		<p class="about-author">
 			&copy; 2014&ndash;2015 <a href="http://www.xxx.com"
-				target="_blank">XXX有限公司</a>
+				target="_blank">Asia Play Tech有限公司</a>
 			<br> Original Dev by <a href="" target="_blank">Kevin</a>
 		</p>
 	</section>
@@ -105,7 +98,7 @@
 	
 	<script type="text/javascript">
 	// Fallback to loading jQuery from a local path if the CDN is unavailable
-	  (window.jQuery || document.write('<script src="../../static/js/jquery-1.9.1.js"><\/script>'));
+	  (window.jQuery || document.write('<script src="../../../static/js/jquery-1.9.1.js"><\/script>'));
 	</script>
 
 	<!-- End Document -->

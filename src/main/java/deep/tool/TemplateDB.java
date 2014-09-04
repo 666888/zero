@@ -1,6 +1,7 @@
 package deep.tool;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -96,6 +97,7 @@ public class TemplateDB {
 		player.setPassword("555555");
 		player.setNickname("player");
 		player.setUsername("player");
+		player.setRegTime(new Date());
 		ps.addPlayer(player);
 		
 	}
