@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Subic Admin</title>
+<title>Subic Group</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link href="../../../static/gm/css/bootstrap.css" rel="stylesheet" media="screen">
