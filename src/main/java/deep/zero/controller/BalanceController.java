@@ -43,34 +43,34 @@ public class BalanceController {
 			Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){
 		Balance balanceNew=null;
 		String nickname=(String)req.getSession().getAttribute("p_name");
-		Player player=playerSvc.getByAccount(nickname);
-		Balance balanceOld=balanceSvcImpl.findLastBalance(player.getId());
-		if (null==balanceOld) {
-			balance.setPlayerId(player.getId());
-			balance.setBalance(balance.getAmount());
-			balanceSvcImpl.addBalance(balance);
-		}else{
-			 balanceNew=new Balance();
-//			Balance balanceT=balanceSvcImpl.get(balance.getId());
-			balanceNew.setAmount(balance.getAmount());
-			balanceNew.setPlayerId(player.getId());
-			balanceNew.setOpp(balance.getOpp());
-			balanceNew.setRemark(balance.getRemark());
-			balanceNew.setTransferTime(new Date());
-			if (balance.getIo()) {
-				balanceNew.setBalance(balanceOld.getBalance().add(balance.getAmount()));
-			}else{
-				balanceNew.setBalance(balanceOld.getBalance().subtract(balance.getAmount()));
-			}
-			balanceNew.setIo(balance.getIo());
-			balanceSvcImpl.addBalance(balanceNew);
-		}
-		Balance balanceTmp=new Balance();
-		balanceNew=balanceSvcImpl.findLastBalance(player.getId());
-		balanceTmp.setBalance(balanceNew.getBalance());
-		List<Balance> balances=balanceSvcImpl.getAll();
-		model.addAttribute("balances", balances);
-		model.addAttribute("balance", balanceTmp);
+//		String player=playerSvc.getByAccount(nickname);
+//		Balance balanceOld=balanceSvcImpl.findLastBalance(player.getId());
+//		if (null==balanceOld) {
+//			balance.setPlayerId(player.getId());
+//			balance.setBalance(balance.getAmount());
+//			balanceSvcImpl.addBalance(balance);
+//		}else{
+//			 balanceNew=new Balance();
+////			Balance balanceT=balanceSvcImpl.get(balance.getId());
+//			balanceNew.setAmount(balance.getAmount());
+//			balanceNew.setPlayerId(player.getId());
+//			balanceNew.setOpp(balance.getOpp());
+//			balanceNew.setRemark(balance.getRemark());
+//			balanceNew.setTransferTime(new Date());
+//			if (balance.getIo()) {
+//				balanceNew.setBalance(balanceOld.getBalance().add(balance.getAmount()));
+//			}else{
+//				balanceNew.setBalance(balanceOld.getBalance().subtract(balance.getAmount()));
+//			}
+//			balanceNew.setIo(balance.getIo());
+//			balanceSvcImpl.addBalance(balanceNew);
+//		}
+//		Balance balanceTmp=new Balance();
+//		balanceNew=balanceSvcImpl.findLastBalance(player.getId());
+//		balanceTmp.setBalance(balanceNew.getBalance());
+//		List<Balance> balances=balanceSvcImpl.getAll();
+//		model.addAttribute("balances", balances);
+		model.addAttribute("balance", null);
 		return "player/addBalance";
 	}
 }

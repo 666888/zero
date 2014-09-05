@@ -1,6 +1,8 @@
 package deep.zero.bean;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -13,15 +15,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -51,7 +49,9 @@ public class Player{
 	private String password;
 	
 	//银行账号
-	private String account;
+//	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+//	@JoinColumn(name="player_id")//在account表增加一个外键列来实现一对多的单向关联
+//	private Set<Account> accounts=new HashSet<Account>();
 	
 	//电话
 	private String phone;
@@ -133,12 +133,17 @@ public class Player{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getAccount() {
-		return account;
-	}
-	public void setAccount(String account) {
-		this.account = account;
-	}
+	
+//	public Set<Account> getAccounts() {
+//		return accounts;
+//	}
+//
+//
+//	public void setAccounts(Set<Account> accounts) {
+//		this.accounts = accounts;
+//	}
+
+
 	public String getPhone() {
 		return phone;
 	}

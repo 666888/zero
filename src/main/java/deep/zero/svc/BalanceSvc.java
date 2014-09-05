@@ -11,5 +11,9 @@ import deep.zero.bean.Balance;
  * 
  */
 public interface BalanceSvc  {
+	
 
+//	free账户到G账户或是G账户到free账户	
+	public void add(Balance fromBalance,Balance toBalance);
+	
 }

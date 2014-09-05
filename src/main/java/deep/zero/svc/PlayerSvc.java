@@ -38,5 +38,5 @@ public interface PlayerSvc{
 	//查询冻结玩家
 	List<Player> getFreezenPlayer();
 	//查询没有存过款的玩家
-	List<Player> getNoDepositedPlayer();
+//	List<Player> getNoDepositedPlayer();
 }

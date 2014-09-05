@@ -19,7 +19,30 @@ import deep.sys.bean.User;
 @Entity
 @Table(name="p_balance")
 public class Balance {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;  
+	
 	private Long playerId;
+	
+	private BigDecimal	add;
+
+	private BigDecimal rolloff;
+	//转款时间
+	private	Date transferTime;
+	//
+	private BigDecimal	amount;
+	//备注
+	private String	remark;
+	public Long getAccId() {
+		return accId;
+	}
+	public void setAccId(Long accId) {
+		this.accId = accId;
+	}
+	//目标或者来源
+	private Long accId;
+	
 	public Long getPlayerId() {
 		return playerId;
 	}
@@ -31,12 +54,6 @@ public class Balance {
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public BigDecimal getBalance() {
-		return balance;
-	}
-	public void setBalance(BigDecimal balance) {
-		this.balance = balance;
 	}
 	public Date getTransferTime() {
 		return transferTime;
@@ -56,30 +73,16 @@ public class Balance {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	public Boolean getIo() {
-		return io;
+	public BigDecimal getAdd() {
+		return add;
 	}
-	public void setIo(Boolean io) {
-		this.io = io;
+	public void setAdd(BigDecimal add) {
+		this.add = add;
 	}
-	public String getOpp() {
-		return opp;
+	public BigDecimal getRolloff() {
+		return rolloff;
 	}
-	public void setOpp(String opp) {
-		this.opp = opp;
+	public void setRolloff(BigDecimal rolloff) {
+		this.rolloff = rolloff;
 	}
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;  
-	private BigDecimal	balance;
-	//转款时间
-	private	Date transferTime;
-	//转款金额
-	private BigDecimal	amount;
-	//备注
-	private String	remark;
-	//出入标志
-	private Boolean	io;
-	//目标或者来源
-	private String 	opp;
 }

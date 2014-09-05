@@ -1,5 +1,6 @@
 package deep.zero.repo;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
@@ -24,6 +25,16 @@ public interface BalanceRepo extends AddRepository<Balance,Long>{
 	 * @see org.springframework.data.repository.CrudRepository#findAll()
 	 */
 	List<Balance> findAll();
+//	查找玩家游戏账户
+	@Query(value="select  sum(b.add)-sum(b.rolloff) from  Balance b where b.playerId =?1 and b.accId=?2 ")
+	BigDecimal freeAccount(Long playerId,Long accId);
+	
+//	@Query(value="select  sum(b.add)-sum(b.rolloff) from  Balance b where b.playerId =?1 and b.accId=?2")
+//	BigDecimal GAccount(Long playerId, Long accId);
+//	查找玩家主账户
+	@Query(value="select  sum(b.add)-sum(b.rolloff) from  Balance b where b.playerId =?1 ")
+	BigDecimal ALLAcount(Long playerId);
+	
 	
 }
 

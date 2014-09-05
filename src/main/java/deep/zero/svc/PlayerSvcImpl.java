@@ -8,21 +8,30 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import deep.tool.DateUtils;
+import deep.zero.bean.Account;
 import deep.zero.bean.Player;
+import deep.zero.repo.AccountRepo;
 import deep.zero.repo.PlayerRepo;
 
 
 
 @Service
 @Transactional(readOnly=true)
-public class PlayerSvcImpl /*implements PlayerSvc*/ {
+public class PlayerSvcImpl implements PlayerSvc {
 
 	@Autowired
 	private PlayerRepo pr;
+	@Autowired
+	private AccountRepo ar;
 		
 	@Transactional
 	public Player addPlayer(Player p){
-		return pr.saveAndFlush(p);
+		Account account=new Account();
+		account.setName(-1L);//玩家主账户识别为-1，其他游戏账户为gameId
+		 pr.saveAndFlush(p);
+		account.setPlayerId(p.getId());
+		ar.save(account);
+		return p;
 	}
 
 	@Transactional
@@ -74,9 +83,9 @@ public class PlayerSvcImpl /*implements PlayerSvc*/ {
 		return pr.getFreezenPlayer();
 	}
 
-	public List<Player> getNoDepositedPlayer() {
-		return pr.getNoDepositedPlayer();
-	}
+//	public List<Player> getNoDepositedPlayer() {
+//		return pr.getNoDepositedPlayer();
+//	}
 
 	
 }

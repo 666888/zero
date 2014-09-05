@@ -2,6 +2,7 @@ package deep.zero.svc;
 
 
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,45 +23,33 @@ public class BalanceSvcImpl implements BalanceSvc{
 	
 	@Autowired
 	private BalanceRepo br;
+////	创建账户
+//	public void save(Balance balance){
+//		br.save(balance);
+//	}
+//	从银行到账户
+	public void BankToAccount(Balance balance){
+		br.save(balance);
+	}
 	
+//	free账户到G账户或是G账户到free账户
 	@Transactional
-	public Balance addBalance(Balance b){
-		return br.save(b);
+	public void add(Balance fromBalance,Balance toBalance) {
+		br.save(fromBalance);
+		br.save(toBalance);
 	}
+//	账户余额
+	public BigDecimal freeAccount(Long playerId,Long accId){
+		return br.freeAccount(playerId,accId);
+	}
+////	G余额
+//	public BigDecimal GAccount(Long playerId,Long accId){
+//		return br.GAccount(playerId,accId);
+//	}
 	
-	public Balance get(Long id){
-		return br.findOne(id);
-	}
-	
-	public List<Balance> getAll(){
-		return br.findAll();
-	}
-	
-	public Balance findLastBalance(Long playerId){
-		List<Balance> balanceList=br.findLastBalance(playerId, new PageRequest(0,1));
-		if (0==balanceList.size()) {
-			return null;
-		}
-		return balanceList.get(0);
-	}
-	
-	public List<Balance> findBalanceByPlayerId(Long playerId){
-		return br.findBalanceByPlayerId(playerId);
-	}
-
-	public List<Balance> getDisposted() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<Balance> getCleanPlayer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<Balance> getWithdrewed() {
-		// TODO Auto-generated method stub
-		return null;
+//	总余额
+	public BigDecimal ALLAcount(Long playerId){
+		return br.ALLAcount(playerId);
 	}
 	
 }
