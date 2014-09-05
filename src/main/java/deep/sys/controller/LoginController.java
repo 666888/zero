@@ -77,7 +77,11 @@ public class LoginController {
 					// redirect to UserController.
 					
 					UsernamePasswordToken token = new UsernamePasswordToken(user.getCode(),user.getPassword());
-					if(true)
+					String rememberMe = req.getParameter("remember_me");
+					System.out.println("+++++++++++++++++++++++");
+					System.out.println(rememberMe);
+					System.out.println("++++++++++++++++++++++++");
+					if(rememberMe!=null)
 					token.setRememberMe(true);
 					Subject currentUser = SecurityUtils.getSubject();
 					currentUser.login(token);
