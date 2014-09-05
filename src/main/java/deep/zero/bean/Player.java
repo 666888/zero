@@ -68,7 +68,7 @@ public class Player{
 	private Boolean freezen;
 	
 	//注册时间
-	//@Temporal(TemporalType.TIMESTAMP) @Column(nullable=false)
+	@Temporal(TemporalType.TIMESTAMP) @Column(nullable=false)
 	private Date regTime;
 	
 	//	积分
