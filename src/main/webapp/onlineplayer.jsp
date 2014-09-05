@@ -11,14 +11,16 @@
 <%@ page import ="java.util.Map" %>
 <%@ page import ="java.util.HashMap" %>
 <% 
-Map map=new HashMap(); 
+Map<String,String> map=new HashMap<String,String>(); 
 map=OnlineListener.getOnlinePlayer(); 
-
 out.println(""+ 
 "目前系统总共有 "+(OnlineListener.getOnlineGuest()+map.size())+" 人在线,其中注册用户 "+map.size()+" 人,游客 "+ 
 OnlineListener.getOnlineGuest()+" 人"); 
 
-out.println(""); 
+out.println("");
+for(String key : map.keySet())   {   
+	out.println(key);           
+}
 %> 
 </body>
 </html>
