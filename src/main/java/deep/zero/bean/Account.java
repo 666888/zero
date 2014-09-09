@@ -14,6 +14,13 @@ public class Account {
 	private Long id;
 	private Long name;//将来存放gameid 玩家进入某个游戏的账户
 	private Long playerId;
+	private Boolean isFreezen;
+	public Boolean getIsFreezen() {
+		return isFreezen;
+	}
+	public void setIsFreezen(Boolean isFreezen) {
+		this.isFreezen = isFreezen;
+	}
 	public Long getPlayerId() {
 		return playerId;
 	}
