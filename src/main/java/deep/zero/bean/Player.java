@@ -18,6 +18,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -68,7 +70,7 @@ public class Player{
 	private Boolean freezen;
 	
 	//注册时间
-	//@Temporal(TemporalType.TIMESTAMP) @Column(nullable=false)
+	@Temporal(TemporalType.TIMESTAMP) @Column(nullable=false)
 	private Date regTime;
 	
 	//	积分

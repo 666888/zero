@@ -83,7 +83,7 @@
 				<div id="checkreadtip" class="errtips"></div>
 				<div class="yxlogin_read">
 					<input id="checkread" class="ick" type="checkbox" checked="" name="checkread" value="">
-						我已阅读并同意 youxi.com
+						我已阅读并同意 subic888.com
 					<a target="_blank" href="http://u.youxi.com/index/regdoc">《用户协议》</a>
 				</div>
 				<input type="submit" class="yxlogin_btn submit_reg yxreg_btn" value="登陆">
@@ -95,7 +95,7 @@
     </div>
 </div>
 <footer>
-<p>Copyright 2014 subic.com 版权所有 2014版权所有Golden88.com<br />在菲律宾注册并遵守菲律宾法律
+<p>Copyright 2014 subic.com 版权所有 2014版权所有subic888.com<br />在菲律宾注册并遵守菲律宾法律
 </p>
 </footer>
 </body>

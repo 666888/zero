@@ -63,7 +63,7 @@
 					</font>
 				</p>	
 				<label for="remember">
-					<input type="checkbox" id="remember" name="remember_me" value="remember" checked="true"/>
+					<input type="checkbox" id="remember" name="remember_me" value="remember" />
 					<span>在此设备上记住我</span>
 				</label> 
 				<button type="submit"></button>

@@ -56,7 +56,8 @@ public class SignController {
 				}
 			else{
 				if (loginSvc.validate(player)) {
-					req.getSession().setAttribute("p_id", player.getId());
+					Long id = playerSvc.getByAccount(player.getNickname()).getId();
+					req.getSession().setAttribute("p_id", id);
 					req.getSession().setAttribute("p_name", player.getNickname());
 					// Create a redirection view to success page. This will
 					// redirect to UserController.

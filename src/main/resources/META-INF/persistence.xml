@@ -11,7 +11,7 @@
         	
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 	      	<property name="hibernate.connection.drirver_class" value="org.h2.Driver"/>
-    	    <property name="hibernate.connection.url" value="jdbc:h2:mem:arch"/>
+    	    <property name="hibernate.connection.url" value="jdbc:h2:mem:zero"/>
         	<property name="hibernate.connection.username" value="sa"/>
         	<property name="hibernate.connection.password" value=""/>
 		

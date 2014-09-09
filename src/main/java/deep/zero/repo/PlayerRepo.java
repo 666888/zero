@@ -14,6 +14,7 @@ public interface PlayerRepo extends JpaRepository<Player,Long> {
 //	获取玩家账户
 	@Query(value="select p from Player p where p.nickname =?1 ")
 	public Player getByAccount(String nickname);
+
 //	是否存在玩家
 	@Query(value="select case when count(p)>0 then true else false end  from Player p where p.nickname=?1 and p.password=?2")
 	public boolean isExistPlayer(String nickname,String password);
