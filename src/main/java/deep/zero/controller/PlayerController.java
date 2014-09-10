@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import deep.sys.bean.User;
@@ -61,12 +62,14 @@ public class PlayerController {
 		return "player/addBalance";
 	}
 
-	@RequestMapping(value="/modiPswd",method=RequestMethod.POST)
-	public @ResponseBody String password(HttpServletRequest req,String oldPassword,String newPassword){
-		Player player = (Player)req.getSession().getAttribute("ray_user");
+	@RequestMapping(value="/modiPswd.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public String password(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("old") String oldPassword,@RequestParam("nw")String newPassword){
+		Player player = playerSvc.getByAccount(nickname);
 		if(player.getPassword().equals(oldPassword)){
 			player.setPassword(newPassword);
-			playerSvc.modiPlayer(player);
+			playerSvc.modiPlayer(player);			
+			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
 			return "密码已修改!";
 		}
 		else{

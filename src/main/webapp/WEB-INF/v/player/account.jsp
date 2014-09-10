@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://u.youxi.com/account/index -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <title>用户中心_YouXi.com</title>
                 <link rel="stylesheet" type="text/css" href="/static/css/player/account/style.css">
+                <script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
        <script type="text/javascript" src="crypto.aes.js"></script>
 <script type="text/javascript" src="/static/js/player/account/swfobject.js"></script>
 <script type="text/javascript" src="/static/js/player/account/jquery.js"></script>
@@ -61,7 +63,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
         <a href="/ucinfo" class="tm-a" style="display: none;">修改</a>
     </div>
     <div class="f-left ren-m">
-        <h4 class="name dis"><%= request.getAttribute("pName")%></h4>
+        <h4 class="name dis" ><%= request.getAttribute("pName")%></h4>
         <a href="/ucinfo">修改</a>
         <div class="myyhq"><a href="/mycoupons" target="_blank">我的优惠券<i></i></a></div>
         <div><em class="txt-hui">个人信息完整度:</em>
@@ -185,12 +187,12 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
             <div class="clearfix box-con" id = "psw" style="display: none;">
                 <div class="clearfix">
                     <ul class="mail-ul">
-                        <form method="post" id="form-repass" action="/repass.php">
-                            <li class="form-item"><label class="dis">原密码：</label><input name="repass_old" type="password" value="" class="input w-244"></li>
-                            <li class="form-item"><label class="dis">新密码：</label><input name="repass_new" type="password" value="" class="input w-244"></li>
-                            <li class="form-item"><label class="dis">重复密码：</label><input name="repass_check" type="password" value="" class="input w-244"></li>
-                            <li><label class="dis"></label><a href="javascript:void(0);" class="btn btn-send dis" id="btn-repass">确认修改</a></li>
-                        </form>
+                        
+                            <li class="form-item"><label class="dis">原密码：</label><input name="repass_old" type="password" value="" class="input w-244" /></li>
+                            <li class="form-item"><label class="dis">新密码：</label><input name="repass_new" type="password" value="" class="input w-244" /></li>
+                            <li class="form-item"><label class="dis">重复密码：</label><input name="repass_check" type="password" value="" class="input w-244"/></li>
+                            <li><label class="dis"></label><a href="javascript:void(0)" class="btn btn-send dis" id="btn-repass">确认修改</a></li>
+                      
                     </ul>
                 </div>
             </div>
@@ -224,14 +226,39 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
 </div>
 <script src="/static/js/player/account/analyse.js" type="text/javascript"></script>
 <script type="text/javascript">
-function openitem(obj){
-	if(document.getElementById("psw").style.display == "block"){
-		document.getElementById("psw").style.display = "none"
+$("#btn-repass").click(function(){
+	var nickname = $(".name.dis").text();
+	var old = $("input[name='repass_old']").val();
+	var nw = $("input[name='repass_new']").val();
+	$.ajax({ 
+			type:"post",
+			url:"p/modiPswd.ajax",
+			dataType:"json",
+			data:{nickname:nickname,old:old,nw:nw},
+			success:function(data, textStatus){
+				alert(data.msg)
+			}
+	});
+	
+});
+function openitem(){
+	if($("#psw").css("display") == "none"){
+		
+		$("#psw").css("display","block");
 	}
 	else{
-	document.getElementById("psw").style.display = "block"
+		$("#psw").css("display","none")
 	}
 }
+
+$("input[name='repass_check']").blur(function(){
+	if($("input[name='repass_new']").val() == $(this).val()){
+		return;
+	}
+	else{
+		alert("密码不一致！");
+	}
+});
 
 </script>
 </body>

@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
-
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
@@ -125,7 +125,6 @@
 <!--top end-->
 <div style = "text-align: center"><img src = "/static/img/player/login/a.png" style = ""><br/><img src = "/static/img/player/login/b.png" style = ""><br/><img src = "/static/img/player/login/c.png" style = ""></div>
 <!--footer star-->
-
 <div id="foot">
 		<ul>
 			<li><a href="javascript:;">关于我们</a></li>

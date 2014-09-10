@@ -4,6 +4,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicLong;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
@@ -16,10 +17,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import deep.sys.bean.User;
 import deep.sys.svc.UserSvc;
+import deep.web.OnlineListener;
 
 @Controller
 @RequestMapping("/gm")
@@ -98,6 +101,27 @@ public class UserController {
 		else{
 			return "原密码错误!";
 		}
+	}
+	
+	@RequestMapping(value="/playerManager",method=RequestMethod.GET)
+	public String playerManager(){
+		return "user/player_manage";
+	}
+	
+	@RequestMapping(value="/playerOnline",method=RequestMethod.GET)
+	public String playerOnline(Model model){
+		model.addAttribute("map", new OnlineListener().getOnlinePlayer());
+		return "user/player_manage/player_online";
+	}
+	//提出用户
+	@RequestMapping(value="/kick",method=RequestMethod.GET)
+	public String kick(@RequestParam String nickname){
+		HttpSession session = OnlineListener.getSession(nickname);
+		OnlineListener.map.remove(session);
+		//session.setAttribute(nickname, null);
+		//session.invalidate();
+		session.setMaxInactiveInterval(1);
+		return "redirect:/gm/playerOnline";
 	}
 	
 	private static final String TEMPLATE = "Hello %s";
