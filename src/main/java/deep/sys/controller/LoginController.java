@@ -105,7 +105,7 @@ public class LoginController {
 		ApplicationModel applicationModel = new ApplicationModel();
 		user = (User) req.getSession().getAttribute("ray_usr");
 		applicationModel.setUser(user);
-		return new ModelAndView("gm/index", "applicationModel", applicationModel);
+		return new ModelAndView("user/index", "applicationModel", applicationModel);
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

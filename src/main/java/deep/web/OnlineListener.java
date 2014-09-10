@@ -11,34 +11,49 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
+
+import deep.zero.bean.Player;
+import deep.zero.repo.PlayerRepo;
+import deep.zero.svc.PlayerSvc;
+import deep.zero.svc.PlayerSvcImpl;
+
 public class OnlineListener extends HttpServlet implements HttpSessionListener,
 		HttpSessionAttributeListener {
 	/**
 	 * 
 	 */
+	private PlayerSvcImpl playerSvc = new PlayerSvcImpl();
 	private static final long serialVersionUID = -724585474693809304L;
-	private static Map<HttpSession, String> map = new HashMap<HttpSession, String>();
+	public static Map<HttpSession, String> map = new HashMap<HttpSession, String>();
 	private String user_name;
 	public static Map<String,HttpSession> sMap = new HashMap<String,HttpSession>();
+	public Map<String, Player> mapx = new HashMap<String, Player>();
 
 	public static int getOnlineGuest() {
 		int OnlineGuest = 0;
 		for (Iterator<HttpSession> it = map.keySet().iterator(); it.hasNext();) {// entrySet()
 			Object key = it.next();
-			if (map.get(key).equals("")) {
+			if (null != map.get(key)) {
 				OnlineGuest++; 
 			}
 		}
 		return OnlineGuest;
 	}
 
-	public static Map<String, String> getOnlinePlayer() {
-		Map<String, String> mapx = new HashMap<String, String>();
+	public Map<String, Player> getOnlinePlayer() {	
+		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();		
+		PlayerSvcImpl ps = (PlayerSvcImpl)wac.getBean("playerSvcImpl");
 		for (Iterator<HttpSession> it = map.keySet().iterator(); it.hasNext();) {// entrySet()
 			Object key = it.next();
-			if (!map.get(key).equals("") && !map.get(key).equals(null)) {
+			if (null != map.get(key) && !"".equals(map.get(key))) {
 				System.out.println(map.get(key));
-				mapx.put(map.get(key), map.get(key)); 
+				Player player = ps.getByAccount("player");
+				mapx.put(map.get(key), player);
 			}
 		}
 		return mapx;
@@ -51,6 +66,10 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 		System.out.println("创建session"+user_name+session.getId());
 		map.put(session, user_name);
 		System.out.println(map.size());
+		if(evt.getSession() != null && evt.getSession().getAttribute("p_name") != null){	
+			System.out.println(evt.getSession().getAttribute("p_name"));
+			sMap.put((String)evt.getSession().getAttribute("p_name"), session);
+		}
 	}
 
 	public void attributeRemoved(HttpSessionBindingEvent evt) {
@@ -68,18 +87,15 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 			map.put(session, user_name);
 		System.out.println(map.size()+user_name);
 	}
-
+	//将所有session放入map
 	public void sessionCreated(HttpSessionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSession() != null){
-			sMap.put(e.getSession().getId(), e.getSession());
-		}
+		
 	}
-
+	//
 	public void sessionDestroyed(HttpSessionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSession() != null){
-			sMap.remove(e.getSession().getId());
-		}
+	}
+	//通过nickname得到session
+	public static HttpSession getSession(String nickname){
+		return sMap.get(nickname);
 	}
 }

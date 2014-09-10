@@ -1,0 +1,365 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>users_database</title>
+<style type="text/css">
+	* { margin: 0px; padding: 0px;}
+	li { list-style: none;}
+	a { text-decoration: none; color: #000;}
+
+	table { padding-left: 10px;}
+	tr { height: 40px;}
+</style>
+</head>
+
+<body>
+	<h2>Users Database</h2>
+	<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>Main</td>
+			<td>Signup time period</td>
+			<td>
+				<select>
+					<option>Current week</option>
+				</select>
+			</td>
+			<td>Start date</td>
+			<td><input type="text" /></td>
+			<td>End date</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Username</td>
+			<td><input type="text" /></td>
+			<td>User #</td>
+			<td><input type="text" /></td>
+			<td>Age verification result</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Operator</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Casino</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Age verified from</td>
+			<td><input type="text" />to<input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Bingo nickname</td>
+			<td>
+				<input type="text" />
+			</td>
+			<td>Poker nickname</td>
+			<td colspan="3">
+				<input type="text" />
+			</td>
+		</tr>
+		<tr>
+			<td>Personal</td>
+			<td>E-mail</td>
+			<td>
+				<input type="text" />
+			</td>
+			<td>First name</td>
+			<td><input type="text" /></td>
+			<td>Last name</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Country</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>City</td>
+			<td colspan="3">
+				<input type="text" />
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Credit card no</td>
+			<td>
+				<input type="text" />
+			</td>
+			<td>State</td>
+			<td><input type="text" /></td>
+			<td>ZIP</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>My message disabled</td>
+			<td>
+				<input type="checkbox" />
+			</td>
+			<td>Authentication phone:</td>
+			<td colspan="3"><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>Tracking</td>
+			<td>Advertiser</td>
+			<td>
+				<input type="text" />
+			</td>
+			<td>Profile</td>
+			<td><input type="text" /></td>
+			<td>VIP level</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Advertiser type</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Language</td>
+			<td colspan="3">
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Advertiser system</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Advertiser group</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Currency</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Client type</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Client platform</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Registration checked</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Serial</td>
+			<td><input type="text" /></td>
+			<td>Only with blocked serial</td>
+			<td><input type="checkbox" /></td>
+			<td>Fraud check</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Signup gaming venue id</td>
+			<td><input type="text" /></td>
+			<td>Last login gaming venue id</td>
+			<td colspan="3"><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Signup device type</td>
+			<td><input type="text" /></td>
+			<td>Last login device type</td>
+			<td colspan="3"><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Kioskadmin</td>
+			<td><input type="text" /></td>
+			<td>Kiosk</td>
+			<td colspan="3"><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Agent</td>
+			<td><input type="text" /></td>
+			<td>Agency</td>
+			<td colspan="3"><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Skin</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Channel ID</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Casino nickname</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>Payments</td>
+			<td>Has deposited</td>
+			<td><input type="checkbox" /></td>
+			<td>Never deposited less than</td>
+			<td><input type="text" /></td>
+			<td>Never deposited more than</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Has registered CC</td>
+			<td><input type="checkbox" /></td>
+			<td>Has deposited by CC</td>
+			<td><input type="checkbox" /></td>
+			<td>Merchant group</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Has withdrawal requests</td>
+			<td><input type="checkbox" /></td>
+			<td>Min request</td>
+			<td><input type="text" /></td>
+			<td>Max request</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>Other options</td>
+			<td colspan="2"><input type="checkbox" />Internal accounts</td>
+			<td colspan="2"><input type="checkbox" />Multi casino accounts</td>
+			<td colspan="2">
+				<input type="checkbox" /><label>Only frozen</label>
+				<input type="checkbox" /><label>Only closed</label>
+				<input type="checkbox" /><label>Only dormant</label>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td colspan="2"><input type="checkbox" />Accounts created online</td>
+			<td colspan="2"><input type="checkbox" />Accounts created in kiosks</td>
+			<td colspan="2">
+				<input type="checkbox" /><label>Bingo players</label>
+				<input type="checkbox" /><label>Poker players</label>
+				<input type="checkbox" /><label>BackBet players</label>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Network type</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Network VIP level</td>
+			<td><input type="text" /></td>
+			<td>Account business phase</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Blocked gaming networks</td>
+			<td colspan="5">
+				<input type="checkbox" /><label>Bingo</label>
+				<input type="checkbox" /><label>Casino</label>
+				<input type="checkbox" /><label>Poker</label>
+				<input type="checkbox" /><label>Portal</label>
+				<input type="checkbox" /><label>Sportsbook</label>
+			</td>
+		</tr>
+		<tr>
+			<td>Security Settings</td>
+			<td>Security Token</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Identification token code</td>
+			<td colspan="2"><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Activation Code Status</td>
+			<td colspan="5">
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Sort by</td>
+			<td colspan="6">
+				<input type="radio" /><label>Signup date</label>
+				<input type="radio" /><label>User name</label>
+				<input type="radio" /><label>Country</label>
+				<input type="radio" /><label>Advertiser</label>
+				<input type="radio" /><label>Last login date</label>
+				<input type="radio" /><label>Serial</label>
+				<input type="checkbox" /><label>In descending order</label>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+				Show
+				<select><option>100</option></select>
+				rows per page
+				<input type="button" value="Display users" />
+				<input type="button" value="First account" />
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

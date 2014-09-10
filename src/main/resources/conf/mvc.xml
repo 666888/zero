@@ -19,7 +19,7 @@
         </mvc:interceptor>
         
         <mvc:interceptor>               
-            <mvc:mapping path="/*" />
+            <mvc:mapping path="/**" />
             <mvc:exclude-mapping path="/signup"/>
             <mvc:exclude-mapping path="/signin"/>
             <mvc:exclude-mapping path="/gm/*"/>

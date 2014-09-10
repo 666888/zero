@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>user_bonuses</title>
+<style type="text/css">
+	* { margin: 0px; padding: 0px;}
+	li { list-style: none;}
+	a { text-decoration: none; color: #000;}
+
+	table { padding-left: 10px;}
+	tr { height: 40px;}
+</style>
+</head>
+
+<body>
+	<h2>User Bonuses</h2>
+	<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>Casino</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Username</td>
+			<td><input type="text" /></td>
+			<td colspan="2">
+				<input type="checkbox" /><label>Internal accounts</label>
+			</td>
+		</tr>
+		<tr>
+			<td>Period</td>
+			<td>
+				<select>
+					<option>Today</option>
+				</select>
+			</td>
+			<td>Start date</td>
+			<td><input type="text" /></td>
+			<td>End date</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>Bonus trigger type</td>
+			<td colspan="5">
+				<input type="checkbox" /><label>Manual</label>
+				<input type="checkbox" /><label>Automatic</label>
+			</td>
+		</tr>
+		<tr>
+			<td>Bonus product type</td>
+			<td colspan="5">
+				<input type="checkbox" /><label>Casino</label>
+				<input type="checkbox" /><label>Poker</label>
+			</td>
+		</tr>
+		<tr>
+			<td>Mode</td>
+			<td colspan="2">
+				<input type="radio" /><label>Individual</label>
+				<input type="radio" /><label>Total</label>
+			</td>
+			<td colspan="3">
+				<input type="checkbox" /><label>Show only expired bonuses</label>
+			</td>
+		</tr>
+		<tr>
+			<td>Status</td>
+			<td colspan="5">
+				<input type="checkbox" /><label>Waiting</label>
+				<input type="checkbox" /><label>Accepted</label>
+				<input type="checkbox" /><label>Declined</label>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6">
+				<input type="button" value="show" />
+				<input type="button" value="Export" />
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

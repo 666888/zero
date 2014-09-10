@@ -24,11 +24,11 @@
   	
     <table align="center">
     	<tr>
-   		  <td height="23"><sf:input path="userId" type="hidden" /><sf:errors path="userId" /></td>
+   		  <td height="23"><sf:input path="playerId" type="hidden" /><sf:errors path="playerId" /></td>
     	</tr>
     	<tr>
     		<td height="23"><span >账户金额：</span></td>
-   		  <td height="23"><sf:input path="balance" /><sf:errors path="balance" /></td>
+   		  <td height="23"><sf:input path="transferTime" /><sf:errors path="transferTime" /></td>
     	</tr>
     	<tr>
     		<td height="23"><span >转款金额：</span></td>
@@ -36,15 +36,15 @@
     	</tr>
     	<tr>
     		<td height="23"><span >备注：</span></td>
-   		  <td height="23"><sf:input path="remark" /><sf:errors path="remark" /></td>
+   		  <td height="23"><sf:input path="add" /><sf:errors path="add" /></td>
     	</tr>
     	<tr>
     		<td height="23"><span >出入标志：</span></td>
-   		  <td height="23"><sf:input path="io" /><sf:errors path="io" /></td>
+   		  <td height="23"><sf:input path="rolloff" /><sf:errors path="rolloff" /></td>
     	</tr>
     	<tr>
     		<td height="23"><span >目标来源：</span></td>
-   		  <td height="23"><sf:input path="opp" /><sf:errors path="opp" /></td>
+   		  <td height="23"><sf:input path="remark" /><sf:errors path="remark" /></td>
     	</tr>
     	<tr>
     		<td height="23" colspan="2" align="center">

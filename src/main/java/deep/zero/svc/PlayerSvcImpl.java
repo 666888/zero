@@ -15,7 +15,7 @@ import deep.zero.repo.PlayerRepo;
 
 
 
-@Service
+@Service("playerSvcImpl")
 @Transactional(readOnly=true)
 public class PlayerSvcImpl implements PlayerSvc {
 
@@ -28,7 +28,7 @@ public class PlayerSvcImpl implements PlayerSvc {
 	public Player addPlayer(Player p){
 		Account account=new Account();
 		account.setName(-1L);//玩家主账户识别为-1，其他游戏账户为gameId
-		 pr.saveAndFlush(p);
+		pr.saveAndFlush(p);
 		account.setPlayerId(p.getId());
 		ar.save(account);
 		return p;

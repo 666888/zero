@@ -1,0 +1,399 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>user_transactions</title>
+<style type="text/css">
+	* { margin: 0px; padding: 0px;}
+	li { list-style: none;}
+	a { text-decoration: none; color: #000;}
+
+	table { padding-left: 10px;}
+	tr { height: 40px;}
+</style>
+</head>
+
+<body>
+	<h2>User transactions</h2>
+	<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>Search by</td>
+			<td width="300">Time period</td>
+			<td>
+				<select>
+					<option>Tody</option>
+				</select>
+			</td>
+			<td>Start date</td>
+			<td><input type="text" /></td>
+			<td>End date</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>
+				<select>
+					<option>Request date</option>
+				</select>
+			</td>
+			<td>Casino</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Currency</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Country</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Username</td>
+			<td><input type="text" /></td>
+			<td><input type="checkbox" /><label>Internal accounts</label></td>
+			<td><input type="checkbox" /><label>Frozen</label></td>
+			<td>Bonus name</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Email</td>
+			<td><input type="text" /></td>
+			<td>Operator</td>
+			<td colspan="3">
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Transaction id</td>
+			<td><input type="text" /></td>
+			<td>External tran id</td>
+			<td><input type="text" /></td>
+			<td>External tran account</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Merchant</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Credit card#</td>
+			<td><input type="text" /></td>
+			<td>Cashier tran id</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Processor transaction info</td>
+			<td><input type="text" /></td>
+			<td>Risk profile</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>BD number</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>More than</td>
+			<td><input type="text" /></td>
+			<td>Less than</td>
+			<td><input type="text" /></td>
+			<td colspan="2"><input type="checkbox" /><label>Use payment total</label></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>VIP level</td>
+			<td><input type="text" /></td>
+			<td>Comment</td>
+			<td colspan="3"><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Player deposits</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Payment method risk groups</td>
+			<td colspan="3">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td>RCC</td>
+						<td>
+							<select>
+								<option>Click to select</option>
+							</select>
+						</td>
+						<td>NRCC</td>
+						<td>
+							<select>
+								<option>Click to select</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>ACH</td>
+						<td>
+							<select>
+								<option>Click to select</option>
+							</select>
+						</td>
+						<td>Guaranteed</td>
+						<td>
+							<select>
+								<option>Click to select</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Client platform</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Client type</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+			<td>Language</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Advertiser</td>
+			<td><input type="text" /></td>
+			<td>Kiosk admin</td>
+			<td><input type="text" /></td>
+			<td>input</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Agent</td>
+			<td><input type="text" /></td>
+			<td>Agency</td>
+			<td><input type="text" /></td>
+			<td>Merchant group</td>
+			<td>
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Channel ID</td>
+			<td colspan="5">
+				<select>
+					<option>Click to select</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td colspan="6">
+				<input type="checkbox" /><label>Transactions created online</label>
+				<input type="checkbox" /><label>Transactions created in kiosks</label>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Type</td>
+			<td colspan="5">
+				<input type="checkbox" /><label>All deposits</label>
+				<input type="checkbox" /><label>Withdraws</label>
+				<input type="checkbox" /><label>Creadited deposits</label>
+				<input type="checkbox" /><label>Chargebacked deposits</label>
+				<input type="checkbox" /><label>Returned deposits</label>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Status</td>
+			<td colspan="5">
+				<input type="checkbox" /><label>Approved</label>
+				<input type="checkbox" /><label>Declined</label>
+				<input type="checkbox" /><label>Waiting</label>
+				<input type="checkbox" /><label>Issued</label>
+				<input type="checkbox" /><label>Authorized</label>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<label>APM</label><input type="checkbox" /><br />
+				<label>CC</label><input type="checkbox" />
+			</td>
+			<td colspan="5">
+				<input type="checkbox" /><label>AdvTransfer</label>
+				<input type="checkbox" /><label>AgencyCredit</label>
+				<input type="checkbox" /><label>Astropay-Securetrading</label>
+				<input type="checkbox" /><label>Bank payment</label>
+				<input type="checkbox" /><label>BankDeposit</label>
+				<input type="checkbox" /><label>Banklink</label>
+				<input type="checkbox" /><label>BD</label>
+				<input type="checkbox" /><label>BDExpress</label>
+				<input type="checkbox" /><label>Bet Shop Withdraw</label>
+				<input type="checkbox" /><label>Bonus</label>
+				<input type="checkbox" /><label>BonusDollar</label>
+				<input type="checkbox" /><label>Caixa Catalunya</label>
+				<input type="checkbox" /><label>CashDeposit</label>
+				<input type="checkbox" /><label>CC</label>
+				<input type="checkbox" /><label>Citadel Banking Payouts</label>
+				<input type="checkbox" /><label>Citadel Internet Banking</label>
+				<input type="checkbox" /><label>Click2Pay</label>
+				<input type="checkbox" /><label>ClickandBuy</label>
+				<input type="checkbox" /><label>Comps</label>
+				<input type="checkbox" /><label>Comps</label>
+				<input type="checkbox" /><label>Correction</label>
+				<input type="checkbox" /><label>DotpayviaAdyen</label>
+				<input type="checkbox" /><label>EcoCard</label>
+				<input type="checkbox" /><label>Electronic Bank Transfer</label>
+				<input type="checkbox" /><label>Evory</label>
+				<input type="checkbox" /><label>ExternalWallet</label>
+				<input type="checkbox" /><label>FundTransfer</label>
+				<input type="checkbox" /><label>GiropayViaSC</label>
+				<input type="checkbox" /><label>iDebit</label>
+				<input type="checkbox" /><label>IDS</label>
+				<input type="checkbox" /><label>InstantCash</label>
+				<input type="checkbox" /><label>InstantWT</label>
+				<input type="checkbox" /><label>Integration1</label>
+				<input type="checkbox" /><label>Intercash</label>
+				<input type="checkbox" /><label>Intercash prepaid</label>
+				<input type="checkbox" /><label>iPoint</label>
+				<input type="checkbox" /><label>MistercashviaAdyen</label>
+				<input type="checkbox" /><label>Moneta</label>
+				<input type="checkbox" /><label>Moneybookers</label>
+				<input type="checkbox" /><label>MoneyBookersViaSC</label>
+				<input type="checkbox" /><label>NETeller</label>
+				<input type="checkbox" /><label>NetellerviaSC</label>
+				<input type="checkbox" /><label>OLA</label>
+				<input type="checkbox" /><label>PaperCheck</label>
+				<input type="checkbox" /><label>PaperCheckExpress</label>
+				<input type="checkbox" /><label>Payforit-Dialogue</label>
+				<input type="checkbox" /><label>PaymerCheck</label>
+				<input type="checkbox" /><label>PayPal</label>
+				<input type="checkbox" /><label>PaySafeCard</label>
+				<input type="checkbox" /><label>PaysafecardDEviaSC</label>
+				<input type="checkbox" /><label>PaysafecardViaSC</label>
+				<input type="checkbox" /><label>PayUniq</label>
+				<input type="checkbox" /><label>PlayerTransfer</label>
+				<input type="checkbox" /><label>PokerBonus</label>
+				<input type="checkbox" /><label>PrePaidCard</label>
+				<input type="checkbox" /><label>PSCviaAdyen</label>
+				<input type="checkbox" /><label>PugglePay</label>
+				<input type="checkbox" /><label>QiwiViaAdyen</label>
+				<input type="checkbox" /><label>QIWlviaSC</label>
+				<input type="checkbox" /><label>Retail</label>
+				<input type="checkbox" /><label>Retail Deposit</label>
+				<input type="checkbox" /><label>Retail Withdraw</label>
+				<input type="checkbox" /><label>RetailWD</label>
+				<input type="checkbox" /><label>SaftypayviaAdyen</label>
+				<input type="checkbox" /><label>Societe Generale</label>
+				<input type="checkbox" /><label>SofortviaAdyen</label>
+				<input type="checkbox" /><label>SofortViaSC</label>
+				<input type="checkbox" /><label>SuomenViaAdyen</label>
+				<input type="checkbox" /><label>Ticket Surf</label>
+				<input type="checkbox" /><label>ToditoCash</label>
+				<input type="checkbox" /><label>Token</label>
+				<input type="checkbox" /><label>Transfer</label>
+				<input type="checkbox" /><label>Ukash</label>
+				<input type="checkbox" /><label>Univoucher</label>
+				<input type="checkbox" /><label>UseMyBank</label>
+				<input type="checkbox" /><label>VideobetVoucher</label>
+				<input type="checkbox" /><label>Webanq</label>
+				<input type="checkbox" /><label>WebMoney</label>
+				<input type="checkbox" /><label>Won token</label>
+				<input type="checkbox" /><label>WT</label>
+				<input type="checkbox" /><label>WU</label>
+				<input type="checkbox" /><label>American Express</label>
+				<input type="checkbox" /><label>Australian BankCard</label>
+				<input type="checkbox" /><label>Diners Club</label>
+				<input type="checkbox" /><label>Entropay</label>
+				<input type="checkbox" /><label>JCB</label>
+				<input type="checkbox" /><label>Laser</label>
+				<input type="checkbox" /><label>Maestro</label>
+				<input type="checkbox" /><label>MasterCard</label>
+				<input type="checkbox" /><label>Solo</label>
+				<input type="checkbox" /><label>Swiff</label>
+				<input type="checkbox" /><label>Switch</label>
+				<input type="checkbox" /><label>Visa</label>
+				<input type="checkbox" /><label>Visa Delta</label>
+				<input type="checkbox" /><label>Visa Electron</label>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Correction type</td>
+			<td colspan="5">
+				<input type="checkbox" /><label>Upon bonus</label>
+				<input type="checkbox" /><label>Upon real</label>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Automatic billing</td>
+			<td colspan="5">
+				<input type="checkbox" /><label>Yes</label>
+				<input type="checkbox" /><label>No</label>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Initial wallet communication failed</td>
+			<td colspan="5">
+				<input type="checkbox" /><input type="button" value="i" />
+			</td>
+		</tr>
+		<tr>
+			<td>Sort by</td>
+			<td colspan="6">
+				<input type="radio" /><label>Date</label>
+				<input type="radio" /><label>Username</label>
+				<input type="radio" /><label>Full name</label>
+				<input type="radio" /><label>Amount</label>
+				<input type="radio" /><label>Method</label>
+				<input type="radio" /><label>PM Risk Group</label>
+				<input type="radio" /><label>Channel ID</label>
+				<input type="radio" /><label>In descending order</label>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+				<input type="button" value="Show transactions" />
+				<input type="button" value="Export" />
+				<input type="checkbox" /><label>Use amount colors</label>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
