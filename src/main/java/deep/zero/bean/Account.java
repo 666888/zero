@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class Account {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Long id;//账户Id
 	private Long name;//将来存放gameid 玩家进入某个游戏的账户
 	private Long playerId;
 	private Boolean isFreezen;

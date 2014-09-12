@@ -31,17 +31,18 @@ public class Balance {
 	//转款时间
 	private	Date transferTime;
 	//
-	private BigDecimal	amount;
+	private String	transType;
 	//备注
 	private String	remark;
+	//目标或者来源
+		private Long accId;
 	public Long getAccId() {
 		return accId;
 	}
 	public void setAccId(Long accId) {
 		this.accId = accId;
 	}
-	//目标或者来源
-	private Long accId;
+	
 	
 	public Long getPlayerId() {
 		return playerId;
@@ -61,11 +62,12 @@ public class Balance {
 	public void setTransferTime(Date transferTime) {
 		this.transferTime = transferTime;
 	}
-	public BigDecimal getAmount() {
-		return amount;
+	
+	public String getTransType() {
+		return transType;
 	}
-	public void setAmount(BigDecimal amount) {
-		this.amount = amount;
+	public void setTransType(String transType) {
+		this.transType = transType;
 	}
 	public String getRemark() {
 		return remark;

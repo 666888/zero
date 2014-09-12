@@ -30,5 +30,7 @@ public interface AccountSvc {
 //	通过玩家查询账户列表
 	public List<Account> getAccountByPlayer(Long playerId);
 	 
+//	通过玩家查询指定账户
+	public Account getAccountByPlayerIdAndName(Long playerId,Long name);
 
 }
