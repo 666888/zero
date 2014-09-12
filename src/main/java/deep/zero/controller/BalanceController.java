@@ -53,7 +53,7 @@ public class BalanceController {
 		Player player=playerSvc.getByAccount(nickname);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
 		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId());
-//		Balance balanceNew=new Balance();
+//		Balance balanceNew=new Balance(); 
 		
 		balance.setPlayerId(player.getId());
 		balance.setAccId(account.getId());
