@@ -28,7 +28,8 @@ public class BalanceSvcImpl implements BalanceSvc{
 //		br.save(balance);
 //	}
 //	从银行到账户
-	public void BankToAccount(Balance balance){
+	public void BankToAccount(Balance balance,String accountId){
+//		调银联接口=========================================
 		br.save(balance);
 	}
 	
@@ -50,6 +51,15 @@ public class BalanceSvcImpl implements BalanceSvc{
 //	总余额
 	public BigDecimal ALLAcount(Long playerId){
 		return br.ALLAcount(playerId);
+	}
+//	明细
+	public List<Balance> getListAccount(){
+		return null;
+	}
+//提现
+	public void AccountToBank(Balance balance,String accountId) {
+//		调银联接口=========================================
+		br.save(balance);
 	}
 	
 }

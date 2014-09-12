@@ -39,5 +39,9 @@ public class AccountSvcImpl implements AccountSvc{
 		// TODO Auto-generated method stub
 		return ar.getAccountByPlayer(playerId);
 	}
+//	通过玩家查询指定账户
+	public Account getAccountByPlayerIdAndName(Long playerId, Long name) {
+		return ar.getAccountByPlayerIdAndName(playerId,name);
+	}
 	
 }

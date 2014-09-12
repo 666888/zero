@@ -15,7 +15,7 @@ import deep.zero.bean.Balance;
 public interface BalanceSvc  {
 	
 //	银行到账户
-	public void BankToAccount(Balance balance);
+	public void BankToAccount(Balance balance,String accountId);
 //	free账户到G账户或是G账户到free账户	
 	public void add(Balance fromBalance,Balance toBalance);
 	
@@ -24,5 +24,8 @@ public interface BalanceSvc  {
 	
 //	总余额
 	public BigDecimal ALLAcount(Long playerId);
+	
+//	从账户到卡上
+	public void AccountToBank(Balance balance,String accountId);
 	
 }
