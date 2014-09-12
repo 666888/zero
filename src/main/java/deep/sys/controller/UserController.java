@@ -1,5 +1,7 @@
 package deep.sys.controller;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -20,7 +22,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import deep.sys.bean.Role;
 import deep.sys.bean.User;
+import deep.sys.svc.RoleSvc;
 import deep.sys.svc.UserSvc;
 import deep.web.OnlineListener;
 
@@ -30,10 +34,12 @@ public class UserController {
 	
 	@Autowired
 	UserSvc us ;
-	
+	@Autowired
+	RoleSvc rs ;
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public String list(Model model){
 		model.addAttribute("users",us.getAll());
+		model.addAttribute("roles", rs.getAll());
 		return "user/list";
 	}
 
@@ -82,7 +88,7 @@ public class UserController {
 		if(br.hasErrors())
 			return "user/add";
 		us.modiUser(user);
-		return "redirect:/user/list";
+		return "redirect:/gm/list";
 	}
 	
 	@RequestMapping(value="/modiPswd",method=RequestMethod.GET)
@@ -108,10 +114,60 @@ public class UserController {
 		return "user/player_manage";
 	}
 	
+	@RequestMapping(value="/template_tools",method=RequestMethod.GET)
+	public String template_tools(){
+		return "user/template_tools";
+	}
+	
+	@RequestMapping(value="/system_manage",method=RequestMethod.GET)
+	public String system_manage(){
+		return "user/system_manage";
+	}
+	
+	@RequestMapping(value="/products",method=RequestMethod.GET)
+	public String products(){
+		return "user/products";
+	}
+	
+	@RequestMapping(value="/payments",method=RequestMethod.GET)
+	public String payments(){
+		return "user/payments";
+	}
+	
+	@RequestMapping(value="/risk_manage",method=RequestMethod.GET)
+	public String risk_manage(){
+		return "user/risk_manage";
+	}
+	
+	@RequestMapping(value="/monitor_report",method=RequestMethod.GET)
+	public String monitor_report(){
+		return "user/monitor_report";
+	}
+	
+	@RequestMapping(value="/userManager",method=RequestMethod.GET)
+	public String userManager(Model model){
+		model.addAttribute("users", us.getAll());
+
+		return "user/user_manage";
+	}
+	
+	
 	@RequestMapping(value="/playerOnline",method=RequestMethod.GET)
 	public String playerOnline(Model model){
 		model.addAttribute("map", new OnlineListener().getOnlinePlayer());
 		return "user/player_manage/player_online";
+	}
+	
+	@RequestMapping(value="/modifyRole.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public String modifyRole(Long id,Long role){
+		System.out.println(id+role);
+		User u = us.get(id);
+		Set s = new HashSet();
+		s.add(rs.getOne(role));
+		u.setRoles(s);
+		us.addUser(u);
+		return "{a:45}";
 	}
 	//提出用户
 	@RequestMapping(value="/kick",method=RequestMethod.GET)

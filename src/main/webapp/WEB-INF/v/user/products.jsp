@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>payments</title>
+<title>products</title>
 <style type="text/css">
 	* { margin: 0px; padding: 0px;}
 	li { list-style: none;}
@@ -14,6 +16,6 @@
 </head>
 
 <body>
-	这是payments页面
+	这是products页面
 </body>
 </html>

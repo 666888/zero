@@ -17,4 +17,13 @@ public class RoleSvc implements IRoleSvc{
 		roleRepo.save(role);		
 	}
 	
+	public List<Role> getAll() {
+		// TODO Auto-generated method stub		
+		return roleRepo.findAll();
+	}
+	
+	public Role getOne(Long id) {
+		// TODO Auto-generated method stub		
+		return roleRepo.findOne(id);
+	}
 }

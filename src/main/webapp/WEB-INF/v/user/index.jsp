@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -93,12 +95,16 @@
 	<div id="con">
 		<ul id="con_nav">
 			<li><a href="/gm/playerManager" target="win_bottom">Player Management</a></li>
-			<li><a href="/gm/add" target="win_bottom">Template Tools</a></li>
-			<li><a href="system_manage.html" target="win_bottom">System Management</a></li>
-			<li><a href="payments.html" target="win_bottom">Payments</a></li>
-			<li><a href="products.html" target="win_bottom">Products</a></li>
-			<li><a href="risk_manage.html" target="win_bottom">Risk Management</a></li>
-			<li><a href="monitor_report.html" target="win_bottom">Monitoring & Reporting</a></li>
+			<li><a href="/gm/template_tools" target="win_bottom">Template Tools</a></li>
+			<li><a href="/gm/system_manage" target="win_bottom">System Management</a></li>
+			<li><a href="/gm/payments" target="win_bottom">Payments</a></li>
+			<li><a href="/gm/products" target="win_bottom">Products</a></li>
+			<li><a href="/gm/risk_manage" target="win_bottom">Risk Management</a></li>
+			<shiro:hasPermission name="user:find">  			
+			<li><a href="/gm/monitor_report" target="win_bottom">Monitoring & Reporting</a></li>
+			</shiro:hasPermission>		
+			<li><a href="/gm/userManager" target="win_bottom">User Management</a></li>
+			
 		</ul>
 		<iframe id="con_iframe" src="/gm/playerManager" name="win_bottom" frameborder="0" style="width: 100%; background: #fff;"></iframe>
 	</div>
