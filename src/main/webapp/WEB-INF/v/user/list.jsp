@@ -62,19 +62,8 @@
 	function modifyRole(id){
 		var id = id;
 		var role = $("#sel_" + id).val();
-		$.ajax({ 
-			type:"post",
-			url:"/gm/modifyRole.ajax",
-			dataType:"json",
-			data:{id:id,role:role},
-			success:function(data, textStatus){
-				alert("a");
-				alert(data.a)
-			},
-			error:function(xhr) {
-				console.log(xhr);
-			}
-		});
+		$.post("/gm/modifyRole.ajax",{id:id,role:role},function(data,textStatus){console.log(textStatus);console.log(data)},"json");
+				
 	}
 	
 
