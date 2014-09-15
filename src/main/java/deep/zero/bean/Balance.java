@@ -24,18 +24,18 @@ public class Balance {
 	private Long id;  
 	
 	private Long playerId;
-	
+	//转入金额
 	private BigDecimal	add;
-
+	//转出金额
 	private BigDecimal rolloff;
 	//转款时间
 	private	Date transferTime;
-	//
+	//交易类型
 	private String	transType;
 	//备注
 	private String	remark;
 	//目标或者来源
-		private Long accId;
+	private Long accId;
 	public Long getAccId() {
 		return accId;
 	}
