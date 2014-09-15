@@ -26,13 +26,13 @@ public interface BalanceRepo extends AddRepository<Balance,Long>{
 	 */
 	List<Balance> findAll();
 //	查找玩家游戏账户
-	@Query(value="select  sum(b.add)-sum(b.rolloff) from  Balance b where b.playerId =?1 and b.accId=?2 ")
+	@Query(value="select  sum(b.recharge)-sum(b.rolloff) from  Balance b where b.playerId =?1 and b.accId=?2 ")
 	BigDecimal freeAccount(Long playerId,Long accId);
 	
 //	@Query(value="select  sum(b.add)-sum(b.rolloff) from  Balance b where b.playerId =?1 and b.accId=?2")
 //	BigDecimal GAccount(Long playerId, Long accId);
 //	查找玩家主账户
-	@Query(value="select  sum(b.add)-sum(b.rolloff) from  Balance b where b.playerId =?1 ")
+	@Query(value="select  sum(b.recharge)-sum(b.rolloff) from  Balance b where b.playerId =?1 ")
 	BigDecimal ALLAcount(Long playerId);
 	
 	

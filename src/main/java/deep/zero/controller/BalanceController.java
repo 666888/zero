@@ -2,6 +2,7 @@ package deep.zero.controller;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +25,7 @@ import deep.zero.svc.BalanceSvc;
 import deep.zero.svc.PlayerSvcImpl;
 
 @Controller
-@RequestMapping("/player")
+@RequestMapping("/p")
 public class BalanceController {
 	@Autowired
 	private BalanceSvc balanceSvc;
@@ -39,9 +40,11 @@ public class BalanceController {
 	 * @return
 	 */
 	@RequestMapping(value="/addAccount",method=RequestMethod.GET)
-	public String addAccount(Model model){
+	public String addAccount(Model model,HttpServletRequest req){
 		Balance balance = new Balance();
 		model.addAttribute("balance", balance);
+		model.addAttribute("pName", (String)req.getSession().getAttribute("p_name"));
+		System.out.println((String)req.getSession().getAttribute("p_name"));
 		return "player/addBalance";
 	}
 	@RequestMapping(value="/addAccount",method=RequestMethod.POST)
@@ -53,13 +56,22 @@ public class BalanceController {
 		Player player=playerSvc.getByAccount(nickname);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
 		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId());
-//		Balance balanceNew=new Balance(); 
+		Balance balanceNew=new Balance(); 
+		balanceNew.setRecharge(balance.getRecharge());
+		//balanceNew.setRolloff(balance.getRecharge());
+		balanceNew.setPlayerId(player.getId());
+		balanceNew.setAccId(account.getId());
+		balanceNew.setTransferTime(new Date());
+		balanceNew.setTransType(Constants.transType[0]);
+		balanceSvc.BankToAccount(balanceNew,accountId);
+		System.out.println(balanceSvc.ALLAcount(player.getId()));
+//		List<Balance> list = balanceSvc.findAll();
+//		for (Balance b : list) {
+//			System.out.println(b.getRecharge());
+//		}
+		///Iterator it = list.iterator();
+		//while(it.hasNext())
 		
-		balance.setPlayerId(player.getId());
-		balance.setAccId(account.getId());
-		balance.setTransferTime(new Date());
-		balance.setTransType(Constants.transType[0]);
-		balanceSvc.BankToAccount(balance,accountId);
 		return "player/addBalance";
 	}
 	/**
@@ -92,7 +104,7 @@ public class BalanceController {
 		fromBalance.setTransType(Constants.transType[4]);
 		//转出
 		toBalance.setAccId(Long.valueOf(gAccount));
-		toBalance.setAdd(balance.getAdd());
+		toBalance.setRecharge(balance.getRecharge());
 		toBalance.setPlayerId(player.getId());
 		toBalance.setRemark(balance.getRemark());
 		toBalance.setTransferTime(new Date());

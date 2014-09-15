@@ -57,7 +57,7 @@
 				commandName="loginDetails">
 				<h2>Login</h2>
 				<p><sf:input type="text" path="code" placeholder="登录号" /></p>
-				<p><sf:input type="password" path="password" placeholder="密码" /></p>
+				<p><sf:password path="password" placeholder="密码" /></p>
 				<p style="margin:0px; padding-left: 30px;">
 					<font color="red"><sf:errors path="userName" /><sf:errors path="password" /><sf:errors />
 					</font>

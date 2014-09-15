@@ -27,5 +27,7 @@ public interface BalanceSvc  {
 	
 //	从账户到卡上
 	public void AccountToBank(Balance balance,String accountId);
-	
+
+	//查询所有
+	public List<Balance> findAll();
 }

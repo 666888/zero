@@ -3,6 +3,7 @@ package deep.zero.bean;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,10 +25,15 @@ public class Balance {
 	private Long id;  
 	
 	private Long playerId;
+
+	
+	
+	
+
 	//转入金额
-	private BigDecimal	add;
+	private BigDecimal	recharge = new BigDecimal(0.00);
 	//转出金额
-	private BigDecimal rolloff;
+	private BigDecimal rolloff = new BigDecimal(0.00);
 	//转款时间
 	private	Date transferTime;
 	//交易类型
@@ -75,12 +81,14 @@ public class Balance {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	public BigDecimal getAdd() {
-		return add;
+	
+	public BigDecimal getRecharge() {
+		return recharge;
 	}
-	public void setAdd(BigDecimal add) {
-		this.add = add;
+	public void setRecharge(BigDecimal recharge) {
+		this.recharge = recharge;
 	}
+	
 	public BigDecimal getRolloff() {
 		return rolloff;
 	}

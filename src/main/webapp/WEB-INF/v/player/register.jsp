@@ -18,6 +18,7 @@
 <link href="/static/css/player/regist/reset.css" type="text/css" rel="stylesheet">
 <link href="/static/css/player/regist/style.css" type="text/css" rel="stylesheet">
 <link href="/static/css/player/regist/login.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="/static/js/jquery-1.8.0.min.js"></script>
 </head><body>
 <noscript>您的浏览器不支持JS，将无法看到通过JS实现的效果</noscript>
 <div class="wrap">
@@ -47,11 +48,18 @@
 						<div id="passtip" class="errtips"></div>
 						<div class="yxform_in">
 							<i class="ipwd"></i>
-							<sf:input class="ipt" maxlength="20" placeholder="密码" path="password" /><sf:errors path="nickname" />
+							<sf:password id="ps" class="ipt" maxlength="20" placeholder="密码" path="password" /><sf:errors path="nickname" />
 							<div class="ipt_txt">密码</div>
 							<i class="iclose" style="display:none;"></i>
 						</div>
 						<i class="iright" style="display:none"></i>
+					</li>
+					
+					<li>												
+						<div class="yxform_in">
+							<i class="ipwd"></i>
+							<sf:password class="ipt" maxlength="20" placeholder="确认密码" path="password" onBlur="che(this);"/>														
+						</div>						
 					</li>
 					<!-- 
 					<li>
@@ -98,6 +106,17 @@
 <p>Copyright 2014 subic888.com 版权所有 2014版权所有subic.com<br />在菲律宾注册并遵守菲律宾法律
 </p>
 </footer>
+<script type="text/javascript">
+    function che(v){
+    	if($("#ps").val() != v.value){
+    		alert("密码不一致，请重新输入！");
+    	}
+    	else{
+    		return;
+    	}
+    }
+    
+</script>
 </body>
 </html>
 

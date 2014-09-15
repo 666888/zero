@@ -49,7 +49,7 @@
 								<li>
 									<div class="yxform_in">
 										<i class="ipwd"></i>
-										<sf:input  path="password" placeholder="密码" maxlength="20" class="ipt"/><sf:errors path="nickname" />
+										<sf:password  path="password" placeholder="密码" maxlength="20" class="ipt"/><sf:errors path="nickname" />
 									</div>
 								</li>
 								<li class="login_err" style="display:block">

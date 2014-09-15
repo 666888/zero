@@ -29,6 +29,7 @@ public class TemplateDB {
 	
 	
 	public static void init(UserSvc svc,RoleSvc rs,PermissionSvc ps){	
+		/*
 		List<User> u  = new ArrayList<User>();
 		List<Role> r  = new ArrayList<Role>();
 		List<Permission> p  = new ArrayList<Permission>();
@@ -89,9 +90,12 @@ public class TemplateDB {
 		ps.save(p);
 		rs.save(r);
 		svc.add(u);
+		*/
 	}
 	
+	
 	public static void init(PlayerSvcImpl ps){		
+		/*
 		Player player = new Player();
 		player.setCode("123456");
 		player.setPassword("555555");
@@ -99,6 +103,7 @@ public class TemplateDB {
 		player.setUsername("player");
 		player.setRegTime(new Date());
 		ps.addPlayer(player);
-		
+		*/
 	}
+	
 }

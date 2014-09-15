@@ -61,5 +61,8 @@ public class BalanceSvcImpl implements BalanceSvc{
 //		调银联接口=========================================
 		br.save(balance);
 	}
-	
+	//查询所有
+	public List<Balance> findAll(){
+		return br.findAll();
+	}
 }

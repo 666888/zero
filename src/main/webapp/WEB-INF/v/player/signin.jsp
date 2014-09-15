@@ -47,7 +47,7 @@
 						<div id="passtip" class="errtips"></div>
 						<div class="yxform_in">
 							<i class="ipwd"></i>
-							<sf:input class="ipt" maxlength="20" placeholder="密码" path="password" /><sf:errors path="nickname" />
+							<sf:password class="ipt" maxlength="20" placeholder="密码" path="password" /><sf:errors path="nickname" />
 							<div class="ipt_txt">密码</div>
 							<i class="iclose" style="display:none;"></i>
 						</div>
