@@ -25,7 +25,7 @@ public class Balance {
 	
 	private Long playerId;
 	
-	private BigDecimal	add;
+	private BigDecimal	recharge;
 
 	private BigDecimal rolloff;
 	//转款时间
@@ -75,11 +75,12 @@ public class Balance {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	public BigDecimal getAdd() {
-		return add;
+	
+	public BigDecimal getRecharge() {
+		return recharge;
 	}
-	public void setAdd(BigDecimal add) {
-		this.add = add;
+	public void setRecharge(BigDecimal recharge) {
+		this.recharge = recharge;
 	}
 	public BigDecimal getRolloff() {
 		return rolloff;
