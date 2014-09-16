@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<sf:form method="post" modelAttribute="user" >
+<sf:form action="/gm/add" method="post" modelAttribute="user" >
 	编&nbsp;&nbsp;号:<sf:input path="code"/><sf:errors path="code" /><br/>
 	用户名:<sf:input path="userName"/><sf:errors path="userName"/><br/>
 	密&nbsp;&nbsp;码:<sf:password path="password"/><sf:errors path="password"/><br/>
