@@ -50,17 +50,17 @@
 						<div id="change_drop" class="user_box" style="z-index: 999">
 							<span> <i class="user_p"> <img width="25" height="25"
 									src="http://p1.yx-s.com/detphoto.jpg">
-							</i> <a class="username" href="http://u.youxi.com/account/index"><%= request.getAttribute("pName")%></a>
+							</i> <a class="username" href="/p/message"><%= request.getAttribute("pName")%></a>
 								<span class="triangle" style="cursor: pointer" onmouseover="onover()" onmouseout= "onout()"></span>
 							</span>
 							<div id="t_drop" class="tools_box"
 								style="z-index: 999; display: none;">
 								<ul>
-									<li><a href="http://u.youxi.com/account/info"
+									<li><a href="/p/message"
 										target="_blank"> <i class="acc_infro"></i> 帐号资料
 									</a></li>
-									<li><a href="http://u.youxi.com/account/index" target="_blank"><i class="mode_code"></i>修改密码</a></li>
-									<li><a href="http://u.youxi.com/account/index" target="_blank"><i class="sec_set"></i>安全设置</a></li>
+									<li><a href="/p/message" target="_blank"><i class="mode_code"></i>修改密码</a></li>
+									<!-- <li><a href="#" target="_blank"><i class="sec_set"></i>安全设置</a></li>  -->
 								</ul>
 							</div>
 						</div>

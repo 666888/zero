@@ -232,7 +232,7 @@ $("#btn-repass").click(function(){
 	var nw = $("input[name='repass_new']").val();
 	$.ajax({ 
 			type:"post",
-			url:"p/modiPswd.ajax",
+			url:"/p/modiPswd.ajax",
 			dataType:"json",
 			data:{nickname:nickname,old:old,nw:nw},
 			success:function(data, textStatus){

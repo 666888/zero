@@ -57,6 +57,13 @@ public class PlayerController {
 		return "redirect:/player/list";
 	}
 	
+	@RequestMapping(value="/message",method=RequestMethod.GET)
+	public String message(Model model,HttpServletRequest req){
+		String pName = (String)req.getSession().getAttribute("p_name");
+		model.addAttribute("pName",pName);
+		return "player/message";
+	}
+	
 	@RequestMapping(value="/modiPswd",method=RequestMethod.GET)
 	public String password(){		
 		return "player/addBalance";
