@@ -59,7 +59,7 @@
 									<li><a href="/p/message"
 										target="_blank"> <i class="acc_infro"></i> 帐号资料
 									</a></li>
-									<li><a href="/p/message" target="_blank"><i class="mode_code"></i>修改密码</a></li>
+									<li><a href="/p/message?flag=upd_flag" target="_blank"><i class="mode_code"></i>修改密码</a></li>
 									<!-- <li><a href="#" target="_blank"><i class="sec_set"></i>安全设置</a></li>  -->
 								</ul>
 							</div>
