@@ -44,7 +44,7 @@ public class BalanceController {
 		Balance balance = new Balance();
 		model.addAttribute("balance", balance);
 		model.addAttribute("pName", (String)req.getSession().getAttribute("p_name"));
-		 System.out.println((String)req.getSession().getAttribute("p_name"));
+		System.out.println((String)req.getSession().getAttribute("p_name"));
 		return "player/addBalance";
 	}
 	@RequestMapping(value="/addAccount",method=RequestMethod.POST)
