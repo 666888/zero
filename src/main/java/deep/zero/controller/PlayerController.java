@@ -31,7 +31,6 @@ public class PlayerController {
 	@Autowired
 	private PlayerSvcImpl playerSvc;
 	
-	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public String show(@PathVariable Long id,Model model){
 		model.addAttribute(playerSvc.get(id));
@@ -55,6 +54,16 @@ public class PlayerController {
 			return "player/update";
 		playerSvc.modiPlayer(player);
 		return "redirect:/player/list";
+	}
+	
+	@RequestMapping(value="/message",method=RequestMethod.GET)
+	public String message(Model model,HttpServletRequest req){
+		String pName = (String)req.getSession().getAttribute("p_name");
+		model.addAttribute("pName",pName);
+		if (req.getParameter("flag") != null) {
+			model.addAttribute("upd_flag", "upd");
+		}
+		return "player/message";
 	}
 	
 	@RequestMapping(value="/modiPswd",method=RequestMethod.GET)

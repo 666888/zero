@@ -107,6 +107,6 @@ public class SignController {
 		playerSvc.addPlayer(player);
 		//model.addAttribute("player", new Player());
 		model.addAttribute("pName",player.getNickname());
-		return "player/account";
+		return "player/message";
 	}
 }
