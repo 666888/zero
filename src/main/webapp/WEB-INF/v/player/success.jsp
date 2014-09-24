@@ -21,8 +21,6 @@
 <link href="/static/css/player/index.css" rel="stylesheet" type="text/css" />
 <script type= "text/javascript" src = "/static/js/jquery-1.10.2.min.js"></script>
 <script type = "text/javascript">
-    $(".triangle").hover(function(){alert("鼠标移入我啦");},function(){alert("鼠标移出我啦!");});
-    $("#a").hover(function(){alert("鼠标移入我啦");},function(){alert("鼠标移出我啦!");});
     function onover(){
     	var a = document.getElementById("t_drop");
     	a.style.display = "block";
@@ -64,14 +62,16 @@
 								</ul>
 							</div>
 						</div>
+						
 						<div class="msg_box">
 							<a target="_blank"
-								href="http://bbs.youxi.com/home.php?mod=space&do=pm"> <i></i>
+								href="javascript:void(0)"> <i></i>
 								消息
 							</a> <a class="total_msg" style="display: none;"
-								href="http://bbs.youxi.com/home.php?mod=space&do=pm"> <span></span>
+								href="javascript:void(0)"> <span></span>
 							</a>
 						</div>
+						 
 						<div class="exit_box">
 							<a href="logout"> <i></i> 退出
 							</a>

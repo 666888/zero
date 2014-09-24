@@ -13,7 +13,7 @@
 <%@ page import ="deep.zero.bean.Player" %>
 <% 
 Map<String,Player> map=new HashMap<String,Player>(); 
-map=OnlineListener.getOnlinePlayer(); 
+map=new OnlineListener().getOnlinePlayer(); 
 out.println(""+ 
 "目前系统总共有 "+(OnlineListener.getOnlineGuest()+map.size())+" 人在线,其中注册用户 "+map.size()+" 人,游客 "+ 
 OnlineListener.getOnlineGuest()+" 人"); 
