@@ -11,6 +11,14 @@
 <script type="text/javascript" src="/static/js/player/account/swfobject.js"></script>
 <script type="text/javascript" src="/static/js/player/account/jquery.js"></script>
 <script type="text/javascript" src="/static/js/player/account/common.js"></script>
+<script type="text/javascript">
+$(function() {
+	if ($("#upd_flag").val() == "upd") {
+		$("#psw").show();
+		$(window).scrollTop($(document).height() - $(window).height());
+	}
+});
+</script>
 <!--[if IE 6]>
 <script src="http://s1.yx-s.com/js/iepng.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -19,7 +27,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
         <![endif]-->
     </head>
 
-    <body>
+    <body><input type="hidden" id="upd_flag" value="${upd_flag}" />
         <div class="top-box">
             <div class="wraper">
                 <div class="reg-h-box">
@@ -232,7 +240,7 @@ $("#btn-repass").click(function(){
 	var nw = $("input[name='repass_new']").val();
 	$.ajax({ 
 			type:"post",
-			url:"p/modiPswd.ajax",
+			url:"/p/modiPswd.ajax",
 			dataType:"json",
 			data:{nickname:nickname,old:old,nw:nw},
 			success:function(data, textStatus){

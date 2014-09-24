@@ -58,7 +58,7 @@
 					<li>												
 						<div class="yxform_in">
 							<i class="ipwd"></i>
-							<sf:password class="ipt" maxlength="20" placeholder="确认密码" path="password" onBlur="che(this);"/>														
+							<input type = "password" class="ipt" maxlength="20" placeholder="确认密码"  onBlur="che(this);"/>														
 						</div>						
 					</li>
 					<!-- 

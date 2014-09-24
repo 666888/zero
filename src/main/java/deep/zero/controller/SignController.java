@@ -1,5 +1,7 @@
 package deep.zero.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -101,9 +103,10 @@ public class SignController {
 	public String regist(@ModelAttribute Player player,Model model,BindingResult br){
 		player.setCode("55");
 		player.setUsername("xiaoming");
+		player.setRegTime(new Date());
 		playerSvc.addPlayer(player);
 		//model.addAttribute("player", new Player());
 		model.addAttribute("pName",player.getNickname());
-		return "player/account";
+		return "player/message";
 	}
 }

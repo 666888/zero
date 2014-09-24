@@ -36,10 +36,11 @@
 						<div id="usernametip" class="errtips"></div>
 						<div class="yxform_in">
 							<i class="iuser"></i>
-							<sf:input class="ipt" maxlength="20" placeholder="登录名" path="nickname" /><sf:errors path="nickname" />
+							<sf:input class="ipt" maxlength="20" placeholder="登录名" path="nickname" />
 							<div class="ipt_txt">登录名</div>
 							<i class="iclose" style=""></i>
 						</div>
+						<sf:errors path="nickname" />
 						<i class="iright" style="display:none"></i>
 					</li>
 					<li>
@@ -47,10 +48,11 @@
 						<div id="passtip" class="errtips"></div>
 						<div class="yxform_in">
 							<i class="ipwd"></i>
-							<sf:password class="ipt" maxlength="20" placeholder="密码" path="password" /><sf:errors path="nickname" />
+							<sf:password class="ipt" maxlength="20" placeholder="密码" path="password" />
 							<div class="ipt_txt">密码</div>
 							<i class="iclose" style="display:none;"></i>
 						</div>
+						<sf:errors path="password" />
 						<i class="iright" style="display:none"></i>
 					</li>
 					<!-- 
