@@ -76,7 +76,7 @@ public class UserController {
 			return "user/add";
 		}
 		us.addUser(user);
-		return "redirect:/user/list";
+		return "redirect:/gm/list";
 	}
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)

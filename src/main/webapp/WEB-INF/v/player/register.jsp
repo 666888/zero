@@ -31,7 +31,7 @@
             <div id='user_reg'>
 				
 				<div id="y-reg" class="yxlogin_conn" style="">
-				<sf:form method="post" action = "/signup" modelAttribute="player">
+				<sf:form method="post" action = "/signup" modelAttribute="player" onsubmit="return che();">
 				<ul>
 					<li>
 						<div id="usernametip" class="errtips"></div>
@@ -58,7 +58,7 @@
 					<li>												
 						<div class="yxform_in">
 							<i class="ipwd"></i>
-							<input type = "password" class="ipt" maxlength="20" placeholder="确认密码"  onBlur="che(this);"/>														
+							<input type = "password" id = "pss" class="ipt" maxlength="20" placeholder="确认密码" onBlur="che();"/>														
 						</div>						
 					</li>
 					<!-- 
@@ -92,7 +92,7 @@
 				<div class="yxlogin_read">
 					<input id="checkread" class="ick" type="checkbox" checked="" name="checkread" value="">
 						我已阅读并同意 subic888.com
-					<a target="_blank" href="http://u.youxi.com/index/regdoc">《用户协议》</a>
+					<a target="_blank" href="#">《用户协议》</a>
 				</div>
 				<input type="submit" class="yxlogin_btn submit_reg yxreg_btn" value="注册">
 				</sf:form>
@@ -107,15 +107,17 @@
 </p>
 </footer>
 <script type="text/javascript">
-    function che(v){
-    	if($("#ps").val() != v.value){
+    function che(){
+    	if($("#ps").val() != $("#pss").val()){
     		alert("密码不一致，请重新输入！");
+    		return false; 
     	}
     	else{
-    		return;
+    		return true;
     	}
     }
     
+    	  
 </script>
 </body>
 </html>

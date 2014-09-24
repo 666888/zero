@@ -58,9 +58,11 @@
 							</ul>
 							<input type="submit" class="yxlogin_btn submit_login" value="登录">
 							</sf:form>
+							<!-- 
 							<div class="yxlogin_fgt">
 								<a target="_blank" href="http://u.youxi.com/forget">忘记密码?</a>
 							</div>
+							 -->
 						</div>
                     
                 </div>

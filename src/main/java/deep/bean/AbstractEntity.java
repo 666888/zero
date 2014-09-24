@@ -15,7 +15,7 @@ import javax.persistence.MappedSuperclass;
 public class AbstractEntity  {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private final Long id;
+	private  Long id;
 
 	protected AbstractEntity(){
 		this.id=null;

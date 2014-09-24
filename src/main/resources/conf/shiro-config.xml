@@ -27,7 +27,8 @@
 		<property name="filterChainDefinitions">
 			<value>
 			    /gm/signin = anon
-			    /gm/signup = anon					
+			    /gm/signup = anon	
+			    /gm/Init = anon					
 				/gm/* = authc
 			</value>
 		</property>

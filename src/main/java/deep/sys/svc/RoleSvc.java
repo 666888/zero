@@ -14,7 +14,7 @@ public class RoleSvc implements IRoleSvc{
 
 	public void save(List<Role> role) {
 		// TODO Auto-generated method stub		
-		roleRepo.save(role);		
+		roleRepo.save(role);	
 	}
 	
 	public List<Role> getAll() {

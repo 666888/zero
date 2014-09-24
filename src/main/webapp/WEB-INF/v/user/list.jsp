@@ -62,7 +62,7 @@
 	function modifyRole(id){
 		var id = id;
 		var role = $("#sel_" + id).val();
-		$.post("/gm/modifyRole.ajax",{id:id,role:role},function(data,textStatus){console.log(textStatus);console.log(data)},"json");
+		$.post("/gm/modifyRole.ajax",{id:id,role:role},function(data,textStatus){if(textStatus=="success"){alert("授权成功");window.location.reload();}},"json");
 				
 	}
 	

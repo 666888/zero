@@ -68,12 +68,12 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
         <div class="h-r-b">右下</div>
                 <img src="http://p1.yx-s.com/detphoto.jpg" width="142px" height="142px" />
                 <div class="xg-box" style="display: none;">透明层，无内容</div>
-        <a href="/ucinfo" class="tm-a" style="display: none;">修改</a>
+        <a href="/#" class="tm-a" style="display: none;">修改</a>
     </div>
     <div class="f-left ren-m">
         <h4 class="name dis" ><%= request.getAttribute("pName")%></h4>
-        <a href="/ucinfo">修改</a>
-        <div class="myyhq"><a href="/mycoupons" target="_blank">我的优惠券<i></i></a></div>
+        <a href="javascript:void(0)">修改</a>
+        <div class="myyhq"><a href="javascript:void(0)" target="_blank">我的优惠券<i></i></a></div>
         <div><em class="txt-hui">个人信息完整度:</em>
             <div class="jindu1 dis">
                 <div class="jd-1">
@@ -86,7 +86,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
                                             </ul>
                 </div>
             </div>
-            <a href="/ucinfo" class="m-r-10">完善个人资料</a>
+            <a href="javascript:void(0)" class="m-r-10">完善个人资料</a>
         </div>
     </div>
 </div>
@@ -101,7 +101,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
                         <a href="javascript:;" class="c-btn btn-jian-on">收缩按钮</a>
                         <div class="clearfix box-title">
                 <div class="f-right shm r-content">
-                    <a href="javascript:void(0)" onclick="openitem(this);" >设置保密邮箱</a>
+                    <a href="javascript:void(0)" onclick="openite(this);" >设置保密邮箱</a>
                 </div>
                 <div class="f-right shm r-step"><em class="txt-orange m-r-10 mail-step1">①填写邮箱</em><em class="txt-hui mail-step2">②前往邮箱并激活</em></div>
                 <div class="f-left">
@@ -146,7 +146,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
                         <a href="javascript:;" class="c-btn">收缩按钮</a>
                         <div class="clearfix box-title">
                 <div class="f-right shm r-content">
-                    <a href="javascript:void(0)" onclick="openitem(this);" >设置保密手机</a>
+                    <a href="javascript:void(0)" onclick="openite(this);" >设置保密手机</a>
                 </div>
                 <div class="f-right shm r-step"><em class="txt-orange m-r-10 sms-step1">①填写手机</em><em class="txt-hui sms-step2">②填写短信验证码</em></div>
                 <div class="f-left">
@@ -237,17 +237,23 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
 $("#btn-repass").click(function(){
 	var nickname = $(".name.dis").text();
 	var old = $("input[name='repass_old']").val();
+	var nww = $("input[name='repass_check']").val();
 	var nw = $("input[name='repass_new']").val();
-	$.ajax({ 
-			type:"post",
-			url:"/p/modiPswd.ajax",
-			dataType:"json",
-			data:{nickname:nickname,old:old,nw:nw},
-			success:function(data, textStatus){
-				alert(data.msg)
-			}
-	});
-	
+	if(nww != nw){
+		alert("密码不一致，请重新输入！");
+	}
+	else{				
+		$.ajax({ 
+				type:"post",
+				url:"/p/modiPswd.ajax",
+				dataType:"json",
+				data:{nickname:nickname,old:old,nw:nw},
+				success:function(data, textStatus){
+					alert(data.a);
+					window.location.reload();
+				}
+		});
+	}
 });
 function openitem(){
 	if($("#psw").css("display") == "none"){
