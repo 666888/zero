@@ -40,7 +40,7 @@
 	      	<property name="hibernate.connection.drirver_class" value="com.mysql.jdbc.Driver"/>
     	    <property name="hibernate.connection.url" value="jdbc:mysql://localhost/zero"/>
         	<property name="hibernate.connection.username" value="root"/>
-        	<property name="hibernate.connection.password" value="root"/>
+        	<property name="hibernate.connection.password" value="Esc0p;.-['/]"/>
 	        
 	        
             <property name="hibernate.show_sql" value="true" />
