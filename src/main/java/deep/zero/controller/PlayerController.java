@@ -82,7 +82,7 @@ public class PlayerController {
 			return "{\"a\":\"修改成功！\"}";
 		}
 		else{
-			return "原密码错误!";
+			return "{\"a\":\"原密码不正确！\"}";
 		}
 	}
 	

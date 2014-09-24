@@ -122,7 +122,7 @@
     $("#nickname").blur(function(){
     	var nickname = $(this).val();
     	//$.post("/modiNickname.ajax",{nickname:nickname},function(data,textStatus){if(textStatus=="success"){alert("昵称存在！");}},"json");
-    	$.post("/modiNickname.ajax",{nickname:nickname},function(data,textStatus){console.log(data);if(!data){alert("昵称存在！");}else{alert("通过");}},"json");
+    	$.post("/modiNickname.ajax",{nickname:nickname},function(data,textStatus){console.log(data);if(!data){alert("昵称存在！");}},"json");
     });  
 </script>
 </body>
