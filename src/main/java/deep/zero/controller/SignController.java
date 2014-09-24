@@ -14,6 +14,8 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -125,5 +127,18 @@ public class SignController {
 			e.printStackTrace();		
 			return "player/register";
 		}		
+	}
+	
+	@RequestMapping(value="/modiNickname.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public String password(HttpServletRequest req,@RequestParam("nickname") String nickname){
+		Player player = playerSvc.getByAccount(nickname);
+		if(null!=player){
+			System.out.println("++++++++++++++"+nickname+"+++++++");
+			return "{\"a\":\"用户名已存在！\"}";
+		}
+		else{
+			return "";
+		}
 	}
 }
