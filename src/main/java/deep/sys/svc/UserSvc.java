@@ -21,8 +21,8 @@ public class UserSvc implements IUserSvc {
 	}
 	
 	@Transactional
-	public void add(List<User> u){
-		ur.save(u);
+	public List<User> add(List<User> u){
+		return ur.save(u);
 	}
 	
 	@Transactional
