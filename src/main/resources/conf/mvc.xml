@@ -21,6 +21,7 @@
         <mvc:interceptor>               
             <mvc:mapping path="/**" />
             <mvc:exclude-mapping path="/signup"/>
+            <mvc:exclude-mapping path="/modiNickname.ajax"/>
             <mvc:exclude-mapping path="/signin"/>
             <mvc:exclude-mapping path="/gm/**"/>
             <bean class="deep.interceptor.PlayerSessionInterceptor"></bean>    

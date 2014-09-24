@@ -53,7 +53,7 @@ public class UserController {
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public String list(Model model){
 		model.addAttribute("users",us.getAll());
-		model.addAttribute("roles", rs.getAll());
+		model.addAttribute("roles",rs.getAll());
 		return "user/list";
 	}
 

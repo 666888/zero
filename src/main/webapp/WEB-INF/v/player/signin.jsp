@@ -87,7 +87,7 @@
 				<div class="yxlogin_read">
 					<input id="checkread" class="ick" type="checkbox" checked="" name="checkread" value="">
 						我已阅读并同意 subic888.com
-					<a target="_blank" href="http://u.youxi.com/index/regdoc">《用户协议》</a>
+					<a target="" href="javascript:void(0)">《用户协议》</a>
 				</div>
 				<input type="submit" class="yxlogin_btn submit_reg yxreg_btn" value="登陆">
 				</sf:form>

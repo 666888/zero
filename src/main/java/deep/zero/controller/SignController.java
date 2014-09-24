@@ -133,12 +133,13 @@ public class SignController {
 	@ResponseBody
 	public String password(HttpServletRequest req,@RequestParam("nickname") String nickname){
 		Player player = playerSvc.getByAccount(nickname);
+
 		if(null!=player){
 			System.out.println("++++++++++++++"+nickname+"+++++++");
-			return "{\"a\":\"用户名已存在！\"}";
+			return "false";
 		}
 		else{
-			return "";
+			return "true";
 		}
 	}
 }
