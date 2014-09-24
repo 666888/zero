@@ -415,8 +415,9 @@
 					<scanIntervalSeconds>5</scanIntervalSeconds>				
 					<webApp>
 						<contextPath>/</contextPath>
-						<!-- <contextPath>/${project.artifactId}</contextPath> -->
+						<!-- <contextPath>/${project.artifactId}</contextPath>
 						<defaultsDescriptor>${project.build.outputDirectory}/conf/webdefault.xml</defaultsDescriptor>
+						 -->
 					</webApp>					
 					<stopPort>9966</stopPort>
 					<stopKey>foo</stopKey>
