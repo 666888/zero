@@ -76,7 +76,9 @@
 		</multipart-config>		
 	</servlet>
 	
-	<!-- 处理静态资源: 需写在DispatcherServlet的前面， 让defaultServlet先拦截，不会进入Spring处理
+	
+	<!-- 处理静态资源: 需写在DispatcherServlet的前面， 让defaultServlet先拦截，不会进入Spring处理,在生产环境中
+	一般会让前端的nginx来完成相关的静态资源的响应。
 	
 	不同的web容器默认的servlet 不同，参照如下
 	
@@ -85,9 +87,9 @@
 	Resin 									默认servlet名称		==	"resin-file"
 	WebLogic 								默认servlet名称		==	"FileServlet"
 	WebSphere								默认servlet名称		==	"SimpleFileServlet"
-	 
-	 -->
 	
+	-->
+	 
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.htm</url-pattern>
