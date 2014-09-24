@@ -79,7 +79,7 @@ public class PlayerController {
 			player.setPassword(newPassword);
 			playerSvc.modiPlayer(player);			
 			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
-			return "密码已修改!";
+			return "{\"a\":\"修改成功！\"}";
 		}
 		else{
 			return "原密码错误!";
