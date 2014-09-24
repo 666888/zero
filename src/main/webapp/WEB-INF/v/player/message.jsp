@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://u.youxi.com/account/index -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                <title>用户中心_YouXi.com</title>
+                <title>用户中心</title>
                 <link rel="stylesheet" type="text/css" href="/static/css/player/account/style.css">
                 <script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
        <script type="text/javascript" src="crypto.aes.js"></script>
@@ -222,9 +222,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
             </div>
 <!--            <p class="txt-hui">完成所有安全设置可获得<em class="txt-zong">35银</em> (已获得<em class="txt-zong">0银</em>)</p>-->
         </div>
-        <ul class="txt-hui m-t-20">
-            <li>上次登录时间：2014-09-01 15:30:22</li>
-        </ul>
+        
     </div>
 </div>
 <div class="footer">

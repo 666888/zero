@@ -37,10 +37,11 @@
 						<div id="usernametip" class="errtips"></div>
 						<div class="yxform_in">
 							<i class="iuser"></i>
-							<sf:input class="ipt" maxlength="20" placeholder="登录名" path="nickname" /><sf:errors path="nickname" />
+							<sf:input class="ipt" maxlength="20" placeholder="登录名" path="nickname" />
 							<div class="ipt_txt">登录名</div>
 							<i class="iclose" style=""></i>
 						</div>
+						<sf:errors path="nickname" />
 						<i class="iright" style="display:none"></i>
 					</li>
 					<li>
@@ -48,10 +49,11 @@
 						<div id="passtip" class="errtips"></div>
 						<div class="yxform_in">
 							<i class="ipwd"></i>
-							<sf:password id="ps" class="ipt" maxlength="20" placeholder="密码" path="password" /><sf:errors path="nickname" />
+							<sf:password id="ps" class="ipt" maxlength="20" placeholder="密码" path="password" />
 							<div class="ipt_txt">密码</div>
 							<i class="iclose" style="display:none;"></i>
 						</div>
+						<sf:errors path="password" />
 						<i class="iright" style="display:none"></i>
 					</li>
 					
@@ -92,7 +94,7 @@
 				<div class="yxlogin_read">
 					<input id="checkread" class="ick" type="checkbox" checked="" name="checkread" value="">
 						我已阅读并同意 subic888.com
-					<a target="_blank" href="#">《用户协议》</a>
+					<a href="javascript:void(0)">《用户协议》</a>
 				</div>
 				<input type="submit" class="yxlogin_btn submit_reg yxreg_btn" value="注册">
 				</sf:form>

@@ -66,7 +66,7 @@ public class LoginController {
 
 			if (br.hasErrors()) {
 				// returning the errors on same page if any errors..
-				return new ModelAndView("login", "loginDetails", user);
+				return new ModelAndView("gm/login", "loginDetails", user);
 			} else {
 				// If the user details is validated then redirecting the user to
 				// success page.

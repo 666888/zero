@@ -64,7 +64,7 @@
 						</div>
 						
 						<div class="msg_box">
-							<a target="_blank"
+							<a 
 								href="javascript:void(0)"> <i></i>
 								消息
 							</a> <a class="total_msg" style="display: none;"

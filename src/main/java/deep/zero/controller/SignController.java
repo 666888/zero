@@ -100,13 +100,30 @@ public class SignController {
 		return "player/register";
 	}
 	@RequestMapping(value="/signup",method=RequestMethod.POST)
-	public String regist(@ModelAttribute Player player,Model model,BindingResult br){
-		player.setCode("55");
-		player.setUsername("xiaoming");
-		player.setRegTime(new Date());
-		playerSvc.addPlayer(player);
-		//model.addAttribute("player", new Player());
-		model.addAttribute("pName",player.getNickname());
-		return "player/message";
+	public String regist(@ModelAttribute Player player,Model model,BindingResult br,HttpServletRequest req){
+		try{
+			System.out.println("++++++++++++++后台验证+++++++++++++++");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "nickname",
+					"nickname", "昵称不能为空");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password",
+					"password", "密码不能为空");
+			if(br.hasErrors()){
+				return "player/register";
+			}
+			else{
+				player.setCode("55");
+				player.setUsername("xiaoming");
+				player.setRegTime(new Date());
+				playerSvc.addPlayer(player);
+				//model.addAttribute("player", new Player());
+				model.addAttribute("pName",player.getNickname());
+				return "player/message";
+			}
+		}
+		catch(Exception e){
+			System.out.println("Exception in LoginController " + e.getMessage());
+			e.printStackTrace();		
+			return "player/register";
+		}		
 	}
 }

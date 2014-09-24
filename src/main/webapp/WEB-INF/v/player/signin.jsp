@@ -54,6 +54,7 @@
 						</div>
 						<sf:errors path="password" />
 						<i class="iright" style="display:none"></i>
+						<sf:errors />
 					</li>
 					<!-- 
 					<li>
