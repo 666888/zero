@@ -1,5 +1,7 @@
 package deep.zero.controller;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 import javax.servlet.http.HttpServletRequest;
@@ -88,32 +90,47 @@ public class PlayerController {
 	
 	@RequestMapping(value="/secureMail.ajax",method=RequestMethod.POST)
 	@ResponseBody
-	public String secureMail(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("email") String email){
+	public Map secureMail(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("email") String email){
 		Player player = playerSvc.getByAccount(nickname);
 		player.setEmail(email);
 		playerSvc.modiPlayer(player);
+		Map map=new HashMap<String, Object>();
 		if(player.getEmail().equals(email)){
 //			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
-			return "true";
+			map.put("e", true);
+			String email1=player.getEmail();
+			String email2=email1.substring(email1.length()-9,email1.length());
+	    	String email3=email1.substring(0,email1.length()-10);
+	    	System.out.println(email3+"*****"+email2);
+			map.put("msg", "已绑定("+email3+"*****"+email2+")");
+			return map;
 		}
 		else{
-			return "false";
+			map.put("e", false);
+			return map;
 		}
 	}
 	
 	@RequestMapping(value="/securePhone.ajax",method=RequestMethod.POST)
 	@ResponseBody
-	public String securePhone(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("phone") String phone){
+	public Map securePhone(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("phone") String phone){
 		Player player = playerSvc.getByAccount(nickname);
 		player.setPhone(phone);
 		playerSvc.modiPlayer(player);
+		Map map=new HashMap<String, Object>();
 		if(player.getPhone().equals(phone)){
 //			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
-			return "true";
+			map.put("e", true);
+			String phone1=player.getPhone();
+			String phone2=phone1.substring(phone1.length()-4,phone1.length());
+	    	String phone3=phone1.substring(0,phone1.length()-8);
+	    	System.out.println(phone3+"****"+phone2);
+			map.put("msg", "已绑定("+phone3+"****"+phone2+")");
 		}
 		else{
-			return "false";
+			map.put("e", false);
 		}
+		return map;
 	}
 	
 	private static final String TEMPLATE = "Hello %s";
