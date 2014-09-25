@@ -98,10 +98,10 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
         <!--密保邮箱-->
         <div class="m-list" style="z-index:5">
             <a name="email" class="a_email"></a>
-                        <a href="javascript:;" class="c-btn btn-jian-on">收缩按钮</a>
+                        
                         <div class="clearfix box-title">
                 <div class="f-right shm r-content">
-                    <a href="javascript:void(0)" onclick="openite(this);" >设置保密邮箱</a>
+                    <a href="javascript:void(0)" onclick="openMail();" >设置保密邮箱</a>
                 </div>
                 <div class="f-right shm r-step"><em class="txt-orange m-r-10 mail-step1">①填写邮箱</em><em class="txt-hui mail-step2">②前往邮箱并激活</em></div>
                 <div class="f-left">
@@ -109,22 +109,22 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
                     <h3 class="dis list-name">密保邮箱</h3>
                     <i class="txt-fen bangding-status">未绑定</i>                </div>
             </div>
-                        <div class="clearfix box-con" style="display: none;">
+                        <div class="clearfix box-con" style="display: none;" id = "mail">
                 <div class="clearfix mail-panel1">
-                    <form method="post" id="form-sendmail" action="/index.php?do=sendmail">
+                    
                         <p class="txt-fen txt-center">请设置一个您的常用邮箱作为密保邮箱，当您忘记密码时，可通过密保邮箱快速重置密码。</p>
                         <ul class="mail-ul">
                             <li class="form-item"><label class="dis">邮箱地址：</label>
-                            <input name="sendmail_mail" type="text" class="input w-244"></li>
+                            <input name="email" type = "text" class="input w-244" /></li>
+                            <!-- 
                             <li class="form-item"><label class="dis">验证码：</label>
                             <input name="captcha" id="captcha" type="text" class="input w-122">
                             <img src="http://captcha.youxi.com/image.php?app=youxi" width="112" height="40" class="yan" id="imgcaptcha">
                             <a href="javascript:void(0);" onclick="$('#imgcaptcha').attr('src', 'http://captcha.youxi.com/image.php?app=youxi&r=' + Math.random());">换一张</a>
-                            </li>
-                            <li><label class="dis"></label>
-                            <a href="javascript:void(0)" class="btn btn-send dis" id="btn-sendmail">发送</a></li>
-                        </ul>
-                    </form>
+                            </li>-->
+                            <li><label class="dis"></label> 
+                            <a href="javascript:void(0);" id="btn-email" class="btn btn-send dis">保存</a></li>
+                        </ul>                  
                 </div>
                 <div class="clearfix mail-panel2" style="display:none">
                     <ul class="mail-ul">
@@ -146,7 +146,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
                         <a href="javascript:;" class="c-btn">收缩按钮</a>
                         <div class="clearfix box-title">
                 <div class="f-right shm r-content">
-                    <a href="javascript:void(0)" onclick="openite(this);" >设置保密手机</a>
+                    <a href="javascript:void(0)" onclick="openPhone();" >设置保密手机</a>
                 </div>
                 <div class="f-right shm r-step"><em class="txt-orange m-r-10 sms-step1">①填写手机</em><em class="txt-hui sms-step2">②填写短信验证码</em></div>
                 <div class="f-left">
@@ -154,17 +154,17 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
                     <h3 class="dis list-name">密保手机</h3>
                     <i class="txt-fen bangding-status">未绑定</i>                </div>
             </div>
-                        <div class="clearfix box-con" style="display: none;">
+                        <div class="clearfix box-con" style="display: none;" id= "phone">
                 <div class="clearfix sms-panel1">
-                    <form method="get" id="form-sendsms" action="/sendsms.php">
+                    
                         <p class="txt-fen txt-center">请输入您的手机号,验证成功后,可通过此手机号找回密码。</p>
                         <ul class="mail-ul">
-                            <li class="form-item"><label class="dis">手机号码：</label><input name="sendsms_mobile" type="text" class="input w-244"></li>
-                            <li><label class="dis"></label><a href="javascript:void(0);" class="btn btn-send dis" id="btn-sendsms">获取短信确认码</a></li>
+                            <li class="form-item"><label class="dis">手机号码：</label><input name="phone" type="text" class="input w-244"></li>
+                            <li><label class="dis"></label><a href = "javascript:void(0)" class="btn btn-send dis" id="btn-phone">保存</a></li>
                         </ul>
-                    </form>
+                 
                 </div>
-                <div class="clearfix sms-panel2" style="display:none">
+                <div class="clearfix sms-panel2" style="display:none" id = "phone">
                     <form method="post" id="form-bindsms" action="/bindsms.php">
                         <p class="txt-fen txt-center">请输入您的手机号,验证成功后,可通过此手机号找回密码。</p>
                         <ul class="mail-ul">
@@ -253,6 +253,47 @@ $("#btn-repass").click(function(){
 		});
 	}
 });
+
+$("#btn-email").click(function(){
+	var nickname = $(".name.dis").text();
+	var email = $("input[name='email']").val();				
+		$.ajax({ 
+				type:"post",
+				url:"/p/secureMail.ajax",
+				dataType:"json",
+				data:{nickname:nickname,email:email},
+				success:function(data, textStatus){
+					if(data){
+						alert("保存成功！");
+						window.location.reload();
+					}
+					else{
+						alert("请重新输入！");
+					}
+				}
+		});	
+});
+
+$("#btn-phone").click(function(){
+	var nickname = $(".name.dis").text();
+	var phone = $("input[name='phone']").val();				
+		$.ajax({ 
+				type:"post",
+				url:"/p/securePhone.ajax",
+				dataType:"json",
+				data:{nickname:nickname,phone:phone},
+				success:function(data, textStatus){
+					if(data){
+						alert("保存成功！");
+						window.location.reload();
+					}
+					else{
+						alert("请重新输入！");
+					}
+				}
+		});	
+});
+
 function openitem(){
 	if($("#psw").css("display") == "none"){
 		
@@ -263,6 +304,25 @@ function openitem(){
 	}
 }
 
+function openMail(){
+	if($("#mail").css("display") == "none"){
+		
+		$("#mail").css("display","block");
+	}
+	else{
+		$("#mail").css("display","none")
+	}
+}
+
+function openPhone(){
+	if($("#phone").css("display") == "none"){
+		
+		$("#phone").css("display","block");
+	}
+	else{
+		$("#phone").css("display","none")
+	}
+}
 $("input[name='repass_check']").blur(function(){
 	if($("input[name='repass_new']").val() == $(this).val()){
 		return;

@@ -46,10 +46,9 @@
 				<div class="top_r">
 					<div class="logined clearfix">
 						<div id="change_drop" class="user_box" style="z-index: 999">
-							<span> <i class="user_p"> <img width="25" height="25"
-									src="http://p1.yx-s.com/detphoto.jpg">
+							<span> <i class="user_p" onmouseover="onover()" onmouseout= "onout()"> <img width="25" height="25"
+									src="http://p1.yx-s.com/detphoto.jpg" >
 							</i> <a class="username" href="/p/message"><%= request.getAttribute("pName")%></a>
-								<span class="triangle" style="cursor: pointer" onmouseover="onover()" onmouseout= "onout()"></span>
 							</span>
 							<div id="t_drop" class="tools_box"
 								style="z-index: 999; display: none;">
