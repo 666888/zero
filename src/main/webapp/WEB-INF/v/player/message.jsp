@@ -100,14 +100,14 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
             <a name="email" class="a_email"></a>
                         
                         <div class="clearfix box-title">
-                <div class="f-right shm r-content">
+                <div class="f-right shm r-content" id = "setEmail">
                     <a href="javascript:void(0)" onclick="openMail();" >设置保密邮箱</a>
                 </div>
                 <div class="f-right shm r-step"><em class="txt-orange m-r-10 mail-step1">①填写邮箱</em><em class="txt-hui mail-step2">②前往邮箱并激活</em></div>
                 <div class="f-left">
                     <div class="icon1 dis">邮箱</div>
                     <h3 class="dis list-name">密保邮箱</h3>
-                    <i class="txt-fen bangding-status">未绑定</i>                </div>
+                    <i class="txt-fen bangding-status" id = "bindEmail">未绑定</i>                </div>
             </div>
                         <div class="clearfix box-con" style="display: none;" id = "mail">
                 <div class="clearfix mail-panel1">
@@ -145,14 +145,14 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
             <a name="mobile" class="a_mobile"></a>
                         <a href="javascript:;" class="c-btn">收缩按钮</a>
                         <div class="clearfix box-title">
-                <div class="f-right shm r-content">
+                <div class="f-right shm r-content" id = "setPhone">
                     <a href="javascript:void(0)" onclick="openPhone();" >设置保密手机</a>
                 </div>
                 <div class="f-right shm r-step"><em class="txt-orange m-r-10 sms-step1">①填写手机</em><em class="txt-hui sms-step2">②填写短信验证码</em></div>
                 <div class="f-left">
                     <div class="icon2 dis">手机</div>
                     <h3 class="dis list-name">密保手机</h3>
-                    <i class="txt-fen bangding-status">未绑定</i>                </div>
+                    <i class="txt-fen bangding-status" id = "bindPhone">未绑定</i>                </div>
             </div>
                         <div class="clearfix box-con" style="display: none;" id= "phone">
                 <div class="clearfix sms-panel1">
@@ -232,6 +232,39 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
 </div>
 <script src="/static/js/player/account/analyse.js" type="text/javascript"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+	var nickname = $(".name.dis").text();
+	$.post("/p/onload.ajax",{nickname:nickname},function(data,status){
+		if(data.e && data.p){						
+			$("#setEmail").css("display","none");
+			$("#mail").css("display","none");
+			$("#bindEmail").html(data.eMsg);
+			$("#bindEmail").css("color","#13a252");
+			
+			$("#setPhone").css("display","none");
+			$("#phone").css("display","none");
+			$("#bindPhone").html(data.pMsg);
+			$("#bindPhone").css("color","#13a252");
+		}
+		else if(data.p){						
+			$("#setPhone").css("display","none");
+			$("#phone").css("display","none");
+			$("#bindPhone").html(data.pMsg);
+			$("#bindPhone").css("color","#13a252");
+		}
+		else if(data.e){
+			$("#setEmail").css("display","none");
+			$("#mail").css("display","none");
+			$("#bindEmail").html(data.eMsg);
+			$("#bindEmail").css("color","#13a252");
+		}
+		
+		else{
+			return false;
+		}
+	});
+});
+
 $("#btn-repass").click(function(){
 	var nickname = $(".name.dis").text();
 	var old = $("input[name='repass_old']").val();
@@ -256,16 +289,28 @@ $("#btn-repass").click(function(){
 
 $("#btn-email").click(function(){
 	var nickname = $(".name.dis").text();
-	var email = $("input[name='email']").val();				
+	var email = $("input[name='email']").val();	
+	if (email == "") {
+		alert("邮箱不能为空");
+		return false;
+	}
+	var myreg_email = /^[0-9a-zA-Z_\-\.]*[0-9a-zA-Z_\-]@[0-9a-zA-Z_\-]+(\.[0-9a-zA-Z_\-]+)*$/;
+	if (!myreg_email.test(email)) {
+		alert("邮箱格式有误");
+		return false;
+	}
 		$.ajax({ 
 				type:"post",
 				url:"/p/secureMail.ajax",
 				dataType:"json",
 				data:{nickname:nickname,email:email},
 				success:function(data, textStatus){
-					if(data){
-						alert("保存成功！");
-						window.location.reload();
+					if(data.e){
+						alert("保存成功！");						
+						$("#setEmail").css("display","none");
+						$("#mail").css("display","none");
+						$("#bindEmail").html(data.msg);
+						$("#bindEmail").css("color","#13a252");
 					}
 					else{
 						alert("请重新输入！");
@@ -276,16 +321,34 @@ $("#btn-email").click(function(){
 
 $("#btn-phone").click(function(){
 	var nickname = $(".name.dis").text();
-	var phone = $("input[name='phone']").val();				
+	var phone = $("input[name='phone']").val();		
+	if (phone==""){ 
+        alert("请填写手机号码！"); 
+        return false; 
+    } 
+    if(isNaN(phone)||(phone.length!=11)){ 
+        alert("手机号码为11位数字！请正确填写！"); 
+        return false; 
+    } 
+    var reg =/^0{0,1}(1[358][0-9]|15[0-9])[0-9]{8}$/; 
+    if(!reg.test(phone)) 
+    { 
+        alert("您的手机号码不正确，请重新输入"); 
+        return false; 
+    }
+
 		$.ajax({ 
 				type:"post",
 				url:"/p/securePhone.ajax",
 				dataType:"json",
 				data:{nickname:nickname,phone:phone},
 				success:function(data, textStatus){
-					if(data){
-						alert("保存成功！");
-						window.location.reload();
+					if(data.p){
+						alert("保存成功！");						
+						$("#setPhone").css("display","none");
+						$("#phone").css("display","none");
+						$("#bindPhone").html(data.msg);
+						$("#bindPhone").css("color","#13a252");
 					}
 					else{
 						alert("请重新输入！");
