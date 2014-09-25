@@ -1,5 +1,7 @@
 package deep.zero.controller;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -84,6 +87,84 @@ public class PlayerController {
 		else{
 			return "{\"a\":\"原密码不正确！\"}";
 		}
+	}
+	
+	@RequestMapping(value="/secureMail.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public Map secureMail(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("email") String email){
+		Player player = playerSvc.getByAccount(nickname);
+		player.setEmail(email);
+		playerSvc.modiPlayer(player);
+		Map map=new HashMap<String, Object>();
+		if(player.getEmail().equals(email)){
+//			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
+			map.put("e", true);
+			String email1=player.getEmail();
+			String email2=email1.substring(email1.length()-9,email1.length());
+	    	String email3=email1.substring(0,email1.length()-10);
+	    	System.out.println(email3+"*****"+email2);
+			map.put("msg", "已绑定("+email3+"*****"+email2+")");
+			return map;
+		}
+		else{
+			map.put("e", false);
+			return map;
+		}
+	}
+	
+	@RequestMapping(value="/securePhone.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public Map securePhone(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("phone") String phone){
+		Player player = playerSvc.getByAccount(nickname);
+		player.setPhone(phone);
+		playerSvc.modiPlayer(player);
+		Map map=new HashMap<String, Object>();
+		if(player.getPhone().equals(phone)){
+//			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
+			map.put("p", true);
+			String phone1=player.getPhone();
+			String phone2=phone1.substring(phone1.length()-4,phone1.length());
+	    	String phone3=phone1.substring(0,phone1.length()-8);
+	    	System.out.println(phone3+"****"+phone2);
+			map.put("msg", "已绑定("+phone3+"****"+phone2+")");
+		}
+		else{
+			map.put("p", false);
+		}
+		return map;
+	}
+	
+	@RequestMapping(value="/onload.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public Map securePhoneAndEmail(HttpServletRequest req,@RequestParam("nickname") String nickname){
+		Player player = playerSvc.getByAccount(nickname);
+		Map map=new HashMap<String, Object>();
+		if(!StringUtils.isBlank(player.getEmail())){
+//			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
+			map.put("e", true);
+			String email1=player.getEmail();
+			String email2=email1.substring(email1.length()-9,email1.length());
+	    	String email3=email1.substring(0,email1.length()-10);
+	    	System.out.println(email3+"*****"+email2);
+			map.put("eMsg", "已绑定("+email3+"*****"+email2+")");
+		}
+		else{
+			map.put("e", false);
+		}
+		if(!StringUtils.isBlank(player.getPhone())){
+//			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
+			String phone1=player.getPhone();
+			String phone2=phone1.substring(phone1.length()-4,phone1.length());
+	    	String phone3=phone1.substring(0,phone1.length()-8);
+	    	System.out.println(phone3+"****"+phone2);
+			map.put("pMsg", "已绑定("+phone3+"****"+phone2+")");
+			map.put("p", true);
+			
+		}
+		else{
+			map.put("p", false);
+		}
+		return map;
 	}
 	
 	private static final String TEMPLATE = "Hello %s";

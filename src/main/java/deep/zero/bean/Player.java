@@ -58,6 +58,17 @@ public class Player{
 	//电话
 	private String phone;
 	
+	//邮箱
+	private String email;
+	
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	//性别
 	@Enumerated(EnumType.ORDINAL) @Column(length=1,nullable=false)
 	private Gender gender = Gender.Male;
