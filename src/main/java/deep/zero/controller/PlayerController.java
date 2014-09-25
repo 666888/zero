@@ -94,10 +94,10 @@ public class PlayerController {
 		playerSvc.modiPlayer(player);
 		if(player.getEmail().equals(email)){
 //			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
-			return "{\"a\":\"保存成功！\"}";
+			return "true";
 		}
 		else{
-			return "{\"a\":\"保存失败！\"}";
+			return "false";
 		}
 	}
 	
@@ -109,10 +109,10 @@ public class PlayerController {
 		playerSvc.modiPlayer(player);
 		if(player.getPhone().equals(phone)){
 //			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
-			return "{\"a\":\"保存成功！\"}";
+			return "true";
 		}
 		else{
-			return "{\"a\":\"保存失败！\"}";
+			return "false";
 		}
 	}
 	
