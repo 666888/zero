@@ -86,6 +86,36 @@ public class PlayerController {
 		}
 	}
 	
+	@RequestMapping(value="/secureMail.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public String secureMail(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("email") String email){
+		Player player = playerSvc.getByAccount(nickname);
+		player.setEmail(email);
+		playerSvc.modiPlayer(player);
+		if(player.getEmail().equals(email)){
+//			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
+			return "true";
+		}
+		else{
+			return "false";
+		}
+	}
+	
+	@RequestMapping(value="/securePhone.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public String securePhone(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("phone") String phone){
+		Player player = playerSvc.getByAccount(nickname);
+		player.setPhone(phone);
+		playerSvc.modiPlayer(player);
+		if(player.getPhone().equals(phone)){
+//			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
+			return "true";
+		}
+		else{
+			return "false";
+		}
+	}
+	
 	private static final String TEMPLATE = "Hello %s";
 	private final AtomicLong counter = new AtomicLong();
 	

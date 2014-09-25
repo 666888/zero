@@ -59,15 +59,15 @@ public class Player{
 	private String phone;
 	
 	//邮箱
-	private String mail;
+	private String email;
 	
-	public String getMail() {
-		return mail;
+	public String getEmail() {
+		return email;
 	}
 
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	//性别
 	@Enumerated(EnumType.ORDINAL) @Column(length=1,nullable=false)
