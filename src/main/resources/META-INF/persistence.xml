@@ -18,7 +18,7 @@
             <property name="hibernate.show_sql" value="true" />
 	        <property name="hibernate.format_sql" value="true"/>
 	        <!-- <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider" /> --> 
- 	        <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- (create-drop , update , validate) -->
+ 	        <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- (create-drop , update , validate)  one of list-->
 	        <property name="hibernate.max_fetch_depth" value="3"/>
             <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
             
