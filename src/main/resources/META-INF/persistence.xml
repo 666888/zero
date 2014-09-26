@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" 
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+             
+    <persistence-unit name="H2">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <!-- <jta-data-source>java:/DefaultDS</jta-data-source> -->
+         <properties>       
+        	
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+	      	<property name="hibernate.connection.drirver_class" value="org.h2.Driver"/>
+    	    <property name="hibernate.connection.url" value="jdbc:h2:mem:zero"/>
+        	<property name="hibernate.connection.username" value="sa"/>
+        	<property name="hibernate.connection.password" value=""/>
+		
+            <property name="hibernate.show_sql" value="true" />
+	        <property name="hibernate.format_sql" value="true"/>
+	        <!-- <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider" /> --> 
+ 	        <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- (create-drop , update , validate)  one of list-->
+	        <property name="hibernate.max_fetch_depth" value="3"/>
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
+            
+            <property name="jadira.usertype.autoRegisterUserTypes" value="true" />
+            <property name="jadira.usertype.databaseZone" value="jvm" />
+            <!-- hibernate二级缓存 -->
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.EhCacheRegionFactory"/>
+    		<property name="hibernate.cache.provider_configuration" value="classpath:/conf/ehcache.xml" />
+     		<property name="hibernate.cache.use_second_level_cache" value="true" />
+    	    <property name="hibernate.cache.use_query_cache" value="true" />
+           
+        </properties>
+    </persistence-unit>
+    
+    <persistence-unit name="mysql" >
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <properties>
+	        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+	      	<property name="hibernate.connection.drirver_class" value="com.mysql.jdbc.Driver"/>
+    	    <property name="hibernate.connection.url" value="jdbc:mysql://localhost/zero"/>
+        	<property name="hibernate.connection.username" value="root"/>
+        	<property name="hibernate.connection.password" value="root"/>
+	        
+	        
+            <property name="hibernate.show_sql" value="true" />
+	        <property name="hibernate.format_sql" value="true"/>
+	        <!-- <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider" /> --> 
+ 	        <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- (create-drop , update , validate) -->
+	        <property name="hibernate.max_fetch_depth" value="3"/>
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
+            
+            <property name="jadira.usertype.autoRegisterUserTypes" value="true" />
+            <property name="jadira.usertype.databaseZone" value="jvm" />
+            <!-- hibernate二级缓存 -->
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.EhCacheRegionFactory"/>
+    		<property name="hibernate.cache.provider_configuration" value="classpath:/conf/ehcache.xml" />
+     		<property name="hibernate.cache.use_second_level_cache" value="true" />
+    	    <property name="hibernate.cache.use_query_cache" value="true" />
+        </properties>
+    </persistence-unit>  
+    
+    <persistence-unit name="mssql">
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
+	      	<property name="hibernate.connection.drirver_class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+    	    <property name="hibernate.connection.url" value="jdbc:sqlserver://172.16.5.250:1433; DatabaseName=WYG_Cluster"/>
+        	<property name="hibernate.connection.username" value="root"/>
+        	<property name="hibernate.connection.password" value="wygdev"/>                         
+
+            <property name="hibernate.show_sql" value="true" />
+	        <property name="hibernate.format_sql" value="true"/>
+	        <!-- <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider" /> --> 
+ 	        <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- (create-drop , update , validate) -->
+	        <property name="hibernate.max_fetch_depth" value="3"/>
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
+            
+            <property name="jadira.usertype.autoRegisterUserTypes" value="true" />
+            <property name="jadira.usertype.databaseZone" value="jvm" />
+            <!-- hibernate二级缓存 -->
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.EhCacheRegionFactory"/>
+    		<property name="hibernate.cache.provider_configuration" value="classpath:/conf/ehcache.xml" />
+     		<property name="hibernate.cache.use_second_level_cache" value="true" />
+    	    <property name="hibernate.cache.use_query_cache" value="true" />
+        </properties>
+    </persistence-unit>
+    
+    <persistence-unit name="postpu" transaction-type="JTA">
+        <properties>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="javax.persistence.schema-generation.create-source" value="script"/>
+            <property name="javax.persistence.schema-generation.drop-source" value="script"/>
+            <property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/drop-script.sql"/>
+            <property name="javax.persistence.schema-generation.create-script-source" value="META-INF/create-script.sql"/>
+            <property name="javax.persistence.sql-load-script-source" value="META-INF/load-script.sql"/>
+            <property name="eclipselink.logging.level" value="FINE"/> 
+        </properties>
+    </persistence-unit>
+</persistence>
