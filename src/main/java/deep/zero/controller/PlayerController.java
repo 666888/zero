@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import deep.sys.bean.User;
+import deep.tool.EmailService;
+import deep.tool.MailConstants;
 import deep.zero.bean.Player;
 import deep.zero.svc.PlayerSvcImpl;
 
@@ -165,6 +167,16 @@ public class PlayerController {
 			map.put("p", false);
 		}
 		return map;
+	}
+	
+	@RequestMapping(value="/sendEmail.ajax",method=RequestMethod.GET)
+	@ResponseBody
+	public String sendEmail(){	
+		String from=MailConstants.MALL_ACCOUNT;
+		String to="";
+		
+		EmailService.sendHtmlEmail(from, to, MailConstants.EMAIL_FINDPASSWORD_DEFAULT_TITLE, MailConstants.EMAIL_FINDPASSWORD_DEFAULT_WORD);
+		return null;
 	}
 	
 	private static final String TEMPLATE = "Hello %s";
