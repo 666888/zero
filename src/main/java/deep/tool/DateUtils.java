@@ -391,20 +391,25 @@ public class DateUtils
  * 本周开始
  * @return
  */
-  public static String weekStartTime1(){
-//	  Date weekStartTime=null;
+  public static Date weekStartTime1(){
+	  Date weekStartTime=null;
 	  DateFormat  df = new SimpleDateFormat(dateFormat[3]);
 	  Calendar cal = Calendar.getInstance();
 //	  try {
 		  int day_of_week = cal.get(Calendar.DAY_OF_WEEK) - 2;
 		  cal.add(Calendar.DATE, -day_of_week);
 		  
-//		  weekStartTime=df.parse(df.format(cal.getTime())+ " 23:59:59");
+		  try {
+			weekStartTime=df.parse(df.format(cal.getTime())+ " 0:00:00");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 //	} catch (ParseException e) {
 //		// TODO Auto-generated catch block
 //		e.printStackTrace();
 //	}
-	  return df.format(cal.getTime())+ " 0:00:00";
+	  return weekStartTime;
   }
   /**
    * 本周开始
@@ -420,15 +425,21 @@ public class DateUtils
    * 本周最后时间
    * @return
    */  
-  public static String weekEndTime1(){
+  public static Date weekEndTime1(){
+	  Date weekEndTime=null;
 	  Calendar cal = Calendar.getInstance();
 	  DateFormat  df = new SimpleDateFormat(dateFormat[3]);
 		  int day_of_week = cal.get(Calendar.DAY_OF_WEEK) - 2;
 		  cal.add(Calendar.DATE, -day_of_week);
 		  cal.add(Calendar.DATE, 6);
 	  
-//		  weekEndTime=df.parse(df.format(cal.getTime())+ " 23:59:59");
-	  return df.format(cal.getTime())+ " 23:59:59";
+		  try {
+			weekEndTime=df.parse(df.format(cal.getTime())+ " 23:59:59");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	  return weekEndTime;
   }
   /**
    * 本周最后时间
