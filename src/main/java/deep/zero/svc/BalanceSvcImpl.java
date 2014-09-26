@@ -3,17 +3,14 @@ package deep.zero.svc;
 
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import deep.sys.bean.User;
 import deep.zero.bean.Balance;
-import deep.zero.bean.Player;
 import deep.zero.repo.BalanceRepo;
 
 
@@ -66,7 +63,7 @@ public class BalanceSvcImpl implements BalanceSvc{
 		return br.findAll();
 	}
 
-	public List<Balance> findFreeBalanceByPlayerId(Long accountId,String weekStartTime, String weekEndTime) {
+	public List<Balance> findFreeBalanceByPlayerId(Long accountId,Date weekStartTime, Date weekEndTime) {
 		return br.findFreeBalanceByPlayerId(accountId,weekStartTime,weekEndTime);
 	}
 }
