@@ -30,4 +30,8 @@ public interface BalanceSvc  {
 
 	//查询所有
 	public List<Balance> findAll();
+	
+//	查询主账户信息
+	public List<Balance> findFreeBalanceByPlayerId(Long accountId,
+			String weekStartTime, String weekEndTime);
 }

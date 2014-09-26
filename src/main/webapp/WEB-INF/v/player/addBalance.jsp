@@ -116,16 +116,6 @@ function url(r){
 -->
 <script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
-	$(".triangle").hover(function() {
-		alert("鼠标移入我啦");
-	}, function() {
-		alert("鼠标移出我啦!");
-	});
-	$("#a").hover(function() {
-		alert("鼠标移入我啦");
-	}, function() {
-		alert("鼠标移出我啦!");
-	});
 	function onover() {
 		var a = document.getElementById("t_drop");
 		a.style.display = "block";
@@ -137,6 +127,20 @@ function url(r){
 	function onout() {
 		setTimeout('hidden()', 2000);
 	}
+	function che(){
+		if($("#MOAmount").val().trim() == ""){
+			alert("不能为空!");
+			return false;
+			}
+		else if($("#MOAmount").val() < 100){
+			alert("不能小于100！");
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
+	
 </script>
 
 </head>
@@ -192,11 +196,11 @@ function url(r){
 		<div style="margin-top: 10px; margin: 10px 0 10px 0;">
 			<span class="STYLE1"><strong>在线冲值</strong></span>&gt;&nbsp;&nbsp;&nbsp;<a
 				class="len"
-				href="#"
+				href="/p/rechargeHistory"
 				style="color: #00F; text-decoration: underline;">冲值记录查看</a>
 		</div>
 
-		<sf:form id="form1" modelAttribute="balance" action="/p/addAccount" method="post">
+		<sf:form id="form1" modelAttribute="balance" action="/p/addAccount" method="post" onsubmit="return che()">
 			<table width="720"style="border-collapse: collapse; border: 1px solid #CCC;"border="0" cellpadding="1" cellspacing="1">
 				<tbody>
 					<tr>
@@ -296,7 +300,7 @@ function url(r){
 						<td height="35" align="right">&nbsp;</td>
 						<td height="40" align="left" valign="middle">&nbsp;&nbsp; <input
 							name="SubTran" class="anniu_02" id="SubTran" type="submit"
-							value="马上冲值">
+							value="马上冲值"><% if(request.getAttribute("acc") == null){out.print("");}else{out.print(request.getAttribute("acc"));} %>
 						</td>
 					</tr>
 				</tbody>

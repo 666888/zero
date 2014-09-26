@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import deep.tool.Constants;
+import deep.tool.DateUtils;
 import deep.zero.bean.Account;
 import deep.zero.bean.Balance;
 import deep.zero.bean.Player;
@@ -71,7 +72,8 @@ public class BalanceController {
 //		}
 		///Iterator it = list.iterator();
 		//while(it.hasNext())
-		
+		model.addAttribute("acc", "充值成功！");
+		model.addAttribute("pName", nickname);
 		return "player/addBalance";
 	}
 	/**
@@ -144,5 +146,29 @@ public class BalanceController {
 		return "player/withDraw";
 	}
 	
-	
+	@RequestMapping(value="rechangeHistory",method=RequestMethod.GET)
+	public String rechangeHistory(Model model){
+		Balance balance = new Balance();
+		model.addAttribute("balance", balance);
+		return "player/withDraw";
+	}
+	@RequestMapping(value="/rechangeHistory",method=RequestMethod.POST)
+	public String rechangeHistory(@ModelAttribute Balance balance,
+			Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){
+		String nickname=(String)req.getSession().getAttribute("p_name");
+		String accountId=null;
+		Player player=playerSvc.getByAccount(nickname);
+		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
+		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId());
+//		Balance balanceNew=new Balance();
+		
+//		balance.setPlayerId(player.getId());
+//		balance.setAccId(account.getId());
+//		balance.setTransferTime(new Date());
+//		balance.setTransType(Constants.transType[2]);
+		List<Balance> balanceList=balanceSvc.findFreeBalanceByPlayerId(account.getId(),DateUtils.weekStartTime1(),DateUtils.weekEndTime1());
+		model.addAttribute("balanceList", balanceList);
+		model.addAttribute("pName", nickname);
+		return "player/rechangeView";
+	}
 }
