@@ -11,21 +11,35 @@
 	http://www.springframework.org/schema/mvc  
     http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     
+    
 	<!-- interceptors -->
     <mvc:interceptors >    
-        <mvc:interceptor>    
-            <mvc:mapping path="/admin/*" />
-            <bean class="deep.interceptor.SessionInterceptor"></bean>    
-        </mvc:interceptor>
         
         <mvc:interceptor>               
             <mvc:mapping path="/**" />
-            <mvc:exclude-mapping path="/signup"/>
-            <mvc:exclude-mapping path="/modiNickname.ajax"/>
-            <mvc:exclude-mapping path="/signin"/>
+
+            <!-- public service -->
+            <mvc:exclude-mapping path="/pub/**"/> 
+
+            <!-- gm is settle to shiro manage -->
             <mvc:exclude-mapping path="/gm/**"/>
+
+            <!-- player signup or signin -->
+
+            <mvc:exclude-mapping path="/signup"/>
+            <mvc:exclude-mapping path="/signin"/>
+            <mvc:exclude-mapping path="/modiNickname.ajax"/>
+
             <bean class="deep.interceptor.PlayerSessionInterceptor"></bean>    
         </mvc:interceptor> 
+
+        <!-- 
+
+        <mvc:interceptor>    
+            <mvc:mapping path="/gm/**" />
+            <bean class="deep.interceptor.SessionInterceptor"></bean>    
+        </mvc:interceptor>
+        --> 
     </mvc:interceptors>
 	
 	<!-- 默认的注解映射的支持: 启动注解驱动的Spring MVC功能，注册请求url和注解POJO类方法的映射-->  
@@ -35,7 +49,7 @@
 		以便注册带有@Controller、@Service、@repository、@Component等注解的类成为spring的bean 
 		常用的注解有:
 		@Controller			声明Action组件
-		@Service				声明Service组件
+		@Service			声明Service组件
 		@Repository			声明Dao组件
 		@Component			泛指组件，当无法明确分类时
 		@RequestMapping		请求映射，如RequestMapping("/menu");
@@ -45,7 +59,7 @@
 	 <!--配置以下两个bean即可实现此功能 --> 
 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
     <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor"/>
-	<context:component-scan base-package="deep.sys.controller,deep.zero.controller">
+	<context:component-scan base-package="deep.controller,deep.sys.controller,deep.zero.controller">
 	<!--
 	<context:include-filter type="regex" expression="tk\.deep\..*\.web\.action\..*Action"/>
 	<context:include-filter type="regex" expression="tk\.deep\..*\.service\..*ServiceImpl"/>
@@ -80,7 +94,7 @@
     
     <bean id="InternalViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
-		<property name="order" value="8"/>
+		<property name="order" value="1"/>
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/v/" />
