@@ -391,11 +391,44 @@ public class DateUtils
  * 本周开始
  * @return
  */
-  public static Date weekStartTime(){
+  public static String weekStartTime1(){
+//	  Date weekStartTime=null;
+	  DateFormat  df = new SimpleDateFormat(dateFormat[3]);
 	  Calendar cal = Calendar.getInstance();
-	  int day_of_week = cal.get(Calendar.DAY_OF_WEEK) - 2;
-	  cal.add(Calendar.DATE, -day_of_week);
-	  return cal.getTime();
+//	  try {
+		  int day_of_week = cal.get(Calendar.DAY_OF_WEEK) - 2;
+		  cal.add(Calendar.DATE, -day_of_week);
+		  
+//		  weekStartTime=df.parse(df.format(cal.getTime())+ " 23:59:59");
+//	} catch (ParseException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
+	  return df.format(cal.getTime())+ " 0:00:00";
+  }
+  /**
+   * 本周开始
+   * @return
+   */
+    public static Date weekStartTime(){
+  	  Calendar cal = Calendar.getInstance();
+  	  int day_of_week = cal.get(Calendar.DAY_OF_WEEK) - 2;
+  	  cal.add(Calendar.DATE, -day_of_week);
+  	  return cal.getTime();
+    }
+  /**
+   * 本周最后时间
+   * @return
+   */  
+  public static String weekEndTime1(){
+	  Calendar cal = Calendar.getInstance();
+	  DateFormat  df = new SimpleDateFormat(dateFormat[3]);
+		  int day_of_week = cal.get(Calendar.DAY_OF_WEEK) - 2;
+		  cal.add(Calendar.DATE, -day_of_week);
+		  cal.add(Calendar.DATE, 6);
+	  
+//		  weekEndTime=df.parse(df.format(cal.getTime())+ " 23:59:59");
+	  return df.format(cal.getTime())+ " 23:59:59";
   }
   /**
    * 本周最后时间
@@ -458,18 +491,21 @@ public class DateUtils
 		//sendMail("120601174@qq.com", "120601174@qq.com,xtp1211@163.com", "测试邮件", "这是一封测试的邮件");
 //		 Calendar cal=Calendar.getInstance(); 
 //		 System.out.println(getNowDate(0, 14));
-	  System.out.println();
+	  System.out.println(weekStartTime());
 	  Calendar c = Calendar.getInstance();
       Date now = null;
       try {
-          c.set(Calendar.DATE, 1);
-          c.add(Calendar.MONTH, 1);
-          c.add(Calendar.DATE, -1);
-          now=c.getTime();
-//          now = longSdf.parse(shortSdf.format(c.getTime()) + " 23:59:59");
-          DateFormat  df = new SimpleDateFormat(dateFormat[3]); 
-          System.out.println("月"+now);
-          System.out.println("月"+df.format(now)+" 0:00:00");
+//          c.set(Calendar.DATE, 1);
+//          c.add(Calendar.MONTH, 1);
+//          c.add(Calendar.DATE, -1);
+//          now=c.getTime();
+////          now = longSdf.parse(shortSdf.format(c.getTime()) + " 23:59:59");
+//          DateFormat  df = new SimpleDateFormat(dateFormat[3]); 
+//          System.out.println("月"+now);
+//          System.out.println("月"+df.format(now)+" 0:00:00");
+    	  DateFormat  df = new SimpleDateFormat(dateFormat[3]);
+//    	  System.out.println("本周开始时间："+df.format(DateUtils.weekStartTime())+" 0:00:00");
+//    	  System.out.println("本周结束时间："+df.format(DateUtils.weekEndTime())+ " 23:59:59");
       } catch (Exception e) {
           e.printStackTrace();
       }

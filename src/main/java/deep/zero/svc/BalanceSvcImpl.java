@@ -65,4 +65,9 @@ public class BalanceSvcImpl implements BalanceSvc{
 	public List<Balance> findAll(){
 		return br.findAll();
 	}
+
+	@Override
+	public List<Balance> findFreeBalanceByPlayerId(Long accountId,String weekStartTime, String weekEndTime) {
+		return br.findFreeBalanceByPlayerId(accountId,weekStartTime,weekEndTime);
+	}
 }
