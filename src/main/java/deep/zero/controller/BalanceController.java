@@ -145,14 +145,14 @@ public class BalanceController {
 		balanceSvc.AccountToBank(balance,accountId);
 		return "player/withDraw";
 	}
-	
+	/*
 	@RequestMapping(value="rechangeHistory",method=RequestMethod.GET)
 	public String rechangeHistory(Model model){
 		Balance balance = new Balance();
 		model.addAttribute("balance", balance);
 		return "player/withDraw";
-	}
-	@RequestMapping(value="/rechangeHistory",method=RequestMethod.POST)
+	}*/
+	@RequestMapping(value="/rechargeHistory",method=RequestMethod.GET)
 	public String rechangeHistory(@ModelAttribute Balance balance,
 			Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){
 		String nickname=(String)req.getSession().getAttribute("p_name");
@@ -160,7 +160,8 @@ public class BalanceController {
 		Player player=playerSvc.getByAccount(nickname);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
 		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId());
-//		Balance balanceNew=new Balance();
+		BigDecimal allAccount = balanceSvc.ALLAcount(player.getId());
+ //		Balance balanceNew=new Balance();
 		
 //		balance.setPlayerId(player.getId());
 //		balance.setAccId(account.getId());
@@ -169,6 +170,7 @@ public class BalanceController {
 		List<Balance> balanceList=balanceSvc.findFreeBalanceByPlayerId(account.getId(),DateUtils.weekStartTime1(),DateUtils.weekEndTime1());
 		model.addAttribute("balanceList", balanceList);
 		model.addAttribute("pName", nickname);
+		model.addAttribute("allAccount", allAccount);
 		return "player/rechangeView";
 	}
 }

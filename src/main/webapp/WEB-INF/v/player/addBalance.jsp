@@ -155,22 +155,18 @@ function url(r){
 				<div class="top_r">
 					<div class="logined clearfix">
 						<div id="change_drop" class="user_box" style="z-index: 999">
-							<span> <i class="user_p"> <img width="25" height="25"
-									src="http://p1.yx-s.com/detphoto.jpg">
-							</i> <a class="username" href="http://u.youxi.com/account/index"><%=request.getAttribute("pName")%></a>
-								<span class="triangle" style="cursor: pointer"
-								onmouseover="onover()" onmouseout="onout()"></span>
+							<span> <i class="user_p" onmouseover="onover()" onmouseout= "onout()"> <img width="25" height="25"
+									src="http://p1.yx-s.com/detphoto.jpg" >
+							</i> <a class="username" href="/p/message"><%= request.getAttribute("pName")%></a>
 							</span>
 							<div id="t_drop" class="tools_box"
 								style="z-index: 999; display: none;">
 								<ul>
-									<li><a href="http://u.youxi.com/account/info"
+									<li><a href="/p/message"
 										target="_blank"> <i class="acc_infro"></i> 帐号资料
 									</a></li>
-									<li><a href="http://u.youxi.com/account/index"
-										target="_blank"><i class="mode_code"></i>修改密码</a></li>
-									<li><a href="http://u.youxi.com/account/index"
-										target="_blank"><i class="sec_set"></i>安全设置</a></li>
+									<li><a href="/p/message?flag=upd_flag" target="_blank"><i class="mode_code"></i>修改密码</a></li>
+									<!-- <li><a href="#" target="_blank"><i class="sec_set"></i>安全设置</a></li>  -->
 								</ul>
 							</div>
 						</div>
@@ -181,7 +177,7 @@ function url(r){
 							</a> <a class="total_msg" style="display: none;"
 								href="http://bbs.youxi.com/home.php?mod=space&do=pm"> <span></span>
 							</a>
-						</div>
+						</div>																																		
 						<div class="exit_box">
 							<a href="logout"> <i></i> 退出
 							</a>
@@ -192,7 +188,7 @@ function url(r){
 		</div>
 	</div>
 	<!--top end-->
-	<div class="body2">
+	<div class="body2" style = "height:450px">
 		<div style="margin-top: 10px; margin: 10px 0 10px 0;">
 			<span class="STYLE1"><strong>在线冲值</strong></span>&gt;&nbsp;&nbsp;&nbsp;<a
 				class="len"
