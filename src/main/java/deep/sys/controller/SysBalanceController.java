@@ -25,7 +25,7 @@ import deep.zero.svc.PlayerSvcImpl;
 
 @Controller
 @RequestMapping("/gm")
-public class BalanceController {
+public class SysBalanceController {
 
 	@Autowired
 	private BalanceSvc balanceSvc;
@@ -44,9 +44,13 @@ public class BalanceController {
 	 * @param res
 	 * @return
 	 */
-	@RequestMapping(value="/rechargeHistory",method=RequestMethod.GET)
-	public String rechangeHistory(@ModelAttribute Balance balance,
-			Model model,BindingResult br,HttpServletRequest req,@RequestParam("nickname") String nickname, HttpServletResponse res){
+	@RequestMapping(value="/accountSearch",method=RequestMethod.GET)
+	public String accountSearch(){
+		return "user/accountSearch";
+	}
+	@RequestMapping(value="/rechargeHistory",method=RequestMethod.POST)
+	public String rechangeHistory(
+			Model model,HttpServletRequest req,@RequestParam("nickname") String nickname, HttpServletResponse res){
 		Player player=playerSvc.getByAccount(nickname);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
 		BigDecimal allAccount = balanceSvc.ALLAcount(player.getId());
@@ -58,9 +62,8 @@ public class BalanceController {
 //		balance.setTransType(Constants.transType[2]);
 		List<Balance> balanceList=balanceSvc.findFreeBalanceByPlayerId(account.getId(),DateUtils.weekStartTime1(),DateUtils.weekEndTime1());
 		model.addAttribute("balanceList", balanceList);
-		model.addAttribute("pName", nickname);
 		model.addAttribute("allAccount", allAccount);
-		return "player/rechangeView";
+		return "user/rechangeView";
 	}
 	
 	

@@ -23,7 +23,7 @@
 		<li><a href="playerOnline">Player online</a></li>
 		<li><a href="javascript:;">Real player database</a></li>
 		<li><a href="javascript:;">Advanced player search</a></li>
-		<li><a href="javascript:;">Player search</a></li>
+		<li><a href="/gm/accountSearch">Player search</a></li>
 		<li><a href="javascript:;">Player wallet transactions</a></li>
 	</ul>
 	<h2>Player Activities Statistics</h2>
