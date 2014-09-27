@@ -1,6 +1,7 @@
 package deep.zero.svc;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import deep.zero.bean.Balance;
@@ -30,4 +31,8 @@ public interface BalanceSvc  {
 
 	//查询所有
 	public List<Balance> findAll();
+	
+//	查询主账户信息
+	public List<Balance> findFreeBalanceByPlayerId(Long accountId,
+			Date weekStartTime, Date weekEndTime);
 }

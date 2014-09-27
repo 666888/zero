@@ -1,0 +1,318 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#top_1 {
+    background: url("../images/tikuan_01.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #005500;
+    font-weight: bold;
+    height: 20px;
+    margin: 12px 0 0 30px;
+    padding: 8px 0 0 45px;
+}
+#waikuan {
+    background: none repeat scroll 0 0 #fff;
+    border: 2px solid #005e1f;
+    color: #000000;
+    margin: 10px 0 0 30px;
+    width: 700px;
+}
+#waikuan #top_2 {
+    background: none repeat scroll 0 0 #b5fff4;
+    border-bottom: 2px solid #005e1f;
+    height: 20px;
+    padding: 14px 20px;
+}
+.fudong_1 {
+    float: left;
+    line-height: 20px;
+}
+.fudong_2 {
+    float: left;
+    width: 300px;
+}
+.fudong_2 {
+    height: 16px;
+}
+.shuoming {
+    padding: 0 10px 14px;
+}
+.shuoming h1 {
+    color: #0280fd;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 14px 0 3px;
+}
+.shuoming p {
+    margin: 3px 0;
+    text-indent: 20px;
+}
+.left_touzhu {
+    background: url("../images/left_touzhu.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    color: #000;
+    height: 20px;
+    letter-spacing: 3px;
+    line-height: 20px;
+    width: 47px;
+}
+#top_lishi {
+    background: none repeat scroll 0 0 #e1f0f7;
+    margin: 0;
+    width: 100%;
+}
+#top_lishi_bg {
+    border: 1px solid #000000;
+    height: 24px;
+    width: 100%;
+}
+.shijian00 {
+    float: right;
+    height: 28px;
+    width: 100%;
+}
+.shijian01 {
+    padding: 5px 0 0;
+}
+.shijian02 {
+    float: right;
+    padding: 4px 0 0;
+    width: 48px;
+}
+.shijian02 input {
+    background: url("../images/anniu_lan.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    color: #fff;
+    height: 20px;
+    line-height: 22px;
+    width: 40px;
+}
+.shijian03 {
+    height: 18px;
+    width: 70px;
+}
+.lishi_lan {
+    background: url("../images/lishi_lan.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #fff;
+    float: left;
+    height: 12px;
+    padding: 11px 4px 5px 0;
+    text-align: center;
+    width: 68px;
+}
+.lishi_lan a:link, .lishi_lan a:visited, .lishi_lan a:active, .lishi_lan a:hover {
+    color: #fff;
+}
+.lishi_hui {
+    background: url("../images/lishi_hui.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    height: 12px;
+    padding: 11px 4px 5px 0;
+    text-align: center;
+    width: 68px;
+}
+#top_lishi_bg .tu_1 {
+    background: url("../images/lishi_tu_01.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #007309;
+    font-size: 12px;
+    height: 36px;
+    margin: 0 0 0 15px;
+}
+#top_lishi_bg .h_01 {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 0 0;
+    text-indent: 36px;
+    width: 200px;
+}
+#top_lishi_bg .h_02 {
+    text-indent: 36px;
+    width: 200px;
+}
+#top_lishi_bg .cha_yue {
+    float: right;
+    padding: 13px 20px 0 0;
+}
+#center_1 {
+    background: url("../images/lishi_ss2.gif") repeat-x scroll center top #ccedff;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+}
+#center_1 #center_2 {
+    padding: 40px 10px 60px 20px;
+}
+#center_1 #center_3 {
+    padding: 30px 10px 20px 20px;
+}
+#center_1 .biao_0 {
+    height: 30px;
+    padding: 0 0 0 20px;
+    width: 700px;
+}
+#center_1 .biao_1 {
+    float: left;
+    height: 22px;
+    line-height: 22px;
+    text-align: right;
+    width: 100px;
+}
+#center_1 .biao_2 {
+    float: left;
+    padding: 0 20px 0 0;
+}
+#center_1 .biao_4 {
+    float: left;
+    width: 500px;
+}
+#center_1 .biao_5 {
+    padding: 2px 0;
+}
+#center_1 .biao_6 {
+    clear: both;
+    float: left;
+    padding: 10px 0 10px 100px;
+}
+#center_1 .biao_7 {
+    height: 30px;
+    margin: 0 0 0 20px;
+    width: 700px;
+}
+#center_1 .biao_8 {
+    height: 30px;
+    margin: 0 0 0 20px;
+    width: 700px;
+}
+#center_1 .biao_9 {
+    color: #784410;
+    float: left;
+    padding: 13px 0 10px 24px;
+}
+.anniu_000 {
+    background: url("../images/button1.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    color: #fff;
+    cursor: pointer;
+    height: 23px;
+    line-height: 22px;
+    width: 51px;
+}
+.chaxun {
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+}
+.waikuang {
+    background: none repeat scroll 0 0 #c6c6c6;
+    font-size: 12px;
+}
+.waikuang00 {
+    font-size: 12px;
+    width: 100%;
+}
+.sekuai_01 {
+    background: none repeat scroll 0 0 #504a16;
+    color: #fff;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+.bian_r {
+    border-right: 1px solid #fff;
+}
+.bian_r2 {
+    border-right: 1px solid #747474;
+}
+.kuai_00 {
+    text-align: center;
+    width: 140px;
+}
+.kuai_01 {
+    text-align: center;
+    width: 100px;
+}
+.kuai_03 {
+    text-align: center;
+    width: 80px;
+}
+.kuai_02 {
+    text-align: center;
+    width: 266px;
+}
+.kuai_04 {
+    text-align: center;
+    width: 103px;
+}
+.kuai_05 {
+    text-align: center;
+    width: 127px;
+}
+.sekuai_02 {
+    border-bottom: 1px solid #999;
+    color: #000;
+    font-size: 12px;
+    height: 18px;
+    line-height: 18px;
+    width: 751px;
+}
+.sekuai_03 {
+    background: none repeat scroll 0 0 #9b8e25;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    color: #ffffff;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 10px;
+    text-indent: 8px;
+}
+.sekuai_03 .fanye {
+    float: right;
+    text-align: right;
+}
+.red {
+    color: #ff2626;
+    padding: 0 20px 0 0;
+}
+.daili_se_0 {
+    background: none repeat scroll 0 0 #645300;
+    color: #fff;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.daili_se_1 {
+    background: none repeat scroll 0 0 #ffffff;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+.daili_se_2 {
+    background: none repeat scroll 0 0 #fff;
+    border-bottom: 1px solid #d7d7d7;
+    font-size: 12px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+}
+.subcla1 {
+    background: url("../images/re_7.jpg") no-repeatno-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    color: #fff;
+    height: 26px;
+    width: 63px;
+}
+.len {
+    color: #00268a;
+    cursor: pointer;
+    font-size: 12px;
+}
+.jl_11 a {
+    color: #ffffff;
+}

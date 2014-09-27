@@ -24,12 +24,7 @@ public class Balance {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;  
 	
-	private Long playerId;
-
-	
-	
-	
-
+	private Long playerId;			
 	//转入金额
 	private BigDecimal	recharge = new BigDecimal(0.00);
 	//转出金额
