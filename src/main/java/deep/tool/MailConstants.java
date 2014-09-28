@@ -14,8 +14,11 @@ public class MailConstants {
      
    
      public static final String  EMAIL_FINDPASSWORD_URL          = Constants.SERVER_INDEX_URL+"/email/find/findpassword/%s";
-     public static final String  EMAIL_FINDPASSWORD_SOURCE_URL   = "/email/find/findpassword/";
-     public static final String  EMAIL_FINDPASSWORD_REDIRECT_URL ="/mobilemall/reset_pw.jsp?code=";
+     public static final String  EMAIL_FINDPASSWORD_SOURCE_URL   = "/p/findpassword/";
+//     public static final String  EMAIL_FINDPASSWORD_SOURCE_URL   = "/email/find/findpassword/";
+//     public static final String  EMAIL_FINDPASSWORD_REDIRECT_URL ="/login.htm?code=";
+     public static final String  EMAIL_FINDPASSWORD_REDIRECT_URL ="/emall/reset_pw.jsp?code=";
+     
      public static final String EMAIL_END_DEFAULT_WORD = "<br/>如果点击以上链接没有反应，请将该网址复制并粘贴到新的浏览器窗口中。<br/>" +
 		"如果您并未发送过此请求邮件，则可能是因为其他用户误输入了您的电子邮件地址而使您收到这封邮件，那么您可以放心的忽略此邮件，无需进一步采取任何操作。<br/>" +
 		Constants.WEB_NAME+"祝您生活愉快<br/>" ;
