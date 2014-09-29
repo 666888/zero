@@ -81,7 +81,7 @@ public class SysBalanceController {
 	 */
 	@RequestMapping(value="/rechargeSearch",method=RequestMethod.GET)
 	public String rechargeSearch(){
-		return "user/accountSearch";
+		return "user/recharge";
 	}
 	@RequestMapping(value="/rechargeSearch.ajax",method=RequestMethod.POST)
 	@ResponseBody
