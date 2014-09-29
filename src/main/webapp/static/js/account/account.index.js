@@ -65,12 +65,12 @@ $('#mail_addr').html(result.mail);
 $('#mail_addr_a').attr('href', result.mailweb);
 }
 if (result) {
-$('#captcha').attr('src', 'http://captcha.youxi.com/image.php?app=youxi&r=' + Math.random());
+$('#captcha').attr('src', 'http://captcha.subic888.com/image.php?app=subic888&r=' + Math.random());
 $('#captcha').val('');
 }
 },
 error: function(result) {//提交失败之后需要执行的动作,result里有errmsg,errdata可以用
-$('#captcha').attr('src', 'http://captcha.youxi.com/image.php?app=youxi&r=' + Math.random());
+$('#captcha').attr('src', 'http://captcha.subic888.com/image.php?app=subic888&r=' + Math.random());
 $('#captcha').val('');
 if (result.itemalert.name && result.itemalert.msg) {
 $formTools.showAlert(result.itemalert.name, result.itemalert.msg);
@@ -324,7 +324,7 @@ $('.mail-step1').removeClass('txt-hui');
 $('.mail-step2').addClass('txt-hui');
 $('.mail-step2').removeClass('txt-orange');
 $('.mail-step2').removeClass('txt-orange');
-$('#captcha').attr('src', 'http://captcha.youxi.com/image.php?app=youxi&r=' + Math.random());
+$('#captcha').attr('src', 'http://captcha.subic888.com/image.php?app=subic888&r=' + Math.random());
 $('#captcha').val('');
 }
 //é¦é¡µéç¹å±å¼
