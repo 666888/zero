@@ -23,9 +23,9 @@ public class PlayerSessionInterceptor implements HandlerInterceptor,Initializing
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("======== Init SessionIntercdptor ========");
 		//Here we create the app database with init message.
-		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();		
-		PlayerSvcImpl ps = (PlayerSvcImpl)wac.getBean("playerSvcImpl");
-		deep.tool.TemplateDB.init(ps);		
+		//WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();		
+		//PlayerSvcImpl ps = (PlayerSvcImpl)wac.getBean("playerSvcImpl");
+		//deep.tool.TemplateDB.init(ps);		
 	}
 
 	/**

@@ -15,7 +15,10 @@
 		<property name="loginUrl" value="/gm/signin" />
 		<!--登录成功后要跳转的连接(本例中此属性用不到,因为登录成功后的处理逻辑在LoginController里硬编码为main.jsp了) --> 
 		
+		<!-- 
 		<property name="successUrl" value="/index.html" />
+		 -->
+		 
 		<!-- 用户访问未对其授权的资源时,所显示的连接 -->
 		<property name="unauthorizedUrl" value="/gm/login" />
 		<!-- Shiro过滤链的定义 --> 
