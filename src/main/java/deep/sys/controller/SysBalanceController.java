@@ -88,10 +88,12 @@ public class SysBalanceController {
 	public Map rechargeSearch(HttpServletRequest req,@RequestParam("nickname") String nickname, HttpServletResponse res){
 		Map map=new HashMap<String, Object>();
 		Player player=playerSvc.getByAccount(nickname);
-		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
-		BigDecimal allAccount = balanceSvc.ALLAcount(player.getId(),account.getId());
- //		Balance balanceNew=new Balance();
-		
+		if (null!=player) {
+			
+			Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
+			BigDecimal allAccount = balanceSvc.ALLAcount(player.getId(),account.getId());
+			//		Balance balanceNew=new Balance();
+			
 //		balance.setPlayerId(player.getId());
 //		balance.setAccId(account.getId());
 //		balance.setTransferTime(new Date());
@@ -99,9 +101,12 @@ public class SysBalanceController {
 //		List<Balance> balanceList=balanceSvc.findFreeBalanceByPlayerId(account.getId(),DateUtils.weekStartTime1(),DateUtils.weekEndTime1());
 //		model.addAttribute("player", player);
 //		model.addAttribute("allAccount", allAccount);
-		map.put("e", true);
-		map.put("player", player);
-		map.put("allAccount", allAccount);
+			map.put("e", true);
+			map.put("player", player);
+			map.put("allAccount", allAccount);
+		}else{
+			map.put("e", false);
+		}
 		return map;
 	}
 //	充值
