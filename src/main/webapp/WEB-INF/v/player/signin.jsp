@@ -21,7 +21,7 @@
 </head><body>
 <noscript>您的浏览器不支持JS，将无法看到通过JS实现的效果</noscript>
 <div class="wrap">
-    <div style = "text-align: center"><a href="http://www.youxi.com"><img src = "/static/img/player/index/logo.png" style = ""></a></div>
+    <div style = "text-align: center"><a href="http://www.subic888.com"><img src = "/static/img/player/index/logo.png" style = ""></a></div>
     <div class="login_page">
         <i class="tr"></i><i class="lb"></i>
         <input type="hidden" name="reg_ref" value="" />
@@ -75,7 +75,7 @@
 							<div class="ipt_txt">验证码</div>
 						</div>
 						<div class="yzmimg">
-							<img class="vcode" width="112" height="40" src="http://captcha.youxi.com/image.php?app=youxi&r=0.7083599675090095">
+							<img class="vcode" width="112" height="40" src="http://captcha.subic888.com/image.php?app=subic888&r=0.7083599675090095">
 							<a class="f5" href="javascript:void(0);">
 								<i class="if5">刷新</i>
 							</a>

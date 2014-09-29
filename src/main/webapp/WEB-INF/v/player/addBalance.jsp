@@ -172,10 +172,10 @@ function url(r){
 						</div>
 						<div class="msg_box">
 							<a target="_blank"
-								href="http://bbs.youxi.com/home.php?mod=space&do=pm"> <i></i>
+								href="http://bbs.subic888.com/"> <i></i>
 								消息
 							</a> <a class="total_msg" style="display: none;"
-								href="http://bbs.youxi.com/home.php?mod=space&do=pm"> <span></span>
+								href="http://bbs.subic888.com/"> <span></span>
 							</a>
 						</div>																																		
 						<div class="exit_box">

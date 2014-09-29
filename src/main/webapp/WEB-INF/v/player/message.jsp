@@ -2,7 +2,7 @@
     pageEncoding="utf-8"%>
     <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
-<!-- saved from url=(0032)http://u.youxi.com/account/index -->
+<!-- saved from url=(0032)http://u.subic888.com/account/index -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <title>用户中心</title>
                 <link rel="stylesheet" type="text/css" href="/static/css/player/account/style.css">
@@ -119,8 +119,8 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
                             <!-- 
                             <li class="form-item"><label class="dis">验证码：</label>
                             <input name="captcha" id="captcha" type="text" class="input w-122">
-                            <img src="http://captcha.youxi.com/image.php?app=youxi" width="112" height="40" class="yan" id="imgcaptcha">
-                            <a href="javascript:void(0);" onclick="$('#imgcaptcha').attr('src', 'http://captcha.youxi.com/image.php?app=youxi&r=' + Math.random());">换一张</a>
+                            <img src="http://captcha.subic888.com/image.php?app=subic888" width="112" height="40" class="yan" id="imgcaptcha">
+                            <a href="javascript:void(0);" onclick="$('#imgcaptcha').attr('src', 'http://captcha.subic888.com/image.php?app=subic888&r=' + Math.random());">换一张</a>
                             </li>-->
                             <li><label class="dis"></label> 
                             <a href="javascript:void(0);" id="btn-email" class="btn btn-send dis">保存</a></li>
@@ -129,7 +129,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
                 <div class="clearfix mail-panel2" style="display:none">
                     <ul class="mail-ul">
                         <li class="txt-fen">激活邮件已发送至您的邮箱：<span id="mail_addr"></span></li>
-                        <li><a href="http://u.youxi.com/account/index#" id="mail_addr_a" target="_blank" class="btn btn-send dis m-l-80">前去激活</a></li>
+                        <li><a href="http://u.subic888.com/account/index#" id="mail_addr_a" target="_blank" class="btn btn-send dis m-l-80">前去激活</a></li>
                         <li class="txt-hui">
                         <p>没收到邮件怎么办：</p>
                         <p>请检查您的垃圾邮件和广告邮件</p>

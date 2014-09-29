@@ -83,37 +83,37 @@
                 <dl>
                     <dt>游仔推荐</dt>
                                                             <dd>
-                        <a target="_blank" href="http://cbtx.youxi.com/list/zone.html">
+                        <a target="_blank" href="http://cbtx.subic888.com/list/zone.html">
                         <img width="58" height="58" src="http://p5.yx-s.com/t01667c9574fee1527c.png" />
                         <span class="yx_tit">称霸天下</span>
                         </a>
                     </dd>
                                         <dd>
-                        <a target="_blank" href="http://fkys.youxi.com/list/zone.html">
+                        <a target="_blank" href="http://fkys.subic888.com/list/zone.html">
                         <img width="58" height="58" src="http://p6.qhimg.com/t01795d19e8d2d315db.jpg" />
                         <span class="yx_tit">疯狂勇士</span>
                         </a>
                     </dd>
                                         <dd>
-                        <a target="_blank" href="http://hg.youxi.com/gamezone.html">
+                        <a target="_blank" href="http://hg.subic888.com/gamezone.html">
                         <img width="58" height="58" src="http://p9.yx-s.com/t01f54874986fd690da.png" />
                         <span class="yx_tit">黑暗之光</span>
                         </a>
                     </dd>
                                         <dd>
-                        <a target="_blank" href="http://xy.youxi.com/">
+                        <a target="_blank" href="http://xy.subic888.com/">
                         <img width="58" height="58" src="http://p7.yx-s.com/t018be3c79365ea304f.png" />
                         <span class="yx_tit">血饮传说</span>
                         </a>
                     </dd>
                                         <dd>
-                        <a target="_blank" href="http://sglw.youxi.com/list/zone.html">
+                        <a target="_blank" href="http://sglw.subic888.com/list/zone.html">
                         <img width="58" height="58" src="http://p6.qhimg.com/t01f7f1245cecd853ec.png" />
                         <span class="yx_tit">真三国乱舞</span>
                         </a>
                     </dd>
                                         <dd>
-                        <a target="_blank" href="http://qtol.youxi.com/list/zone.html">
+                        <a target="_blank" href="http://qtol.subic888.com/list/zone.html">
                         <img width="58" height="58" src="http://p3.qhimg.com/t01e059fb98449da8a7.jpg" />
                         <span class="yx_tit">奇天</span>
                         </a>
