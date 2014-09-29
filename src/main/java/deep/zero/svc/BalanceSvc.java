@@ -24,7 +24,7 @@ public interface BalanceSvc  {
 	public BigDecimal freeAccount(Long playerId,Long accId);
 	
 //	总余额
-	public BigDecimal ALLAcount(Long playerId);
+	public BigDecimal ALLAcount(Long playerId,Long accId);
 	
 //	从账户到卡上
 	public void AccountToBank(Balance balance,String accountId);
