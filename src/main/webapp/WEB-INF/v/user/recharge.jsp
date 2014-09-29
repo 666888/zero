@@ -74,7 +74,7 @@
 			<tr>
 				<td colspan="2" style="text-align: left; padding-left: 20px;">
 					<form id="recharge_form">
-						<input type="number" id="number" /><input type="submit" id="recharge" value="充值" />
+						<input type="text" required pattern="^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([1-9]*[1-9][0-9]*))$" id="number" /><input type="submit" id="recharge" value="充值" />
 					</form>
 				</td>
 			</tr>
