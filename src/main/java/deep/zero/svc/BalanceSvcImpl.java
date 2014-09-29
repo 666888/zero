@@ -46,8 +46,8 @@ public class BalanceSvcImpl implements BalanceSvc{
 //	}
 	
 //	总余额
-	public BigDecimal ALLAcount(Long playerId){
-		return br.ALLAcount(playerId);
+	public BigDecimal ALLAcount(Long playerId,Long accId){
+		return br.ALLAcount(playerId, accId);
 	}
 //	明细
 	public List<Balance> getListAccount(){

@@ -56,7 +56,7 @@ public class BalanceController {
 		String accountId=null;
 		Player player=playerSvc.getByAccount(nickname);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
-		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId());
+		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
 		Balance balanceNew=new Balance(); 
 		balanceNew.setRecharge(balance.getRecharge());
 		//balanceNew.setRolloff(balance.getRecharge());
@@ -65,7 +65,7 @@ public class BalanceController {
 		balanceNew.setTransferTime(new Date());
 		balanceNew.setTransType(Constants.transType[0]);
 		balanceSvc.BankToAccount(balanceNew,accountId);
-		System.out.println(balanceSvc.ALLAcount(player.getId()));
+		System.out.println(balanceSvc.ALLAcount(player.getId(),account.getId()));
 //		List<Balance> list = balanceSvc.findAll();
 //		for (Balance b : list) {
 //			System.out.println(b.getRecharge());
@@ -135,7 +135,7 @@ public class BalanceController {
 		String accountId=null;
 		Player player=playerSvc.getByAccount(nickname);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
-		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId());
+		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
 //		Balance balanceNew=new Balance();
 		
 		balance.setPlayerId(player.getId());
@@ -159,8 +159,8 @@ public class BalanceController {
 		String accountId=null;
 		Player player=playerSvc.getByAccount(nickname);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
-		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId());
-		BigDecimal allAccount = balanceSvc.ALLAcount(player.getId());
+		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
+		BigDecimal allAccount = balanceSvc.ALLAcount(player.getId(),account.getId());
  //		Balance balanceNew=new Balance();
 		
 //		balance.setPlayerId(player.getId());
