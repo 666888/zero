@@ -83,9 +83,10 @@ public class SysBalanceController {
 	public String rechargeSearch(){
 		return "user/accountSearch";
 	}
-	@RequestMapping(value="/rechargeSearch",method=RequestMethod.POST)
-	public String rechargeSearch(
-			Model model,HttpServletRequest req,@RequestParam("nickname") String nickname, HttpServletResponse res){
+	@RequestMapping(value="/rechargeSearch.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public Map rechargeSearch(HttpServletRequest req,@RequestParam("nickname") String nickname, HttpServletResponse res){
+		Map map=new HashMap<String, Object>();
 		Player player=playerSvc.getByAccount(nickname);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
 		BigDecimal allAccount = balanceSvc.ALLAcount(player.getId(),account.getId());
@@ -96,15 +97,17 @@ public class SysBalanceController {
 //		balance.setTransferTime(new Date());
 //		balance.setTransType(Constants.transType[2]);
 //		List<Balance> balanceList=balanceSvc.findFreeBalanceByPlayerId(account.getId(),DateUtils.weekStartTime1(),DateUtils.weekEndTime1());
-		model.addAttribute("player", player);
-		model.addAttribute("allAccount", allAccount);
-		return "user/rechangeView";
+//		model.addAttribute("player", player);
+//		model.addAttribute("allAccount", allAccount);
+		map.put("e", true);
+		map.put("player", player);
+		map.put("allAccount", allAccount);
+		return map;
 	}
 //	充值
 	@RequestMapping(value="/accountRecharge.ajax",method=RequestMethod.POST)
 	@ResponseBody
-	public Map accountRecharge(
-			Model model,HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("recharge") String recharge, HttpServletResponse res){
+	public Map accountRecharge(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("recharge") String recharge, HttpServletResponse res){
 		String accountId=null;
 		Map map=new HashMap<String, Object>();
 		Player player=playerSvc.getByAccount(nickname);
