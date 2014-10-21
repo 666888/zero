@@ -37,7 +37,7 @@ public class Player{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Transient
+	//@Transient
 	private String code;
 	
 	//昵称
@@ -120,14 +120,13 @@ public class Player{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+	@NotEmpty(message="code不能为空")
 	public String getCode() {
 		return code;
 	}
 	public void setCode(String code) {
 		this.code = code;
 	}
-	@NotEmpty(message="昵称不能为空")
 	public String getNickname() {
 		return nickname;
 	}

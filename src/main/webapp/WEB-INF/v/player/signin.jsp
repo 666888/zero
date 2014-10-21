@@ -36,11 +36,11 @@
 						<div id="usernametip" class="errtips"></div>
 						<div class="yxform_in">
 							<i class="iuser"></i>
-							<sf:input class="ipt" maxlength="20" placeholder="登录名" path="nickname" />
+							<sf:input class="ipt" maxlength="20" placeholder="登录名" path="code" />
 							<div class="ipt_txt">登录名</div>
 							<i class="iclose" style=""></i>
 						</div>
-						<sf:errors path="nickname" />
+						<sf:errors path="code" />
 						<i class="iright" style="display:none"></i>
 					</li>
 					<li>

@@ -34,7 +34,7 @@ public class SignController {
 	@RequestMapping(value="/signin",method=RequestMethod.GET)
 	public String Login(Model model){		
 		Player player = new Player();
-		model.addAttribute("player", player);
+		model.addAttribute("player", player); 
 		return "player/login";
 	}
 	/**
@@ -49,8 +49,8 @@ public class SignController {
 	public String Login(@ModelAttribute("player") Player player,Model model,BindingResult br,HttpServletRequest req){
 		try{
 			System.out.println("++++++++++++++后台验证+++++++++++++++");
-			ValidationUtils.rejectIfEmptyOrWhitespace(br, "nickname",
-					"nickname", "昵称不能为空");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code",
+					"code", "昵称不能为空");
 			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password",
 					"password", "密码不能为空");
 			if (br.hasErrors()) {
@@ -60,9 +60,9 @@ public class SignController {
 				}
 			else{
 				if (loginSvc.validate(player)) {
-					Long id = playerSvc.getByAccount(player.getNickname()).getId();
+					Long id = playerSvc.getByAccount(player.getCode()).getId();
 					req.getSession().setAttribute("p_id", id);
-					req.getSession().setAttribute("p_name", player.getNickname());
+					req.getSession().setAttribute("p_code", player.getCode());
 					// Create a redirection view to success page. This will
 					// redirect to UserController.
 					System.out.println("用户已写入到session中...");
@@ -84,14 +84,15 @@ public class SignController {
 	}
 	@RequestMapping("/entry")
 	public String entry(HttpServletRequest req,Model model){
-		String p_name = (String)req.getSession().getAttribute("p_name");
+		Long p_id = (Long)req.getSession().getAttribute("p_id");
+		String p_name = playerSvc.get(p_id).getNickname();
 		model.addAttribute("pName", p_name);
 		return "player/success";		
 	}
 	@RequestMapping("/logout")
 	public String logout(Model model,HttpServletRequest req){
 		Player player = new Player();
-		req.getSession().setAttribute("p_name", null);
+		req.getSession().setAttribute("p_code", null);
 		model.addAttribute("player", player);
 		return "player/login";
 	}
@@ -105,21 +106,24 @@ public class SignController {
 	public String regist(@ModelAttribute Player player,Model model,BindingResult br,HttpServletRequest req){
 		try{
 			System.out.println("++++++++++++++后台验证+++++++++++++++");
-			ValidationUtils.rejectIfEmptyOrWhitespace(br, "nickname",
-					"nickname", "昵称不能为空");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code",
+					"code", "昵称不能为空");
 			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password",
 					"password", "密码不能为空");
 			if(br.hasErrors()){
 				return "player/register";
 			}
 			else{
-				player.setCode("55");
+				player.setNickname(player.getCode());
 				player.setUsername("xiaoming");
 				player.setRegTime(new Date());
-				playerSvc.addPlayer(player);
-				//model.addAttribute("player", new Player());
+				playerSvc.addPlayer(player);				
+				Long id = playerSvc.getByAccount(player.getCode()).getId();
+				req.getSession().setAttribute("p_id", id);
+				req.getSession().setAttribute("p_code", player.getCode());
+				System.out.println("用户已写入到session中...");
 				model.addAttribute("pName",player.getNickname());
-				return "player/message";
+				return "player/success";								
 			}
 		}
 		catch(Exception e){
@@ -129,17 +133,13 @@ public class SignController {
 		}		
 	}
 	
-	@RequestMapping(value="/modiNickname.ajax",method=RequestMethod.POST)
+	@RequestMapping(value="verifyCode.ajax",method=RequestMethod.POST)
 	@ResponseBody
-	public String password(HttpServletRequest req,@RequestParam("nickname") String nickname){
-		Player player = playerSvc.getByAccount(nickname);
-
-		if(null!=player){
-			System.out.println("++++++++++++++"+nickname+"+++++++");
-			return "false";
-		}
-		else{
+	public String verifyCode(@RequestParam String code){
+		Player player = playerSvc.getByAccount(code);
+		if(player == null)
 			return "true";
-		}
+		else
+			return "false";
 	}
 }

@@ -50,11 +50,11 @@ public class PlayerSvcImpl implements PlayerSvc {
 	public List<Player> getAll(){
 		return pr.findAll();
 	}
-	public Player getByAccount(String nickname) {
-		return pr.getByAccount(nickname);
+	public Player getByAccount(String code) {
+		return pr.getByAccount(code);
 	}
-	public boolean isExistPlayer(String nickname,String password){
-		return pr.isExistPlayer(nickname, password);
+	public boolean isExistPlayer(String code,String password){
+		return pr.isExistPlayer(code, password);
 	}
 
 	public List<Player> getPlayerByRegWeek() {

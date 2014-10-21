@@ -72,7 +72,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
     </div>
     <div class="f-left ren-m">
         <h4 class="name dis" ><%= request.getAttribute("pName")%></h4>
-        <a href="javascript:void(0)">修改</a>
+        <a href="/p/modifyNickname">修改</a>
         <div class="myyhq"><a href="javascript:void(0)" target="_blank">我的优惠券<i></i></a></div>
         <div><em class="txt-hui">个人信息完整度:</em>
             <div class="jindu1 dis">
@@ -186,7 +186,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
             <a name="pswd" class="a_pswd"></a>
             <a href="javascript:;" onclick = "pasw()" class="c-btn">收缩按钮</a>
             <div class="clearfix box-title">
-                <div class="f-right shm r-content"><a href="javascript:void(0)" onclick="openitem(this);">修改</a></div>
+                <div class="f-right shm r-content"><a href="javascript:void(0)" onclick="openPsw(this);">修改</a></div>
                 <div class="f-left">
                     <div class="icon4 dis">修改密码</div>
                     <h3 class="dis list-name">修改密码</h3>
@@ -232,9 +232,10 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
 </div>
 <script src="/static/js/player/account/analyse.js" type="text/javascript"></script>
 <script type="text/javascript">
+//初始化页面
 $(document).ready(function(){
-	var nickname = $(".name.dis").text();
-	$.post("/p/onload.ajax",{nickname:nickname},function(data,status){
+	//var nickname = $(".name.dis").text();
+	$.get("/p/onload.ajax",function(data,status){
 		if(data.e && data.p){						
 			$("#setEmail").css("display","none");
 			$("#mail").css("display","none");
@@ -264,9 +265,8 @@ $(document).ready(function(){
 		}
 	});
 });
-
+//修改密码
 $("#btn-repass").click(function(){
-	var nickname = $(".name.dis").text();
 	var old = $("input[name='repass_old']").val();
 	var nww = $("input[name='repass_check']").val();
 	var nw = $("input[name='repass_new']").val();
@@ -278,7 +278,7 @@ $("#btn-repass").click(function(){
 				type:"post",
 				url:"/p/modiPswd.ajax",
 				dataType:"json",
-				data:{nickname:nickname,old:old,nw:nw},
+				data:{old:old,nw:nw},
 				success:function(data, textStatus){
 					alert(data.a);
 					window.location.reload();
@@ -286,9 +286,8 @@ $("#btn-repass").click(function(){
 		});
 	}
 });
-
+//绑定邮箱
 $("#btn-email").click(function(){
-	var nickname = $(".name.dis").text();
 	var email = $("input[name='email']").val();	
 	if (email == "") {
 		alert("邮箱不能为空");
@@ -303,7 +302,7 @@ $("#btn-email").click(function(){
 				type:"post",
 				url:"/p/secureMail.ajax",
 				dataType:"json",
-				data:{nickname:nickname,email:email},
+				data:{email:email},
 				success:function(data, textStatus){
 					if(data.e){
 						alert("保存成功！");						
@@ -318,9 +317,8 @@ $("#btn-email").click(function(){
 				}
 		});	
 });
-
+//绑定电话
 $("#btn-phone").click(function(){
-	var nickname = $(".name.dis").text();
 	var phone = $("input[name='phone']").val();		
 	if (phone==""){ 
         alert("请填写手机号码！"); 
@@ -341,7 +339,7 @@ $("#btn-phone").click(function(){
 				type:"post",
 				url:"/p/securePhone.ajax",
 				dataType:"json",
-				data:{nickname:nickname,phone:phone},
+				data:{phone:phone},
 				success:function(data, textStatus){
 					if(data.p){
 						alert("保存成功！");						
@@ -356,8 +354,8 @@ $("#btn-phone").click(function(){
 				}
 		});	
 });
-
-function openitem(){
+//控制密码、邮箱、电话是否显示
+function openPsw(){
 	if($("#psw").css("display") == "none"){
 		
 		$("#psw").css("display","block");
@@ -366,7 +364,6 @@ function openitem(){
 		$("#psw").css("display","none")
 	}
 }
-
 function openMail(){
 	if($("#mail").css("display") == "none"){
 		
@@ -376,7 +373,6 @@ function openMail(){
 		$("#mail").css("display","none")
 	}
 }
-
 function openPhone(){
 	if($("#phone").css("display") == "none"){
 		
@@ -386,6 +382,7 @@ function openPhone(){
 		$("#phone").css("display","none")
 	}
 }
+//验证密码是否一致
 $("input[name='repass_check']").blur(function(){
 	if($("input[name='repass_new']").val() == $(this).val()){
 		return;

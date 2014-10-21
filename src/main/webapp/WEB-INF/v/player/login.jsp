@@ -43,13 +43,13 @@
 								<li>
 									<div class="yxform_in">
 										<i class="iuser"></i>
-										<sf:input class="ipt" path="nickname" placeholder="登录名" maxlength="20"/><sf:errors path="nickname" />
+										<sf:input class="ipt" path="code" placeholder="登录名" maxlength="20"/><sf:errors path="code" />
 									</div>
 								</li>
 								<li>
 									<div class="yxform_in">
 										<i class="ipwd"></i>
-										<sf:password  path="password" placeholder="密码" maxlength="20" class="ipt"/><sf:errors path="nickname" />
+										<sf:password  path="password" placeholder="密码" maxlength="20" class="ipt"/><sf:errors path="password" />
 									</div>
 								</li>
 								<li class="login_err" style="display:block">

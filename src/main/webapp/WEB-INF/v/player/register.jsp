@@ -37,11 +37,11 @@
 						<div id="usernametip" class="errtips"></div>
 						<div class="yxform_in">
 							<i class="iuser"></i>
-							<sf:input class="ipt" maxlength="20" placeholder="登录名" path="nickname" />
+							<sf:input class="ipt" maxlength="20" placeholder="登录名" path="code" />
 							<div class="ipt_txt">登录名</div>
 							<i class="iclose" style=""></i>
 						</div>
-						<sf:errors path="nickname" />
+						<sf:errors path="code" />
 						<i class="iright" style="display:none"></i>
 					</li>
 					<li>
@@ -119,10 +119,10 @@
     	}
     }
     
-    $("#nickname").blur(function(){
-    	var nickname = $(this).val();
+    $("#code").blur(function(){
+    	var code = $(this).val();
     	//$.post("/modiNickname.ajax",{nickname:nickname},function(data,textStatus){if(textStatus=="success"){alert("昵称存在！");}},"json");
-    	$.post("/modiNickname.ajax",{nickname:nickname},function(data,textStatus){console.log(data);if(!data){alert("昵称存在！");}},"json");
+    	$.post("/verifyCode.ajax",{code:code},function(data,textStatus){console.log(data);if(!data){alert("code存在！");}},"json");
     });  
 </script>
 </body>
