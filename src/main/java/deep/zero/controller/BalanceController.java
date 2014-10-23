@@ -91,8 +91,8 @@ public class BalanceController {
 	public String addBalance(@ModelAttribute Balance balance,
 			Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){
 		Balance balanceNew=null;
-		String nickname=(String)req.getSession().getAttribute("p_name");
-		Player player=playerSvc.getByAccount(nickname);
+		String code=(String)req.getSession().getAttribute("p_code");
+		Player player=playerSvc.getByAccount(code);
 		String gAccount=(String)req.getSession().getAttribute("g_account");
 //		Balance toBalance=balanceSvc.freeAccount(player.getId());
 		Balance toBalance=new Balance();
@@ -154,9 +154,9 @@ public class BalanceController {
 	@RequestMapping(value="/rechargeHistory",method=RequestMethod.GET)
 	public String rechangeHistory(@ModelAttribute Balance balance,
 			Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){
-		String nickname=(String)req.getSession().getAttribute("p_name");
+		String code=(String)req.getSession().getAttribute("p_code");
 		String accountId=null;
-		Player player=playerSvc.getByAccount(nickname);
+		Player player=playerSvc.getByAccount(code);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
 		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
 		BigDecimal allAccount = balanceSvc.ALLAcount(player.getId(),account.getId());
@@ -168,7 +168,7 @@ public class BalanceController {
 //		balance.setTransType(Constants.transType[2]);
 		List<Balance> balanceList=balanceSvc.findFreeBalanceByPlayerId(account.getId(),DateUtils.weekStartTime1(),DateUtils.weekEndTime1());
 		model.addAttribute("balanceList", balanceList);
-		model.addAttribute("pName", nickname);
+		model.addAttribute("pName", code);
 		model.addAttribute("allAccount", allAccount);
 		return "player/rechangeView";
 	}

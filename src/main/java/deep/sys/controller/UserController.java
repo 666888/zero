@@ -204,7 +204,7 @@ public class UserController {
 		}
 		return jsonStr;
 	}
-	//提出用户
+	//踢出用户
 	@RequestMapping(value="/kick",method=RequestMethod.GET)
 	public String kick(@RequestParam String nickname){
 		HttpSession session = OnlineListener.getSession(nickname);

@@ -30,7 +30,7 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 	private PlayerSvcImpl playerSvc = new PlayerSvcImpl();
 	private static final long serialVersionUID = -724585474693809304L;
 	public static Map<HttpSession, String> map = new HashMap<HttpSession, String>();
-	private String user_name;
+	private String user_code;
 	public static Map<String,HttpSession> sMap = new HashMap<String,HttpSession>();
 	public Map<String, Player> mapx = new HashMap<String, Player>();
 
@@ -52,7 +52,7 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 			Object key = it.next();
 			if (null != map.get(key) && !"".equals(map.get(key))) {
 				System.out.println(map.get(key));
-				Player player = ps.getByAccount("player");
+				Player player = ps.getByAccount(map.get(key));
 				mapx.put(map.get(key), player);
 			}
 		}
@@ -62,13 +62,13 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 	public void attributeAdded(HttpSessionBindingEvent evt) {
 		// TODO Auto-generated method stub
 		HttpSession session = evt.getSession();		
-		user_name = (String) session.getAttribute("p_name");
-		System.out.println("创建session"+user_name+session.getId());
-		map.put(session, user_name);
+		user_code = (String) session.getAttribute("p_code");
+		System.out.println("创建session"+user_code+session.getId());
+		map.put(session, user_code);
 		System.out.println(map.size());
-		if(evt.getSession() != null && evt.getSession().getAttribute("p_name") != null){	
-			System.out.println(evt.getSession().getAttribute("p_name"));
-			sMap.put((String)evt.getSession().getAttribute("p_name"), session);
+		if(evt.getSession() != null && evt.getSession().getAttribute("p_code") != null){	
+			System.out.println(evt.getSession().getAttribute("p_code"));
+			sMap.put((String)evt.getSession().getAttribute("p_code"), session);
 		}
 	}
 
@@ -79,13 +79,13 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 	public void attributeReplaced(HttpSessionBindingEvent evt) {
 		// TODO Auto-generated method stub
 		HttpSession session = evt.getSession();
-		user_name = (String) session.getAttribute("p_name");
-		System.out.println("+++++++++"+user_name+"++++++++");
-		if (user_name == null) {
+		user_code = (String) session.getAttribute("p_code");
+		System.out.println("+++++++++"+user_code+"++++++++");
+		if (user_code == null) {
 			map.remove(session);
 		} else
-			map.put(session, user_name);
-		System.out.println(map.size()+user_name);
+			map.put(session, user_code);
+		System.out.println(map.size()+user_code);
 	}
 	//将所有session放入map
 	public void sessionCreated(HttpSessionEvent e) {

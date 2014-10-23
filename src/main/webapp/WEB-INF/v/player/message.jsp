@@ -72,7 +72,7 @@ EvPNG.fix('.icon1,.icon2,.icon3,.icon4,.icon5,.manage a i.duihao,.manage a i,.h-
     </div>
     <div class="f-left ren-m">
         <h4 class="name dis" ><%= request.getAttribute("pName")%></h4>
-        <a href="/p/modifyNickname">修改</a>
+        <a href="javascript:void(0)">修改</a>
         <div class="myyhq"><a href="javascript:void(0)" target="_blank">我的优惠券<i></i></a></div>
         <div><em class="txt-hui">个人信息完整度:</em>
             <div class="jindu1 dis">

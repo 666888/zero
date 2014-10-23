@@ -97,7 +97,7 @@ public class TemplateDB {
 	public static void init(PlayerSvcImpl ps){		
 		/*
 		Player player = new Player();
-		player.setCode("123456");
+		player.setCode("player");
 		player.setPassword("555555");
 		player.setNickname("player");
 		player.setUsername("player");
