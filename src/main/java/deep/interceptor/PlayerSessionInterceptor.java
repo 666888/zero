@@ -41,9 +41,9 @@ public class PlayerSessionInterceptor implements HandlerInterceptor,Initializing
 	 */
 	public boolean preHandle(HttpServletRequest req,
 			HttpServletResponse res, Object handler) throws Exception {
-		String name = (String)req.getSession().getAttribute("p_name");
+		String name = (String)req.getSession().getAttribute("p_code");
 		if(name == null){
-			System.out.println("Interceptor got a null value of the p_name");
+			System.out.println("Interceptor got a null value of the p_code");
 			res.sendRedirect("/signin");
 			return false;
 		}		
