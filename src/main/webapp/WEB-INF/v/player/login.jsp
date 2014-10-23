@@ -17,14 +17,64 @@
 <link rel="stylesheet" href="/static/css/player/login/reset.css">
 <link rel="stylesheet" href="/static/css/player/login/0a94a3be.css">
 <link href="/static/css/player/index.css" rel="stylesheet" type="text/css" />
+<script type = "text/javascript" src = "/static/js/jquery-1.8.0.min.js"></script>
+<script type = "text/javascript">
+$(document).ready(function(){
+	if($("#flag").val() != ""){
+		$("#hid").show();
+		$("#hid2").hide();
+	}
+});
+</script>
 </head>
 <body >
 <noscript>您的浏览器不支持JS，将无法看到通过JS实现的效果</noscript>
 <!--nav star-->
 <!--V2 star-->
-   
 <!--top star-->
-<div class="topcont">
+	<div class="topcont" id = "hid" style = "display:none">
+		<div class="topbar">
+			<div class="wrap_w clearfix">
+				<div class="top_r">
+					<div class="logined clearfix">
+						<div id="change_drop" class="user_box" style="z-index: 999">
+							<span> <i class="user_p" onmouseover="onover()" onmouseout= "onout()"> <img width="25" height="25"
+									src="http://p1.yx-s.com/detphoto.jpg" >
+							</i> <a class="username" href="/p/message"><%= request.getAttribute("pName")%></a>
+							</span>
+							<div id="t_drop" class="tools_box"
+								style="z-index: 999; display: none;">
+								<ul>
+									<li><a href="/p/message"
+										target="_blank"> <i class="acc_infro"></i> 帐号资料
+									</a></li>
+									<li><a href="/p/message?flag=upd_flag" target="_blank"><i class="mode_code"></i>修改密码</a></li>
+									<!-- <li><a href="#" target="_blank"><i class="sec_set"></i>安全设置</a></li>  -->
+								</ul>
+							</div>
+						</div>
+						
+						<div class="msg_box">
+							<a 
+								href="javascript:void(0)"> <i></i>
+								消息
+							</a> <a class="total_msg" style="display: none;"
+								href="javascript:void(0)"> <span></span>
+							</a>
+						</div>
+						 
+						<div class="exit_box">
+							<a href="logout"> <i></i> 退出
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--top end-->
+<!--top star-->
+<div class="topcont" id = "hid2">
     <!--topbar star-->
     <div class="topbar">
         <div class="wrap_w clearfix">
@@ -150,6 +200,7 @@
 		
 		<p>在菲律宾注册并遵守菲律宾法律</p>
 	</div>
+	<input type="hidden" id="flag" value="${pName}" />
 <!--footer end-->
 
 

@@ -86,8 +86,10 @@ public class SignController {
 	public String entry(HttpServletRequest req,Model model){
 		Long p_id = (Long)req.getSession().getAttribute("p_id");
 		String p_name = playerSvc.get(p_id).getNickname();
+		model.addAttribute("player",new Player());
 		model.addAttribute("pName", p_name);
-		return "player/success";		
+		
+		return "player/login";		
 	}
 	@RequestMapping("/logout")
 	public String logout(Model model,HttpServletRequest req){
@@ -123,7 +125,8 @@ public class SignController {
 				req.getSession().setAttribute("p_code", player.getCode());
 				System.out.println("用户已写入到session中...");
 				model.addAttribute("pName",player.getNickname());
-				return "player/success";								
+				model.addAttribute("player",new Player());
+				return "player/login";								
 			}
 		}
 		catch(Exception e){
