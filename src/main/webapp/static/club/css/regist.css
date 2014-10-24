@@ -1,0 +1,24 @@
+@charset "utf-8";
+* { margin: 0px; padding: 0px; /*font-size: 14px;*/ font-family: "Microsoft Yahei",verdana;}
+body { background: url(../img/bg-0.jpg);}
+li { list-style: none;}
+a { text-decoration: none; color: #000; out-line: none;}
+
+#re_hd { height: 100px; background: #ccc;}
+#re_tab { width: 990px; margin: auto;}
+#re_tab:after { clear: both; content: ""; display: block;}
+	#re_tab li { float: left; width: 190px; height: 50px; line-height: 50px; text-align: center; background: #eff3f8;}
+	#re_tab li a { font-size: 22px; display: block;}
+	#re_tab li.sgang { width: 1px; height: 51px; background: #e4ebf1;}
+	#re_tab .gr_tab_cur { background: #fff;}
+	#re_tab .gr_tab_cur a { border-top: solid 3px #69b3f2; background: #fff;}
+#re_bd { width: 990px; height: 540px; margin: auto; background: rgba(255, 255, 255, 0.85);}
+	#re_bd_gr { width: 840px; border: solid 1px #fff;}
+	#re_bd_sj { width: 840px; border: solid 1px #fff; display: none;}
+		.lg_inp { width: 340px; font-size: 20px; border: solid 1px #ccc; margin: auto; padding: 10px; display: block; margin: auto;}
+		#grname,#sjname { margin-top: 50px;}
+		#grpassword,#grre_password,#sjpassword,#sjre_password { margin-top: 30px;}
+		#gr_btn,#sj_btn { width: 360px; height: 50px; background: #69b3f2; border: none; border-radius: 2px; font-size: 26px; color: #fff; display: block; margin: auto; margin-top: 30px;}
+		#re_bd p { text-align: center; margin-top: 25px;}
+#re_ft { height: 100px; background: #777;}
+	

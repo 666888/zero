@@ -1,0 +1,26 @@
+@charset "utf-8";
+* { margin: 0px; padding: 0px; /*font-size: 14px;*/ font-family: "Microsoft Yahei",verdana;}
+body { background: #e4f5ed;}
+li { list-style: none;}
+a { text-decoration: none; color: #000; out-line: none;}
+
+#lg_hd { height: 100px; background: #ccc;}
+#lg_bd { height: 512px; background: #39a6ec;}
+	#lg_bd_img { height: 512px; width: 990px; position: relative; background: url(../img/wylcBg.jpg) no-repeat center 0px; margin: auto;}
+	#lg_bd_img a.bd_img { display: block; width: 990px; height: 512px;}
+	#login_div { width: 401px; background: rgba(255, 255, 255, 0.85); position: absolute; top: 0px; left: 100%; margin-left: -401px; margin-top: 50px;}
+		.login_type { float: left; width: 200px; height: 49px; line-height: 49px; text-align: center; font-size: 22px;}
+			.login_type a { display: block;}
+		.sgang { width: 1px; height: 50px; background: #39a6ec; float: left;}
+		.login_con {height: 340px; clear: both; overflow: hidden;}
+			#gryh { height: 340px;}
+			#sjyh { height: 340px; display: none;}
+			.login_type_cur { background: #89caf4; border-bottom: solid 1px #39a6ec;}
+			.lg_inp { width: 340px; font-size: 20px; border: solid 1px #ccc; margin: auto; padding: 10px; display: block; margin: auto;}
+			#grname,#sjname { margin-top: 50px;}
+			#grpassword,#sjpassword { margin-top: 25px;}
+			#grlg_Btn,#sjlg_Btn { width: 360px; height: 50px; background: #69b3f2; border: none; border-radius: 2px; font-size: 26px; color: #fff; display: block; margin: auto; margin-top: 25px;}
+			.login_con p { font-size: 12px; text-align: center; margin-top: 25px;}
+			.login_con p a { color: #39a6ec;}
+#lg_ft { height: 100px; background: #777;}
+	
