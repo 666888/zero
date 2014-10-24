@@ -35,8 +35,20 @@ $(document).ready(function(){
 	if($("#flag").val() != ""){
 		$("#hid").show();
 		$("#hid2").hide();
-	}
+	}	
 });
+
+function onover(){
+	$("#t_drop").show();
+}
+function on(){
+	$("#t_drop").hide();
+}
+
+function onout(){
+	setTimeout("on()",2000);
+
+}
 </script>
 </head>
 <body >
@@ -50,10 +62,11 @@ $(document).ready(function(){
 				<div class="top_r">
 					<div class="logined clearfix">
 						<div id="change_drop" class="user_box" style="z-index: 999">
-							<span> <i class="user_p" onmouseover="onover()" onmouseout= "onout()"> <img width="25" height="25"
+							<span> 
+							 <i class="user_p" onmouseover="onover()" onmouseout= "onout()"> <img width="25" height="25"
 									src="http://p1.yx-s.com/detphoto.jpg" >
-							</i> <a class="username" href="/p/message"><%= request.getAttribute("pName")%></a>
-							</span>
+									
+							</i> 
 							<div id="t_drop" class="tools_box"
 								style="z-index: 999; display: none;">
 								<ul>
@@ -64,6 +77,8 @@ $(document).ready(function(){
 									<!-- <li><a href="#" target="_blank"><i class="sec_set"></i>安全设置</a></li>  -->
 								</ul>
 							</div>
+							</span>
+							<a class="username" href="/p/message"><%= request.getAttribute("pName")%></a>
 						</div>
 						
 						<div class="msg_box">
