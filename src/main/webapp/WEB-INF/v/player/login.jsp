@@ -17,9 +17,21 @@
 <link rel="stylesheet" href="/static/css/player/login/reset.css">
 <link rel="stylesheet" href="/static/css/player/login/0a94a3be.css">
 <link href="/static/css/player/index.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/player/login/nivo.slider.css" rel="stylesheet" type="text/css" />
 <script type = "text/javascript" src = "/static/js/jquery-1.8.0.min.js"></script>
+<script type = "text/javascript" src = "/static/js/jquery.nivo.slider.pack.js"></script>
 <script type = "text/javascript">
 $(document).ready(function(){
+	$('#slider').nivoSlider({
+		effect:'random',
+		slices:15,
+		animSpeed:500,
+		pauseTime:3000,
+		directionNav:true,
+		controlNav:true,
+		keyboardNav:true
+	});
+	
 	if($("#flag").val() != ""){
 		$("#hid").show();
 		$("#hid2").hide();
@@ -175,7 +187,13 @@ $(document).ready(function(){
     <!--mygame end-->
 </div>
 <!--top end-->
-<div style = "text-align: center"><img src = "/static/img/player/login/a.png" style = ""><br/><img src = "/static/img/player/login/b.png" style = ""><br/><img src = "/static/img/player/login/c.png" style = ""></div>
+<div class="theme-default">
+	<div id="slider" class="nivoSlider">
+		<a href="javascript:;"><img src="/static/img/player/login/a_1.png" width="960" height="366" /></a>
+		<a href="javascript:;"><img src="/static/img/player/login/b_1.png" width="960" height="366" /></a>
+		<a href="javascript:;"><img src="/static/img/player/login/c_1.png" width="960" height="366" /></a>
+	</div> 
+</div>
 <!--footer star-->
 <div id="foot">
 		<ul>
