@@ -40,6 +40,7 @@ $(document).ready(function(){
 
 function onover(){
 	$("#t_drop").show();
+
 }
 function on(){
 	$("#t_drop").hide();
@@ -47,7 +48,7 @@ function on(){
 
 function onout(){
 	setTimeout("on()",2000);
-
+	
 }
 </script>
 </head>

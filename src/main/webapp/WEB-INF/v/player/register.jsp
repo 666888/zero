@@ -34,11 +34,11 @@
 				<sf:form method="post" action = "/signup" modelAttribute="player" onsubmit="return che();">
 				<ul>
 					<li>
-						<div id="usernametip" class="errtips"></div>
+						<div id="codetip" class="errtips"></div>
 						<div class="yxform_in">
 							<i class="iuser"></i>
-							<sf:input class="ipt" maxlength="20" placeholder="登录名" path="code" />
-							<div class="ipt_txt">登录名</div>
+							<sf:input class="ipt" maxlength="20" placeholder="登录码" path="code" />
+							<div class="ipt_txt">登陆码</div>
 							<i class="iclose" style=""></i>
 						</div>
 						<sf:errors path="code" />
@@ -62,6 +62,61 @@
 							<i class="ipwd"></i>
 							<input type = "password" id = "pss" class="ipt" maxlength="20" placeholder="确认密码" onBlur="che();"/>														
 						</div>						
+					</li>
+					<li>
+						<div id="usernametip" class="errtips"></div>
+						<div class="yxform_in">
+							<i class="iuser"></i>
+							<sf:input class="ipt" maxlength="20" placeholder="真实姓名" path="username" />
+							<div class="ipt_txt">真实姓名</div>
+							<i class="iclose" style=""></i>
+						</div>
+						<sf:errors path="username" />
+						<i class="iright" style="display:none"></i>
+					</li>
+					<li>
+						<div id="phonetip" class="errtips"></div>
+						<div class="yxform_in">
+							<i class="iuser"></i>
+							<sf:input class="ipt" maxlength="20" placeholder="电话" path="phone" />
+							<div class="ipt_txt">联系电话</div>
+							<i class="iclose" style=""></i>
+						</div>
+						<sf:errors path="phone" />
+						<i class="iright" style="display:none"></i>
+					</li>
+					<li>
+						<div id="qqtip" class="errtips"></div>
+						<div class="yxform_in">
+							<i class="iuser"></i>
+							<sf:input class="ipt" maxlength="20" placeholder="QQ" path="qq" />
+							<div class="ipt_txt">QQ</div>
+							<i class="iclose" style=""></i>
+						</div>
+						<sf:errors path="qq" />
+						<i class="iright" style="display:none"></i>
+					</li>
+					<li>
+						<div id="emailtip" class="errtips"></div>
+						<div class="yxform_in">
+							<i class="iuser"></i>
+							<sf:input class="ipt" maxlength="20" placeholder="Email" path="email" />
+							<div class="ipt_txt">Email</div>
+							<i class="iclose" style=""></i>
+						</div>
+						<sf:errors path="email" />
+						<i class="iright" style="display:none"></i>
+					</li>
+					<li>
+						<div id="extendurltip" class="errtips"></div>
+						<div class="yxform_in">
+							<i class="iuser"></i>
+							<sf:input class="ipt" maxlength="20" placeholder="推广网址" path="extendURL" />
+							<div class="ipt_txt">推广网址</div>
+							<i class="iclose" style=""></i>
+						</div>
+						<sf:errors path="extendURL" />
+						<i class="iright" style="display:none"></i>
 					</li>
 					<!-- 
 					<li>

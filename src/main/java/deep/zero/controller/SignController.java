@@ -109,15 +109,16 @@ public class SignController {
 		try{
 			System.out.println("++++++++++++++后台验证+++++++++++++++");
 			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code",
-					"code", "昵称不能为空");
+					"code", "登陆码不能为空");
 			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password",
 					"password", "密码不能为空");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "username",
+					"username", "真实姓名不能为空");
 			if(br.hasErrors()){
 				return "player/register";
 			}
 			else{
 				player.setNickname(player.getCode());
-				player.setUsername("xiaoming");
 				player.setRegTime(new Date());
 				playerSvc.addPlayer(player);				
 				Long id = playerSvc.getByAccount(player.getCode()).getId();

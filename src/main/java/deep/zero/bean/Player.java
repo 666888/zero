@@ -61,6 +61,30 @@ public class Player{
 	//邮箱
 	private String email;
 	
+	//qq
+	private String qq;
+	
+	public String getQq() {
+		return qq;
+	}
+
+
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+
+
+	public String getExtendURL() {
+		return extendURL;
+	}
+
+
+	public void setExtendURL(String extendURL) {
+		this.extendURL = extendURL;
+	}
+	//推广网址
+	private String extendURL;
+	
 	public String getEmail() {
 		return email;
 	}
@@ -120,7 +144,7 @@ public class Player{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@NotEmpty(message="code不能为空")
+
 	public String getCode() {
 		return code;
 	}
@@ -133,12 +157,14 @@ public class Player{
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
+
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -175,7 +201,6 @@ public class Player{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	//@NotEmpty(message="注册时间不能为空")
 	public Date getRegTime() {
 		return regTime;
 	}
