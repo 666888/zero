@@ -55,7 +55,7 @@ public class BalanceController {
 		String accountId=null;
 		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
-		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
+//		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
 		Balance balanceNew=new Balance(); 
 		balanceNew.setRecharge(balance.getRecharge());
 		//balanceNew.setRolloff(balance.getRecharge());
@@ -155,10 +155,10 @@ public class BalanceController {
 	public String rechangeHistory(@ModelAttribute Balance balance,
 			Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){
 		String code=(String)req.getSession().getAttribute("p_code");
-		String accountId=null;
+//		String accountId=null;
 		Player player=playerSvc.getByAccount(code);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
-		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
+//		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
 		BigDecimal allAccount = balanceSvc.ALLAcount(player.getId(),account.getId());
  //		Balance balanceNew=new Balance();
 		
@@ -166,7 +166,7 @@ public class BalanceController {
 //		balance.setAccId(account.getId());
 //		balance.setTransferTime(new Date());
 //		balance.setTransType(Constants.transType[2]);
-		List<Balance> balanceList=balanceSvc.findFreeBalanceByPlayerId(account.getId(),DateUtils.weekStartTime1(),DateUtils.weekEndTime1());
+		List<Balance> balanceList=balanceSvc.findFreeBalanceByAccountId(account.getId(),DateUtils.weekStartTime1(),DateUtils.weekEndTime1());
 		model.addAttribute("balanceList", balanceList);
 		model.addAttribute("pName", code);
 		model.addAttribute("allAccount", allAccount);

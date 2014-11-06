@@ -36,7 +36,7 @@ public interface BalanceRepo extends AddRepository<Balance,Long>{
 	@Query(value="select  sum(b.recharge)-sum(b.rolloff) from  Balance b where b.playerId =?1 and b.accId=?2 ")
 	BigDecimal ALLAcount(Long playerId,Long accId);
 //	最近一周
-	@Query(value="select  b from  Balance b where b.playerId =?1 and b.transferTime >?2 and b.transferTime <?3 order by b.transferTime desc")
+	@Query(value="select  b from  Balance b where b.accId =?1 and b.transferTime >?2 and b.transferTime <?3 order by b.transferTime desc")
 	List<Balance>  findFreeBalanceByPlayerId(Long accId,Date weekStartTime,Date weekEndTime); 
 	
 }

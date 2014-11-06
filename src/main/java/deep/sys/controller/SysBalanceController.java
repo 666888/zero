@@ -62,7 +62,7 @@ public class SysBalanceController {
 //		balance.setAccId(account.getId());
 //		balance.setTransferTime(new Date());
 //		balance.setTransType(Constants.transType[2]);
-		List<Balance> balanceList=balanceSvc.findFreeBalanceByPlayerId(account.getId(),DateUtils.weekStartTime1(),DateUtils.weekEndTime1());
+		List<Balance> balanceList=balanceSvc.findFreeBalanceByAccountId(account.getId(),DateUtils.weekStartTime1(),DateUtils.weekEndTime1());
 		model.addAttribute("balanceList", balanceList);
 		model.addAttribute("allAccount", allAccount);
 		return "user/rechangeView";
