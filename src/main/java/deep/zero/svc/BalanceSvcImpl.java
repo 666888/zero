@@ -63,7 +63,7 @@ public class BalanceSvcImpl implements BalanceSvc{
 		return br.findAll();
 	}
 
-	public List<Balance> findFreeBalanceByPlayerId(Long accountId,Date weekStartTime, Date weekEndTime) {
+	public List<Balance> findFreeBalanceByAccountId(Long accountId,Date weekStartTime, Date weekEndTime) {
 		return br.findFreeBalanceByPlayerId(accountId,weekStartTime,weekEndTime);
 	}
 }

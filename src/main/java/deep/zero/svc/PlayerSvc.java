@@ -25,8 +25,8 @@ import deep.zero.bean.Player;
  *
  */
 public interface PlayerSvc{
-	//通过玩家的昵称查询
-	Player getByAccount(String nickname);
+	//通过玩家的code查询
+	Player getByAccount(String code);
 	//依注册周查询
 	List<Player> getPlayerByRegWeek();
 	//依注册月查询

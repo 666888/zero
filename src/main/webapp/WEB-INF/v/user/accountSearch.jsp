@@ -16,7 +16,7 @@
 
 <body>
 <form action = "/gm/rechargeHistory" method = "post">
-	nickname:<input name = "nickname" type = "text"/>
+	code:<input name = "code" type = "text"/>
 	<input type = "submit" value = "查询">
 </form>
 		

@@ -389,6 +389,7 @@ public class DateUtils
   }
 /**
  * 本周开始
+ * 精确到 0:00:00
  * @return
  */
   public static Date weekStartTime1(){

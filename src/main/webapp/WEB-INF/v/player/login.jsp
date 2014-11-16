@@ -17,14 +17,92 @@
 <link rel="stylesheet" href="/static/css/player/login/reset.css">
 <link rel="stylesheet" href="/static/css/player/login/0a94a3be.css">
 <link href="/static/css/player/index.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/player/login/nivo.slider.css" rel="stylesheet" type="text/css" />
+<script type = "text/javascript" src = "/static/js/jquery-1.8.0.min.js"></script>
+<script type = "text/javascript" src = "/static/js/jquery.nivo.slider.pack.js"></script>
+<script type = "text/javascript">
+$(document).ready(function(){
+	$('#slider').nivoSlider({
+		effect:'random',
+		slices:15,
+		animSpeed:500,
+		pauseTime:3000,
+		directionNav:true,
+		controlNav:true,
+		keyboardNav:true
+	});
+	
+	if($("#flag").val() != ""){
+		$("#hid").show();
+		$("#hid2").hide();
+	}	
+});
+
+function onover(){
+	$("#t_drop").show();
+
+}
+function on(){
+	$("#t_drop").hide();
+}
+
+function onout(){
+	setTimeout("on()",2000);
+	
+}
+</script>
 </head>
 <body >
 <noscript>您的浏览器不支持JS，将无法看到通过JS实现的效果</noscript>
 <!--nav star-->
 <!--V2 star-->
-   
 <!--top star-->
-<div class="topcont">
+	<div class="topcont" id = "hid" style = "display:none">
+		<div class="topbar">
+			<div class="wrap_w clearfix">
+				<div class="top_r">
+					<div class="logined clearfix">
+						<div id="change_drop" class="user_box" style="z-index: 999">
+							<span> 
+							 <i class="user_p" onmouseover="onover()" onmouseout= "onout()"> <img width="25" height="25"
+									src="http://p1.yx-s.com/detphoto.jpg" >
+									
+							</i> 
+							<div id="t_drop" class="tools_box"
+								style="z-index: 999; display: none;">
+								<ul>
+									<li><a href="/p/message"
+										target="_blank"> <i class="acc_infro"></i> 帐号资料
+									</a></li>
+									<li><a href="/p/message?flag=upd_flag" target="_blank"><i class="mode_code"></i>修改密码</a></li>
+									<!-- <li><a href="#" target="_blank"><i class="sec_set"></i>安全设置</a></li>  -->
+								</ul>
+							</div>
+							</span>
+							<a class="username" href="/p/message"><%= request.getAttribute("pName")%></a>
+						</div>
+						
+						<div class="msg_box">
+							<a 
+								href="javascript:void(0)"> <i></i>
+								消息
+							</a> <a class="total_msg" style="display: none;"
+								href="javascript:void(0)"> <span></span>
+							</a>
+						</div>
+						 
+						<div class="exit_box">
+							<a href="logout"> <i></i> 退出
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--top end-->
+<!--top star-->
+<div class="topcont" id = "hid2">
     <!--topbar star-->
     <div class="topbar">
         <div class="wrap_w clearfix">
@@ -43,13 +121,13 @@
 								<li>
 									<div class="yxform_in">
 										<i class="iuser"></i>
-										<sf:input class="ipt" path="nickname" placeholder="登录名" maxlength="20"/><sf:errors path="nickname" />
+										<sf:input class="ipt" path="code" placeholder="登录名" maxlength="20"/><sf:errors path="code" />
 									</div>
 								</li>
 								<li>
 									<div class="yxform_in">
 										<i class="ipwd"></i>
-										<sf:password  path="password" placeholder="密码" maxlength="20" class="ipt"/><sf:errors path="nickname" />
+										<sf:password  path="password" placeholder="密码" maxlength="20" class="ipt"/><sf:errors path="password" />
 									</div>
 								</li>
 								<li class="login_err" style="display:block">
@@ -125,7 +203,13 @@
     <!--mygame end-->
 </div>
 <!--top end-->
-<div style = "text-align: center"><img src = "/static/img/player/login/a.png" style = ""><br/><img src = "/static/img/player/login/b.png" style = ""><br/><img src = "/static/img/player/login/c.png" style = ""></div>
+<div class="theme-default">
+	<div id="slider" class="nivoSlider">
+		<a href="javascript:;"><img src="/static/img/player/login/a_1.png" width="960" height="366" /></a>
+		<a href="javascript:;"><img src="/static/img/player/login/b_1.png" width="960" height="366" /></a>
+		<a href="javascript:;"><img src="/static/img/player/login/c_1.png" width="960" height="366" /></a>
+	</div> 
+</div>
 <!--footer star-->
 <div id="foot">
 		<ul>
@@ -150,6 +234,7 @@
 		
 		<p>在菲律宾注册并遵守菲律宾法律</p>
 	</div>
+	<input type="hidden" id="flag" value="${pName}" />
 <!--footer end-->
 
 

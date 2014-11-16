@@ -33,6 +33,6 @@ public interface BalanceSvc  {
 	public List<Balance> findAll();
 	
 //	查询主账户信息
-	public List<Balance> findFreeBalanceByPlayerId(Long accountId,
+	public List<Balance> findFreeBalanceByAccountId(Long accountId,
 			Date weekStartTime, Date weekEndTime);
 }

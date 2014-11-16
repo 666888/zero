@@ -63,27 +63,28 @@ public class PlayerController {
 	
 	@RequestMapping(value="/message",method=RequestMethod.GET)
 	public String message(Model model,HttpServletRequest req){
-		String pName = (String)req.getSession().getAttribute("p_name");
-		model.addAttribute("pName",pName);
+		Long id = (Long)req.getSession().getAttribute("p_id");
+		String p_name = playerSvc.get(id).getNickname();
+		model.addAttribute("pName",p_name);
 		if (req.getParameter("flag") != null) {
 			model.addAttribute("upd_flag", "upd");
 		}
 		return "player/message";
 	}
-	
+	/*
 	@RequestMapping(value="/modiPswd",method=RequestMethod.GET)
 	public String password(){		
 		return "player/addBalance";
 	}
-
+	 */
 	@RequestMapping(value="/modiPswd.ajax",method=RequestMethod.POST)
 	@ResponseBody
-	public String password(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("old") String oldPassword,@RequestParam("nw")String newPassword){
-		Player player = playerSvc.getByAccount(nickname);
+	public String password(HttpServletRequest req,@RequestParam("old") String oldPassword,@RequestParam("nw")String newPassword){
+		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
 		if(player.getPassword().equals(oldPassword)){
 			player.setPassword(newPassword);
 			playerSvc.modiPlayer(player);			
-			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
+			System.out.println("++++++++++++++"+oldPassword+"++++++++"+newPassword);
 			return "{\"a\":\"修改成功！\"}";
 		}
 		else{
@@ -93,8 +94,8 @@ public class PlayerController {
 	
 	@RequestMapping(value="/secureMail.ajax",method=RequestMethod.POST)
 	@ResponseBody
-	public Map secureMail(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("email") String email){
-		Player player = playerSvc.getByAccount(nickname);
+	public Map secureMail(HttpServletRequest req,@RequestParam("email") String email){
+		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
 		player.setEmail(email);
 		playerSvc.modiPlayer(player);
 		Map map=new HashMap<String, Object>();
@@ -116,8 +117,8 @@ public class PlayerController {
 	
 	@RequestMapping(value="/securePhone.ajax",method=RequestMethod.POST)
 	@ResponseBody
-	public Map securePhone(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("phone") String phone){
-		Player player = playerSvc.getByAccount(nickname);
+	public Map securePhone(HttpServletRequest req,@RequestParam("phone") String phone){
+		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
 		player.setPhone(phone);
 		playerSvc.modiPlayer(player);
 		Map map=new HashMap<String, Object>();
@@ -136,10 +137,10 @@ public class PlayerController {
 		return map;
 	}
 	
-	@RequestMapping(value="/onload.ajax",method=RequestMethod.POST)
+	@RequestMapping(value="/onload.ajax",method=RequestMethod.GET)
 	@ResponseBody
-	public Map securePhoneAndEmail(HttpServletRequest req,@RequestParam("nickname") String nickname){
-		Player player = playerSvc.getByAccount(nickname);
+	public Map securePhoneAndEmail(HttpServletRequest req){
+		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
 		Map map=new HashMap<String, Object>();
 		if(!StringUtils.isBlank(player.getEmail())){
 //			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
@@ -177,6 +178,13 @@ public class PlayerController {
 		
 		EmailService.sendHtmlEmail(from, to, MailConstants.EMAIL_FINDPASSWORD_DEFAULT_TITLE, MailConstants.EMAIL_FINDPASSWORD_DEFAULT_WORD);
 		return null;
+	}
+	
+	@RequestMapping(value="/modifyNickname",method=RequestMethod.GET)
+	public String password(HttpServletRequest req,Model model){
+		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
+		model.addAttribute("player", player);		
+		return "player/modifyNickname";
 	}
 	
 	private static final String TEMPLATE = "Hello %s";

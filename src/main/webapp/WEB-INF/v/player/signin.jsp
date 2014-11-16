@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>游戏网</title>
+<title>苏比克</title>
 <meta name="description" content="">
 <meta content="" name="keywords">
 <!--[if lt IE 9]><script>/*@cc_on'abbr article aside audio canvas details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})@*/</script><![endif]-->
@@ -36,11 +36,11 @@
 						<div id="usernametip" class="errtips"></div>
 						<div class="yxform_in">
 							<i class="iuser"></i>
-							<sf:input class="ipt" maxlength="20" placeholder="登录名" path="nickname" />
+							<sf:input class="ipt" maxlength="20" placeholder="登录名" path="code" />
 							<div class="ipt_txt">登录名</div>
 							<i class="iclose" style=""></i>
 						</div>
-						<sf:errors path="nickname" />
+						<sf:errors path="code" />
 						<i class="iright" style="display:none"></i>
 					</li>
 					<li>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="css/regist.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#gr_tab,#sj_tab").click(function() {
+				if ($(this).prop("id") == "gr_tab") {
+					$("#gr_tab").addClass("gr_tab_cur");
+					$("#sj_tab").removeClass("gr_tab_cur");
+					$("#re_bd_gr").show();
+					$("#re_bd_sj").hide();
+				} else {
+					$("#gr_tab").removeClass("gr_tab_cur");
+					$("#sj_tab").addClass("gr_tab_cur");
+					$("#re_bd_gr").hide();
+					$("#re_bd_sj").show();
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div id="re_hd">top</div>
+	<ul id="re_tab">
+		<li id="gr_tab" class="gr_tab_cur"><a href="javascript:;">个人账号注册</a></li>
+		<li class="sgang"></li>
+		<li id="sj_tab"><a href="javascript:;">商家账号注册</a></li>
+	</ul>
+	<div id="re_bd">
+		<div id="re_bd_gr">
+			<form action="" method="post">
+				<input class="lg_inp" type="text" value="" id="grname" name="grname" placeholder="帐号(个人)">
+				<input class="lg_inp" type="password" autocapitalize="off" value="" id="grpassword" name="password" placeholder="设置密码">
+				<input class="lg_inp" type="password" autocapitalize="off" value="" id="grre_password" name="cpassword" placeholder="确认密码">
+				<button id="gr_btn" type="submit">立即注册</button>
+				<p>
+					<input type="checkbox" checked="checked" id="agree" name="agree">
+					<label for="agree">我同意<a href="javascript:;" style="color: #69b3f2;">服务条款</a></label>
+				</p>
+			</form>
+		</div>
+		<div id="re_bd_sj">
+			<form action="" method="post">
+				<input class="lg_inp" type="text" value="" id="sjname" name="sjname" placeholder="帐号(商家)">
+				<input class="lg_inp" type="password" autocapitalize="off" value="" id="sjpassword" name="password" placeholder="设置密码">
+				<input class="lg_inp" type="password" autocapitalize="off" value="" id="sjre_password" name="cpassword" placeholder="确认密码">
+				<button id="sj_btn" type="submit">立即注册</button>
+				<p>
+					<input type="checkbox" checked="checked" id="agree" name="agree">
+					<label for="agree">我同意<a href="javascript:;" style="color: #69b3f2;">服务条款</a></label>
+				</p>
+			</form>
+		</div>
+	</div>
+	<div id="re_ft">foot</div>
+</body>
+</html>

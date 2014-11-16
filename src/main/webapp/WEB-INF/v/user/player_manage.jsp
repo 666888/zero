@@ -40,7 +40,7 @@
 	</ul>
 	
 	<br />
-	
+	<!--  
 	<h1>test</h1>
 	<a href="player_manage/search_wallet_transactions.html">search_wallet_transactions</a><br />
 	<a href="player_manage/users_database.html">users_database</a><br />
@@ -50,5 +50,6 @@
 	<a href="player_manage/game_history_search.html">game_history_search</a><br />
 	<a href="player_manage/player_online.html">player_online</a><br />
 	<a href="user_info/user_info.html">user_info</a><br />
+	-->
 </body>
 </html>
