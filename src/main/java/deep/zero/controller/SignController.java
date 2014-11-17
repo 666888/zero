@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import deep.zero.bean.Agent;
 import deep.zero.bean.Player;
+import deep.zero.svc.AgentSvc;
 import deep.zero.svc.LoginSvc;
 import deep.zero.svc.PlayerSvcImpl;
 @Controller
@@ -27,8 +29,12 @@ public class SignController {
 	
 	@Autowired
 	private LoginSvc loginSvc;
+	
 	@Autowired
 	private PlayerSvcImpl playerSvc;
+	
+	@Autowired
+	private AgentSvc agentSvc;
 	
 	//登录的GET
 	@RequestMapping(value="/signin",method=RequestMethod.GET)
@@ -146,4 +152,101 @@ public class SignController {
 		else
 			return "false";
 	}
+	
+	/*
+	 * Agent
+	 * 
+	 */
+	//登录的GET
+		@RequestMapping(value="/agsignin",method=RequestMethod.GET)
+		public String agLogin(Model model){		
+			Agent agent = new Agent();
+			model.addAttribute("agent", agent); 
+			return "agent/login";
+		}
+		/**
+		 * 登录的post方法
+		 * @return
+		 */
+		@RequestMapping(value="/agsignin",method=RequestMethod.POST)
+		public String Login(@ModelAttribute("agent") Agent agent,Model model,BindingResult br,HttpServletRequest req){
+			try{
+				System.out.println("++++++++++++++后台验证+++++++++++++++");
+				ValidationUtils.rejectIfEmptyOrWhitespace(br, "name",
+						"name", "账号不能为空");
+				ValidationUtils.rejectIfEmptyOrWhitespace(br, "password",
+						"password", "密码不能为空");
+				if (br.hasErrors()) {
+					// returning the errors on same page if any errors..
+					model.addAttribute("Agent", agent);
+					return "agent/signin";
+					}
+				else{
+					if (loginSvc.agentValidate(agent)) {
+						Long id = agentSvc.getAgentByName(agent.getName()).getAgentid();
+						req.getSession().setAttribute("a_id", id);
+						req.getSession().setAttribute("a_name", agent.getName());
+						// Create a redirection view to success page. This will
+						// redirect to UserController.
+						System.out.println("用户已写入到session中...");
+						
+						return "redirect:/agentry";
+					} else {
+						br.addError(new ObjectError("Invalid", "登录被拒绝  : 用户名或密码错误"));
+						model.addAttribute("Agent",agent);
+						return "agent/signin";
+					}
+				}
+			}
+			catch(Exception e){
+				System.out.println("Exception in LoginController " + e.getMessage());
+				e.printStackTrace();
+				model.addAttribute("Agent", agent);
+				return "agent/signin";
+			}		
+		}
+		
+		@RequestMapping("/agentry")
+		public String agentry(HttpServletRequest req,Model model){
+			String a_name = (String)req.getSession().getAttribute("a_name");
+			//Agent agent = agentSvc.getAgentByName(a_name);
+			model.addAttribute("agent",new Agent());
+			model.addAttribute("agName", a_name);			
+			return "agent/login";		
+		}
+		
+		@RequestMapping(value="/agsignup",method=RequestMethod.GET)
+		public String agregist(Model model){
+			Agent agent = new Agent();
+			model.addAttribute("agent", agent);
+			return "agent/register";
+		}
+		@RequestMapping(value="/agsignup",method=RequestMethod.POST)
+		public String agregist(@ModelAttribute Agent agent,Model model,BindingResult br,HttpServletRequest req){
+			try{
+				System.out.println("++++++++++++++后台验证+++++++++++++++");
+				ValidationUtils.rejectIfEmptyOrWhitespace(br, "name",
+						"name", "登陆码不能为空");
+				ValidationUtils.rejectIfEmptyOrWhitespace(br, "password",
+						"password", "密码不能为空");
+				if(br.hasErrors()){
+					return "agent/register";
+				}
+				else{					
+					agentSvc.addAgent(agent);			
+					Long id = agentSvc.getAgentByName(agent.getName()).getAgentid();
+					req.getSession().setAttribute("a_id", id);
+					req.getSession().setAttribute("a_name", agent.getName());
+					System.out.println("用户已写入到session中...");
+					model.addAttribute("aName",agent.getName());
+					model.addAttribute("agent",new Agent());
+					return "agent/login";								
+				}
+			}
+			catch(Exception e){
+				System.out.println("Exception in LoginController " + e.getMessage());
+				e.printStackTrace();		
+				return "agent/register";
+			}		
+		}
 }

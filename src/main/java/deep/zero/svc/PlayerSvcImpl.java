@@ -15,7 +15,7 @@ import deep.zero.repo.PlayerRepo;
 
 
 
-@Service("playerSvcImpl")
+@Service("playerSvc")
 @Transactional(readOnly=true)
 public class PlayerSvcImpl implements PlayerSvc {
 
