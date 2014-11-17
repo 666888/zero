@@ -7,22 +7,41 @@
 <link rel="stylesheet" href="/static/new_subic/css/index.css" />
 <script type="text/javascript" src="/static/new_subic/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="/static/new_subic/js/main_banner.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".tp_lo").click(function(){
+		var code = $("#c").val();
+		var password = $("#p").val();
+		$.post("/signin.ajax", { code: code, password: password },function(data){
+			if(data.nickname){
+				$("#u1").hide();
+				$("#un").html("用户"+data.nickname+"您好！");
+				$("#un").show();
+			}		   
+			else{
+				alert(data.error);
+			}
+		}, "json");
+		
+	});
+});
+	
+</script>
 </head>
 
 <body>
 	<div id="top">
 		<div id="tp_cn" class="clear">
-			<div id="lo"></div>
-			<form action="#" method="post">
-				<ul>
-					<li class="tp_zh">账户名</li>
-					<li><input class="tp_inp" type="text" /></li>
-					<li class="tp_mm">密码</li>
-					<li><input class="tp_inp" type="password" /></li>
-					<li><input class="tp_btn tp_re" type="button" value="" /></li>
-					<li><input class="tp_btn tp_lo" type="submit" value="" /></li>
-				</ul>
-			</form>
+			<div id="lo"></div>			
+			<ul id="u1">
+				<li class="tp_zh">账户名</li>
+				<li><input id="c"  class="tp_inp"  type="text" /></li>
+				<li class="tp_mm">密码</li>
+				<li><input id="p" class="tp_inp" type="password" /></li>
+				<li><input class="tp_btn tp_lo" type="button" value="" /></li>
+				<li><a href="/signup"><input class="tp_btn tp_re" type="button" value="" /></a></li>
+			</ul>
+			<div style="display:none;color:#FFF;" id="un" ></div>				
 		</div>
 	</div>
 	<div id="head">

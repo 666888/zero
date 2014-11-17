@@ -29,6 +29,7 @@
 			<mvc:exclude-mapping path="/signup" />
 			<mvc:exclude-mapping path="/agsignup" />
 			<mvc:exclude-mapping path="/signin" />
+			<mvc:exclude-mapping path="/signin.ajax" />
 			<mvc:exclude-mapping path="/modiNickname.ajax" />
 			<mvc:exclude-mapping path="/" />
 			<mvc:exclude-mapping path="/*.html" />

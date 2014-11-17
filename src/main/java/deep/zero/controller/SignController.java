@@ -1,6 +1,8 @@
 package deep.zero.controller;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -111,7 +113,7 @@ public class SignController {
 		return "player/register";
 	}
 	@RequestMapping(value="/signup",method=RequestMethod.POST)
-	public String regist(@ModelAttribute Player player,Model model,BindingResult br,HttpServletRequest req){
+	public String register(@ModelAttribute Player player,Model model,BindingResult br,HttpServletRequest req){
 		try{
 			System.out.println("++++++++++++++后台验证+++++++++++++++");
 			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code",
@@ -249,4 +251,22 @@ public class SignController {
 				return "agent/register";
 			}		
 		}
+		/*
+		 * 新版的登录
+		 * 
+		 */
+		@RequestMapping(value="signin.ajax",method=RequestMethod.POST)
+		@ResponseBody
+		public Map<String,String> signin(@RequestParam String code,@RequestParam String password){
+			Map<String,String> map = new HashMap<String,String>();
+			if(playerSvc.isExistPlayer(code, password)){
+				String nickname = playerSvc.getByAccount(code).getNickname();
+				map.put("nickname", nickname);
+			}
+			else {
+				map.put("error", "用户名或密码错误！");
+			}
+			return map;
+		}
+		
 }
