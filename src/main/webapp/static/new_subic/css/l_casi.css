@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+body { background: #1e2e48;}
+
+#casi { width: 980px; margin: auto; margin-top: 23px;}
+	#casi h1 { background: url(../images/_ag.png) no-repeat; height: 33px; margin-bottom: 20px;}
+	#casi  p { color: #c3daff; line-height: 24px;}
+	#casi_cn { margin: 20px 0px; position: relative;}
+	#casi_bn { float: left; width: 824px; height: 389px; border: solid 1px #1e3c6c; background: url(../images/_casi_bn.png) no-repeat; position: relative;}
+		.casi_bn_ig { position: absolute; width: 824px; height: 389px;}
+	#casi_pg { float: left; width: 154px; height: 392px; background: url(../images/_casi_pg.png) no-repeat; margin-top: -1px;}
+		#casi_pg li { width: 154px; height: 123px; margin-bottom: 11px; position: relative; overflow: hidden;}
+		#casi_pg li img { position: absolute; top: 0px; left: 31px;}
+		#casi_pg li span { background: url(../images/_sj.png) no-repeat; width: 15px; height: 25px; display: block; position: absolute; left: 11px; top: 48px;}
+		#casi_pg li .sj_01 { background-position: 0 0;}
+		#casi_pg li .sj_02 { background-position: 0 -25px;}
+		#casi_pg li .sj_03 { background-position: 0 -50px;}
+		#casi_pg_h { position: absolute; top: 0px; right: 0px; width: 122px; height: 392px;}
+		.casi_pg_li_h { width: 122px; height: 123px; margin-bottom: 11px;}
+		
+	
+	

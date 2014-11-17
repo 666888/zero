@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+body { background: #1e2e48;}
+
+#offer { width: 978px; border: solid 1px #1e437e; box-shadow: 0px 0px 5px #000; margin: auto; margin-top: 12px; background: #18253a;}
+	.offer_head { height: 210px; background: url(../images/_offer_bn.png) no-repeat;}
+	.offer_nav { height: 58px; margin-left: 14px; margin-top: 10px; margin-bottom: 10px;}
+	.offer_nav li { float: left; margin-right: 13px;}
+	.offer_nav .qbyh { width: 110px; height: 58px; line-height: 58px; background: #3e8de9; font-size: 20px; color: #00408b; text-shadow: 1px 1px 1px #58bcf2; font-family: Microsoft Yahei; text-align: center;}
+	.offer_nav .hyyh { width: 267px; height: 58px; line-height: 58px; background: #ffcc00; font-size: 20px; color: #ac4601; text-shadow: 1px 1px 1px #ffdc00; font-family: Microsoft Yahei; text-align: center;}
+	.offer_nav .dlyh { width: 267px; height: 58px; line-height: 58px; background: #9bce00; font-size: 20px; color: #577400; text-shadow: 1px 1px 1px #c4e200; font-family: Microsoft Yahei; text-align: center;}
+	.offer_nav .qtyh { width: 267px; height: 58px; line-height: 58px; background: #ff6d62; font-size: 20px; color: #830000; text-shadow: 1px 1px 1px #ff9a8a; font-family: Microsoft Yahei; text-align: center;}
+	._ruler_bg { background: url(../images/_ruler_bg.png) repeat-y; margin-left: 14px;}
+	._ruler_bg dl { margin-bottom: 13px;}
+	._ruler_bg dd { width: 826px; background: #f8f8f8; margin-left: 13px; font-size: 0px; padding-bottom: 5px;}
+	._ruler_bg dt, ._ruler_bg dd { float: left;}
+	._ruler_bg dt { width: 110px;}
+	._ruler_bg dd img { margin-left: 5px; margin-top: 5px;}
+	._ruler_bg ._watch { width: 110px; height: 65px; background: url(../images/_watch.png) no-repeat 50px 30px;}
+	._ruler_bg ._year { font-size: 18px; color: #feec6f; font-family: Microsoft Yahei; padding-right: 28px; padding-top: 5px; text-align: right;}
+	._ruler_bg ._md { font-size: 27px; color: #fff; font-family: SimHei; padding-right: 28px; text-align: right;}
+	._ruler_cn { display: none; margin-top: 41px; padding-left: 45px;}
+	._ruler_cn ._ruler_cn_tit { font-size: 18px; font-family: Microsoft Yahei; color: #3e8de9;}
+	._ruler_cn p { color: #7b7b7b; line-height: 20px;}
+	._ruler_non { height: 18px;}
+	._ruler_non_bot { height: 45px;}
+	
+	
