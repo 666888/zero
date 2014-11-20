@@ -30,8 +30,8 @@ public class MonetaryAmount {
 	 * @param value 		must not be {@literal null}
 	 */
 	private MonetaryAmount(Currency currency ,BigDecimal value){
-		Assert.notNull(currency);
-		Assert.notNull(value);
+		//Assert.notNull(currency);
+		//Assert.notNull(value);
 		
 		this.currency = currency;
 		this.value = value;
@@ -61,7 +61,7 @@ public class MonetaryAmount {
 	public MonetaryAmount add(MonetaryAmount other){
 		if(other==null)
 			return this;
-		Assert.isTrue(this.currency.equals(other.currency));
+		//Assert.isTrue(this.currency.equals(other.currency));
 		return new MonetaryAmount(this.currency,this.value.add(other.value));
 	}
 	
