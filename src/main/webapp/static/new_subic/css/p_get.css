@@ -27,7 +27,8 @@ body { background: #1e2e48;}
 		#dtjs p { width: 880px; margin: auto; color: #c3daff; line-height: 28px; margin-top: 15px; margin-bottom: 15px;}
 		#dtjs ul { margin-left: 50px;}
 		#dtjs ul li { float: left; margin-right: 9px; margin-bottom: 6px;}
-		#ykcg { width: 198px; height: 43px; border: 0px; background: url(../images/_ykcg.png) no-repeat; cursor: pointer; margin: auto; display: block; margin-top: 20px;}
+		#ykcg { width: 198px; height: 43px; border: 0px; background: url(../images/_ykcg.png) no-repeat; cursor: pointer; margin: auto; display: block; margin-top: 20px; float: right; margin-right: 53px;}
+		#ljdl { width: 151px; height: 34px; border: 0px; background: url(../images/_ljdl.png) no-repeat; cursor: pointer; margin: auto; display: block; margin-top: 25px; float: left; margin-left: 50px;}
 
 	#dtys h1 { height: 33px; background: url(../images/_rhdt_tit.png) 0px -66px; margin-left: 50px; margin-top: 41px; margin-bottom: 25px;}
 		#dtys dt { height: 28px; width: 268px; background: url(../images/_dtys_tit.png) no-repeat; margin: 15px 0px;}
