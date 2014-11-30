@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+body { background: #1e2e48; font-family: Microsoft Yahei;}
+
+#j_head { width: 1000px; border: 1px solid #1e437e; margin: auto; margin-bottom: 10px; margin-top: 10px; padding-top: 10px; box-shadow: 0 0 5px #000; padding-bottom: 5px;}
+	/*#j_head p { text-align: center; font-size: 16px; font-weight: bold; color: #fff57e;}*/
+	.hd_tp li { float: left; font-size: 16px; font-weight: bold; color: #fff57e; margin-left: 34px;}
+	.hd_cn { padding: 10px 20px; line-height: 22px; color: #c3daff;}
+	.hd_sp { margin-left: 20px;}
+	.hd_sp li { float: left; width: 480px; line-height: 22px; color: #ffad31;}
+	#j_head h1 { font-size: 16px; font-weight: normal; color: #fff; margin-left: 20px;}
+	
+#flow { width: 1000px; border: 1px solid #1e437e; margin: auto; margin-bottom: 10px; box-shadow: 0 0 5px #000;}
+	#flow li { float: left; width: 250px; margin: 10px 0px; text-align: center;}
+	#flow li a { display: inline-block; border: solid 1px #5f770d; border-radius: 5px; padding: 5px 10px; font-size: 18px; background: #b8cf03; color: #425011; text-shadow: 1px 1px 1px #d1e615;}
+	#flow li a:hover { background: #e1f766;}
+	
+#desc { width: 1000px; border: 1px solid #1e437e; margin: auto; margin-bottom: 10px; box-shadow: 0 0 5px #000;}
+	#desc .dc_hd { padding: 5px;}
+	#desc .dc_l, #desc .dc_r { width: 150px; height: 100px;}
+	#desc .dc_l { float: left; background: url(../images/_desc_1.png) no-repeat;}
+	#desc .dc_r { float: right; background: url(../images/_desc_2.png) no-repeat;}
+	#desc .dc_m { float: left; width: 690px; line-height: 50px; font-size: 18px; text-align: center; color: #ccc;}
+	#desc .dc_cn { margin: 10px;}
+	#desc .dc_cn dt { font-weight: bold; font-size: 14px; margin-bottom: 5px; color: #ffad31;}
+	#desc .dc_cn dd{ line-height: 20px; color: #c3daff;}
+
+#regi { width: 1000px; border: solid 1px #1e437e; margin: auto; margin-bottom: 10px; box-shadow: 0 0 5px #000; color: #c3daff;}
+	#regi h1 { text-align: center; font-size: 18px; margin: 10px 0; color: #fff57e;}
+	#regi .inp { width: 450px; height: 28px; padding-left: 4px; background: #e5e5e5;}
+	#regi td { padding: 10px 0px;}
+	#regi .val { width: 100px; height: 28px; background: #e5e5e5;}
+	#regi td  a { color: red;}
+	
+#mode { width: 1000px; border: solid 1px #1e437e; margin: auto; margin-bottom: 10px; box-shadow: 0 0 5px #000;}
+	#mode dl { padding: 5px 10px;}
+	#mode dt { font-weight: bold; font-size: 16px; margin-bottom: 5px; color: #fff;}
+	#mode dd { line-height: 20px; color: #c3daff;}
+
+#expl { width: 1000px; border: solid 1px #1e437e; margin: auto; margin-bottom: 10px; box-shadow: 0 0 5px #000;}
+	#expl h1 { font-size: 16px; color: #fff; margin-left: 10px; margin-top: 10px;}
+	#expl .el_ul { margin: 10px;}
+	#expl .el_ul  li { line-height: 20px; color: #c3daff;}
+	#expl dl { padding: 5px 10px; color: #c3daff;}
+	#expl dt { font-weight: bold; margin-bottom: 5px;}
+	#expl dd { line-height: 20px;}
+	#expl .el_hy { position: relative;}
+	#expl .emai { float: right; width: 132px; height: 81px; background: url(../images/_yc_01.png) no-repeat; position: absolute; right: 20px; bottom: -14px;}
+	
