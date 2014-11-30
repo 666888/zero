@@ -16,6 +16,28 @@ $(function() {
 	});
 });
 </script>
+<script type="text/javascript" src="/static/new_subic/js/slide.js"></script>
+<script type="text/javascript">
+$(function() {
+	$(".wrap").slide({
+		affect:3,
+		time:3000,
+		speed:400,
+	});
+});
+</script>
+<style type="text/css">
+.wrap {width:980px;height:270px;position:relative;overflow:hidden;}
+.slidebox {width:980px;position:absolute;top:0;left:0;height:270px;}
+.slidebox li {float:left;width:980px;height:270px;left:0;top:0;}
+.slidebox li img {display:block;width:980px;height:270px;}
+.dot {position:absolute;width:100%;height:30px;background:rgba(0,0,0,0.3);text-align:right;bottom:0;left:0;}
+.dot p {margin-right:10px;}
+.dot b {width:15px;height:14px;border-radius:20px;display:inline-block;background:#fff;text-align:center;margin:0 3px;margin-top:6px;cursor:pointer;font-weight:normal;}
+.dot .cur {background: #fff url(/static/new_subic/images/_cur.png) no-repeat center center;color:#fff;/*border:1px solid #f63;*/}
+</style>
+<!--图片弹出层样式 必要样式-->
+<link rel="stylesheet"  href="/static/new_subic/css/zoom.css" media="all" />
 </head>
 
 <body>
@@ -48,7 +70,12 @@ $(function() {
 		</div>
 	</div>
 	<div id="dhtz_cn">
-		<div id="dhtz_bn">
+		<div id="dhtz_bn" class="wrap">
+			<ul class="slidebox">
+				<li><a href="javascript:;"><img src="/static/new_subic/images/tele_banner01.jpg" /></a></li>
+				<li><a href="javascript:;"><img src="/static/new_subic/images/tele_banner02.jpg" /></a></li>
+				<li><a href="javascript:;"><img src="/static/new_subic/images/tele_banner03.jpg" /></a></li>
+			</ul>
 		</div>
 		<div id="_nav_cn">
 			<ul id="_nav_2" class="clear">
@@ -90,15 +117,15 @@ $(function() {
 			<a name="_dt_02"></a>
 			<h1></h1>
 			<p>电话投注俗称打电话投注。电投百家乐玩法与普通百家乐相同，电投与网投的区别在于玩家体验，电投手通过电话和玩家保持实时沟通，玩家安坐家中通过视频观看现场实景，电话“遥控”电投手进行现场下注，顿时玩家仿佛置身于桌前下注，电投手有如亲密友人为其助阵呐喊、加油打气。</p>
-			<ul class="clear">
-				<li><img src="/static/new_subic/images/_dtjs_03.png"/></li>
-				<li><img src="/static/new_subic/images/_dtjs_05.png"/></li>
-				<li><img src="/static/new_subic/images/_dtjs_07.png"/></li>
-				<li><img src="/static/new_subic/images/_dtjs_09.png"/></li>
-				<li><img src="/static/new_subic/images/_dtjs_15.png"/></li>
-				<li><img src="/static/new_subic/images/_dtjs_16.png"/></li>
-				<li><img src="/static/new_subic/images/_dtjs_17.png"/></li>
-				<li><img src="/static/new_subic/images/_dtjs_18.png"/></li>
+			<ul class="gallery clear">
+				<li><a href="/static/new_subic/images/_dtjs_03.png"><img src="/static/new_subic/images/_dtjs_03.png"/></a></li>
+				<li><a href="/static/new_subic/images/_dtjs_05.png"><img src="/static/new_subic/images/_dtjs_05.png"/></a></li>
+				<li><a href="/static/new_subic/images/_dtjs_07.png"><img src="/static/new_subic/images/_dtjs_07.png"/></a></li>
+				<li><a href="/static/new_subic/images/_dtjs_09.png"><img src="/static/new_subic/images/_dtjs_09.png"/></a></li>
+				<li><a href="/static/new_subic/images/_dtjs_15.png"><img src="/static/new_subic/images/_dtjs_15.png"/></a></li>
+				<li><a href="/static/new_subic/images/_dtjs_16.png"><img src="/static/new_subic/images/_dtjs_16.png"/></a></li>
+				<li><a href="/static/new_subic/images/_dtjs_17.png"><img src="/static/new_subic/images/_dtjs_17.png"/></a></li>
+				<li><a href="/static/new_subic/images/_dtjs_18.png"><img src="/static/new_subic/images/_dtjs_18.png"/></a></li>
 			</ul>
 			<input id="ykcg"  type="button" value="" />
 		</div>
@@ -218,4 +245,5 @@ $(function() {
 	</div>
 	<!--<div id="crt">版权说明</div>-->
 </body>
+<script src="/static/new_subic/js/zoom.min.js"></script>
 </html>

@@ -3,7 +3,7 @@
 body { background: #1e2e48;}
 
 #dhtz_cn { width: 978px; border: solid 1px #1e437e; box-shadow: 0px 0px 5px #000; margin: auto; margin-top: 12px; background: #18253a;}
-	#dhtz_bn { width: 978px; height: 270px; background: url(../images/_dhtz_bn.png) no-repeat;}
+	#dhtz_bn { width: 978px; height: 270px;}
 	#_nav_cn { position: relative;}
 	#_nav_2 { background: #ffad31;}
 	#_nav_2 li { float: left; height: 41px; line-height: 41px; width: 195px; text-align: center; font-size: 16px; font-family: Microsoft Yahei; color: #fff;}
