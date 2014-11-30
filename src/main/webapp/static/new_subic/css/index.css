@@ -40,6 +40,7 @@
 	.ig3 { width: 1000px; margin: auto; padding-top: 38px; padding-left: 10px;}
 		.ig3 li { float: left; margin-right: 30px;}
 		.ig3 .ig3_li { margin-right: 0px;}
+	#ig3_div li { position: relative;}
 
 #lgs { height: 80px; background: #1e2e48 url(../images/_logs.png) no-repeat center 20px;}
 
