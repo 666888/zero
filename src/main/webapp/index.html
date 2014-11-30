@@ -24,8 +24,17 @@ $(function(){
 		}, "json");
 		
 	});
-});
 	
+	var _ljdl_div = $("<div style='width: 306px; height: 207px; background: #000; opacity:0.5; filter: alpha(opacity=50); position: absolute; top: 0px;'></div>");
+	var _ljdl_img = $("<img src='/static/new_subic/images/_ljdl.png' style='position: absolute; top: 50%; left: 50%; margin-top: -17px; margin-left: -75px;' />")
+	$("#ig3_div li").hover(function() {
+		$(this).append(_ljdl_div);
+		$(this).append(_ljdl_img);
+	}, function() {
+		_ljdl_div.remove();
+		_ljdl_img.remove();
+	});
+});
 </script>
 </head>
 
