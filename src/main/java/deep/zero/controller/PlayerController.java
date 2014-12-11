@@ -1,5 +1,6 @@
 package deep.zero.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
@@ -9,8 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,6 +39,12 @@ import deep.zero.svc.PlayerSvcImpl;
 public class PlayerController {
 	@Autowired
 	private PlayerSvcImpl playerSvc;
+	
+	@RequestMapping(value="/{id}",method=RequestMethod.GET,params="json")
+	@ResponseBody
+	public Player sh(@PathVariable Long id){
+		return playerSvc.get(id);
+	}
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public String show(@PathVariable Long id,Model model){
@@ -63,9 +73,10 @@ public class PlayerController {
 	
 	@RequestMapping(value="/message",method=RequestMethod.GET)
 	public String message(Model model,HttpServletRequest req){
-		Long id = (Long)req.getSession().getAttribute("p_id");
-		String p_name = playerSvc.get(id).getNickname();
-		model.addAttribute("pName",p_name);
+		String code = (String)req.getSession().getAttribute("p_code");
+		//String p_name = playerSvc.getByCode(code).getAbbrName();
+		//此处使用注册号显示给前端，而不是使用昵称
+		model.addAttribute("pName",code);
 		if (req.getParameter("flag") != null) {
 			model.addAttribute("upd_flag", "upd");
 		}
@@ -80,7 +91,7 @@ public class PlayerController {
 	@RequestMapping(value="/modiPswd.ajax",method=RequestMethod.POST)
 	@ResponseBody
 	public String password(HttpServletRequest req,@RequestParam("old") String oldPassword,@RequestParam("nw")String newPassword){
-		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
+		Player player = playerSvc.getByCode((String)req.getSession().getAttribute("p_code"));
 		if(player.getPassword().equals(oldPassword)){
 			player.setPassword(newPassword);
 			playerSvc.modiPlayer(player);			
@@ -92,77 +103,91 @@ public class PlayerController {
 		}
 	}
 	
+	/**
+	 * 绑定电子邮箱功能 ，用以找回密码，使用此功能时我们不做处理直接将email存入到数据库中
+	 * 在实际的业务中我们可能会要求对其中的部分数据使用***来代替，鉴于执行效率考虑这部分的
+	 * 功能要求在前端js来实现。
+	 * 
+	 * 
+	 * @param req
+	 * @param email
+	 * @return
+	 */
 	@RequestMapping(value="/secureMail.ajax",method=RequestMethod.POST)
 	@ResponseBody
 	public Map secureMail(HttpServletRequest req,@RequestParam("email") String email){
-		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
-		player.setEmail(email);
-		playerSvc.modiPlayer(player);
+		Player player = playerSvc.getByCode((String)req.getSession().getAttribute("p_code"));
 		Map map=new HashMap<String, Object>();
-		if(player.getEmail().equals(email)){
-//			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
+		if(email.equals(player.getEmail()))
+		{
 			map.put("e", true);
-			String email1=player.getEmail();
-			String email2=email1.substring(email1.length()-9,email1.length());
-	    	String email3=email1.substring(0,email1.length()-10);
-	    	System.out.println(email3+"*****"+email2);
-			map.put("msg", "已绑定("+email3+"*****"+email2+")");
-			return map;
+			map.put("msg", "已绑定邮箱");
 		}
-		else{
-			map.put("e", false);
-			return map;
-		}
-	}
-	
-	@RequestMapping(value="/securePhone.ajax",method=RequestMethod.POST)
-	@ResponseBody
-	public Map securePhone(HttpServletRequest req,@RequestParam("phone") String phone){
-		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
-		player.setPhone(phone);
-		playerSvc.modiPlayer(player);
-		Map map=new HashMap<String, Object>();
-		if(player.getPhone().equals(phone)){
-//			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
-			map.put("p", true);
-			String phone1=player.getPhone();
-			String phone2=phone1.substring(phone1.length()-4,phone1.length());
-	    	String phone3=phone1.substring(0,phone1.length()-8);
-	    	System.out.println(phone3+"****"+phone2);
-			map.put("msg", "已绑定("+phone3+"****"+phone2+")");
-		}
-		else{
-			map.put("p", false);
+		else
+		{
+			player.setEmail(email);
+			playerSvc.modiPlayer(player);
+			map.put("e", true);
 		}
 		return map;
 	}
 	
+	/**
+	 * 设置账户的关联手机，以便可以通过手机来找回密码。
+	 * 如果用户输入的同持久化的一致，不做操作，否则重新
+	 * 持久化这个对象。
+	 * @param req
+	 * @param phone
+	 * @return
+	 */
+	@RequestMapping(value="/securePhone.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public ModelMap securePhone(HttpServletRequest req,@RequestParam String phone){
+		Player player = playerSvc.getByCode((String)req.getSession().getAttribute("p_code"));
+		ModelMap map = new ModelMap();
+		String dp = player.getPhone();
+		if(phone.equals(dp))
+		{
+			map.put("msg", "已绑定手机"+zero.util.Utils.vPhone(dp));
+			map.put("p", true);
+		}
+		else
+		{
+			player.setPhone(phone);
+            playerSvc.modiPlayer(player);
+            if(dp==null)
+            	dp="[ ]";
+            map.put("msg", "绑定号码由"+dp+"更换为:"+phone);
+            map.put("p", true);
+		}
+		
+		return map;
+	}
+	
+	/**
+	 * 
+	 * @param req
+	 * @return
+	 */
 	@RequestMapping(value="/onload.ajax",method=RequestMethod.GET)
 	@ResponseBody
 	public Map securePhoneAndEmail(HttpServletRequest req){
-		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
+		Player player = playerSvc.getByCode((String)req.getSession().getAttribute("p_code"));
+		String email = player.getEmail();
+		String phone = player.getPhone();
 		Map map=new HashMap<String, Object>();
-		if(!StringUtils.isBlank(player.getEmail())){
-//			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
+		if(!StringUtils.isBlank(email)){
 			map.put("e", true);
-			String email1=player.getEmail();
-			String email2=email1.substring(email1.length()-9,email1.length());
-	    	String email3=email1.substring(0,email1.length()-10);
-	    	System.out.println(email3+"*****"+email2);
-			map.put("eMsg", "已绑定("+email3+"*****"+email2+")");
+			map.put("eMsg", "已绑定"+email);
 		}
 		else{
 			map.put("e", false);
 		}
-		if(!StringUtils.isBlank(player.getPhone())){
-//			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
-			String phone1=player.getPhone();
-			String phone2=phone1.substring(phone1.length()-4,phone1.length());
-	    	String phone3=phone1.substring(0,phone1.length()-8);
-	    	System.out.println(phone3+"****"+phone2);
-			map.put("pMsg", "已绑定("+phone3+"****"+phone2+")");
+		
+		
+		if(!StringUtils.isBlank(phone)){
+			map.put("pMsg", "已绑定"+phone);
 			map.put("p", true);
-			
 		}
 		else{
 			map.put("p", false);
@@ -182,10 +207,225 @@ public class PlayerController {
 	
 	@RequestMapping(value="/modifyNickname",method=RequestMethod.GET)
 	public String password(HttpServletRequest req,Model model){
-		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
+		Player player = playerSvc.getByCode((String)req.getSession().getAttribute("p_code"));
 		model.addAttribute("player", player);		
 		return "player/modifyNickname";
 	}
+	
+	
+	//登录的GET
+	@RequestMapping(value="/signin",method=RequestMethod.GET)
+	public String Login(Model model){		
+		Player player = new Player();
+		model.addAttribute("player", player); 
+		return "player/signin";
+	}
+	
+	/**
+	 * 登录的post方法
+	 * @param player
+	 * @param model
+	 * @param br
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(value="/signin",method=RequestMethod.POST)
+	public String Login(@ModelAttribute("player") Player player,Model model,BindingResult br,HttpServletRequest req){
+		try{
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code","code", "昵称不能为空");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password","password", "密码不能为空");
+			if (br.hasErrors()) {
+				// returning the errors on same page if any errors..
+				model.addAttribute("player", player);
+				return "player/signin";
+				}
+			else{
+				if (playerSvc.validate(player.getCode(),player.getPassword())) {
+					req.getSession().setAttribute("p_code", player.getCode());
+					return "player/index";
+					// Create a redirection view to success page. This will redirect to PlayerController.
+					//return "redirect:/entry";
+				} else {
+					br.addError(new ObjectError("Invalid", "登录被拒绝  : 用户名或密码错误"));
+					model.addAttribute("player",player);
+					return "player/signin";
+				}
+			}
+		}
+		catch(Exception e){
+			System.out.println("Exception in LoginController " + e.getMessage());
+			e.printStackTrace();
+			model.addAttribute("player", player);
+			return "player/signin";
+		}		
+	}
+	
+	/**
+	 * 使用ajax 方式来完成登录到系统(此部分没有验证码)
+	 * @param code
+	 * @param password
+	 * @return
+	 */
+	@RequestMapping(value="/signin0.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String ,String> login(@RequestParam("code") String code,@RequestParam("password") String password){
+		Map<String ,String> map = new HashMap<String,String>();
+		if(playerSvc.validate(code, password))
+			map.put("code", code);
+		else
+			map.put("error", "用户名密码错误！");
+		return map;
+	}
+	
+	/**
+	 * 使用ajax 方式来完成登录到系统
+	 * @param code
+	 * @param password
+	 * @return
+	 */
+	@RequestMapping(value="/signin9.ajax",method=RequestMethod.GET)
+	@ResponseBody
+	public String login9(@RequestParam("code") String code,@RequestParam("password") String password,HttpServletRequest req){
+		if(playerSvc.validate(code, password))
+		{
+			req.getSession().setAttribute("p_code", code);
+			return "{\"code\":\""+code+"\"}";
+		}
+		else
+		{
+			return "{\"error\":\""+"validate failed!"+"\"}";
+		}
+	}
+	
+	/**
+	 * 使用ajax方式来完成登录到系统
+	 * @param code
+	 * @param password
+	 * @param valiCode
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(value="/signin.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String ,String> signin(@RequestParam String code,@RequestParam String password,@RequestParam String valiCode,HttpServletRequest req){
+		Map<String ,String> map = new HashMap<String,String>();
+		String kaptcha = (String)req.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+		if(!kaptcha.equals(valiCode))
+		{
+			map.put("error", "验证码有误");
+		}
+		else
+		{
+			if(playerSvc.validate(code, password))
+			{
+				//将登录名写入到session
+				map.put("code", code);
+			}
+			else
+			{
+				map.put("error", "用户名密码错误！");
+			}
+		}
+		return map;
+	}
+	
+	
+	@RequestMapping("/entry")
+	public String entry(HttpServletRequest req,Model model){
+		Long p_id = (Long)req.getSession().getAttribute("p_id");
+		String p_name = playerSvc.get(p_id).getAbbrName();
+		model.addAttribute("player",new Player());
+		model.addAttribute("pName", p_name);
+		return "player/index";		
+	}
+	
+	/**
+	 * 玩家的登出功能 ，执行后清除了session中的有关些玩家的p_code值，并将页面
+	 * 跳转到玩家登录页面。
+	 * @param model
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping("/signout")
+	public String signout(Model model,HttpServletRequest req){
+		Player player = new Player();
+		req.getSession().setAttribute("p_code", null);
+		model.addAttribute("player", player);
+		return "player/signin";
+	}
+	
+	/**************  玩家注册   ****************/
+	
+	/**
+	 * 玩家注册的实现 GET 请求
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/signup",method=RequestMethod.GET)
+	public String singnup(Model model){
+		Player player = new Player();
+		model.addAttribute("player", player);
+		return "player/register";
+	}
+	
+	/**
+	 * 玩家注册的实现 
+	 * @param player
+	 * @param model
+	 * @param br
+	 * @param req
+	 * @return
+	 * 
+	 * 玩家注册需要不可为空的部分使用服务器端验证，要求code  password 及username 不可为空。
+	 * 如以上属性中有任一个为空，则返回注册页面。
+	 * 如果这三个属性都不为空，则可以通过注册，此时系统默认会在session存入玩家的用户名 昵称（默认和用户名相同）
+	 * 注册时间 注册时的ip地址,注册完成后跳转到登录页面。
+	 */
+	@RequestMapping(value="/signup",method=RequestMethod.POST)
+	public String signup(@ModelAttribute Player player,Model model,BindingResult br,String valiCode,HttpServletRequest req){
+		try{
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code","code", "用户名不能为空");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password","password", "密码不能为空");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "name","name", "真实姓名不能为空");
+			String kaptcha = (String)req.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+			if(!kaptcha.equals(valiCode))
+				br.addError(new ObjectError("Invalid","注册被拒绝：验证码错误"));
+			if(br.hasErrors()){
+				System.out.println(br.getErrorCount());
+				return "player/register";
+			}
+			else
+			{
+				player.setRegTime(new Date());
+				Player p = playerSvc.addPlayer(player);							
+				req.getSession().setAttribute("p_code", player.getCode());	
+				model.addAttribute("player",p);
+				return "player/signin";								
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception in PlayerController " + e.getMessage());
+			e.printStackTrace();		
+			return "player/register";
+		}		
+	}
+	/**
+	 * 系统中的玩家的用户名不可以重复，所有注册时要验证当前的用户名是否已存在
+	 * 如果存在则请使用其它用户名
+	 * @param code
+	 * @return
+	 */
+	@RequestMapping(value="verifyCode.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public String verifyCode(@RequestParam String code){
+		Player player = playerSvc.getByCode(code);
+		if(player == null)
+			return "true";
+		else
+			return "false";
+	}
+	
 	
 	private static final String TEMPLATE = "Hello %s";
 	private final AtomicLong counter = new AtomicLong();

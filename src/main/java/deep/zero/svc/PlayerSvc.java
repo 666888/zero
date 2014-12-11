@@ -26,7 +26,9 @@ import deep.zero.bean.Player;
  */
 public interface PlayerSvc{
 	//通过玩家的code查询
-	Player getByAccount(String code);
+	Player getByCode(String code);
+	//由玩家的昵称查询出玩家
+	Player getByAbbrName(String abbrName);
 	//依注册周查询
 	List<Player> getPlayerByRegWeek();
 	//依注册月查询
@@ -39,4 +41,5 @@ public interface PlayerSvc{
 	List<Player> getFreezenPlayer();
 	//查询没有存过款的玩家
 //	List<Player> getNoDepositedPlayer();
+	boolean validate(String code ,String password);
 }

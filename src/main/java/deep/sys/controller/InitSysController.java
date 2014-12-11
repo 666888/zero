@@ -37,7 +37,6 @@ public class InitSysController {
 //		deep.tool.TemplateDB.init(us,rs,ps);
 		List<User> userList=TemplateDB.InitDB(us,rs,ps);
 		if(userList.size()>0){
-//			System.out.println("++++++++++++++"+nickname+"+++++++"+oldPassword+"++++++++"+newPassword);
 			model.addAttribute("msg", "初始化成功");
 			return "user/init";
 		}

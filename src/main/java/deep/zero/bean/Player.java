@@ -24,6 +24,8 @@ import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import deep.bean.AbstractEntity;
+
 /**
  * 玩家类，用以记录玩家信息，当前为了实现方便将玩家类和玩家的账号类写在一起
  * 在稳定版本中可能要将两个类分开
@@ -32,24 +34,13 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Entity
 @Table(name="z_player")
-public class Player{
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
-	
-	//@Transient
-	private String code;
-	
-	//昵称
-	@Column(length=50,nullable=false)
-	private String nickname;
-	
-	//用户的真实姓名
-	private String username;
+public class Player extends ZEntity{
+
 	
 	//密码
 	private String password;
 	
+	private String regIP;
 	//银行账号
 //	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 //	@JoinColumn(name="player_id")//在account表增加一个外键列来实现一对多的单向关联
@@ -61,17 +52,17 @@ public class Player{
 	//邮箱
 	private String email;
 	
-	//qq
-	private String qq;
-	
-	public String getQq() {
-		return qq;
+
+	public String getRegIP() {
+		return regIP;
 	}
 
 
-	public void setQq(String qq) {
-		this.qq = qq;
+	public void setRegIP(String regIP) {
+		this.regIP = regIP;
 	}
+
+
 
 
 	public String getExtendURL() {
@@ -101,8 +92,6 @@ public class Player{
 	@Basic(fetch=FetchType.LAZY)
 	private String remark;
 	
-	//是否冻结
-	private Boolean freezen;
 	
 	//注册时间
 	@Temporal(TemporalType.TIMESTAMP) @Column(nullable=false)
@@ -130,40 +119,6 @@ public class Player{
 	public void setPoint(Point point) {
 		this.point = point;
 	}
-	public Boolean getFreezen() {
-		return freezen;
-	}
-	public void setFreezen(Boolean freezen) {
-		this.freezen = freezen;
-	}
-
-	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
-	public String getNickname() {
-		return nickname;
-	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 	public String getPassword() {
 		return password;
@@ -172,16 +127,6 @@ public class Player{
 		this.password = password;
 	}
 	
-//	public Set<Account> getAccounts() {
-//		return accounts;
-//	}
-//
-//
-//	public void setAccounts(Set<Account> accounts) {
-//		this.accounts = accounts;
-//	}
-
-
 	public String getPhone() {
 		return phone;
 	}

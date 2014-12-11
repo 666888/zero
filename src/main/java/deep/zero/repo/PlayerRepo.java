@@ -11,13 +11,14 @@ import deep.zero.bean.Player;
 
 @Repository
 public interface PlayerRepo extends JpaRepository<Player,Long> {
-//	获取玩家账户
-	@Query(value="select p from Player p where p.code =?1 ")
-	public Player getByAccount(String code);
-
+	@Query(value="select p  from Player p where p.code =  ?1 ")
+	public Player getByCode(String code);
+	
+	@Query(value="select p  from Player p where p.abbrName =  ?1 ")
+	public Player getByAbbrName(String abbrName);
 //	是否存在玩家
 	@Query(value="select case when count(p)>0 then true else false end  from Player p where p.code=?1 and p.password=?2")
-	public boolean isExistPlayer(String code,String password);
+	public boolean validate(String code,String password);
 //	获取几周注册的玩家
 	@Query(value="select p  from Player p where p.regTime between ?1 and ?2 ")
 	public List<Player> getPlayerByRegWeek(Date startTime, Date endTime);
@@ -33,6 +34,9 @@ public interface PlayerRepo extends JpaRepository<Player,Long> {
 	//查询冻结玩家
 	@Query(value="select p  from Player p where p.freezen = true ")	
 	public List<Player> getFreezenPlayer();
+	
+	@Query(value="update Player p set p.freezen=true where p.id=?1")
+	public void setFreezen(Long id);
 	
 //	@Query(value="select p  from Player p where p.accounts is null ")	
 //	public List<Player> getNoDepositedPlayer();

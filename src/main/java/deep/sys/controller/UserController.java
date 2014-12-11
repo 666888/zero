@@ -10,20 +10,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-
-
-
-
-
-
-
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,11 +24,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import deep.sys.bean.Role;
 import deep.sys.bean.User;
 import deep.sys.svc.RoleSvc;
 import deep.sys.svc.UserSvc;
 import deep.web.OnlineListener;
+
 
 @Controller
 @RequestMapping("/gm")
@@ -174,35 +162,14 @@ public class UserController {
 	
 	@RequestMapping(value="/modifyRole.ajax",method=RequestMethod.POST)
 	@ResponseBody
-	public String modifyRole(Long id,Long role){
+	public User modifyRole(Long id,Long role){
 		System.out.println(id+role);
 		User u = us.get(id);
 		Set s = new HashSet();
 		s.add(rs.getOne(role));
 		u.setRoles(s);
 		us.addUser(u);
-		//JsonConfig jsonConfig = new JsonConfig();  
-		//jsonConfig.setExcludes(new String[]{"roles"});
-		//JSONObject json=JSONObject.fromObject(u,jsonConfig);
-		
-		//String a = json.toString();
-		//return a;
-		
-		//Json jsonObj = new Json();
-		String jsonStr ="";
-		ObjectMapper mapper = new ObjectMapper();
-		System.out.println("Convert Java object to JSON format.");
-		try {
-			jsonStr = mapper.writeValueAsString(u);
-		     //mapper.writeValue(new File("c:\\jackson.json"), u);
-		} catch (JsonGenerationException e) {
-		 
-		} catch (JsonMappingException e) {
-		 
-		} catch (IOException e) {
-		 
-		}
-		return jsonStr;
+		return u;
 	}
 	//踢出用户
 	@RequestMapping(value="/kick",method=RequestMethod.GET)

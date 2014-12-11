@@ -5,9 +5,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import deep.zero.bean.Agent;
+import deep.zero.bean.ZEntity;
 import deep.zero.repo.AgentRepo;
 
-@Service
+@Service("agentSvc")
 //@Transactional(readOnly=true)
 public class AgentSvcImpl implements AgentSvc {
 	
@@ -17,7 +18,16 @@ public class AgentSvcImpl implements AgentSvc {
 	public void addAgent(Agent agent){		
 		agentRepo.saveAndFlush(agent);
 	}
-
+	
+	public ZEntity getOne(Long id) {
+		// TODO Auto-generated method stub
+		return agentRepo.getOne(id);
+	}
+	
+	public Agent save(Agent a){
+		return agentRepo.saveAndFlush(a);
+	}
+	
 	@Transactional
 	public void delPlayer(Long id){
 		agentRepo.delete(id);
@@ -27,20 +37,14 @@ public class AgentSvcImpl implements AgentSvc {
 	public  Agent modiPlayer(Agent p){
 		return agentRepo.saveAndFlush(p);
 	}
-
-	public Agent getAgentByName(String name){
-		return agentRepo.getAgentByName(name);
-	}
-
-	public boolean isExistAgent(String name, String password) {
+	public boolean validate(String name, String password) {
 		// TODO Auto-generated method stub
-		return agentRepo.isExistAgent(name,password);
+		return agentRepo.validate(name, password);
 	}
 
-	public Agent getAgentByAgentid(Long id) {
+	public void freezen(Long id) {
 		// TODO Auto-generated method stub
-		return agentRepo.getAgentByAgentid(id);
+		
 	}
-	
-	
+
 }

@@ -1,0 +1,12 @@
+@charset "utf-8";
+* { margin: 0px; padding: 0px; font-size: 12px;}
+li { list-style: none;}
+a { color: #000; text-decoration: none;}
+
+.clear { zoom:1; }
+.clear:after { content:'';display:block;clear:both; }
+
+/** float right **/
+.fr {
+    float: right;
+}

@@ -50,12 +50,10 @@ public class PlayerSvcImpl implements PlayerSvc {
 	public List<Player> getAll(){
 		return pr.findAll();
 	}
-	public Player getByAccount(String code) {
-		return pr.getByAccount(code);
+	public Player getByCode(String code) {
+		return  pr.getByCode(code);
 	}
-	public boolean isExistPlayer(String code,String password){
-		return pr.isExistPlayer(code, password);
-	}
+
 
 	public List<Player> getPlayerByRegWeek() {
 		Date startTime=DateUtils.weekStartTime();
@@ -81,6 +79,16 @@ public class PlayerSvcImpl implements PlayerSvc {
 
 	public List<Player> getFreezenPlayer() {
 		return pr.getFreezenPlayer();
+	}
+
+	public boolean validate(String code, String password) {
+		// TODO Auto-generated method stub
+		return pr.validate(code, password);
+	}
+
+	public Player getByAbbrName(String abbrName) {
+		// TODO Auto-generated method stub
+		return pr.getByAbbrName(abbrName);
 	}
 
 //	public List<Player> getNoDepositedPlayer() {

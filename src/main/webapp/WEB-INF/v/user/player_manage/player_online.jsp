@@ -105,7 +105,7 @@
 		<%Map<String,Player> mapp =new HashMap<String,Player>(); 
 		mapp =(Map)request.getAttribute("map"); 
 		for (Player value : mapp.values()) {
-			out.println("<tr><td><input type='checkbox' /></td><td>1</td><td>"+value.getNickname()+"</td><td>2014-05-21 03:14:59</td><td>Online</td><td>20</td><td>Teresa</td><td>Philpot</td><td>Real</td><td>winner casino</td><td>real5.casino.winner.com</td><td>96.54.69.149</td><td>casino</td><td>download</td><td>Dragon Kindom,lobby</td><td>CAD</td><td>EN</td><td>No</td><td>WNW804E0I3912756</td><td><a href='kick?nickname="+value.getNickname()+"'> Kick</a></td></tr>");
+			out.println("<tr><td><input type='checkbox' /></td><td>1</td><td>"+value.getAbbrName()+"</td><td>2014-05-21 03:14:59</td><td>Online</td><td>20</td><td>Teresa</td><td>Philpot</td><td>Real</td><td>winner casino</td><td>real5.casino.winner.com</td><td>96.54.69.149</td><td>casino</td><td>download</td><td>Dragon Kindom,lobby</td><td>CAD</td><td>EN</td><td>No</td><td>WNW804E0I3912756</td><td><a href='kick?nickname="+value.getAbbrName()+"'> Kick</a></td></tr>");
 			
 			}		
 		%>

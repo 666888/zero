@@ -52,7 +52,7 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 			Object key = it.next();
 			if (null != map.get(key) && !"".equals(map.get(key))) {
 				System.out.println(map.get(key));
-				Player player = ps.getByAccount(map.get(key));
+				Player player = ps.getByCode(map.get(key));
 				mapx.put(map.get(key), player);
 			}
 		}

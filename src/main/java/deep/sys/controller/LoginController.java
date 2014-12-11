@@ -80,7 +80,6 @@ public class LoginController {
 					String rememberMe = req.getParameter("remember_me");
 					if(rememberMe!=null)
 					{
-						//System.out.println("+++++++++++++++"+rememberMe);
 						token.setRememberMe(true);
 					}
 					Subject currentUser = SecurityUtils.getSubject();

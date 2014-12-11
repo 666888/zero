@@ -43,7 +43,7 @@ public class BalanceController {
 	@RequestMapping(value="/addAccount",method=RequestMethod.GET)
 	public String addAccount(Model model,HttpServletRequest req){
 		Balance balance = new Balance();
-		String p_name = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code")).getNickname();
+		String p_name = playerSvc.getByCode((String)req.getSession().getAttribute("p_code")).getAbbrName();
 		model.addAttribute("balance", balance);
 		model.addAttribute("pName",p_name);
 		System.out.println((String)req.getSession().getAttribute("p_code"));
@@ -53,7 +53,7 @@ public class BalanceController {
 	public String addAccount(@ModelAttribute Balance balance,
 			Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){				
 		String accountId=null;
-		Player player = playerSvc.getByAccount((String)req.getSession().getAttribute("p_code"));
+		Player player = playerSvc.getByCode((String)req.getSession().getAttribute("p_code"));
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
 //		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
 		Balance balanceNew=new Balance(); 
@@ -72,7 +72,7 @@ public class BalanceController {
 		///Iterator it = list.iterator();
 		//while(it.hasNext())
 		model.addAttribute("acc", "充值成功！");
-		model.addAttribute("pName", playerSvc.getByAccount((String)req.getSession().getAttribute("p_code")).getNickname());
+		model.addAttribute("pName", playerSvc.getByCode((String)req.getSession().getAttribute("p_code")).getAbbrName());
 		return "player/addBalance";
 	}
 	/**
@@ -92,7 +92,7 @@ public class BalanceController {
 			Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){
 		Balance balanceNew=null;
 		String code=(String)req.getSession().getAttribute("p_code");
-		Player player=playerSvc.getByAccount(code);
+		Player player=playerSvc.getByCode(code);
 		String gAccount=(String)req.getSession().getAttribute("g_account");
 //		Balance toBalance=balanceSvc.freeAccount(player.getId());
 		Balance toBalance=new Balance();
@@ -132,7 +132,7 @@ public class BalanceController {
 			Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){
 		String nickname=(String)req.getSession().getAttribute("p_name");
 		String accountId=null;
-		Player player=playerSvc.getByAccount(nickname);
+		Player player=playerSvc.getByCode(nickname);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
 		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
 //		Balance balanceNew=new Balance();
@@ -156,7 +156,7 @@ public class BalanceController {
 			Model model,BindingResult br,HttpServletRequest req, HttpServletResponse res){
 		String code=(String)req.getSession().getAttribute("p_code");
 //		String accountId=null;
-		Player player=playerSvc.getByAccount(code);
+		Player player=playerSvc.getByCode(code);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
 //		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
 		BigDecimal allAccount = balanceSvc.ALLAcount(player.getId(),account.getId());

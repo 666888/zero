@@ -19,9 +19,9 @@
 <link href="/static/css/player/regist/style.css" type="text/css" rel="stylesheet">
 <link href="/static/css/player/regist/login.css" type="text/css" rel="stylesheet">
 </head><body>
-<noscript>您的浏览器不支持JS，将无法看到通过JS实现的效果</noscript>
+
 <div class="wrap">
-    <div style = "text-align: center"><a href="http://www.subic888.com"><img src = "/static/img/player/index/logo.png" style = ""></a></div>
+    <div style = "text-align: center"><a href="/index.html"><img src = "/static/img/player/index/logo.png" style = ""></a></div>
     <div class="login_page">
         <i class="tr"></i><i class="lb"></i>
         <input type="hidden" name="reg_ref" value="" />
@@ -30,7 +30,7 @@
             <div id='user_reg'>
 				
 				<div id="y-reg" class="yxlogin_conn" style="">
-				<sf:form method="post" action = "/signin" modelAttribute="player">
+				<sf:form method="post" action = "/p/signin" modelAttribute="player">
 				<ul>
 					<li>
 						<div id="usernametip" class="errtips"></div>

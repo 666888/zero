@@ -14,7 +14,7 @@ import deep.zero.bean.Balance;
 import deep.zero.repo.BalanceRepo;
 
 
-@Service
+@Service()
 @Transactional(readOnly=true)
 public class BalanceSvcImpl implements BalanceSvc{
 	

@@ -24,11 +24,14 @@ public class SessionInterceptor implements HandlerInterceptor,InitializingBean{
 		System.out.println("======== Init SessionIntercdptor ========");
 		
 		// Here we create the app database with init message.
-//		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
-//		UserSvc us = (UserSvc)wac.getBean("userSvc");
-//		RoleSvc rs = (RoleSvc)wac.getBean("roleSvc");
-//		PermissionSvc ps = (PermissionSvc)wac.getBean("permissionSvc");
-//		deep.tool.TemplateDB.init(us,rs,ps);
+		/*
+		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
+		UserSvc us = (UserSvc)wac.getBean("userSvc");
+		RoleSvc rs = (RoleSvc)wac.getBean("roleSvc");
+		PermissionSvc ps = (PermissionSvc)wac.getBean("permissionSvc");
+		//deep.tool.TemplateDB.init(us,rs,ps);
+		deep.tool.TemplateDB.init(us,rs,ps);
+		*/
 	}
 
 	/**

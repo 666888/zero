@@ -3,14 +3,14 @@ package deep.zero.bean;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import deep.sys.bean.User;
+import deep.bean.AbstractEntity;
+
 
 /**
  * 账户余额类用以记录每个账户的余额 
@@ -19,10 +19,8 @@ import deep.sys.bean.User;
  */
 @Entity
 @Table(name="p_balance")
-public class Balance {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;  
+public class Balance extends AbstractEntity {
+ 
 	
 	private Long playerId;			
 	//转入金额
@@ -51,12 +49,7 @@ public class Balance {
 	public void setPlayerId(Long playerId) {
 		this.playerId = playerId;
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+
 	public Date getTransferTime() {
 		return transferTime;
 	}

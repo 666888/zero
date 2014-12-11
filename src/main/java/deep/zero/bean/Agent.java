@@ -18,26 +18,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="z_agent")
-public class Agent {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long agentid;
-	//账号
-	private String name;
+public class Agent extends deep.zero.bean.ZEntity {
+
 	
+	//密码
 	private String password;
-	//真实姓名
-	private String realName;
+	
 	private String phone;
 	private String email;
 	//推广链接
 	private String extendURL;
-	public String getRealName() {
-		return realName;
-	}
-	public void setRealName(String realName) {
-		this.realName = realName;
-	}
+
 	public String getPhone() {
 		return phone;
 	}
@@ -56,18 +47,7 @@ public class Agent {
 	public void setExtendURL(String extendURL) {
 		this.extendURL = extendURL;
 	}
-	public Long getAgentid() {
-		return agentid;
-	}
-	public void setAgentid(Long agentid) {
-		this.agentid = agentid;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getPassword() {
 		return password;
 	}

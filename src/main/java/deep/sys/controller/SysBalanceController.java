@@ -54,7 +54,7 @@ public class SysBalanceController {
 	@RequestMapping(value="/rechargeHistory",method=RequestMethod.POST)
 	public String rechangeHistory(
 			Model model,HttpServletRequest req,@RequestParam("code") String code, HttpServletResponse res){
-		Player player=playerSvc.getByAccount(code);
+		Player player=playerSvc.getByCode(code);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
 		BigDecimal allAccount = balanceSvc.ALLAcount(player.getId(),account.getId());
  //		Balance balanceNew=new Balance();		
@@ -86,7 +86,7 @@ public class SysBalanceController {
 	@ResponseBody
 	public Map rechargeSearch(HttpServletRequest req,@RequestParam("nickname") String nickname, HttpServletResponse res){
 		Map map=new HashMap<String, Object>();
-		Player player=playerSvc.getByAccount(nickname);
+		Player player=playerSvc.getByCode(nickname);
 		if (null!=player) {
 			
 			Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
@@ -114,7 +114,7 @@ public class SysBalanceController {
 	public Map accountRecharge(HttpServletRequest req,@RequestParam("nickname") String nickname,@RequestParam("recharge") String recharge, HttpServletResponse res){
 		String accountId=null;
 		Map map=new HashMap<String, Object>();
-		Player player=playerSvc.getByAccount(nickname);
+		Player player=playerSvc.getByCode(nickname);
 		Account account = accountSvc.getAccountByPlayerIdAndName(player.getId(), -1L);
 //		BigDecimal balanceOld=balanceSvc.ALLAcount(player.getId(),account.getId());
 		Balance balanceNew=new Balance(); 

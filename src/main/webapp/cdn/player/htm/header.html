@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+<link rel="stylesheet" href="/cdn/player/css/format.css" />
+<link rel="stylesheet" href="/cdn/player/css/index.css" />
+<script type="text/javascript" src="/cdn/player/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="/cdn/player/js/main_banner.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".tp_lo").click(function(){
+		var code = $("#c").val();
+		var password = $("#p").val();
+		$.post("/signin.ajax", { code: code, password: password },function(data){
+			if(data.nickname){
+				$("#u1").hide();
+				$("#un").html("用户"+data.nickname+"您好！");
+				$("#un").show();
+			}		   
+			else{
+				alert(data.error);
+			}
+		}, "json");
+		
+	});
+	
+	var _ljdl_div = $("<div style='width: 306px; height: 207px; background: #000; opacity:0.5; filter: alpha(opacity=50); position: absolute; top: 0px;'></div>");
+	var _ljdl_img = $("<img src='/cdn/player/images/_ljdl.png' style='position: absolute; top: 50%; left: 50%; margin-top: -17px; margin-left: -75px;' />")
+	$("#ig3_div li").hover(function() {
+		$(this).append(_ljdl_div);
+		$(this).append(_ljdl_img);
+	}, function() {
+		_ljdl_div.remove();
+		_ljdl_img.remove();
+	});
+});
+</script>
+</head>
+
+<body>
+	<div id="top">
+		<div id="tp_cn" class="clear">
+			<div id="lo"></div>			
+			<ul id="u1">
+				<li class="tp_zh">账户名</li>
+				<li><input id="c"  class="tp_inp"  type="text" /></li>
+				<li class="tp_mm">密码</li>
+				<li><input id="p" class="tp_inp" type="password" /></li>
+				<li><input class="tp_btn tp_lo" type="button" value="" /></li>
+				<li><a href="/signup"><input class="tp_btn tp_re" type="button" value="" /></a></li>
+			</ul>
+			<div style="display:none;color:#FFF;" id="un" ></div>				
+		</div>
+	</div>
+	<div id="head">
+		<div id="hd_cn">
+			<ul>
+				<li class="hd_sy"><a href="/index.html">首页</a></li>
+				<li><a href="/live.html">真人娱乐</a></li>
+				<li><a href="/phone.html">电话投注</a></li>
+				<li><a href="/promote.html">优惠活动</a></li>
+				<li><a href="/franchise.html">合作加盟</a></li>
+				<li><a href="http://www.agg000.net" target="_blank">代理登陆</a></li>
+				<li class="hd_zxkf"><a target="_blank" href="http://dkb.duokebo.com:8080/webchat/chat.aspx?siteid=898591">在线客服</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="banner">
+		<div class="bn_ig"><img src="/cdn/player/images/ba_1.png" /></div>
+		<div class="bn_ig"><img src="/cdn/player/images/ba_2.png" /></div>
+		<div class="bn_ig"><img src="/cdn/player/images/ba_3.png" /></div>
+		<div class="bn_ig"><img src="/cdn/player/images/ba_4.png" /></div>
+		<div class="bn_ig"><img src="/cdn/player/images/ba_5.png" /></div>
+		<div class="bn_ig"><img src="/cdn/player/images/ba_6.png" /></div>
+		<div class="bn_ig"><img src="/cdn/player/images/ba_7.png" /></div>
+		<div class="bn_ig"><img src="/cdn/player/images/ba_8.png" /></div>
+		<div class="bn_le"></div>
+		<div class="bn_ri"></div>
+	</div>
+	<div id="banner_tt">
+		<div id="banner_tt_cn">
+			<span class="ggl">公告栏</span>
+			<span class="ggl_cn">撒旦尽快阿萨帝爱上空间的按说萨达科技阿萨帝爱上空间的阿萨帝爱</span>
+		</div>
+	</div>
+	<div id="ig3_div">
+		<ul class="clear ig3">
+			<li><img src="/cdn/player/images/_ig_zryl.png" /></li>
+			<li><img src="/cdn/player/images/_ig_dhtz.png" /></li>
+			<li class="ig3_li"><img src="/cdn/player/images/_ig_sjtz.png" /></li>
+		</ul>
+	</div>
+	<div id="lgs"></div>
+	<div id="rls">
+			<p>
+				<a href="/cdn/player/help_center/u_about.html">关于我们</a>
+				<a href="/cdn/player/help_center/u_url.html">备用网址</a>
+				<a href="/cdn/player/help_center/u_user.html">用户协议</a>
+				<a href="/cdn/player/help_center/u_priv.html">隐私政策</a>
+				<a href="/cdn/player/help_center/u_duty.html">游戏责任</a>
+				<a href="/cdn/player/help_center/u_faq.html">常见问题</a>
+				<a href="/cdn/player/help_center/u_rela.html">联系我们</a>
+			</p>
+	</div>
+	<!--<div id="crt">版权说明</div>-->
+</body>
+</html>

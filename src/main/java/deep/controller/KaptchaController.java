@@ -16,12 +16,15 @@ import com.google.code.kaptcha.servlet.KaptchaExtend;
 
 @Controller
 @RequestMapping(value="/pub")
-public class KaptchaController extends KaptchaExtend {
+public class KaptchaController extends Kaptcha {
 
-	@RequestMapping(value="/php",method = RequestMethod.GET)
+	@RequestMapping(value="/kaptcha",method = RequestMethod.GET)
 	public void captcha(HttpServletRequest req ,HttpServletResponse resp) throws ServletException , IOException
 	{
 		super.captcha(req, resp);
+		//String s = (String) req.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);;
+		//System.out.println("当前的验证码为：【   "+s+"  】");
+		
 	}
 
 	@RequestMapping(value="/register",method = RequestMethod.GET)

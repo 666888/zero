@@ -34,9 +34,9 @@
 	content="width=device-width, initial-scale=1,maximum-scale=1" />
 
 <!-- Stylesheets -->
-<link rel="stylesheet" href="../../../static/login/base.css">
-<link rel="stylesheet" href="../../../static/login/skeleton.css">
-<link rel="stylesheet" href="../../../static/login/layout.css">
+<link rel="stylesheet" href="/cdn/gm/base.css">
+<link rel="stylesheet" href="/cdn/gm/skeleton.css">
+<link rel="stylesheet" href="/cdn/gm/layout.css">
 
 </head>
 <body>
@@ -98,7 +98,7 @@
 	
 	<script type="text/javascript">
 	// Fallback to loading jQuery from a local path if the CDN is unavailable
-	  (window.jQuery || document.write('<script src="../../../static/js/jquery-1.9.1.js"><\/script>'));
+	  (window.jQuery || document.write('<script src="/cdn/jquery-1.10.2.min.js"><\/script>'));
 	</script>
 
 	<!-- End Document -->
