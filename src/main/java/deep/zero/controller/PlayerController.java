@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import deep.sys.bean.User;
 import deep.tool.EmailService;
 import deep.tool.MailConstants;
 import deep.zero.bean.Player;
@@ -95,7 +94,6 @@ public class PlayerController {
 		if(player.getPassword().equals(oldPassword)){
 			player.setPassword(newPassword);
 			playerSvc.modiPlayer(player);			
-			System.out.println("++++++++++++++"+oldPassword+"++++++++"+newPassword);
 			return "{\"a\":\"修改成功！\"}";
 		}
 		else{
@@ -105,9 +103,7 @@ public class PlayerController {
 	
 	/**
 	 * 绑定电子邮箱功能 ，用以找回密码，使用此功能时我们不做处理直接将email存入到数据库中
-	 * 在实际的业务中我们可能会要求对其中的部分数据使用***来代替，鉴于执行效率考虑这部分的
-	 * 功能要求在前端js来实现。
-	 * 
+	 * 在实际的业务中我们可能会要求对其中的部分数据使用***来代替 , 在显示的时候需要做处理。
 	 * 
 	 * @param req
 	 * @param email
@@ -262,8 +258,8 @@ public class PlayerController {
 	
 	/**
 	 * 使用ajax 方式来完成登录到系统(此部分没有验证码)
-	 * @param code
-	 * @param password
+	 * @param code			玩家的登录名称
+	 * @param password		玩家的登录密码
 	 * @return
 	 */
 	@RequestMapping(value="/signin0.ajax",method=RequestMethod.POST)
@@ -277,31 +273,13 @@ public class PlayerController {
 		return map;
 	}
 	
-	/**
-	 * 使用ajax 方式来完成登录到系统
-	 * @param code
-	 * @param password
-	 * @return
-	 */
-	@RequestMapping(value="/signin9.ajax",method=RequestMethod.GET)
-	@ResponseBody
-	public String login9(@RequestParam("code") String code,@RequestParam("password") String password,HttpServletRequest req){
-		if(playerSvc.validate(code, password))
-		{
-			req.getSession().setAttribute("p_code", code);
-			return "{\"code\":\""+code+"\"}";
-		}
-		else
-		{
-			return "{\"error\":\""+"validate failed!"+"\"}";
-		}
-	}
 	
 	/**
 	 * 使用ajax方式来完成登录到系统
-	 * @param code
-	 * @param password
-	 * @param valiCode
+	 * 登录方法要求有验证码的校验
+	 * @param code			玩家登录的登录名
+	 * @param password		玩家登录的密码
+	 * @param valiCode		玩家输入的验证码
 	 * @param req
 	 * @return
 	 */

@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<title>Asia</title>
 <link rel="stylesheet" href="/cdn/player/css/format.css" />
 <link rel="stylesheet" href="/cdn/player/css/index.css" />
 <link rel="stylesheet" href="/cdn/player/css/0a94a3be.css" />
@@ -19,113 +20,8 @@
 -->
 <script src="/cdn/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="/cdn/p/a.js"></script>
-<title>Asia</title>
-<script type="text/javascript">
-	$(function(){
-		$("#btn-s").click(function(){
-		
-			var code = $("#code").val();
-			var pswd = $("#pswd").val();
-			
-			if(code =="")
-			{
-				$("#tips").html("<font color='red'>用户名不能为空！</font>");
-				return false;
-			}
-			
-			if(pswd =="")
-			{
-				$("#tips").html("<font color='red'>密码不能为空！</font>");
-				return false;
-			}
-				
-			$("#tips").html("");
-		
-			//contentType:'application/json;charset=UTF-8',
-			/*
-			var cfg = {
-					url: 'http://localhost:8080/p/signin0.ajax',
-			        type: 'POST', 
-					dataType: "json",
-					data:{code:code,password:pswd},
-			        //contentType: "application/json; charset=utf-8",
-                        
-			        error:function(XMLHttpRequest, textStatus, errorThrown) {
-			        	alert("req.status:"+XMLHttpRequest.status);
-			        	alert("req.readyState:"+XMLHttpRequest.readyState);
-			        	alert(textStatus);
-						//window.location.href="http://www.so.com";
-			        },
-			        success: function(result) { 
-			        	alert("sadf");
-			            alert(result.success);
-			        } 
-			    };
-			$.ajax(cfg);
-			*/
-			
-			$.ajax({
-				type: "GET",
-				url: "/p/signin9.ajax",
-				//data: "code=asdf&password=asdf",
-				data:{code:code,password:pswd},
-				error:function(XMLHttpRequest, textStatus, errorThrown) {
-			        //alert("req.status:"+XMLHttpRequest.status);
-			        //alert("req.readyState:"+XMLHttpRequest.readyState);
-			        //alert(textStatus);
-			    },
-				success: function(msg){
-					if(msg.match("code"))
-					{
-						var obj = JSON.parse(msg);
-						$("#hid2").css("display","none");
-						$("#p_code").html(obj.code);
-						$("#hid").css({ display: "block"});
-					}
-					else
-					{
-						$("#tips").html("用户名或密码错误，请重试");
-					}
-				}
-			});
-		});
+<script type="text/javascript" src="/cdn/player/signin/signin.js"></script>
 
-	});
-	
-	
-	function chk(){		
-		alert("before submit!");
-		if($("#code").val()=="")
-		{
-			$("#tips").html("<font color='red'>用户名不能为空！</font>");
-			return false;
-		}
-	
-		if($("#password").val()=="")
-		{
-			$("#tips").html("<font color='red'>密码不能为空！</font>");
-			return false;
-		}
-		$("#tips").html("");
-		return true;
-	}
-	
-	
-	
-	function onover(){
-		$("#t_drop").show();
-
-	}
-	function on(){
-		$("#t_drop").hide();
-	}
-
-	function onout(){
-		setTimeout("on()",2000);
-		
-	}
-	
-</script>
 </head>
 <body>
 <!--nav star-->
@@ -139,7 +35,7 @@
 						<div id="change_drop" class="user_box" style="z-index: 999">
 							<span> 
 							 <i class="user_p" onmouseover="onover()" onmouseout= "onout()"> 
-							 	<img width="25" height="25" src="/cdn/img/q.jpg" />
+							 	<img width="25" height="25" src="/cdn/p/img/q.jpg" />
 							</i> 
 							<div id="t_drop" class="tools_box" style="z-index: 999; display: none;">
 								<ul>

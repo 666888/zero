@@ -64,7 +64,4 @@ public class MonetaryAmount {
 		//Assert.isTrue(this.currency.equals(other.currency));
 		return new MonetaryAmount(this.currency,this.value.add(other.value));
 	}
-	
-	
-	
 }
