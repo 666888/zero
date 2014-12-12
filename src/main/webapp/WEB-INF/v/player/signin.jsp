@@ -15,9 +15,9 @@
 <meta name="description" content="">
 <meta content="" name="keywords">
 <!--[if lt IE 9]><script>/*@cc_on'abbr article aside audio canvas details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})@*/</script><![endif]-->
-<link href="/static/css/player/regist/reset.css" type="text/css" rel="stylesheet">
-<link href="/static/css/player/regist/style.css" type="text/css" rel="stylesheet">
-<link href="/static/css/player/regist/login.css" type="text/css" rel="stylesheet">
+<link href="/cdn/player/signin/reset.css" type="text/css" rel="stylesheet">
+<link href="/cdn/player/signin/style.css" type="text/css" rel="stylesheet">
+<link href="/cdn/player/signin/login.css" type="text/css" rel="stylesheet">
 </head><body>
 
 <div class="wrap">
@@ -56,31 +56,6 @@
 						<i class="iright" style="display:none"></i>
 						<sf:errors />
 					</li>
-					<!-- 
-					<li>
-						<div id="repasstip" class="errtips"></div>
-						<div class="yxform_in">
-							<i class="ipwd"></i>
-							<input class="ipt" type="password" maxlength="20" name="repass" placeholder="确认密码">
-							<div class="ipt_txt">确认密码</div>
-							<i class="iclose" style="display:none;"></i>
-						</div>
-						<i class="iright" style="display:none"></i>
-					</li>
-					<li class="yzm">
-						<div id="captchatip" class="errtips"></div>
-						<div class="yxform_in">
-							<i class="iyzm"></i>
-							<input class="ipt" type="text" maxlength="4" name="captcha" placeholder="验证码">
-							<div class="ipt_txt">验证码</div>
-						</div>
-						<div class="yzmimg">
-							<img class="vcode" width="112" height="40" src="http://captcha.subic888.com/image.php?app=subic888&r=0.7083599675090095">
-							<a class="f5" href="javascript:void(0);">
-								<i class="if5">刷新</i>
-							</a>
-						</div>
-					</li> -->
 				</ul>
 				
 				<div id="checkreadtip" class="errtips"></div>

@@ -13,7 +13,7 @@
 		th { background: #fffce1; font-weight: normal;}
 		table.g-table { border: 1px solid #d7d7d7; table-layout: fixed; width: 100%;}	
 	</style>
-	<script type = "text/javascript" src="/static/js/jquery-1.8.0.min.js"></script>
+	<script type = "text/javascript" src="/cdn/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			//查询单个用户

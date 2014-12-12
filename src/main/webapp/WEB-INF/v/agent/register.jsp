@@ -15,10 +15,10 @@
 <meta name="description" content="">
 <meta content="" name="keywords">
 <!--[if lt IE 9]><script>/*@cc_on'abbr article aside audio canvas details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})@*/</script><![endif]-->
-<link href="/static/css/player/regist/reset.css" type="text/css" rel="stylesheet">
-<link href="/static/css/player/regist/style.css" type="text/css" rel="stylesheet">
-<link href="/static/css/player/regist/login.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" src="/static/js/jquery-1.8.0.min.js"></script>
+<link href="/cdn/player/signin/reset.css" type="text/css" rel="stylesheet">
+<link href="/cdn/player/signin/style.css" type="text/css" rel="stylesheet">
+<link href="/cdn/player/signin/login.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="/cdn/jquery-1.8.0.min.js"></script>
 </head><body>
 <noscript>您的浏览器不支持JS，将无法看到通过JS实现的效果</noscript>
 <div class="wrap">

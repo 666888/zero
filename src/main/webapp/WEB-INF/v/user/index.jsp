@@ -28,7 +28,7 @@
 				#con_nav li:hover { background: #fff; border-bottom: solid 1px #fff;}
 
 </style>
-<script type="text/javascript" src="/static/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="/cdn/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#con_nav li").eq(0).css({background:"#fff", "border-bottom":"solid 1px #fff"});

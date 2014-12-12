@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
 <title>list</title>
-<script type = "text/javascript" src="/static/js/jquery-1.8.0.min.js"></script>
+<script type = "text/javascript" src="/cdn/jquery-1.8.3.min.js"></script>
 </head>
 
 <body>

@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="/cdn/player/css/reset.css" />
 
 <script type = "text/javascript" src = "/cdn/jquery-1.8.3.min.js"></script>
-<script type = "text/javascript" src = "/cdn/js/a.js"></script>
+<script type = "text/javascript" src = "/cdn/p/a.js"></script>
 
 <script type = "text/javascript">
 $(document).ready(function(){

@@ -115,9 +115,9 @@ public class PlayerController {
 	 */
 	@RequestMapping(value="/secureMail.ajax",method=RequestMethod.POST)
 	@ResponseBody
-	public Map secureMail(HttpServletRequest req,@RequestParam("email") String email){
+	public Map<String,Object> secureMail(HttpServletRequest req,@RequestParam("email") String email){
 		Player player = playerSvc.getByCode((String)req.getSession().getAttribute("p_code"));
-		Map map=new HashMap<String, Object>();
+		Map<String,Object> map=new HashMap<String, Object>();
 		if(email.equals(player.getEmail()))
 		{
 			map.put("e", true);
@@ -171,11 +171,11 @@ public class PlayerController {
 	 */
 	@RequestMapping(value="/onload.ajax",method=RequestMethod.GET)
 	@ResponseBody
-	public Map securePhoneAndEmail(HttpServletRequest req){
+	public Map<String,Object> securePhoneAndEmail(HttpServletRequest req){
 		Player player = playerSvc.getByCode((String)req.getSession().getAttribute("p_code"));
 		String email = player.getEmail();
 		String phone = player.getPhone();
-		Map map=new HashMap<String, Object>();
+		Map<String,Object> map=new HashMap<String, Object>();
 		if(!StringUtils.isBlank(email)){
 			map.put("e", true);
 			map.put("eMsg", "已绑定"+email);
@@ -230,7 +230,7 @@ public class PlayerController {
 	 * @return
 	 */
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
-	public String Login(@ModelAttribute("player") Player player,Model model,BindingResult br,HttpServletRequest req){
+	public String signin(@ModelAttribute("player") Player player,Model model,BindingResult br,HttpServletRequest req){
 		try{
 			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code","code", "昵称不能为空");
 			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password","password", "密码不能为空");
@@ -391,12 +391,13 @@ public class PlayerController {
 			if(!kaptcha.equals(valiCode))
 				br.addError(new ObjectError("Invalid","注册被拒绝：验证码错误"));
 			if(br.hasErrors()){
-				System.out.println(br.getErrorCount());
+				model.addAttribute("player", player);
 				return "player/register";
 			}
 			else
 			{
 				player.setRegTime(new Date());
+				player.setRegIP(deep.util.HttpUtil.getIPAddr(req)); 
 				Player p = playerSvc.addPlayer(player);							
 				req.getSession().setAttribute("p_code", player.getCode());	
 				model.addAttribute("player",p);

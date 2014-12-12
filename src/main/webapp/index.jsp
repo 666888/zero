@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/cdn/player/css/index.css" />
 <link rel="stylesheet" href="/cdn/player/css/0a94a3be.css" />
 <link rel="stylesheet" href="/cdn/player/css/reset.css" />
+<!--  
 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 <script >
 	// Fallback to loading jQuery from sina path if the baidu's CDN is unavailable
@@ -15,7 +16,9 @@
   // Fallback to loading jQuery from a local path if the CDN is unavailable
   (window.jQuery || document.write('<script src="/cdn/jquery-1.8.3.min.js"><\/script>'));
 </script>
-<script type="text/javascript" src="/cdn/js/a.js"></script>
+-->
+<script type="text/javascript" src="/cdn/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/cdn/p/a.js"></script>
 <script type="text/javascript" src="/cdn/player/js/main_banner.js"></script>
 <title>Asia</title>
 

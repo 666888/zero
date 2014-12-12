@@ -30,7 +30,7 @@
 		<jackson.version>2.4.4</jackson.version>
 		<commons-lang3.version>3.1</commons-lang3.version>		
 		<shiro.version>1.2.3</shiro.version>
-		<jetty.version>9.2.0.M0</jetty.version>
+		<jetty.version>9.3.0.M1</jetty.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
