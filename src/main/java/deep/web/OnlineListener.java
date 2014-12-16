@@ -11,15 +11,10 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
 
 import deep.zero.bean.Player;
-import deep.zero.repo.PlayerRepo;
-import deep.zero.svc.PlayerSvc;
 import deep.zero.svc.PlayerSvcImpl;
 
 public class OnlineListener extends HttpServlet implements HttpSessionListener,
@@ -27,7 +22,6 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 	/**
 	 * 
 	 */
-	private PlayerSvcImpl playerSvc = new PlayerSvcImpl();
 	private static final long serialVersionUID = -724585474693809304L;
 	public static Map<HttpSession, String> map = new HashMap<HttpSession, String>();
 	private String user_code;
@@ -80,7 +74,6 @@ public class OnlineListener extends HttpServlet implements HttpSessionListener,
 		// TODO Auto-generated method stub
 		HttpSession session = evt.getSession();
 		user_code = (String) session.getAttribute("p_code");
-		System.out.println("+++++++++"+user_code+"++++++++");
 		if (user_code == null) {
 			map.remove(session);
 		} else

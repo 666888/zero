@@ -370,9 +370,9 @@ public class PlayerController {
 	@RequestMapping(value="/signup",method=RequestMethod.POST)
 	public String signup(@ModelAttribute Player player,Model model,BindingResult br,String valiCode,HttpServletRequest req){
 		try{
-			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code","userNotNull", "Require SignName");
-			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password","password", "Require Password");
-			ValidationUtils.rejectIfEmptyOrWhitespace(br, "name","name", "Require UserName");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code","codeErr", "Require SignName");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password","pswdErr", "Require Password");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "name","usrNameErr", "Require UserName");
 			String kaptcha = (String)req.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
 			if(!kaptcha.equals(valiCode))
 				br.addError(new ObjectError("vCodeErr",new String[]{"vCodeErr"},null,"vCodeErr"));
