@@ -8,6 +8,12 @@
 <link rel="stylesheet" href="/cdn/player/css/format.css" />
 <link rel="stylesheet" href="/cdn/player/css/index.css" />
 <link rel="stylesheet" href="/cdn/player/css/regist.css" />
+<style>
+	form div{
+		color:red;
+		margin-left:150px
+	}
+</style>
 <script type="text/javascript" src="/cdn/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
 	$(function() {  
@@ -52,19 +58,21 @@
 		<li class="r_tit_1">注册SUBIC账户</li>
 		<li class="r_tit_2">注册SUBIC账户，您将会领略到前所未有的博彩体验。如果您已拥有SUBIC账户，则可&nbsp;<a href="/">在此登录</a></li>
 	</ul>
+	
 	<sf:form action="/p/signup" method="post" modelAttribute="player">
 		<table class="r_tab">
 			<tr>
 				<td width="98" class="r_tab_f">用户账号：</td>
 				<td width="338"><sf:input id="code" type="text" class="r_tab_inp" path="code"/></td>
 				<td class="r_tab_m">注意：所有账号前面会加上『O8』。请填写4至8个英文字母和数字组合</td>
-				<sf:errors path="code" />
+				<!-- 
+				<sf:errors path="code" cssClass="error"/>
+				 -->
 			</tr>
 			<tr>
 				<td class="r_tab_f">账号密码：</td>
 				<td><sf:input id="password" type="password" class="r_tab_inp" path="password"/></td>
 				<td class="r_tab_m">由数字或者字母组成的6-16位</td>
-				<sf:errors path="password"/>
 			</tr>
 			<tr>
 				<td class="r_tab_f">确认密码：</td>
@@ -75,7 +83,6 @@
 				<td class="r_tab_f">真实姓名：</td>
 				<td><sf:input id="name" type="text" class="r_tab_inp" path="name"/></td>
 				<td class="r_tab_m">真实姓名必须与提款银行账号相同才能办理提款</td>
-				<sf:errors path="name"/>
 			</tr>
 			<tr>
 				<td class="r_tab_f">电子邮箱：</td>
@@ -89,6 +96,7 @@
 					<div class="r_tab_ig"><img src="/pub/kaptcha" id="kaptchaImage" /></div>
 				</td>
 				<td></td>
+				<sf:errors path="*" cssClass="error" element="div"/>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.ContextLoader;
 
 import deep.tool.EmailService;
 import deep.tool.MailConstants;
@@ -358,16 +359,23 @@ public class PlayerController {
 	 * 如以上属性中有任一个为空，则返回注册页面。
 	 * 如果这三个属性都不为空，则可以通过注册，此时系统默认会在session存入玩家的用户名 昵称（默认和用户名相同）
 	 * 注册时间 注册时的ip地址,注册完成后跳转到登录页面。
+	 * 
+	 * 使用Spring的服务器验证验证对不可为空的数据进行二次的的验证
+	 * 对于使用自己写验证方法,可以加入到BindingResult 中，但要注意在使用国际化时,
+	 * 要使用ObjectError("vCodeErr",new String["vCodeErr"],null,"vCodeErr")
+	 * 也可以使用ObjectError("vCodeErr",ContextLoader.getCurrentWebApplicationContext().getMessage("vCodeErr",null,null))
+	 * 其中第一个参数是资源文件的键值，第二个参数是资源文件的字符串的参数，由于本字符串没有参数，所以用null,第三个参数是一个java.util.Local类型
+	 * 的参数，默认为null,表示使用浏览器默认语言
 	 */
 	@RequestMapping(value="/signup",method=RequestMethod.POST)
 	public String signup(@ModelAttribute Player player,Model model,BindingResult br,String valiCode,HttpServletRequest req){
 		try{
-			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code","code", "用户名不能为空");
-			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password","password", "密码不能为空");
-			ValidationUtils.rejectIfEmptyOrWhitespace(br, "name","name", "真实姓名不能为空");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code","userNotNull", "Require SignName");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password","password", "Require Password");
+			ValidationUtils.rejectIfEmptyOrWhitespace(br, "name","name", "Require UserName");
 			String kaptcha = (String)req.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
 			if(!kaptcha.equals(valiCode))
-				br.addError(new ObjectError("Invalid","注册被拒绝：验证码错误"));
+				br.addError(new ObjectError("vCodeErr",new String[]{"vCodeErr"},null,"vCodeErr"));
 			if(br.hasErrors()){
 				model.addAttribute("player", player);
 				return "player/register";

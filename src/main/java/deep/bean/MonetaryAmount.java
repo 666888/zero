@@ -5,7 +5,6 @@ import java.util.Currency;
 
 import javax.persistence.Embeddable;
 
-import org.springframework.util.Assert;
 
 @Embeddable
 public class MonetaryAmount {
