@@ -15,6 +15,9 @@ public interface AgentRepo extends JpaRepository<Agent, Long>{
 	//@Query(value="update Agent  a set a.id=?1")
 	@Query(value="update Agent a set a.freezen=true where a.id=?1")
 	void setFreezen(Long id);
+
+	@Query(value="select a from Agent a where a.code=?1")
+	Agent getByCode(String code);
 	
 	
 	//@Modifying(clearAutomatically = true)

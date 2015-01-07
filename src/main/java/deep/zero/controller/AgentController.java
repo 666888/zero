@@ -1,10 +1,10 @@
 package deep.zero.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -131,12 +131,27 @@ public class AgentController {
 		return "agent/reg";
 	}
 	
+	/**
+	 * 代理注册功能，主要用作代理在系统中的注册的实现，此部分要求对输入的相关数据
+	 * 进行服务器端验证，其验证的内容包括：账号，密码，验证码三个部分，其它部分在
+	 * 前端进行验证。
+	 * @param agent
+	 * @param model
+	 * @param br
+	 * @param req
+	 * @return
+	 */
 	@RequestMapping(value="/signup",method=RequestMethod.POST)
-	public String reg(@ModelAttribute Agent agent, Model model,BindingResult br,HttpServletRequest req){
+	public String reg(@ModelAttribute Agent agent, Model model,BindingResult br,HttpServletRequest req,String vcode){
 		try{
 			ValidationUtils.rejectIfEmptyOrWhitespace(br, "code", "code","账号不能为空");
 			ValidationUtils.rejectIfEmptyOrWhitespace(br, "password", "password", "密码不能为空");
-			//此处少写了验证码
+			//validate the vcode from request param.
+			if(vcode == null || vcode.trim().length()!=4)
+			{
+				br.addAllErrors(null);
+			}
+				
 			if(br.hasErrors()){
 				return "agent/reg";
 			}	
@@ -153,6 +168,59 @@ public class AgentController {
 			return "agent/reg";
 		}
 	}
+	
+	/**
+	 * 使用Ajax来进行代理的注册功能，主要解决有些静态页面调用的问题。
+	 * 当前使用的就是这个方法.
+	 * @param code			用户的登录名
+	 * @param password		用户的登录密码
+	 * @param name			用户的名字
+	 * @param phone			用户的电话
+	 * @param mail			用户的电子邮件
+	 * @param vcode			验证码
+	 * @return
+	 */
+	@SuppressWarnings("null")
+	@RequestMapping(value="/signup.ajax",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, List<String>> reg(@RequestParam String code,@RequestParam String password,
+			@RequestParam String name,@RequestParam String phone,@RequestParam String mail,@RequestParam String vcode){
+		Map<String,List<String>> rtn = new HashMap<String,List<String>>();
+		ArrayList<String> lst = new ArrayList<String>();
+		// 此部分的验证可以在前端使用java script来完成
+		if(code==null || code.trim().length()==0)
+			lst.add("账号不能为空");
+		if(password==null || password.trim().length()==0)
+			lst.add("密码不能为空");
+		if(name==null || name.trim().length()==0)
+			lst.add("账号不能为空");
+		if(phone==null || phone.trim().length()==0)
+			lst.add("电话不能为空");
+		if(mail==null || mail.trim().length()==0)
+			lst.add("电子邮件不能为空");
+		if(vcode==null || vcode.trim().length()==0)
+			lst.add("验证码不能为空");
+		//validate if the code is registered.
+		///ToDo
+
+		if(lst.size()>0){
+			rtn.put("Err", lst);
+		}
+		else
+		{
+			Agent agent = new Agent();
+			agent.setCode(code);
+			agent.setPassword(password);
+			agent.setName(name);
+			agent.setPhone(phone);
+			agent.setEmail(mail);
+			svc.save(agent);
+			lst.add("注册成功，请联系客服快速开通账号");
+			rtn.put("ok", lst);
+		}
+		return rtn;
+	}
+	
 	
 	/**
 	 * 删除代理，由于系统中有多重的强关系键，因此默认情况下我们使用冻结

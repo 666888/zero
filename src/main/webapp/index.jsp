@@ -36,12 +36,13 @@
 			        dataType: 'JSON',
 			        contentType:'application/json;charset=UTF-8', 
 			        error:function(XMLHttpRequest, textStatus, errorThrown) {
-			        	alert(XMLHttpRequest.status);
-			        	alert(XMLHttpRequest.readyState);
-			        	alert(textStatus);
+			        	//alert(XMLHttpRequest.status);
+			        	//alert(XMLHttpRequest.readyState);
+			        	//alert(textStatus);
+			        	alert("请求失败!");
 			        },
 			        success: function(result) { 
-			        	alert("sadf");
+			        	alert("已成功！");
 			            alert(result.success); 
 			        } 
 			    };

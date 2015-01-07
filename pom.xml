@@ -60,7 +60,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>	
-			<scope>runtime</scope>	
+			<scope>compile</scope>	
 			<exclusions>
          		<exclusion>
             	<groupId>commons-logging</groupId>

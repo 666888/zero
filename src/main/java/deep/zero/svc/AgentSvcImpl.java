@@ -28,6 +28,9 @@ public class AgentSvcImpl implements AgentSvc {
 		return agentRepo.saveAndFlush(a);
 	}
 	
+	public Agent getByCode(String code){
+		return agentRepo.getByCode(code);
+	}
 	@Transactional
 	public void delPlayer(Long id){
 		agentRepo.delete(id);

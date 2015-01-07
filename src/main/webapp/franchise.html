@@ -8,7 +8,12 @@
 <link rel="stylesheet" href="/cdn/player/css/j_coop.css" />
 <script type="text/javascript" src="/cdn/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
-	
+	$(function() {  
+		$('#kaptchaImage').click(  
+			function() {  
+				$(this).hide().attr('src','/pub/kaptcha?'+ Math.floor(Math.random()*100)).fadeIn();  	
+			});  
+	});  
 </script>
 </head>
 
@@ -58,15 +63,15 @@
 	<div id="regi">
 		<a name="_dlzc"></a>
 		<h1>注册苏比克代理账号</h1>
-		<form action="" method="post">
+		<form action="/a/signup.ajax" method="post">
 			<table border="0" style="border-collapse: collapse; margin: auto;">
 				<tr>
 					<td>代理账号：</td>
-					<td colspan="2"><input class="inp" type="text" placeholder="注意 : 所有帐号前面会加上『O8』。请填写4至10个英文字母与数字组合" /></td>
+					<td colspan="2"><input name="code" class="inp" type="text" placeholder="『O8』。请填写4至10个英文字母与数字组合" /></td>
 				</tr>
 				<tr>
 					<td>账号密码：</td>
-					<td colspan="2"><input class="inp" type="password" placeholder="由数字或者字母组成的6-16位" /></td>
+					<td colspan="2"><input name="password" class="inp" type="password" placeholder="由数字或者字母组成的6-16位" /></td>
 				</tr>
 				<tr>
 					<td>确认密码：</td>
@@ -74,24 +79,26 @@
 				</tr>
 				<tr>
 					<td>真实姓名：</td>
-					<td colspan="2"><input class="inp" type="text" placeholder="真实姓名必须与提款银行账户相同才能办理提款" /></td>
+					<td colspan="2"><input name="name" class="inp" type="text" placeholder="真实姓名必须与提款银行账户相同才能办理提款" /></td>
 				</tr>
 				<tr>
 					<td>手机号码：</td>
-					<td colspan="2"><input class="inp" type="text" placeholder="手机号码由11位数字组成是取回密码和账号信息最重要的途径之一，请务必填写正确。" /></td>
+					<td colspan="2"><input name="phone" class="inp" type="text" placeholder="手机号码由11位数字组成是取回密码和账号信息最重要的途径之一，请务必填写正确。" /></td>
 				</tr>
 				<tr>
 					<td>电子邮箱：</td>
-					<td colspan="2"><input class="inp" type="text" placeholder="电子邮箱是取回密码和接受优惠活动信息的最重要途径之一。" /></td>
+					<td colspan="2"><input name="mail" class="inp" type="text" placeholder="电子邮箱是取回密码和接受优惠活动信息的最重要途径之一。" /></td>
 				</tr>
+				<!-- 
 				<tr>
 					<td>推广链接：</td>
 					<td colspan="2"><input class="inp" type="text" placeholder="选填，如果您有推广代码，请输入" /></td>
 				</tr>
+				 -->
 				<tr>
 					<td>验证码：</td>
-					<td><input class="val" type="text" /></td>
-					<td><span style="color: #ccc;">1234</span><a href="javascript:;">刷新</a></td>
+					<td><input name="vcode" class="val" type="text" /></td>
+					<td><img src="/pub/kaptcha" id="kaptchaImage" ></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
